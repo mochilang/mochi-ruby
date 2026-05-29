@@ -307,7 +307,7 @@ func extractGemRBS(r io.Reader, gem, version string) ([]string, string, error) {
 	if err != nil {
 		return nil, "", err
 	}
-	defer gz.Close()
+	defer gz.Close() //nolint:errcheck
 
 	prefix := "gems/" + gem + "/" + version + "/"
 	h := sha256.New()

@@ -156,7 +156,7 @@ func getOIDCTokenFromEnv(ctx context.Context, urlOverride string) (string, error
 	if err != nil {
 		return "", fmt.Errorf("OIDC token request: %w", err)
 	}
-	defer resp.Body.Close()
+	defer resp.Body.Close() //nolint:errcheck
 
 	if resp.StatusCode != http.StatusOK {
 		body, _ := io.ReadAll(resp.Body)
@@ -207,7 +207,7 @@ func exchangeOIDCTokenWithBase(ctx context.Context, idToken, baseURL string) (st
 	if err != nil {
 		return "", fmt.Errorf("OIDC exchange request: %w", err)
 	}
-	defer resp.Body.Close()
+	defer resp.Body.Close() //nolint:errcheck
 
 	if resp.StatusCode != http.StatusOK && resp.StatusCode != http.StatusCreated {
 		respBody, _ := io.ReadAll(resp.Body)
@@ -244,7 +244,7 @@ func pushGemWithBase(ctx context.Context, gemPath, apiKey, baseURL string) error
 	if err != nil {
 		return fmt.Errorf("open gem file: %w", err)
 	}
-	defer f.Close()
+	defer f.Close() //nolint:errcheck
 
 	var buf bytes.Buffer
 	mw := multipart.NewWriter(&buf)
@@ -270,7 +270,7 @@ func pushGemWithBase(ctx context.Context, gemPath, apiKey, baseURL string) error
 	if err != nil {
 		return fmt.Errorf("gem push request: %w", err)
 	}
-	defer resp.Body.Close()
+	defer resp.Body.Close() //nolint:errcheck
 
 	if resp.StatusCode != http.StatusOK && resp.StatusCode != http.StatusCreated {
 		body, _ := io.ReadAll(resp.Body)
@@ -321,7 +321,7 @@ func recordSigstore(ctx context.Context, gemName, version, sha256hex string) (st
 	if err != nil {
 		return "", err
 	}
-	defer resp.Body.Close()
+	defer resp.Body.Close() //nolint:errcheck
 
 	if resp.StatusCode != http.StatusCreated && resp.StatusCode != http.StatusOK {
 		return "", fmt.Errorf("rekor returned HTTP %d", resp.StatusCode)

@@ -95,15 +95,6 @@ func pushServer(t *testing.T, wantAPIKey string) *httptest.Server {
 	}))
 }
 
-// sigstoreServer returns an httptest.Server that mocks the Rekor endpoint.
-func sigstoreServer(t *testing.T, entryID string) *httptest.Server {
-	t.Helper()
-	return httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		w.WriteHeader(http.StatusCreated)
-		json.NewEncoder(w).Encode(map[string]string{"entryID": entryID})
-	}))
-}
-
 // ---- GetOIDCToken tests ----
 
 func TestGetOIDCToken_NoEnvVars(t *testing.T) {

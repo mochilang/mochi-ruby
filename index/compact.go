@@ -85,7 +85,7 @@ func (c *Client) FetchVersions(ctx context.Context, gem string) ([]GemVersion, e
 	if err != nil {
 		return nil, fmt.Errorf("compact index fetch %s: %w", url, err)
 	}
-	defer resp.Body.Close()
+	defer resp.Body.Close() //nolint:errcheck
 	if resp.StatusCode == http.StatusNotFound {
 		return nil, fmt.Errorf("gem not found: %q", gem)
 	}
@@ -116,7 +116,7 @@ func (c *Client) VerifyAndDownload(ctx context.Context, gem, version, platform, 
 	if err != nil {
 		return fmt.Errorf("download %s: %w", url, err)
 	}
-	defer resp.Body.Close()
+	defer resp.Body.Close() //nolint:errcheck
 	if resp.StatusCode != http.StatusOK {
 		return fmt.Errorf("download %s: HTTP %d", url, resp.StatusCode)
 	}

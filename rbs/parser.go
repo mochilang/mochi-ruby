@@ -156,13 +156,6 @@ func (p *rbsParser) peek() token {
 	return p.tokens[p.pos]
 }
 
-func (p *rbsParser) peekRaw() token {
-	if p.pos >= len(p.tokens) {
-		return token{kind: tokEOF}
-	}
-	return p.tokens[p.pos]
-}
-
 func (p *rbsParser) consume() token {
 	t := p.peek()
 	p.pos++
@@ -170,15 +163,6 @@ func (p *rbsParser) consume() token {
 	for p.pos < len(p.tokens) && p.tokens[p.pos-1].kind == tokNewline {
 		break
 	}
-	return t
-}
-
-func (p *rbsParser) consumeRaw() token {
-	if p.pos >= len(p.tokens) {
-		return token{kind: tokEOF}
-	}
-	t := p.tokens[p.pos]
-	p.pos++
 	return t
 }
 
@@ -456,8 +440,8 @@ func (p *rbsParser) parseType() (*Type, bool) {
 
 	var baseType *Type
 
-	switch {
-	case t.kind == tokLParen:
+	switch t.kind {
+	case tokLParen:
 		// Parenthesised type or union: (T | nil) / (nil | T)
 		p.consume()
 		inner, ok := p.parseType()
@@ -478,7 +462,7 @@ func (p *rbsParser) parseType() (*Type, bool) {
 			p.consume()
 		}
 
-	case t.kind == tokLBracket:
+	case tokLBracket:
 		// Tuple: [A, B, C]
 		p.consume()
 		var members []*Type
@@ -497,7 +481,7 @@ func (p *rbsParser) parseType() (*Type, bool) {
 		}
 		baseType = &Type{Kind: TypeTuple, Members: members}
 
-	case t.kind == tokCaret:
+	case tokCaret:
 		// Proc: ^(A, B) -> R
 		p.consume()
 		if p.peek().kind != tokLParen {
@@ -532,19 +516,20 @@ func (p *rbsParser) parseType() (*Type, bool) {
 		}
 		baseType = &Type{Kind: TypeProc, Params: paramTypes, Return: ret}
 
-	case t.kind == tokIdent:
+	case tokIdent:
 		p.consume()
 		baseType = identToType(t.text)
 		// Parameterized types: Array[T], Hash[K, V]
 		if p.peek().kind == tokLBracket {
 			p.consume()
-			if baseType.Kind == TypeArray {
+			switch baseType.Kind {
+			case TypeArray:
 				elem, ok := p.parseType()
 				if ok {
 					baseType.Elem = elem
 				}
 				p.skipUntil(tokRBracket)
-			} else if baseType.Kind == TypeHash {
+			case TypeHash:
 				key, ok := p.parseType()
 				if ok {
 					baseType.Key = key
@@ -557,7 +542,7 @@ func (p *rbsParser) parseType() (*Type, bool) {
 					baseType.Value = val
 				}
 				p.skipUntil(tokRBracket)
-			} else {
+			default:
 				// Generic type we can't translate — skip params.
 				p.skipUntil(tokRBracket)
 			}
@@ -726,7 +711,7 @@ func ParseFromTarball(gemName, gemVersion string, r io.Reader) (*GemSurface, err
 	if err != nil {
 		return nil, err
 	}
-	defer gz.Close()
+	defer gz.Close() //nolint:errcheck
 
 	surface := &GemSurface{
 		Gem:     gemName,

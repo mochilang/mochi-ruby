@@ -151,7 +151,7 @@ func TestEmit_RuntimeDepsSorted(t *testing.T) {
 		addrIdx := strings.Index(got, "addressable")
 		nokIdx := strings.Index(got, "nokogiri")
 		zlibIdx := strings.Index(got, "zlib")
-		if !(addrIdx < nokIdx && nokIdx < zlibIdx) {
+		if addrIdx >= nokIdx || nokIdx >= zlibIdx {
 			t.Errorf("deps not sorted alphabetically; got:\n%s", got)
 		}
 	})
@@ -178,7 +178,7 @@ func TestEmit_MetadataSorted(t *testing.T) {
 		aIdx := strings.Index(got, "a_key")
 		mIdx := strings.Index(got, "m_key")
 		zIdx := strings.Index(got, "z_key")
-		if !(aIdx < mIdx && mIdx < zIdx) {
+		if aIdx >= mIdx || mIdx >= zIdx {
 			t.Errorf("metadata keys not sorted; got:\n%s", got)
 		}
 	})
