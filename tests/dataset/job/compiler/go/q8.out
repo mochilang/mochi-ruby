@@ -1,0 +1,4 @@
+# command-line-arguments
+/tmp/q8.go:153:11: invalid operation: an1Raw (variable of struct type Aka_name) is not an interface
+/tmp/q8.go:199:10: invalid operation: xRaw (variable of struct type Eligible) is not an interface
+/tmp/q8.go:207:10: invalid operation: xRaw (variable of struct type Eligible) is not an interface

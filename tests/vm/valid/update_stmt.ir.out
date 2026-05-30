@@ -1,0 +1,158 @@
+func main (regs=112)
+  // Person { name: "Alice", age: 17, status: "minor" },
+  Const        r4, "Alice"
+  Const        r5, 17
+  Const        r6, "minor"
+  Const        r7, "__name"
+  Const        r8, "Person"
+  Const        r9, "name"
+  Move         r10, r4
+  Const        r11, "age"
+  Move         r12, r5
+  Const        r13, "status"
+  Move         r14, r6
+  MakeMap      r15, 4, r7
+  Move         r0, r15
+  // Person { name: "Bob", age: 25, status: "unknown" },
+  Const        r16, "Bob"
+  Const        r17, 25
+  Const        r18, "unknown"
+  Const        r19, "__name"
+  Const        r20, "Person"
+  Const        r21, "name"
+  Move         r22, r16
+  Const        r23, "age"
+  Move         r24, r17
+  Const        r25, "status"
+  Move         r26, r18
+  MakeMap      r27, 4, r19
+  Move         r1, r27
+  // Person { name: "Charlie", age: 18, status: "unknown" },
+  Const        r28, "Charlie"
+  Const        r29, 18
+  Const        r18, "unknown"
+  Const        r30, "__name"
+  Const        r31, "Person"
+  Const        r32, "name"
+  Move         r33, r28
+  Const        r34, "age"
+  Move         r35, r29
+  Const        r36, "status"
+  Move         r37, r18
+  MakeMap      r38, 4, r30
+  Move         r2, r38
+  // Person { name: "Diana", age: 16, status: "minor" }
+  Const        r39, "Diana"
+  Const        r40, 16
+  Const        r6, "minor"
+  Const        r41, "__name"
+  Const        r42, "Person"
+  Const        r43, "name"
+  Move         r44, r39
+  Const        r45, "age"
+  Move         r46, r40
+  Const        r47, "status"
+  Move         r48, r6
+  MakeMap      r49, 4, r41
+  Move         r3, r49
+  // let people: list<Person> = [
+  MakeList     r50, 4, r0
+  Move         r51, r50
+  // update people
+  Len          r52, r51
+  Const        r53, 0
+  Const        r54, 1
+L2:
+  LessInt      r55, r53, r52
+  JumpIfFalse  r55, L0
+  Index        r56, r51, r53
+  Const        r57, "name"
+  Index        r58, r56, r57
+  Const        r59, "age"
+  Index        r60, r56, r59
+  Const        r61, "status"
+  Index        r62, r56, r61
+  // where age >= 18
+  Const        r29, 18
+  LessEq       r63, r29, r60
+  JumpIfFalse  r63, L1
+  // status: "adult",
+  Const        r61, "status"
+  Const        r64, "adult"
+  SetIndex     r56, r61, r64
+  // age: age + 1
+  Const        r59, "age"
+  Const        r54, 1
+  Add          r65, r60, r54
+  SetIndex     r56, r59, r65
+L1:
+  // update people
+  SetIndex     r51, r53, r56
+  AddInt       r66, r53, r54
+  Move         r53, r66
+  Jump         L2
+L0:
+  // Person { name: "Alice", age: 17, status: "minor" },
+  Const        r4, "Alice"
+  Const        r5, 17
+  Const        r6, "minor"
+  Const        r71, "__name"
+  Const        r72, "Person"
+  Const        r73, "name"
+  Move         r74, r4
+  Const        r75, "age"
+  Move         r76, r5
+  Const        r77, "status"
+  Move         r78, r6
+  MakeMap      r79, 4, r71
+  Move         r67, r79
+  // Person { name: "Bob", age: 26, status: "adult" },
+  Const        r16, "Bob"
+  Const        r80, 26
+  Const        r64, "adult"
+  Const        r81, "__name"
+  Const        r82, "Person"
+  Const        r83, "name"
+  Move         r84, r16
+  Const        r85, "age"
+  Move         r86, r80
+  Const        r87, "status"
+  Move         r88, r64
+  MakeMap      r89, 4, r81
+  Move         r68, r89
+  // Person { name: "Charlie", age: 19, status: "adult" },
+  Const        r28, "Charlie"
+  Const        r90, 19
+  Const        r64, "adult"
+  Const        r91, "__name"
+  Const        r92, "Person"
+  Const        r93, "name"
+  Move         r94, r28
+  Const        r95, "age"
+  Move         r96, r90
+  Const        r97, "status"
+  Move         r98, r64
+  MakeMap      r99, 4, r91
+  Move         r69, r99
+  // Person { name: "Diana", age: 16, status: "minor" }
+  Const        r39, "Diana"
+  Const        r40, 16
+  Const        r6, "minor"
+  Const        r100, "__name"
+  Const        r101, "Person"
+  Const        r102, "name"
+  Move         r103, r39
+  Const        r104, "age"
+  Move         r105, r40
+  Const        r106, "status"
+  Move         r107, r6
+  MakeMap      r108, 4, r100
+  Move         r70, r108
+  // expect people == [
+  MakeList     r109, 4, r67
+  Equal        r110, r51, r109
+  Expect       r110
+  // print("ok")
+  Const        r111, "ok"
+  Print        r111
+  Return       r0

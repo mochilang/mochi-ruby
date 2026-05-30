@@ -1,0 +1,55 @@
+cc: exit status 1
+/tmp/canonicalize-cidr.c: In function ‘parseIntStr’:
+/tmp/canonicalize-cidr.c:209:11: error: request for member ‘len’ in something not a structure or union
+  209 |   if ((str.len > 0 && tmp10 == "-")) {
+      |           ^
+/tmp/canonicalize-cidr.c:226:18: error: request for member ‘len’ in something not a structure or union
+  226 |   while ((i < str.len)) {
+      |                  ^
+/tmp/canonicalize-cidr.c: In function ‘canonicalize’:
+/tmp/canonicalize-cidr.c:283:16: warning: initialization of ‘int’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  283 |   int binary = join(binParts, "");
+      |                ^~~~
+/tmp/canonicalize-cidr.c:284:35: error: incompatible type for argument 1 of ‘slice_list_int’
+  284 |   list_int tmp20 = slice_list_int(binary, 0, size);
+      |                                   ^~~~~~
+      |                                   |
+      |                                   int
+/tmp/canonicalize-cidr.c:136:41: note: expected ‘list_int’ but argument is of type ‘int’
+  136 | static list_int slice_list_int(list_int v, int start, int end) {
+      |                                ~~~~~~~~~^
+/tmp/canonicalize-cidr.c:285:18: error: invalid operands to binary + (have ‘list_int’ and ‘char *’)
+  285 |   binary = tmp20 + repeat("0", 32 - size);
+      |                  ^ ~~~~~~~~~~~~~~~~~~~~~~
+      |                    |
+      |                    char *
+/tmp/canonicalize-cidr.c:288:20: error: request for member ‘len’ in something not a structure or union
+  288 |   while (i < binary.len) {
+      |                    ^
+/tmp/canonicalize-cidr.c:289:37: error: incompatible type for argument 1 of ‘slice_list_int’
+  289 |     list_int tmp21 = slice_list_int(binary, i, i + 8);
+      |                                     ^~~~~~
+      |                                     |
+      |                                     int
+/tmp/canonicalize-cidr.c:136:41: note: expected ‘list_int’ but argument is of type ‘int’
+  136 | static list_int slice_list_int(list_int v, int start, int end) {
+      |                                ~~~~~~~~~^
+/tmp/canonicalize-cidr.c:290:33: error: incompatible type for argument 1 of ‘binToInt’
+  290 |     char *tmp22 = _str(binToInt(tmp21));
+      |                                 ^~~~~
+      |                                 |
+      |                                 list_int
+/tmp/canonicalize-cidr.c:251:20: note: expected ‘char *’ but argument is of type ‘list_int’
+  251 | int binToInt(char *bits) {
+      |              ~~~~~~^~~~
+/tmp/canonicalize-cidr.c:297:32: error: invalid operands to binary + (have ‘char *’ and ‘char *’)
+  297 |   return join(canonParts, ".") + "/" + parts.data[1];
+      |          ~~~~~~~~~~~~~~~~~~~~~ ^
+      |          |                     |
+      |          char *                char *
+/tmp/canonicalize-cidr.c: In function ‘_mochi_main’:
+/tmp/canonicalize-cidr.c:310:36: error: invalid operands to binary + (have ‘char *’ and ‘char *’)
+  310 |     printf("%s\n", padRight(t, 18) + " -> " + canonicalize(t));
+      |                    ~~~~~~~~~~~~~~~ ^
+      |                    |               |
+      |                    char *          char *

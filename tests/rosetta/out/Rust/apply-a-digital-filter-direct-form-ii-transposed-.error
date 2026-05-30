@@ -1,0 +1,108 @@
+rustc: exit status 1
+error[E0308]: mismatched types
+  --> /tmp/apply-a-digital-filter-direct-form-ii-transposed-.rs:11:55
+   |
+11 |                 tmp = tmp + b[j as usize] * input[i - j as usize];
+   |                                                       ^^^^^^^^^^ expected `i32`, found `usize`
+
+error[E0277]: cannot subtract `usize` from `i32`
+  --> /tmp/apply-a-digital-filter-direct-form-ii-transposed-.rs:11:53
+   |
+11 |                 tmp = tmp + b[j as usize] * input[i - j as usize];
+   |                                                     ^ no implementation for `i32 - usize`
+   |
+   = help: the trait `Sub<usize>` is not implemented for `i32`
+   = help: the following other types implement trait `Sub<Rhs>`:
+             `&i32` implements `Sub<i32>`
+             `&i32` implements `Sub`
+             `i32` implements `Sub<&i32>`
+             `i32` implements `Sub`
+
+error[E0277]: the type `[f64]` cannot be indexed by `i32`
+  --> /tmp/apply-a-digital-filter-direct-form-ii-transposed-.rs:11:51
+   |
+11 |                 tmp = tmp + b[j as usize] * input[i - j as usize];
+   |                                                   ^^^^^^^^^^^^^^ slice indices are of type `usize` or ranges of `usize`
+   |
+   = help: the trait `SliceIndex<[f64]>` is not implemented for `i32`
+           but it is implemented for `usize`
+   = help: for that trait implementation, expected `usize`, found `i32`
+   = note: required for `Vec<f64>` to implement `Index<i32>`
+
+error[E0308]: mismatched types
+  --> /tmp/apply-a-digital-filter-direct-form-ii-transposed-.rs:16:35
+   |
+16 |                 tmp = tmp - a[j + 1 as usize] * out[i - j - 1 as usize];
+   |                                   ^^^^^^^^^^ expected `i32`, found `usize`
+
+error[E0277]: cannot add `usize` to `i32`
+  --> /tmp/apply-a-digital-filter-direct-form-ii-transposed-.rs:16:33
+   |
+16 |                 tmp = tmp - a[j + 1 as usize] * out[i - j - 1 as usize];
+   |                                 ^ no implementation for `i32 + usize`
+   |
+   = help: the trait `Add<usize>` is not implemented for `i32`
+   = help: the following other types implement trait `Add<Rhs>`:
+             `&i32` implements `Add<i32>`
+             `&i32` implements `Add`
+             `i32` implements `Add<&i32>`
+             `i32` implements `Add`
+
+error[E0277]: the type `[f64]` cannot be indexed by `i32`
+  --> /tmp/apply-a-digital-filter-direct-form-ii-transposed-.rs:16:31
+   |
+16 |                 tmp = tmp - a[j + 1 as usize] * out[i - j - 1 as usize];
+   |                               ^^^^^^^^^^^^^^ slice indices are of type `usize` or ranges of `usize`
+   |
+   = help: the trait `SliceIndex<[f64]>` is not implemented for `i32`
+           but it is implemented for `usize`
+   = help: for that trait implementation, expected `usize`, found `i32`
+   = note: required for `Vec<f64>` to implement `Index<i32>`
+
+error[E0308]: mismatched types
+  --> /tmp/apply-a-digital-filter-direct-form-ii-transposed-.rs:16:61
+   |
+16 |                 tmp = tmp - a[j + 1 as usize] * out[i - j - 1 as usize];
+   |                                                             ^^^^^^^^^^ expected `i32`, found `usize`
+
+error[E0277]: cannot subtract `usize` from `i32`
+  --> /tmp/apply-a-digital-filter-direct-form-ii-transposed-.rs:16:59
+   |
+16 |                 tmp = tmp - a[j + 1 as usize] * out[i - j - 1 as usize];
+   |                                                           ^ no implementation for `i32 - usize`
+   |
+   = help: the trait `Sub<usize>` is not implemented for `i32`
+   = help: the following other types implement trait `Sub<Rhs>`:
+             `&i32` implements `Sub<i32>`
+             `&i32` implements `Sub`
+             `i32` implements `Sub<&i32>`
+             `i32` implements `Sub`
+
+error[E0277]: the type `[f64]` cannot be indexed by `i32`
+  --> /tmp/apply-a-digital-filter-direct-form-ii-transposed-.rs:16:53
+   |
+16 |                 tmp = tmp - a[j + 1 as usize] * out[i - j - 1 as usize];
+   |                                                     ^^^^^^^^^^^^^^^^^^ slice indices are of type `usize` or ranges of `usize`
+   |
+   = help: the trait `SliceIndex<[f64]>` is not implemented for `i32`
+           but it is implemented for `usize`
+   = help: for that trait implementation, expected `usize`, found `i32`
+   = note: required for `Vec<f64>` to implement `Index<i32>`
+
+error[E0369]: cannot multiply `Vec<f64>` by `f64`
+  --> /tmp/apply-a-digital-filter-direct-form-ii-transposed-.rs:19:61
+   |
+19 |             out = { let mut tmp = out.clone(); tmp.push(tmp * scale); tmp };
+   |                                                         --- ^ ----- f64
+   |                                                         |
+   |                                                         Vec<f64>
+   |
+note: the foreign item type `Vec<f64>` doesn't implement `Mul<f64>`
+  --> /rustc/17067e9ac6d7ecb70e50f92c1944e545188d2359/library/alloc/src/vec/mod.rs:409:1
+   |
+   = note: not implement `Mul<f64>`
+
+error: aborting due to 10 previous errors
+
+Some errors have detailed explanations: E0277, E0308, E0369.
+For more information about an error, try `rustc --explain E0277`.

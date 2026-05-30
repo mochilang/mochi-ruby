@@ -1,0 +1,6 @@
+run: exit status 1
+Execution error (NumberFormatException) at java.lang.NumberFormatException/forInputString (NumberFormatException.java:67).
+For input string: "[0 [{:cost 4, :node 1} {:cost 8, :node 7}]]"
+
+Full report at:
+/tmp/clojure-12301925810374681212.edn

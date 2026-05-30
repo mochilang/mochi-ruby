@@ -1,0 +1,7 @@
+(program
+  (fun twoSum
+    (param nums (type list<int>))
+    (param target (type int))
+    (type list<int>)
+  )
+)

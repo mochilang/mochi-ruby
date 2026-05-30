@@ -1,0 +1,10 @@
+(program
+  (fun main
+    (var a (int 10))
+    (var b (int 20))
+    (call print
+      (binary + (selector a) (selector b))
+    )
+  )
+  (call main)
+)

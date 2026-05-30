@@ -1,0 +1,129 @@
+# Mochi to C compilation status
+
+The C backend compiles Mochi programs in `tests/vm/valid`. The table below lists programs that compile and run successfully (`[x]`) and those that currently fail (`[ ]`).
+
+- [x] append_builtin
+- [x] basic_compare
+- [x] binary_precedence
+- [x] bool_chain
+- [x] break_continue
+- [x] cast_string_to_int
+- [x] closure
+- [x] count_builtin
+- [x] cross_join
+- [x] dataset_where_filter
+- [x] exists_builtin
+- [x] for_list_collection
+- [x] for_loop
+- [x] fun_call
+- [x] fun_expr_in_let
+- [x] fun_three_args
+- [x] go_auto
+- [x] group_by_join
+- [x] group_by_left_join
+ - [x] group_by_multi_join_sort
+- [x] if_else
+- [x] if_then_else
+- [x] if_then_else_nested
+- [x] len_builtin
+- [x] len_string
+- [x] let_and_print
+- [x] list_index
+- [x] list_set_ops
+- [x] map_in_operator
+- [x] map_int_key
+- [x] map_nested_assign
+- [x] match_expr
+- [x] match_full
+- [x] math_ops
+- [x] nested_function
+- [x] partial_application
+- [x] print_hello
+- [x] pure_fold
+- [x] pure_global_fold
+- [x] python_auto
+- [x] python_math
+- [x] query_sum_select
+- [x] short_circuit
+- [x] str_builtin
+- [x] string_compare
+- [x] string_concat
+- [x] string_contains
+- [x] string_in_operator
+- [x] string_index
+- [x] string_prefix_slice
+- [x] substring_builtin
+- [x] tail_recursion
+- [x] two-sum
+- [x] typed_let
+- [x] typed_var
+- [x] unary_neg
+- [x] var_assignment
+- [x] while_loop
+- [x] avg_builtin
+- [x] cast_struct
+- [x] cross_join_filter
+- [x] cross_join_triple
+ - [x] dataset_sort_take_limit
+ - [x] for_map_collection
+- [x] group_by
+- [x] group_by_conditional_sum
+- [x] group_by_having
+- [x] group_by_multi_join
+- [x] group_by_sort
+ - [x] group_items_iteration
+ - [x] in_operator
+- [x] in_operator_extended
+- [x] inner_join
+- [x] join_multi
+- [x] json_builtin
+- [x] left_join
+- [x] left_join_multi
+- [x] len_map
+ - [x] list_assign
+ - [x] list_nested_assign
+- [x] load_yaml
+- [x] map_assign
+- [x] map_index
+- [x] map_literal_dynamic
+- [x] map_membership
+ - [x] membership
+ - [x] min_max_builtin
+- [x] order_by_map
+- [x] outer_join
+ - [x] record_assign
+- [x] right_join
+- [x] save_jsonl_stdout
+ - [x] slice
+ - [x] sort_stable
+ - [x] sum_builtin
+ - [x] test_block
+ - [x] tree_sum
+- [x] update_stmt
+ - [x] user_type_literal
+ - [x] values_builtin
+
+## TPC-H queries
+
+- [x] q1
+- [ ] q2
+- [ ] q3
+- [ ] q4
+- [ ] q5
+- [ ] q6
+- [ ] q7
+- [ ] q8
+- [ ] q9
+- [ ] q10
+- [ ] q11
+- [ ] q12
+- [ ] q13
+- [ ] q14
+- [ ] q15
+- [ ] q16
+- [ ] q17
+- [ ] q18
+- [ ] q19
+- [ ] q20
+- [ ] q21
+- [ ] q22

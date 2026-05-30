@@ -1,0 +1,44 @@
+(program
+  (fun main
+    (if
+      (binary &&
+        (binary && (bool true) (bool true))
+        (bool true)
+      )
+      (block
+        (call print (bool true))
+      )
+      (block
+        (call print (bool false))
+      )
+    )
+    (if
+      (binary &&
+        (binary && (bool true) (bool false))
+        (bool true)
+      )
+      (block
+        (call print (bool true))
+      )
+      (block
+        (call print (bool false))
+      )
+    )
+    (if
+      (binary &&
+        (binary &&
+          (binary && (bool true) (bool true))
+          (bool false)
+        )
+        (bool true)
+      )
+      (block
+        (call print (bool true))
+      )
+      (block
+        (call print (bool false))
+      )
+    )
+  )
+  (call main)
+)

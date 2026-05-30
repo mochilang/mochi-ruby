@@ -1,0 +1,8 @@
+(program
+  (let nums
+    (list (int 1) (int 2))
+  )
+  (call print
+    (index (selector nums) (int 1))
+  )
+)

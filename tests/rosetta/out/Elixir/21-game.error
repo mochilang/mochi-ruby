@@ -1,0 +1,72 @@
+run: exit status 1
+    warning: variable "i" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+    │
+ 15 │         i = 1
+    │         ~
+    │
+    └─ /tmp/21-game.exs:15:9: Main.parseIntStr/1
+
+    warning: variable "neg" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+    │
+ 14 │         neg = true
+    │         ~
+    │
+    └─ /tmp/21-game.exs:14:9: Main.parseIntStr/1
+
+    warning: variable "n" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+    │
+ 55 │         n = -n
+    │         ~
+    │
+    └─ /tmp/21-game.exs:55:9: Main.parseIntStr/1
+
+     warning: variable "done" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 128 │ ...                   done = true
+     │                       ~
+     │
+     └─ /tmp/21-game.exs:128:29: Main.main/0
+
+     warning: variable "done" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 170 │                       done = true
+     │                       ~
+     │
+     └─ /tmp/21-game.exs:170:23: Main.main/0
+
+     warning: variable "choice" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 108 │                       choice = 21 - total
+     │                       ~
+     │
+     └─ /tmp/21-game.exs:108:23: Main.main/0
+
+     warning: variable "choice" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 106 │                       choice = rem(_now(), 3) + 1
+     │                       ~
+     │
+     └─ /tmp/21-game.exs:106:23: Main.main/0
+
+     warning: variable "done" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 117 │                       done = true
+     │                       ~
+     │
+     └─ /tmp/21-game.exs:117:23: Main.main/0
+
+     warning: this clause for main/0 cannot match because a previous clause at line 65 always matches
+     │
+ 213 │   def main do
+     │       ~
+     │
+     └─ /tmp/21-game.exs:213:7
+
+** (throw) :continue
+    /tmp/21-game.exs:143: anonymous fn/3 in Main.main/0
+    /tmp/21-game.exs:164: anonymous fn/5 in Main.main/0
+    /tmp/21-game.exs:177: anonymous fn/5 in Main.main/0
+    /tmp/21-game.exs:187: anonymous fn/5 in Main.main/0
+    /tmp/21-game.exs:193: anonymous fn/5 in Main.main/0
+    /tmp/21-game.exs:203: Main.main/0
+    /tmp/21-game.exs:229: (file)

@@ -1,0 +1,5 @@
+open System
+
+ignore (printfn "%A" ((true && false)))
+ignore (printfn "%A" ((true || false)))
+ignore (printfn "%A" ((not false)))

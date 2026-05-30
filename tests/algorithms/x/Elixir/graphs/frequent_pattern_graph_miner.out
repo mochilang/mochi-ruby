@@ -1,0 +1,82 @@
+warning: variable "found" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+    │
+ 79 │               found = if Enum.at(item, 0, []) == de do
+    │               ~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/graphs/frequent_pattern_graph_miner.exs:79:15: Main.get_bitcode/2
+
+     warning: variable "c2" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 405 │           {c2, count, graph, keys} = try do
+     │            ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/graphs/frequent_pattern_graph_miner.exs:405:12: Main.create_edge/6
+
+     warning: variable "count" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 405 │           {c2, count, graph, keys} = try do
+     │                ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/graphs/frequent_pattern_graph_miner.exs:405:16: Main.create_edge/6
+
+     warning: variable "graph" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 417 │       {graph, idx1, keys} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/graphs/frequent_pattern_graph_miner.exs:417:8: Main.create_edge/6
+
+     warning: variable "idx1" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 417 │       {graph, idx1, keys} = try do
+     │               ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/graphs/frequent_pattern_graph_miner.exs:417:15: Main.create_edge/6
+
+     warning: variable "nodes" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 339 │   def create_edge(nodes, graph, gkeys, clusters, c1, maxk) do
+     │                   ~~~~~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/graphs/frequent_pattern_graph_miner.exs:339:19: Main.create_edge/6
+
+     warning: variable "c" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 464 │       {c, keys} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/graphs/frequent_pattern_graph_miner.exs:464:8: Main.construct_graph/2
+
+     warning: variable "e" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 568 │             {e, el} = try do
+     │              ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/graphs/frequent_pattern_graph_miner.exs:568:14: Main.freq_subgraphs_edge_list/2
+
+
+Nodes
+
+
+["ab", "ac", "ad", "bc", "bd", "be", "bh", "cd", "ce", "de", "df", "dg", "dh", "ef", "eg", "fg", "gh", "hi"]
+00
+["eh", "fh"]
+
+Support
+
+[0.0]
+
+Cluster
+
+0:["", "00"]
+
+Graph
+
+Header
+["", "00"]
+
+["Header"]
+00
+["Header"]
+
+Edge List of Frequent subgraphs

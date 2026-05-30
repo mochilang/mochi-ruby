@@ -1,0 +1,5 @@
+open System
+
+for ch in "hi" do
+    let ch = string ch
+    ignore (printfn "%A" (ch))

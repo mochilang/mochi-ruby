@@ -1,0 +1,56 @@
+swiftc: exit status 1
+/tmp/abc-problem.swift:7:23: error: 'subscript(_:)' is unavailable: cannot subscript String with an integer range, use a String.Index range instead.
+ 5 |     var i = 0
+ 6 |     while i < s.count {
+ 7 |         let c = Array(s[i..<i + 1])
+   |                       `- error: 'subscript(_:)' is unavailable: cannot subscript String with an integer range, use a String.Index range instead.
+ 8 |         if c == " " {
+ 9 |             if cur.count > 0 {
+
+Swift.String.subscript:3:10: note: 'subscript(_:)' has been explicitly marked unavailable here
+1 | struct String {
+2 | @available(*, unavailable, message: "cannot subscript String with an integer range, use a String.Index range instead.")
+3 |   public subscript<R>(bounds: R) -> String where R : RangeExpression, R.Bound == Int { get }}
+  |          `- note: 'subscript(_:)' has been explicitly marked unavailable here
+4 | 
+
+/tmp/abc-problem.swift:8:14: error: binary operator '==' cannot be applied to operands of type '[String.Element]' (aka 'Array<Character>') and 'String'
+ 6 |     while i < s.count {
+ 7 |         let c = Array(s[i..<i + 1])
+ 8 |         if c == " " {
+   |              |- error: binary operator '==' cannot be applied to operands of type '[String.Element]' (aka 'Array<Character>') and 'String'
+   |              `- note: overloads for '==' exist with these partially matching parameter lists: (String, String)
+ 9 |             if cur.count > 0 {
+10 |                 res = res + [cur]
+
+/tmp/abc-problem.swift:28:13: error: cannot find 'lower' in scope
+26 |         return true
+27 |     }
+28 |     let c = lower(Array(word[0..<1]))
+   |             `- error: cannot find 'lower' in scope
+29 |     var i = 0
+30 |     while i < blks.count {
+
+/tmp/abc-problem.swift:32:17: error: cannot find 'lower' in scope
+30 |     while i < blks.count {
+31 |         let b = blks[i]
+32 |         if c == lower(Array(b[0..<1])) || c == lower(Array(b[1..<2])) {
+   |                 `- error: cannot find 'lower' in scope
+33 |             var rest: [String] = []
+34 |             var j = 0
+
+/tmp/abc-problem.swift:32:48: error: cannot find 'lower' in scope
+30 |     while i < blks.count {
+31 |         let b = blks[i]
+32 |         if c == lower(Array(b[0..<1])) || c == lower(Array(b[1..<2])) {
+   |                                                `- error: cannot find 'lower' in scope
+33 |             var rest: [String] = []
+34 |             var j = 0
+
+/tmp/abc-problem.swift:41:25: error: cannot convert value of type 'Array<String.Element>' (aka 'Array<Character>') to expected argument type 'String'
+39 |                 j = j + 1
+40 |             }
+41 |             if canSpell(Array(word[1..<word.count]), rest) {
+   |                         `- error: cannot convert value of type 'Array<String.Element>' (aka 'Array<Character>') to expected argument type 'String'
+42 |                 return true
+43 |             }

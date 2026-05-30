@@ -1,0 +1,5 @@
+// line 3
+fun main() {
+  print("Hello, world\n")
+}
+main()

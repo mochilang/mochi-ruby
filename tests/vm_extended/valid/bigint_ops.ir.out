@@ -1,0 +1,27 @@
+func __main (regs=11)
+  // let a: bigint = 10
+  Const        r2, 10
+  Cast         r3, r2, bigint
+  Move         r0, r3
+  SetGlobal    0,0,0,0
+  // let b: bigint = 5
+  Const        r4, 5
+  Cast         r5, r4, bigint
+  Move         r1, r5
+  SetGlobal    1,1,0,0
+  // print(a + b)
+  Add          r6, r0, r1
+  Print        r6
+  // print(a - b)
+  Sub          r7, r0, r1
+  Print        r7
+  // print(a * b)
+  Mul          r8, r0, r1
+  Print        r8
+  // print(a / b)
+  Div          r9, r0, r1
+  Print        r9
+  // print(a % b)
+  Mod          r10, r0, r1
+  Print        r10
+  Return       r0

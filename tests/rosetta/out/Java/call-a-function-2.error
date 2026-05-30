@@ -1,0 +1,6 @@
+javac: exit status 1
+/tmp/CallAFunction2.java:18: error: incompatible types: Object cannot be converted to int
+        g(res.get(0), res.get(1));
+                 ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+1 error

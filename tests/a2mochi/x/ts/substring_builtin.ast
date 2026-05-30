@@ -1,0 +1,11 @@
+(program
+  (call print
+    (call
+      (selector substring
+        (group (string mochi))
+      )
+      (int 1)
+      (int 4)
+    )
+  )
+)

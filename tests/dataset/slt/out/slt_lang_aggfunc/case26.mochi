@@ -1,0 +1,43 @@
+/*
+# line: 187
+# EVIDENCE-OF: R-40597-22164 The result of avg() is NULL if and only if
+# there are no non-NULL inputs.
+*/
+
+type t1Row {
+  x: int
+  y: string
+}
+
+let t1 = [
+  t1Row {
+    x: 1,
+    y: "tru" + "e",
+  },
+  t1Row {
+    x: 0,
+    y: "fal" + "se",
+  },
+  t1Row {
+    x: none,
+    y: "NULL",
+  },
+  t1Row {
+    x: 2,
+    y: "tru" + "e",
+  },
+  t1Row {
+    x: 2,
+    y: "tru" + "e",
+  },
+]
+
+/* SELECT avg(x) FROM t1 WHERE y='none' */
+let result = avg(from row in t1
+  where (row.y != none && "null" != none && row.y == "null") && row.x != none
+  select row.x)
+print(result)
+
+test "case26" {
+  expect result == none
+}

@@ -1,0 +1,5 @@
+File "/tmp/sp.ml", line 10, characters 16-71:
+10 |   print_endline ((string_slice s1 (0) (String.length prefix) = prefix));
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Error: This expression has type bool but an expression was expected of type
+         string

@@ -1,0 +1,73 @@
+exit status 1
+/workspace/mochi/tests/rosetta/transpiler/Scala/catmull-clark-subdivision-surface.scala:58: error: overloaded method value >= with alternatives:
+  (x: Double)Boolean <and>
+  (x: Float)Boolean <and>
+  (x: Long)Boolean <and>
+  (x: Int)Boolean <and>
+  (x: Char)Boolean <and>
+  (x: Short)Boolean <and>
+  (x: Byte)Boolean
+ cannot be applied to (scala.math.BigInt)
+      if (y >= BigInt(0)) {
+            ^
+/workspace/mochi/tests/rosetta/transpiler/Scala/catmull-clark-subdivision-surface.scala:370: error: type mismatch;
+ found   : Double(1.0)
+ required: scala.math.BigInt
+      val inputPoints: ArrayBuffer[Point] = ArrayBuffer(Point(BigInt(0) - 1.0, 1.0, 1.0), Point(BigInt(0) - 1.0, BigInt(0) - 1.0, 1.0), Point(1.0, BigInt(0) - 1.0, 1.0), Point(1.0, 1.0, 1.0), Point(1.0, BigInt(0) - 1.0, BigInt(0) - 1.0), Point(1.0, 1.0, BigInt(0) - 1.0), Point(BigInt(0) - 1.0, BigInt(0) - 1.0, BigInt(0) - 1.0), Point(BigInt(0) - 1.0, 1.0, BigInt(0) - 1.0))
+                                                                          ^
+/workspace/mochi/tests/rosetta/transpiler/Scala/catmull-clark-subdivision-surface.scala:370: error: type mismatch;
+ found   : Double(1.0)
+ required: scala.math.BigInt
+      val inputPoints: ArrayBuffer[Point] = ArrayBuffer(Point(BigInt(0) - 1.0, 1.0, 1.0), Point(BigInt(0) - 1.0, BigInt(0) - 1.0, 1.0), Point(1.0, BigInt(0) - 1.0, 1.0), Point(1.0, 1.0, 1.0), Point(1.0, BigInt(0) - 1.0, BigInt(0) - 1.0), Point(1.0, 1.0, BigInt(0) - 1.0), Point(BigInt(0) - 1.0, BigInt(0) - 1.0, BigInt(0) - 1.0), Point(BigInt(0) - 1.0, 1.0, BigInt(0) - 1.0))
+                                                                                                            ^
+/workspace/mochi/tests/rosetta/transpiler/Scala/catmull-clark-subdivision-surface.scala:370: error: type mismatch;
+ found   : Double(1.0)
+ required: scala.math.BigInt
+      val inputPoints: ArrayBuffer[Point] = ArrayBuffer(Point(BigInt(0) - 1.0, 1.0, 1.0), Point(BigInt(0) - 1.0, BigInt(0) - 1.0, 1.0), Point(1.0, BigInt(0) - 1.0, 1.0), Point(1.0, 1.0, 1.0), Point(1.0, BigInt(0) - 1.0, BigInt(0) - 1.0), Point(1.0, 1.0, BigInt(0) - 1.0), Point(BigInt(0) - 1.0, BigInt(0) - 1.0, BigInt(0) - 1.0), Point(BigInt(0) - 1.0, 1.0, BigInt(0) - 1.0))
+                                                                                                                             ^
+/workspace/mochi/tests/rosetta/transpiler/Scala/catmull-clark-subdivision-surface.scala:370: error: type mismatch;
+ found   : Double(1.0)
+ required: scala.math.BigInt
+      val inputPoints: ArrayBuffer[Point] = ArrayBuffer(Point(BigInt(0) - 1.0, 1.0, 1.0), Point(BigInt(0) - 1.0, BigInt(0) - 1.0, 1.0), Point(1.0, BigInt(0) - 1.0, 1.0), Point(1.0, 1.0, 1.0), Point(1.0, BigInt(0) - 1.0, BigInt(0) - 1.0), Point(1.0, 1.0, BigInt(0) - 1.0), Point(BigInt(0) - 1.0, BigInt(0) - 1.0, BigInt(0) - 1.0), Point(BigInt(0) - 1.0, 1.0, BigInt(0) - 1.0))
+                                                                                                                                                               ^
+/workspace/mochi/tests/rosetta/transpiler/Scala/catmull-clark-subdivision-surface.scala:370: error: type mismatch;
+ found   : Double(1.0)
+ required: scala.math.BigInt
+      val inputPoints: ArrayBuffer[Point] = ArrayBuffer(Point(BigInt(0) - 1.0, 1.0, 1.0), Point(BigInt(0) - 1.0, BigInt(0) - 1.0, 1.0), Point(1.0, BigInt(0) - 1.0, 1.0), Point(1.0, 1.0, 1.0), Point(1.0, BigInt(0) - 1.0, BigInt(0) - 1.0), Point(1.0, 1.0, BigInt(0) - 1.0), Point(BigInt(0) - 1.0, BigInt(0) - 1.0, BigInt(0) - 1.0), Point(BigInt(0) - 1.0, 1.0, BigInt(0) - 1.0))
+                                                                                                                                                                                                                       ^
+/workspace/mochi/tests/rosetta/transpiler/Scala/catmull-clark-subdivision-surface.scala:370: error: type mismatch;
+ found   : Double(1.0)
+ required: scala.math.BigInt
+      val inputPoints: ArrayBuffer[Point] = ArrayBuffer(Point(BigInt(0) - 1.0, 1.0, 1.0), Point(BigInt(0) - 1.0, BigInt(0) - 1.0, 1.0), Point(1.0, BigInt(0) - 1.0, 1.0), Point(1.0, 1.0, 1.0), Point(1.0, BigInt(0) - 1.0, BigInt(0) - 1.0), Point(1.0, 1.0, BigInt(0) - 1.0), Point(BigInt(0) - 1.0, BigInt(0) - 1.0, BigInt(0) - 1.0), Point(BigInt(0) - 1.0, 1.0, BigInt(0) - 1.0))
+                                                                                                                                                                                                                                        ^
+/workspace/mochi/tests/rosetta/transpiler/Scala/catmull-clark-subdivision-surface.scala:370: error: type mismatch;
+ found   : Double(1.0)
+ required: scala.math.BigInt
+      val inputPoints: ArrayBuffer[Point] = ArrayBuffer(Point(BigInt(0) - 1.0, 1.0, 1.0), Point(BigInt(0) - 1.0, BigInt(0) - 1.0, 1.0), Point(1.0, BigInt(0) - 1.0, 1.0), Point(1.0, 1.0, 1.0), Point(1.0, BigInt(0) - 1.0, BigInt(0) - 1.0), Point(1.0, 1.0, BigInt(0) - 1.0), Point(BigInt(0) - 1.0, BigInt(0) - 1.0, BigInt(0) - 1.0), Point(BigInt(0) - 1.0, 1.0, BigInt(0) - 1.0))
+                                                                                                                                                                                                                                                                          ^
+/workspace/mochi/tests/rosetta/transpiler/Scala/catmull-clark-subdivision-surface.scala:370: error: type mismatch;
+ found   : Double(1.0)
+ required: scala.math.BigInt
+      val inputPoints: ArrayBuffer[Point] = ArrayBuffer(Point(BigInt(0) - 1.0, 1.0, 1.0), Point(BigInt(0) - 1.0, BigInt(0) - 1.0, 1.0), Point(1.0, BigInt(0) - 1.0, 1.0), Point(1.0, 1.0, 1.0), Point(1.0, BigInt(0) - 1.0, BigInt(0) - 1.0), Point(1.0, 1.0, BigInt(0) - 1.0), Point(BigInt(0) - 1.0, BigInt(0) - 1.0, BigInt(0) - 1.0), Point(BigInt(0) - 1.0, 1.0, BigInt(0) - 1.0))
+                                                                                                                                                                                                                                                                                                  ^
+/workspace/mochi/tests/rosetta/transpiler/Scala/catmull-clark-subdivision-surface.scala:370: error: type mismatch;
+ found   : Double(1.0)
+ required: scala.math.BigInt
+      val inputPoints: ArrayBuffer[Point] = ArrayBuffer(Point(BigInt(0) - 1.0, 1.0, 1.0), Point(BigInt(0) - 1.0, BigInt(0) - 1.0, 1.0), Point(1.0, BigInt(0) - 1.0, 1.0), Point(1.0, 1.0, 1.0), Point(1.0, BigInt(0) - 1.0, BigInt(0) - 1.0), Point(1.0, 1.0, BigInt(0) - 1.0), Point(BigInt(0) - 1.0, BigInt(0) - 1.0, BigInt(0) - 1.0), Point(BigInt(0) - 1.0, 1.0, BigInt(0) - 1.0))
+                                                                                                                                                                                                                                                                                                                   ^
+/workspace/mochi/tests/rosetta/transpiler/Scala/catmull-clark-subdivision-surface.scala:370: error: type mismatch;
+ found   : Double(1.0)
+ required: scala.math.BigInt
+      val inputPoints: ArrayBuffer[Point] = ArrayBuffer(Point(BigInt(0) - 1.0, 1.0, 1.0), Point(BigInt(0) - 1.0, BigInt(0) - 1.0, 1.0), Point(1.0, BigInt(0) - 1.0, 1.0), Point(1.0, 1.0, 1.0), Point(1.0, BigInt(0) - 1.0, BigInt(0) - 1.0), Point(1.0, 1.0, BigInt(0) - 1.0), Point(BigInt(0) - 1.0, BigInt(0) - 1.0, BigInt(0) - 1.0), Point(BigInt(0) - 1.0, 1.0, BigInt(0) - 1.0))
+                                                                                                                                                                                                                                                                                                                                    ^
+/workspace/mochi/tests/rosetta/transpiler/Scala/catmull-clark-subdivision-surface.scala:370: error: type mismatch;
+ found   : Double(1.0)
+ required: scala.math.BigInt
+      val inputPoints: ArrayBuffer[Point] = ArrayBuffer(Point(BigInt(0) - 1.0, 1.0, 1.0), Point(BigInt(0) - 1.0, BigInt(0) - 1.0, 1.0), Point(1.0, BigInt(0) - 1.0, 1.0), Point(1.0, 1.0, 1.0), Point(1.0, BigInt(0) - 1.0, BigInt(0) - 1.0), Point(1.0, 1.0, BigInt(0) - 1.0), Point(BigInt(0) - 1.0, BigInt(0) - 1.0, BigInt(0) - 1.0), Point(BigInt(0) - 1.0, 1.0, BigInt(0) - 1.0))
+                                                                                                                                                                                                                                                                                                                                                            ^
+/workspace/mochi/tests/rosetta/transpiler/Scala/catmull-clark-subdivision-surface.scala:370: error: type mismatch;
+ found   : Double(1.0)
+ required: scala.math.BigInt
+      val inputPoints: ArrayBuffer[Point] = ArrayBuffer(Point(BigInt(0) - 1.0, 1.0, 1.0), Point(BigInt(0) - 1.0, BigInt(0) - 1.0, 1.0), Point(1.0, BigInt(0) - 1.0, 1.0), Point(1.0, 1.0, 1.0), Point(1.0, BigInt(0) - 1.0, BigInt(0) - 1.0), Point(1.0, 1.0, BigInt(0) - 1.0), Point(BigInt(0) - 1.0, BigInt(0) - 1.0, BigInt(0) - 1.0), Point(BigInt(0) - 1.0, 1.0, BigInt(0) - 1.0))
+                                                                                                                                                                                                                                                                                                                                                                                  ^
+13 errors found

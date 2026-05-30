@@ -1,0 +1,8 @@
+warning: variable "graph_copy" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 222 │       {contracted, graph_copy, nodes} = try do
+     │                    ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/graphs/karger.exs:222:20: Main.partition_graph/1
+
+"{(7, 6), (7, 8), (7, 9), (7, 10), (7, 5)}"

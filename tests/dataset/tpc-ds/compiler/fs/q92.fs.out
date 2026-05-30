@@ -1,0 +1,29 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    ws_item_sk: int
+    ws_sold_date_sk: int
+    ws_ext_discount_amt: float
+}
+type Anon2 = {
+    i_item_sk: int
+    i_manufact_id: int
+}
+type Anon3 = {
+    d_date_sk: int
+    d_date: string
+}
+type WebSale = {
+    mutable ws_item_sk: int
+    mutable ws_sold_date_sk: int
+    mutable ws_ext_discount_amt: float
+}
+let web_sales: Anon1 list = [{ ws_item_sk = 1; ws_sold_date_sk = 1; ws_ext_discount_amt = 1.0 }; { ws_item_sk = 1; ws_sold_date_sk = 1; ws_ext_discount_amt = 1.0 }; { ws_item_sk = 1; ws_sold_date_sk = 1; ws_ext_discount_amt = 2.0 }]
+let item: Anon2 list = [{ i_item_sk = 1; i_manufact_id = 1 }]
+let date_dim: Anon3 list = [{ d_date_sk = 1; d_date = "2000-01-02" }]
+let sum_amt: obj = List.sum [ for ws in web_sales do yield ws.ws_ext_discount_amt ]
+let avg_amt: obj = (float (List.sum [ for ws in web_sales do yield ws.ws_ext_discount_amt ]) / float (List.length [ for ws in web_sales do yield ws.ws_ext_discount_amt ]))
+let result: obj = (if sum_amt > avg_amt * 1.3 then sum_amt else 0.0)
+printfn "%A" (JsonSerializer.Serialize(result))
+assert (result = 4.0)

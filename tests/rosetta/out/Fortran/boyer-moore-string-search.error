@@ -1,0 +1,81 @@
+gfortran: exit status 1
+/tmp/boyer-moore-string-search.f90:71:52:
+
+   71 |   recursive character(len=100) function display(nums) result(res)
+      |                                                    1
+Error: PROCEDURE attribute conflicts with INTENT attribute in ‘nums’ at (1)
+/tmp/boyer-moore-string-search.f90:88:35:
+
+   88 |     texts = (/'GCTAGCTCTACGAGTCTA','GGCTATAATGCGTA','there would have been a time for such a word','needle need noodle needle','DKnuthusesandprogramsanimaginarycomputertheMIXanditsassociatedmachinecodeandassemblylanguages','Nearby farms grew an acre of alfalfa on the dairy''s behalf, with bales of that alfalfa exchanged for milk.'/)
+      |                                   1
+Error: Different CHARACTER lengths (18/14) in array constructor at (1)
+/tmp/boyer-moore-string-search.f90:89:24:
+
+   89 |     patterns = (/'TCTA','TAATAAA','word','needle','and','alfalfa'/)
+      |                        1
+Error: Different CHARACTER lengths (4/7) in array constructor at (1)
+/tmp/boyer-moore-string-search.f90:93:14:
+
+   93 |       print *, trim(trim('text' // s2) // ' = ') // texts(((i)+1))
+      |              1
+Error: Operands of string concatenation operator at (1) are CHARACTER(*)/INTEGER(4)
+/tmp/boyer-moore-string-search.f90:99:13:
+
+   99 |       idxs = stringSearch(texts(((j)+1)),patterns(((j)+1)))
+      |             1
+Error: Type mismatch in argument ‘h’ at (1); passed INTEGER(4) to CHARACTER(100)
+/tmp/boyer-moore-string-search.f90:99:13:
+
+   99 |       idxs = stringSearch(texts(((j)+1)),patterns(((j)+1)))
+      |             1
+Error: Type mismatch in argument ‘n’ at (1); passed INTEGER(4) to CHARACTER(100)
+/tmp/boyer-moore-string-search.f90:53:16:
+
+   53 |     hlen = size(h)
+      |                1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/boyer-moore-string-search.f90:54:16:
+
+   54 |     nlen = size(n)
+      |                1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/boyer-moore-string-search.f90:25:16:
+
+   25 |     hlen = size(h)
+      |                1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/boyer-moore-string-search.f90:26:16:
+
+   26 |     nlen = size(n)
+      |                1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/boyer-moore-string-search.f90:32:15:
+
+   32 |     do while (((i <= hlen) - nlen))
+      |               1
+Error: Operands of binary numeric operator ‘-’ at (1) are LOGICAL(4)/INTEGER(4)
+/tmp/boyer-moore-string-search.f90:68:4:
+
+   68 |     res = result
+      |    1
+Error: Incompatible ranks 0 and 1 in assignment at (1)
+/tmp/boyer-moore-string-search.f90:101:124:
+
+  101 |       print *, trim(trim(trim(trim('Found "' // patterns(((j)+1))) // '" in ''text') // s3) // ''' at indexes ') // display(idxs)
+      |                                                                                                                            1
+Error: Expected a procedure for argument ‘nums’ at (1)
+/tmp/boyer-moore-string-search.f90:80:11:
+
+   80 |       s = (s + s1)
+      |           1
+Error: Operands of binary numeric operator ‘+’ at (1) are CHARACTER(100)/CHARACTER(100)
+/tmp/boyer-moore-string-search.f90:75:24:
+
+   75 |     do while ((i < size(nums)))
+      |                        1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/boyer-moore-string-search.f90:101:35:
+
+  101 |       print *, trim(trim(trim(trim('Found "' // patterns(((j)+1))) // '" in ''text') // s3) // ''' at indexes ') // display(idxs)
+      |                                   1
+Error: Operands of string concatenation operator at (1) are CHARACTER(7)/INTEGER(4)

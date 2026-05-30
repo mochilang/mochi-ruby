@@ -1,0 +1,6 @@
+--- Right Join using syntax ---
+ CustomerAlicehas order         100 - $         250
+ CustomerAlicehas order         102 - $         300
+ CustomerBobhas order         101 - $         125
+ CustomerCharliehas no orders
+ CustomerDianahas no orders

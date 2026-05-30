@@ -1,0 +1,102 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    cs_order_number: int
+    cs_ship_date_sk: int
+    cs_ship_addr_sk: int
+    cs_call_center_sk: int
+    cs_warehouse_sk: int
+    cs_ext_ship_cost: float
+    cs_net_profit: float
+}
+type Anon2 = {
+    d_date_sk: int
+    d_date: string
+}
+type Anon3 = {
+    ca_address_sk: int
+    ca_state: string
+}
+type Anon4 = {
+    cc_call_center_sk: int
+    cc_county: string
+}
+type Anon5 = {
+    order_count: obj
+    total_shipping_cost: obj
+    total_net_profit: obj
+}
+type Anon6 = {
+}
+type Anon7 = {
+    order_count: int
+    total_shipping_cost: float
+    total_net_profit: float
+}
+type _Group<'K,'T>(key: 'K) =
+    member val key = key with get, set
+    member val Items = System.Collections.Generic.List<'T>() with get
+    member this.size = this.Items.Count
+    interface System.Collections.Generic.IEnumerable<'T> with
+        member this.GetEnumerator() = (this.Items :> seq<'T>).GetEnumerator()
+    interface System.Collections.IEnumerable with
+        member this.GetEnumerator() = (this.Items :> System.Collections.IEnumerable).GetEnumerator()
+
+let _group_by (src: 'T list) (keyfn: 'T -> 'K) : _Group<'K,'T> list =
+    let groups = System.Collections.Generic.Dictionary<string,_Group<'K,'T>>()
+    let order = System.Collections.Generic.List<string>()
+    for it in src do
+        let key = keyfn it
+        let ks = string key
+        let mutable g = Unchecked.defaultof<_Group<'K,'T>>
+        if groups.TryGetValue(ks, &g) then ()
+        else
+            g <- _Group<'K,'T>(key)
+            groups.Add(ks, g)
+            order.Add(ks)
+        g.Items.Add(it)
+    [ for ks in order -> groups[ks] ]
+
+type CatalogSale = {
+    mutable cs_order_number: int
+    mutable cs_ship_date_sk: int
+    mutable cs_ship_addr_sk: int
+    mutable cs_call_center_sk: int
+    mutable cs_warehouse_sk: int
+    mutable cs_ext_ship_cost: float
+    mutable cs_net_profit: float
+}
+type DateDim = {
+    mutable d_date_sk: int
+    mutable d_date: string
+}
+type CustomerAddress = {
+    mutable ca_address_sk: int
+    mutable ca_state: string
+}
+type CallCenter = {
+    mutable cc_call_center_sk: int
+    mutable cc_county: string
+}
+type CatalogReturn = {
+    mutable cr_order_number: int
+}
+let catalog_sales: Anon1 list = [{ cs_order_number = 1; cs_ship_date_sk = 1; cs_ship_addr_sk = 1; cs_call_center_sk = 1; cs_warehouse_sk = 1; cs_ext_ship_cost = 5.0; cs_net_profit = 20.0 }; { cs_order_number = 1; cs_ship_date_sk = 1; cs_ship_addr_sk = 1; cs_call_center_sk = 1; cs_warehouse_sk = 2; cs_ext_ship_cost = 0.0; cs_net_profit = 0.0 }]
+let date_dim: Anon2 list = [{ d_date_sk = 1; d_date = "2000-03-01" }]
+let customer_address: Anon3 list = [{ ca_address_sk = 1; ca_state = "CA" }]
+let call_center: Anon4 list = [{ cc_call_center_sk = 1; cc_county = "CountyA" }]
+let catalog_returns: obj = []
+let distinct (xs) =
+    let mutable out: obj = [||]
+    for x in xs do
+        if not contains out x then
+            out <- out @ [x]
+    out
+let filtered: Anon5 list = [ for g in _group_by [ for cs1 in catalog_sales do 
+  for d in date_dim do 
+  for ca in customer_address do 
+  for cc in call_center do if cs1.cs_ship_date_sk = d.d_date_sk && d.d_date >= "2000-03-01" && d.d_date <= "2000-04-30" && cs1.cs_ship_addr_sk = ca.ca_address_sk && ca.ca_state = "CA" && cs1.cs_call_center_sk = cc.cc_call_center_sk && cc.cc_county = "CountyA" && not (List.isEmpty [ for cs2 in catalog_sales do if cs1.cs_order_number = cs2.cs_order_number && cs1.cs_warehouse_sk <> cs2.cs_warehouse_sk then yield cs2 ]) && not (List.isEmpty [ for cr in catalog_returns do if cs1.cs_order_number = cr.cr_order_number then yield cr ]) = false then yield (cs1, d, ca, cc) ] (fun (cs1, d, ca, cc) -> {  }) do
+    yield { order_count = List.length distinct [ for x in g do yield x.cs_order_number ]; total_shipping_cost = List.sum [ for x in g do yield x.cs_ext_ship_cost ]; total_net_profit = List.sum [ for x in g do yield x.cs_net_profit ] } ]
+printfn "%A" (JsonSerializer.Serialize(filtered))
+assert (filtered = [{ order_count = 1; total_shipping_cost = 5.0; total_net_profit = 20.0 }])

@@ -1,0 +1,8 @@
+parse: error[P052]: /workspace/mochi/tests/rosetta/x/Mochi/bitwise-io-1.mochi:92:23: unexpected token "x0f" (expected ")")
+  --> /workspace/mochi/tests/rosetta/x/Mochi/bitwise-io-1.mochi:92:23
+
+ 92 |   bw = WriteBits(bw, 0x0f, 4)
+    |                       ^
+
+help:
+  Unbalanced parentheses. Check for missing `(` or `)`.

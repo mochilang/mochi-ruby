@@ -1,0 +1,13 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    price: float
+    ret: float
+}
+let store_sales: Anon1 list = [{ price = 20.0; ret = 5.0 }; { price = 10.0; ret = 2.0 }; { price = 5.0; ret = 0.0 }]
+let catalog_sales: Anon1 list = [{ price = 15.0; ret = 3.0 }; { price = 8.0; ret = 1.0 }]
+let web_sales: Anon1 list = [{ price = 25.0; ret = 5.0 }; { price = 15.0; ret = 8.0 }; { price = 8.0; ret = 2.0 }]
+let total_profit: obj = List.sum [ for s in store_sales do yield s.price - s.ret ] + List.sum [ for c in catalog_sales do yield c.price - c.ret ] + List.sum [ for w in web_sales do yield w.price - w.ret ]
+printfn "%A" (JsonSerializer.Serialize(total_profit))
+assert (total_profit = 80.0)

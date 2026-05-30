@@ -1,0 +1,14 @@
+(program
+  (var a (int 10))
+  (var b (type int) (int 20))
+  (fun main
+    (type int)
+    (call print
+      (group
+        (binary + (selector a) (selector b))
+      )
+    )
+    (return (int 0))
+  )
+  (call main)
+)

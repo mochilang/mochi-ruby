@@ -1,0 +1,9 @@
+run: exit status 127
+escript: exception error: an error occurred when evaluating an arithmetic expression
+  in function  q2_erl__escript__1752__564337__518260__8965:'-main/1-lc$^16/1-16-'/4 (/tmp/q2.erl, line 13)
+  in call from q2_erl__escript__1752__564337__518260__8965:main/1 (/tmp/q2.erl, line 13)
+  in call from escript:run/2 (escript.erl, line 904)
+  in call from escript:start/1 (escript.erl, line 418)
+  in call from init:start_it/1 
+  in call from init:start_em/1 
+  in call from init:do_boot/3 

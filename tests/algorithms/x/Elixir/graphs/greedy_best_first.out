@@ -1,0 +1,70 @@
+warning: variable "idx" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 191 │           {idx, new_open} = try do
+     │            ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/graphs/greedy_best_first.exs:191:12: Main.greedy_best_first/3
+
+     warning: variable "closed_nodes" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 230 │       {closed_nodes, open_nodes} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/graphs/greedy_best_first.exs:230:8: Main.greedy_best_first/3
+
+     warning: variable "open_nodes" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 230 │       {closed_nodes, open_nodes} = try do
+     │                      ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/graphs/greedy_best_first.exs:230:22: Main.greedy_best_first/3
+
+     warning: variable "idx" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 300 │       idx = try do
+     │       ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/graphs/greedy_best_first.exs:300:7: Main.main/0
+
+==grid-1==
+[0 0 0 0 0 0 0]
+[0 1 0 0 0 0 0]
+[0 0 0 0 0 0 0]
+[0 0 1 0 0 0 0]
+[1 0 1 0 0 0 0]
+[0 0 0 0 0 0 0]
+[0 0 0 0 1 0 0]
+------
+[2 0 0 0 0 0 0]
+[2 1 0 0 0 0 0]
+[2 0 0 0 0 0 0]
+[2 2 1 0 0 0 0]
+[1 2 1 0 0 0 0]
+[0 2 2 2 2 2 0]
+[0 0 0 0 1 2 2]
+==grid-2==
+[0 0 0 1 1 0 0]
+[0 0 0 0 1 0 1]
+[0 0 0 1 1 0 0]
+[0 1 0 0 1 0 0]
+[1 0 0 1 1 0 1]
+[0 0 0 0 0 0 0]
+------
+[2 0 0 1 1 0 0]
+[2 0 0 0 1 0 1]
+[2 2 2 1 1 0 0]
+[0 1 2 0 1 0 0]
+[1 0 2 1 1 0 1]
+[0 0 2 2 2 2 2]
+==grid-3==
+[0 0 1 0 0]
+[0 1 0 0 0]
+[0 0 1 0 1]
+[1 0 0 1 1]
+[0 0 0 0 0]
+------
+[2 0 1 0 0]
+[2 1 0 0 0]
+[2 2 1 0 1]
+[1 2 0 1 1]
+[0 2 2 2 2]

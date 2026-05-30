@@ -1,0 +1,5 @@
+run: exit status 1
+/workspace/mochi/tests/rosetta/transpiler/Zig/associative-array-creation.zig:5:31: error: local variable 'm' shadows function parameter from outer scope
+/workspace/mochi/tests/rosetta/transpiler/Zig/associative-array-creation.zig:4:14: note: previous declaration here
+/workspace/mochi/tests/rosetta/transpiler/Zig/associative-array-creation.zig:17:20: error: local variable is never mutated
+/workspace/mochi/tests/rosetta/transpiler/Zig/associative-array-creation.zig:17:20: note: consider using 'const'

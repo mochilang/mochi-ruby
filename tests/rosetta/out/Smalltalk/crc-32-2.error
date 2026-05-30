@@ -1,0 +1,8 @@
+type: error[T004]: `` is not callable
+  --> /workspace/mochi/tests/rosetta/x/Mochi/crc-32-2.mochi:85:32
+
+ 85 |   let hex = toHex(result).lower()
+    |                                ^
+
+help:
+  Use a function or closure in this position.

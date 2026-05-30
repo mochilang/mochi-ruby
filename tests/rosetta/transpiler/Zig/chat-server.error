@@ -1,0 +1,2 @@
+zig build error: exit status 1
+/tmp/TestMochiZigGoldenchat-server606861692/001/prog.zig:21:41: error: expected ',' after initializer

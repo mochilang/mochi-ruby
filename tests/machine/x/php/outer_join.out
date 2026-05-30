@@ -1,0 +1,7 @@
+--- Outer Join using syntax ---
+Order100byAlice- $250
+Order101byBob- $125
+Order102byAlice- $300
+Order103byUnknown- $80
+CustomerCharliehas no orders
+CustomerDianahas no orders

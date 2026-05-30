@@ -1,0 +1,27 @@
+fpc: exit status 1
+Free Pascal Compiler version 3.2.2+dfsg-32 [2024/01/05] for x86_64
+Copyright (c) 1993-2021 by Florian Klaempfl and others
+Target OS: Linux for x86-64
+Compiling /tmp/adfgvx-cipher.pas
+adfgvx-cipher.pas(13,19) Warning: function result variable of a managed type does not seem to be initialized
+adfgvx-cipher.pas(13,19) Warning: function result variable of a managed type does not seem to be initialized
+adfgvx-cipher.pas(97,74) Note: Call to subroutine "operator :=(const source:ShortString):Variant;" marked as inline is not inlined
+adfgvx-cipher.pas(100,20) Note: Call to subroutine "operator :=(const source:Int64):Variant;" marked as inline is not inlined
+adfgvx-cipher.pas(101,9) Note: Call to subroutine "operator >(const op1:Variant;const op2:Variant):Boolean;" marked as inline is not inlined
+adfgvx-cipher.pas(101,12) Note: Call to subroutine "operator :=(const source:ShortInt):Variant;" marked as inline is not inlined
+adfgvx-cipher.pas(103,23) Note: Call to subroutine "operator +(const op1:Variant;const op2:Variant):Variant;" marked as inline is not inlined
+adfgvx-cipher.pas(103,23) Note: Call to subroutine "operator mod(const op1:Variant;const op2:Variant):Variant;" marked as inline is not inlined
+adfgvx-cipher.pas(103,17) Note: Call to subroutine "operator :=(const source:Int64):Variant;" marked as inline is not inlined
+adfgvx-cipher.pas(103,23) Note: Call to subroutine "operator :=(const source:ShortInt):Variant;" marked as inline is not inlined
+adfgvx-cipher.pas(104,49) Note: Call to subroutine "operator :=(const source:Variant):LongInt;" marked as inline is not inlined
+adfgvx-cipher.pas(105,9) Note: Call to subroutine "operator :=(const source:Variant):QWord;" marked as inline is not inlined
+adfgvx-cipher.pas(105,52) Note: Call to subroutine "operator :=(const source:Variant):LongInt;" marked as inline is not inlined
+adfgvx-cipher.pas(106,9) Note: Call to subroutine "operator :=(const source:Variant):QWord;" marked as inline is not inlined
+adfgvx-cipher.pas(107,12) Note: Call to subroutine "operator -(const op1:Variant;const op2:Variant):Variant;" marked as inline is not inlined
+adfgvx-cipher.pas(107,12) Note: Call to subroutine "operator :=(const source:ShortInt):Variant;" marked as inline is not inlined
+adfgvx-cipher.pas(113,16) Note: Call to subroutine "operator :=(const source:Variant):ShortString;" marked as inline is not inlined
+adfgvx-cipher.pas(113,16) Note: Call to subroutine "operator +(const op1:Variant;const op2:Variant):Variant;" marked as inline is not inlined
+adfgvx-cipher.pas(113,16) Note: Call to subroutine "operator :=(const source:ShortString):Variant;" marked as inline is not inlined
+adfgvx-cipher.pas(139,11) Fatal: String exceeds line
+Fatal: Compilation aborted
+Error: /usr/bin/ppcx64 returned an error exitcode

@@ -1,0 +1,43 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    id: int
+    current_addr: int
+    cdemo: int
+    hdemo: int
+}
+type Anon2 = {
+    ca_address_sk: int
+    ca_city: string
+}
+type Anon3 = {
+    cd_demo_sk: int
+}
+type Anon4 = {
+    hd_demo_sk: int
+    income_band_sk: int
+}
+type Anon5 = {
+    ib_income_band_sk: int
+    ib_lower_bound: int
+    ib_upper_bound: int
+}
+type Anon6 = {
+    sr_cdemo_sk: int
+    amt: float
+}
+let customer: Anon1 list = [{ id = 1; current_addr = 1; cdemo = 1; hdemo = 1 }; { id = 2; current_addr = 1; cdemo = 2; hdemo = 2 }; { id = 3; current_addr = 1; cdemo = 3; hdemo = 1 }; { id = 4; current_addr = 1; cdemo = 4; hdemo = 2 }]
+let customer_address: Anon2 list = [{ ca_address_sk = 1; ca_city = "Springfield" }]
+let customer_demographics: Anon3 list = [{ cd_demo_sk = 1 }; { cd_demo_sk = 2 }; { cd_demo_sk = 3 }; { cd_demo_sk = 4 }]
+let household_demographics: Anon4 list = [{ hd_demo_sk = 1; income_band_sk = 1 }; { hd_demo_sk = 2; income_band_sk = 1 }]
+let income_band: Anon5 list = [{ ib_income_band_sk = 1; ib_lower_bound = 0; ib_upper_bound = 50000 }]
+let store_returns: Anon6 list = [{ sr_cdemo_sk = 1; amt = 10.0 }; { sr_cdemo_sk = 2; amt = 20.0 }; { sr_cdemo_sk = 3; amt = 30.0 }; { sr_cdemo_sk = 4; amt = 24.0 }]
+let result: obj = List.sum [ for c in customer do 
+  for ca in customer_address do 
+  for cd in customer_demographics do 
+  for sr in store_returns do 
+  for hd in household_demographics do 
+  for ib in income_band do if c.current_addr = ca.ca_address_sk && ca.ca_city = "Springfield" && c.cdemo = cd.cd_demo_sk && cd.cd_demo_sk = sr.sr_cdemo_sk && c.hdemo = hd.hd_demo_sk && hd.income_band_sk = ib.ib_income_band_sk then yield sr.amt ]
+printfn "%A" (JsonSerializer.Serialize(result))
+assert (result = 84.0)

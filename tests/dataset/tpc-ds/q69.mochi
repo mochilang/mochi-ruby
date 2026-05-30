@@ -1,0 +1,14 @@
+let web_sales = [
+  {amount: 34}
+]
+let store_sales = [
+  {amount: 35}
+]
+
+let result = sum(from w in web_sales select w.amount) + sum(from s in store_sales select s.amount)
+
+json(result)
+
+test "TPCDS Q69 simplified" {
+  expect result == 69
+}

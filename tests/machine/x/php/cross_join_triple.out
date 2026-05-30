@@ -1,0 +1,25 @@
+--- Cross Join of three lists ---
+int(1)
+string(1) "A"
+bool(true)
+int(1)
+string(1) "A"
+bool(false)
+int(1)
+string(1) "B"
+bool(true)
+int(1)
+string(1) "B"
+bool(false)
+int(2)
+string(1) "A"
+bool(true)
+int(2)
+string(1) "A"
+bool(false)
+int(2)
+string(1) "B"
+bool(true)
+int(2)
+string(1) "B"
+bool(false)

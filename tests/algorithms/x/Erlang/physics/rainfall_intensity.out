@@ -1,0 +1,7 @@
+/workspace/mochi/tests/algorithms/x/Erlang/physics/rainfall_intensity.erl:112:2: Warning: variable 'Is_neg_3' exported from 'case' (line 91, column 16)
+%  112| {Is_neg_3, N_2, Sum_2, Term_2, X, Y_3} = Fun(Is_neg_3, N, Sum, Term, X, Y_3),
+%     |  ^
+
+49.967500155067256
+77.53741060077824
+43.53099068931351

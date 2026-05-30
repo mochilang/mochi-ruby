@@ -1,0 +1,40 @@
+(program
+  (let items
+    (list
+      (map
+        (entry (string n) (int 1))
+        (entry (string v) (string a))
+      )
+      (map
+        (entry (string n) (int 1))
+        (entry (string v) (string b))
+      )
+      (map
+        (entry (string n) (int 2))
+        (entry (string v) (string c))
+      )
+    )
+  )
+  (var result (list))
+  (for i
+    (in (selector items))
+    (block
+      (assign
+        (selector result)
+        (call append
+          (selector result)
+          (index
+            (group
+              (cast
+                (selector i)
+                (type map (type string) (type any))
+              )
+            )
+            (string v)
+          )
+        )
+      )
+    )
+  )
+  (call json (selector result))
+)

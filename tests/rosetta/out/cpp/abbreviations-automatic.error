@@ -1,0 +1,95 @@
+g++: exit status 1
+/tmp/abbreviations-automatic.cpp: In function ‘std::vector<std::__cxx11::basic_string<char> > fields(std::string)’:
+/tmp/abbreviations-automatic.cpp:8:48: error: wrong number of template arguments (0, should be at least 1)
+    8 |   std::vector<std::string> words = std::vector<>{};
+      |                                                ^
+In file included from /usr/include/c++/13/vector:66,
+                 from /tmp/abbreviations-automatic.cpp:5:
+/usr/include/c++/13/bits/stl_vector.h:428:11: note: provided for ‘template<class _Tp, class _Alloc> class std::vector’
+  428 |     class vector : protected _Vector_base<_Tp, _Alloc>
+      |           ^~~~~~
+/tmp/abbreviations-automatic.cpp: In function ‘std::vector<std::__cxx11::basic_string<char> > distinct(std::vector<std::__cxx11::basic_string<char> >)’:
+/tmp/abbreviations-automatic.cpp:45:46: error: wrong number of template arguments (0, should be at least 1)
+   45 |   std::vector<std::string> out = std::vector<>{};
+      |                                              ^
+/usr/include/c++/13/bits/stl_vector.h:428:11: note: provided for ‘template<class _Tp, class _Alloc> class std::vector’
+  428 |     class vector : protected _Vector_base<_Tp, _Alloc>
+      |           ^~~~~~
+/tmp/abbreviations-automatic.cpp:48:38: error: conversion from ‘__gnu_cxx::__alloc_traits<std::allocator<std::__cxx11::basic_string<char> >, std::__cxx11::basic_string<char> >::value_type’ {aka ‘std::__cxx11::basic_string<char>’} to non-scalar type ‘std::vector<std::__cxx11::basic_string<char> >’ requested
+   48 |     std::vector<std::string> x = xs[i];
+      |                                      ^
+/tmp/abbreviations-automatic.cpp:49:20: error: no matching function for call to ‘std::unordered_map<int, int>::count(std::vector<std::__cxx11::basic_string<char> >&)’
+   49 |     if ((!((m.count(x) > 0)))) {
+      |             ~~~~~~~^~~
+In file included from /usr/include/c++/13/unordered_map:41,
+                 from /tmp/abbreviations-automatic.cpp:4:
+/usr/include/c++/13/bits/unordered_map.h:914:9: note: candidate: ‘template<class _Kt> decltype (((const std::unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>*)this)->std::unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>::_M_h._M_count_tr(__x)) std::unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>::count(const _Kt&) const [with _Key = int; _Tp = int; _Hash = std::hash<int>; _Pred = std::equal_to<int>; _Alloc = std::allocator<std::pair<const int, int> >]’
+  914 |         count(const _Kt& __x) const -> decltype(_M_h._M_count_tr(__x))
+      |         ^~~~~
+/usr/include/c++/13/bits/unordered_map.h:914:9: note:   template argument deduction/substitution failed:
+/usr/include/c++/13/bits/unordered_map.h: In substitution of ‘template<class _Kt> decltype (((const std::unordered_map<int, int>*)this)->std::unordered_map<int, int>::_M_h.std::_Hashtable<int, std::pair<const int, int>, std::allocator<std::pair<const int, int> >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_count_tr<_Kt, <template-parameter-1-2>, <template-parameter-1-3> >(__x)) std::unordered_map<int, int>::count(const _Kt&) const [with _Kt = std::vector<std::__cxx11::basic_string<char> >]’:
+/tmp/abbreviations-automatic.cpp:49:20:   required from here
+/usr/include/c++/13/bits/unordered_map.h:914:65: error: no matching function for call to ‘std::_Hashtable<int, std::pair<const int, int>, std::allocator<std::pair<const int, int> >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_count_tr(const std::vector<std::__cxx11::basic_string<char> >&) const’
+  914 |         count(const _Kt& __x) const -> decltype(_M_h._M_count_tr(__x))
+      |                                                 ~~~~~~~~~~~~~~~~^~~~~
+In file included from /usr/include/c++/13/bits/unordered_map.h:33:
+/usr/include/c++/13/bits/hashtable.h:774:9: note: candidate: ‘template<class _Kt, class, class> std::_Hashtable<_Key, _Value, _Alloc, _ExtractKey, _Equal, _Hash, _RangeHash, _Unused, _RehashPolicy, _Traits>::size_type std::_Hashtable<_Key, _Value, _Alloc, _ExtractKey, _Equal, _Hash, _RangeHash, _Unused, _RehashPolicy, _Traits>::_M_count_tr(const _Kt&) const [with <template-parameter-2-2> = _Kt; _Key = int; _Value = std::pair<const int, int>; _Alloc = std::allocator<std::pair<const int, int> >; _ExtractKey = std::__detail::_Select1st; _Equal = std::equal_to<int>; _Hash = std::hash<int>; _RangeHash = std::__detail::_Mod_range_hashing; _Unused = std::__detail::_Default_ranged_hash; _RehashPolicy = std::__detail::_Prime_rehash_policy; _Traits = std::__detail::_Hashtable_traits<false, false, true>]’
+  774 |         _M_count_tr(const _Kt& __k) const;
+      |         ^~~~~~~~~~~
+/usr/include/c++/13/bits/hashtable.h:774:9: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/13/string:49,
+                 from /usr/include/c++/13/bits/locale_classes.h:40,
+                 from /usr/include/c++/13/bits/ios_base.h:41,
+                 from /usr/include/c++/13/ios:44,
+                 from /usr/include/c++/13/ostream:40,
+                 from /usr/include/c++/13/iostream:41,
+                 from /tmp/abbreviations-automatic.cpp:2:
+/usr/include/c++/13/bits/stl_function.h: In substitution of ‘template<class _Func, class _SfinaeType> using std::__has_is_transparent_t = typename std::__has_is_transparent<_Func, _SfinaeType>::type [with _Func = std::hash<int>; _SfinaeType = std::vector<std::__cxx11::basic_string<char> >]’:
+/usr/include/c++/13/bits/hashtable.h:771:9:   required by substitution of ‘template<class _Kt> decltype (((const std::unordered_map<int, int>*)this)->std::unordered_map<int, int>::_M_h.std::_Hashtable<int, std::pair<const int, int>, std::allocator<std::pair<const int, int> >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_count_tr<_Kt, <template-parameter-1-2>, <template-parameter-1-3> >(__x)) std::unordered_map<int, int>::count(const _Kt&) const [with _Kt = std::vector<std::__cxx11::basic_string<char> >]’
+/tmp/abbreviations-automatic.cpp:49:20:   required from here
+/usr/include/c++/13/bits/stl_function.h:1430:11: error: no type named ‘type’ in ‘struct std::__has_is_transparent<std::hash<int>, std::vector<std::__cxx11::basic_string<char> >, void>’
+ 1430 |     using __has_is_transparent_t
+      |           ^~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/13/bits/unordered_map.h:908:7: note: candidate: ‘std::unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>::size_type std::unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>::count(const key_type&) const [with _Key = int; _Tp = int; _Hash = std::hash<int>; _Pred = std::equal_to<int>; _Alloc = std::allocator<std::pair<const int, int> >; size_type = long unsigned int; key_type = int]’
+  908 |       count(const key_type& __x) const
+      |       ^~~~~
+/usr/include/c++/13/bits/unordered_map.h:908:29: note:   no known conversion for argument 1 from ‘std::vector<std::__cxx11::basic_string<char> >’ to ‘const std::unordered_map<int, int>::key_type&’ {aka ‘const int&’}
+  908 |       count(const key_type& __x) const
+      |             ~~~~~~~~~~~~~~~~^~~
+/tmp/abbreviations-automatic.cpp:50:8: error: no match for ‘operator[]’ (operand types are ‘std::unordered_map<int, int>’ and ‘std::vector<std::__cxx11::basic_string<char> >’)
+   50 |       m[x] = true;
+      |        ^
+/usr/include/c++/13/bits/unordered_map.h:986:7: note: candidate: ‘std::unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>::mapped_type& std::unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>::operator[](const key_type&) [with _Key = int; _Tp = int; _Hash = std::hash<int>; _Pred = std::equal_to<int>; _Alloc = std::allocator<std::pair<const int, int> >; mapped_type = int; key_type = int]’
+  986 |       operator[](const key_type& __k)
+      |       ^~~~~~~~
+/usr/include/c++/13/bits/unordered_map.h:986:34: note:   no known conversion for argument 1 from ‘std::vector<std::__cxx11::basic_string<char> >’ to ‘const std::unordered_map<int, int>::key_type&’ {aka ‘const int&’}
+  986 |       operator[](const key_type& __k)
+      |                  ~~~~~~~~~~~~~~~~^~~
+/usr/include/c++/13/bits/unordered_map.h:990:7: note: candidate: ‘std::unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>::mapped_type& std::unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>::operator[](key_type&&) [with _Key = int; _Tp = int; _Hash = std::hash<int>; _Pred = std::equal_to<int>; _Alloc = std::allocator<std::pair<const int, int> >; mapped_type = int; key_type = int]’
+  990 |       operator[](key_type&& __k)
+      |       ^~~~~~~~
+/usr/include/c++/13/bits/unordered_map.h:990:29: note:   no known conversion for argument 1 from ‘std::vector<std::__cxx11::basic_string<char> >’ to ‘std::unordered_map<int, int>::key_type&&’ {aka ‘int&&’}
+  990 |       operator[](key_type&& __k)
+      |                  ~~~~~~~~~~~^~~
+/tmp/abbreviations-automatic.cpp:51:20: error: no matching function for call to ‘std::vector<std::__cxx11::basic_string<char> >::push_back(std::vector<std::__cxx11::basic_string<char> >&)’
+   51 |       out.push_back(x);
+      |       ~~~~~~~~~~~~~^~~
+/usr/include/c++/13/bits/stl_vector.h:1281:7: note: candidate: ‘constexpr void std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = std::__cxx11::basic_string<char>; _Alloc = std::allocator<std::__cxx11::basic_string<char> >; value_type = std::__cxx11::basic_string<char>]’
+ 1281 |       push_back(const value_type& __x)
+      |       ^~~~~~~~~
+/usr/include/c++/13/bits/stl_vector.h:1281:35: note:   no known conversion for argument 1 from ‘std::vector<std::__cxx11::basic_string<char> >’ to ‘const std::vector<std::__cxx11::basic_string<char> >::value_type&’ {aka ‘const std::__cxx11::basic_string<char>&’}
+ 1281 |       push_back(const value_type& __x)
+      |                 ~~~~~~~~~~~~~~~~~~^~~
+/usr/include/c++/13/bits/stl_vector.h:1298:7: note: candidate: ‘constexpr void std::vector<_Tp, _Alloc>::push_back(value_type&&) [with _Tp = std::__cxx11::basic_string<char>; _Alloc = std::allocator<std::__cxx11::basic_string<char> >; value_type = std::__cxx11::basic_string<char>]’
+ 1298 |       push_back(value_type&& __x)
+      |       ^~~~~~~~~
+/usr/include/c++/13/bits/stl_vector.h:1298:30: note:   no known conversion for argument 1 from ‘std::vector<std::__cxx11::basic_string<char> >’ to ‘std::vector<std::__cxx11::basic_string<char> >::value_type&&’ {aka ‘std::__cxx11::basic_string<char>&&’}
+ 1298 |       push_back(value_type&& __x)
+      |                 ~~~~~~~~~~~~~^~~
+/tmp/abbreviations-automatic.cpp: In function ‘int abbrevLen(std::vector<std::__cxx11::basic_string<char> >)’:
+/tmp/abbreviations-automatic.cpp:62:50: error: wrong number of template arguments (0, should be at least 1)
+   62 |     std::vector<std::string> abbrs = std::vector<>{};
+      |                                                  ^
+/usr/include/c++/13/bits/stl_vector.h:428:11: note: provided for ‘template<class _Tp, class _Alloc> class std::vector’
+  428 |     class vector : protected _Vector_base<_Tp, _Alloc>
+      |           ^~~~~~

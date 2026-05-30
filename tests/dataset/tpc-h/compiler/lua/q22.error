@@ -1,0 +1,6 @@
+run: exit status 1
+lua: /tmp/q22.lua:221: attempt to compare number with boolean
+stack traceback:
+	/tmp/q22.lua:221: in function </tmp/q22.lua:210>
+	/tmp/q22.lua:210: in main chunk
+	[C]: in ?

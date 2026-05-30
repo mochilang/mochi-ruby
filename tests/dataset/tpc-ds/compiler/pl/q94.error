@@ -1,0 +1,2 @@
+run: exit status 2
+ERROR: /tmp/q94.pl:89: user:main Type error: `integer' expected, found `ws_order_number' (an atom)

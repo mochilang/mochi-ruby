@@ -1,0 +1,35 @@
+swiftc: exit status 1
+/tmp/99-bottles-of-beer-2.swift:37:9: warning: variable 'small' was never mutated; consider changing to 'let' constant
+ 35 | }
+ 36 | func numberName(_ n: Int) -> String {
+ 37 |     var small = ["no", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"]
+    |         `- warning: variable 'small' was never mutated; consider changing to 'let' constant
+ 38 |     var tens = ["ones", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]
+ 39 |     if n < 0 {
+
+/tmp/99-bottles-of-beer-2.swift:38:9: warning: variable 'tens' was never mutated; consider changing to 'let' constant
+ 36 | func numberName(_ n: Int) -> String {
+ 37 |     var small = ["no", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"]
+ 38 |     var tens = ["ones", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]
+    |         `- warning: variable 'tens' was never mutated; consider changing to 'let' constant
+ 39 |     if n < 0 {
+ 40 |         return ""
+
+/tmp/99-bottles-of-beer-2.swift:47:13: warning: variable 's' was never mutated; consider changing to 'let' constant
+ 45 |     if n < 100 {
+ 46 |         var t = tens[Int((n / 10))]
+ 47 |         var s = n % 10
+    |             `- warning: variable 's' was never mutated; consider changing to 'let' constant
+ 48 |         if s > 0 {
+ 49 |             t = t + " " + small[s]
+
+/tmp/99-bottles-of-beer-2.swift:61:10: error: cannot assign through subscript: 'w' is a 'let' constant
+ 57 |         return s
+ 58 |     }
+ 59 |     let w = fields(s)
+    |     `- note: change 'let' to 'var' to make it mutable
+ 60 |     if w.count > 0 {
+ 61 |         w[0] = w[0] + "s"
+    |          `- error: cannot assign through subscript: 'w' is a 'let' constant
+ 62 |     }
+ 63 |     return join(w, " ")

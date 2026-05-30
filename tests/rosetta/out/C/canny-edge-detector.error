@@ -1,0 +1,138 @@
+cc: exit status 1
+/tmp/canny-edge-detector.c: In function ‘conv2d’:
+/tmp/canny-edge-detector.c:90:14: error: request for member ‘len’ in something not a structure or union
+   90 |   int h = img.len;
+      |              ^
+/tmp/canny-edge-detector.c:91:14: error: request for member ‘data’ in something not a structure or union
+   91 |   int w = img.data[0].len;
+      |              ^
+/tmp/canny-edge-detector.c:92:12: error: request for member ‘len’ in something not a structure or union
+   92 |   int n = k.len;
+      |            ^
+/tmp/canny-edge-detector.c:118:26: error: request for member ‘data’ in something not a structure or union
+  118 |           sum = sum + img.data[yy].data[xx] * k.data[j].data[i];
+      |                          ^
+/tmp/canny-edge-detector.c:118:48: error: request for member ‘data’ in something not a structure or union
+  118 |           sum = sum + img.data[yy].data[xx] * k.data[j].data[i];
+      |                                                ^
+/tmp/canny-edge-detector.c:123:13: error: incompatible types when assigning to type ‘list_float’ from type ‘int’
+  123 |       row = 0;
+      |             ^
+/tmp/canny-edge-detector.c:126:5: error: ‘out’ undeclared (first use in this function)
+  126 |     out = 0;
+      |     ^~~
+/tmp/canny-edge-detector.c:126:5: note: each undeclared identifier is reported only once for each function it appears in
+/tmp/canny-edge-detector.c: In function ‘gradient’:
+/tmp/canny-edge-detector.c:137:14: error: redefinition of ‘hx’
+  137 |   list_float hx = list_float_create(3);
+      |              ^~
+/tmp/canny-edge-detector.c:133:14: note: previous definition of ‘hx’ with type ‘list_float’
+  133 |   list_float hx = list_float_create(3);
+      |              ^~
+/tmp/canny-edge-detector.c:141:14: error: redefinition of ‘hx’
+  141 |   list_float hx = list_float_create(3);
+      |              ^~
+/tmp/canny-edge-detector.c:137:14: note: previous definition of ‘hx’ with type ‘list_float’
+  137 |   list_float hx = list_float_create(3);
+      |              ^~
+/tmp/canny-edge-detector.c:145:25: error: incompatible types when initializing type ‘int’ using type ‘list_float’
+  145 |   list_int hx_data[] = {hx, hx, hx};
+      |                         ^~
+/tmp/canny-edge-detector.c:145:29: error: incompatible types when initializing type ‘int *’ using type ‘list_float’
+  145 |   list_int hx_data[] = {hx, hx, hx};
+      |                             ^~
+/tmp/canny-edge-detector.c:145:33: error: incompatible types when initializing type ‘int’ using type ‘list_float’
+  145 |   list_int hx_data[] = {hx, hx, hx};
+      |                                 ^~
+/tmp/canny-edge-detector.c:146:17: error: conflicting types for ‘hx’; have ‘list_list_int’
+  146 |   list_list_int hx = {3, hx_data};
+      |                 ^~
+/tmp/canny-edge-detector.c:141:14: note: previous definition of ‘hx’ with type ‘list_float’
+  141 |   list_float hx = list_float_create(3);
+      |              ^~
+/tmp/canny-edge-detector.c:159:25: error: incompatible types when initializing type ‘int’ using type ‘list_float’
+  159 |   list_int hy_data[] = {tmp1, tmp2, hy};
+      |                         ^~~~
+/tmp/canny-edge-detector.c:159:31: error: incompatible types when initializing type ‘int *’ using type ‘list_float’
+  159 |   list_int hy_data[] = {tmp1, tmp2, hy};
+      |                               ^~~~
+/tmp/canny-edge-detector.c:159:37: error: incompatible types when initializing type ‘int’ using type ‘list_float’
+  159 |   list_int hy_data[] = {tmp1, tmp2, hy};
+      |                                     ^~
+/tmp/canny-edge-detector.c:160:17: error: conflicting types for ‘hy’; have ‘list_list_int’
+  160 |   list_list_int hy = {3, hy_data};
+      |                 ^~
+/tmp/canny-edge-detector.c:155:14: note: previous definition of ‘hy’ with type ‘list_float’
+  155 |   list_float hy = list_float_create(3);
+      |              ^~
+/tmp/canny-edge-detector.c:161:24: error: incompatible type for argument 2 of ‘conv2d’
+  161 |   int gx = conv2d(img, hx);
+      |                        ^~
+      |                        |
+      |                        list_list_int
+/tmp/canny-edge-detector.c:89:25: note: expected ‘int’ but argument is of type ‘list_list_int’
+   89 | int conv2d(int img, int k) {
+      |                     ~~~~^
+/tmp/canny-edge-detector.c:162:24: error: incompatible type for argument 2 of ‘conv2d’
+  162 |   int gy = conv2d(img, hy);
+      |                        ^~
+      |                        |
+      |                        list_list_int
+/tmp/canny-edge-detector.c:89:25: note: expected ‘int’ but argument is of type ‘list_list_int’
+   89 | int conv2d(int img, int k) {
+      |                     ~~~~^
+/tmp/canny-edge-detector.c:163:14: error: request for member ‘len’ in something not a structure or union
+  163 |   int h = img.len;
+      |              ^
+/tmp/canny-edge-detector.c:164:14: error: request for member ‘data’ in something not a structure or union
+  164 |   int w = img.data[0].len;
+      |              ^
+/tmp/canny-edge-detector.c:170:20: error: request for member ‘data’ in something not a structure or union
+  170 |       double g = gx.data[y].data[x] * gx.data[y].data[x] +
+      |                    ^
+/tmp/canny-edge-detector.c:170:41: error: request for member ‘data’ in something not a structure or union
+  170 |       double g = gx.data[y].data[x] * gx.data[y].data[x] +
+      |                                         ^
+/tmp/canny-edge-detector.c:171:20: error: request for member ‘data’ in something not a structure or union
+  171 |                  gy.data[y].data[x] * gy.data[y].data[x];
+      |                    ^
+/tmp/canny-edge-detector.c:171:41: error: request for member ‘data’ in something not a structure or union
+  171 |                  gy.data[y].data[x] * gy.data[y].data[x];
+      |                                         ^
+/tmp/canny-edge-detector.c:178:5: error: ‘out’ undeclared (first use in this function)
+  178 |     out = 0;
+      |     ^~~
+/tmp/canny-edge-detector.c: In function ‘threshold’:
+/tmp/canny-edge-detector.c:185:12: error: request for member ‘len’ in something not a structure or union
+  185 |   int h = g.len;
+      |            ^
+/tmp/canny-edge-detector.c:186:12: error: request for member ‘data’ in something not a structure or union
+  186 |   int w = g.data[0].len;
+      |            ^
+/tmp/canny-edge-detector.c:193:12: error: request for member ‘data’ in something not a structure or union
+  193 |       if (g.data[y].data[x] >= t) {
+      |            ^
+/tmp/canny-edge-detector.c: In function ‘mochi_main’:
+/tmp/canny-edge-detector.c:268:26: error: incompatible types when initializing type ‘int’ using type ‘list_float’
+  268 |   list_int img_data[] = {tmp14, tmp15, tmp16, tmp17, tmp18};
+      |                          ^~~~~
+/tmp/canny-edge-detector.c:268:33: error: incompatible types when initializing type ‘int *’ using type ‘list_float’
+  268 |   list_int img_data[] = {tmp14, tmp15, tmp16, tmp17, tmp18};
+      |                                 ^~~~~
+/tmp/canny-edge-detector.c:268:40: error: incompatible types when initializing type ‘int’ using type ‘list_float’
+  268 |   list_int img_data[] = {tmp14, tmp15, tmp16, tmp17, tmp18};
+      |                                        ^~~~~
+/tmp/canny-edge-detector.c:268:47: error: incompatible types when initializing type ‘int *’ using type ‘list_float’
+  268 |   list_int img_data[] = {tmp14, tmp15, tmp16, tmp17, tmp18};
+      |                                               ^~~~~
+/tmp/canny-edge-detector.c:268:54: error: incompatible types when initializing type ‘int’ using type ‘list_float’
+  268 |   list_int img_data[] = {tmp14, tmp15, tmp16, tmp17, tmp18};
+      |                                                      ^~~~~
+/tmp/canny-edge-detector.c:270:20: error: incompatible type for argument 1 of ‘gradient’
+  270 |   int g = gradient(img);
+      |                    ^~~
+      |                    |
+      |                    list_list_int
+/tmp/canny-edge-detector.c:132:18: note: expected ‘int’ but argument is of type ‘list_list_int’
+  132 | int gradient(int img) {
+      |              ~~~~^~~

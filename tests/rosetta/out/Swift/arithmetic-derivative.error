@@ -1,0 +1,25 @@
+swiftc: exit status 1
+/tmp/arithmetic-derivative.swift:22:6: error: keyword 'repeat' cannot be used as an identifier here
+ 20 |     return factors
+ 21 | }
+ 22 | func repeat(_ ch: String, _ n: Int) -> String {
+    |      |- error: keyword 'repeat' cannot be used as an identifier here
+    |      `- note: if this name is unavoidable, use backticks to escape it
+ 23 |     var s = ""
+ 24 |     var i = 0
+
+/tmp/arithmetic-derivative.swift:96:31: error: cannot pass value pack expansion to non-pack parameter of type 'String'
+ 94 |             exp = exp + " "
+ 95 |         }
+ 96 |         var res = String(m) + repeat("0", m - 1)
+    |                               `- error: cannot pass value pack expansion to non-pack parameter of type 'String'
+ 97 |         print("D(10^" + exp + ") / 7 = " + res)
+ 98 |         m = m + 1
+
+/tmp/arithmetic-derivative.swift:96:31: error: value pack expansion must contain at least one pack reference
+ 94 |             exp = exp + " "
+ 95 |         }
+ 96 |         var res = String(m) + repeat("0", m - 1)
+    |                               `- error: value pack expansion must contain at least one pack reference
+ 97 |         print("D(10^" + exp + ") / 7 = " + res)
+ 98 |         m = m + 1

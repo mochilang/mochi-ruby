@@ -1,0 +1,11 @@
+run: exit status 127
+escript: exception error: an error occurred when evaluating an arithmetic expression
+  in operator  +/2
+     called as 0 + undefined
+  in call from lists:sum/2 (lists.erl, line 488)
+  in call from q52_erl__escript__1752__564357__129665__8962:'-main/1-lc$^4/1-0-'/1 (/tmp/q52.erl, line 9)
+  in call from q52_erl__escript__1752__564357__129665__8962:main/1 (/tmp/q52.erl, line 9)
+  in call from escript:run/2 (escript.erl, line 904)
+  in call from escript:start/1 (escript.erl, line 418)
+  in call from init:start_it/1 
+  in call from init:start_em/1 

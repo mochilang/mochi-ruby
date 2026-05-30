@@ -1,0 +1,43 @@
+/*
+# line: 95
+# EVIDENCE-OF: R-29052-00975 String and BLOB values that do not look
+# like numbers are interpreted as 0.
+*/
+
+type t1Row {
+  x: int
+  y: string
+}
+
+let t1 = [
+  t1Row {
+    x: 1,
+    y: "tru" + "e",
+  },
+  t1Row {
+    x: 0,
+    y: "fal" + "se",
+  },
+  t1Row {
+    x: none,
+    y: "NULL",
+  },
+  t1Row {
+    x: 2,
+    y: "tru" + "e",
+  },
+  t1Row {
+    x: 2,
+    y: "tru" + "e",
+  },
+]
+
+/* SELECT count(y) FROM t1 */
+let result = count(from row in t1
+  where row.y != none
+  select row)
+print(result)
+
+test "case10" {
+  expect result == 5
+}

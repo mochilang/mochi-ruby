@@ -1,0 +1,8 @@
+compile: exit status 1
+/tmp/TestJavaTranspiler_Algorithms_Golden471_hamming_code2189563203/001/Main.java:45: error: ';' expected
+            return _substr(upper_1, (int)((long)(n - 65)), (int)((long)(n - 64))));
+                                                                                 ^
+/tmp/TestJavaTranspiler_Algorithms_Golden471_hamming_code2189563203/001/Main.java:48: error: ';' expected
+            return _substr(lower_3, (int)((long)(n - 97)), (int)((long)(n - 96))));
+                                                                                 ^
+2 errors

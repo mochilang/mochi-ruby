@@ -1,0 +1,6 @@
+(program
+  (let x (int 2))
+  (let label
+    (binary == (selector x) (selector "1 ? \"one\" : (x == 2 ? \"two\" : (x == 3 ? \"three\" : \"unknown\"))"))
+  )
+)

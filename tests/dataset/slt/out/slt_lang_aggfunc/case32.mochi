@@ -1,0 +1,43 @@
+/*
+# line: 225
+# EVIDENCE-OF: R-13776-21310 The count(*) function (with no arguments)
+# returns the total number of rows in the group.
+*/
+
+type t1Row {
+  x: int
+  y: string
+}
+
+let t1 = [
+  t1Row {
+    x: 1,
+    y: "tru" + "e",
+  },
+  t1Row {
+    x: 0,
+    y: "fal" + "se",
+  },
+  t1Row {
+    x: none,
+    y: "NULL",
+  },
+  t1Row {
+    x: 2,
+    y: "tru" + "e",
+  },
+  t1Row {
+    x: 2,
+    y: "tru" + "e",
+  },
+]
+
+/* SELECT count(*) FROM t1 WHERE y='false' */
+let result = count(from row in t1
+  where (row.y != none && "false" != none && row.y == "false")
+  select row)
+print(result)
+
+test "case32" {
+  expect result == 1
+}

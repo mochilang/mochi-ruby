@@ -1,0 +1,22 @@
+(program
+  (var scores
+    (map
+      (entry (string alice) (int 1))
+    )
+  )
+  (assign
+    (index (selector scores) (string bob))
+    (int 2)
+  )
+  (call print
+    (index
+      (group
+        (cast
+          (selector scores)
+          (type map (type string) (type any))
+        )
+      )
+      (string bob)
+    )
+  )
+)

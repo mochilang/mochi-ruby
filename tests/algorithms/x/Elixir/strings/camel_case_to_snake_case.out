@@ -1,0 +1,24 @@
+warning: variable "prev_is_alpha" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 200 │       {_, prev_is_alpha, prev_is_digit, snake_str} = try do
+     │           ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/strings/camel_case_to_snake_case.exs:200:11: Main.camel_to_snake_case/1
+
+     warning: variable "prev_is_digit" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 200 │       {_, prev_is_alpha, prev_is_digit, snake_str} = try do
+     │                          ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/strings/camel_case_to_snake_case.exs:200:26: Main.camel_to_snake_case/1
+
+    warning: module attribute @data_dir was set but never used
+    │
+  3 │   @data_dir nil
+    │   ~~~~~~~~~~~~~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/strings/camel_case_to_snake_case.exs:3: Main (module)
+
+"some_random_string"
+"some_random_str_ng"
+"123_some_random_123_string_123"

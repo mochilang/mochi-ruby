@@ -1,0 +1,11 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    amount: int
+}
+let web_sales: Anon1 list = [{ amount = 34 }]
+let store_sales: Anon1 list = [{ amount = 35 }]
+let result: obj = List.sum [ for w in web_sales do yield w.amount ] + List.sum [ for s in store_sales do yield s.amount ]
+printfn "%A" (JsonSerializer.Serialize(result))
+assert (result = 69)

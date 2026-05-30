@@ -1,0 +1,12 @@
+fun main() {
+  for n in numbers {
+    if ((n % 2) == 0) {
+      continue
+    }
+    if (n > 7) {
+      break
+    }
+    print("odd number:", n)
+  }
+}
+let numbers: list<int>

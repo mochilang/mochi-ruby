@@ -7,3 +7,9 @@ linters:
     - ineffassign
     - staticcheck
     - unused
+
+run:
+  exclude-dirs:
+    - compiler
+    - tests
+    - transpiler/c

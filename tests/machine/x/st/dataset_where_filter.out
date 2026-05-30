@@ -1,0 +1,13 @@
+Object: Association new "<0x7f668082c600>" error: Invalid value 'name'->Dictionary (
+	'name'->'Alice'
+	'age'->30
+): object not indexable
+SystemExceptions.NotIndexable(Exception)>>signal (ExcHandling.st:254)
+SystemExceptions.NotIndexable class(SystemExceptions.InvalidValue class)>>signalOn: (SysExcept.st:411)
+Association(Object)>>checkIndexableBounds: (Object.st:792)
+Association(Object)>>at: (Object.st:858)
+optimized [] in UndefinedObject>>executeStatements (../../../tests/machine/x/st/dataset_where_filter.st:9)
+Array(SequenceableCollection)>>do: (SeqCollect.st:827)
+optimized [] in UndefinedObject>>executeStatements (../../../tests/machine/x/st/dataset_where_filter.st:7)
+UndefinedObject>>executeStatements (../../../tests/machine/x/st/dataset_where_filter.st:5)
+--- Adults ---

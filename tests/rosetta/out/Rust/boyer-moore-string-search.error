@@ -1,0 +1,11 @@
+rustc: exit status 1
+error: mismatched closing delimiter: `]`
+  --> /tmp/boyer-moore-string-search.rs:62:40
+   |
+62 | ...ec![format!("{}", format!("{}{}", format!("{}{}", format!("{}{}", format!("{}{}", format!("{}{}", "Found "", patterns[j as usize]), "" in 'text"), j + 1.to_string()), "' at indexes "), display(idxs)))].in...
+   |       -       ^ unclosed delimiter                                                                                                                                                                         ^ mismatched closing delimiter
+   |       |
+   |       closing delimiter possibly meant for this
+
+error: aborting due to 1 previous error
+

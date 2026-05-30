@@ -1,0 +1,12 @@
+warning: module attribute @data_dir was set but never used
+    │
+  3 │   @data_dir nil
+    │   ~~~~~~~~~~~~~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/sorts/wiggle_sort.exs:3: Main (module)
+
+[3.0, 5.0, 1.0, 6.0, 2.0, 4.0]
+[0.0, 5.0, 2.0, 3.0, 2.0]
+[]
+[-45.0, -2.0, -5.0]
+[-45.11, -2.1, -5.68]

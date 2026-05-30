@@ -1,0 +1,11 @@
+(program
+  (fun add
+    (type int)
+    (block
+      (return
+        (binary + (selector a) (selector b))
+      )
+    )
+  )
+  (call print (selector "3)"))
+)

@@ -1,0 +1,14 @@
+javac: exit status 1
+/tmp/BullsAndCowsPlayer.java:83: error: '.class' expected
+                    Object c = int(toks.get(0));
+                                  ^
+/tmp/BullsAndCowsPlayer.java:83: error: ';' expected
+                    Object c = int(toks.get(0));
+                                              ^
+/tmp/BullsAndCowsPlayer.java:84: error: '.class' expected
+                    Object b = int(toks.get(1));
+                                  ^
+/tmp/BullsAndCowsPlayer.java:84: error: ';' expected
+                    Object b = int(toks.get(1));
+                                              ^
+4 errors

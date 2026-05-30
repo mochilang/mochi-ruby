@@ -1,0 +1,7 @@
+tests/machine/x/erlang/group_by_left_join.erl:8:522: Warning: variable 'C' shadowed in generate
+tests/machine/x/erlang/group_by_left_join.erl:8:567: Warning: variable 'C' shadowed in 'fun'
+tests/machine/x/erlang/group_by_left_join.erl:19:1: Warning: function mochi_left_join/3 is unused
+"--- Group Left Join ---"
+"Alice" "orders:" 2
+"Bob" "orders:" 1
+"Charlie" "orders:" 0

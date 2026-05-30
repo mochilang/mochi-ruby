@@ -1,0 +1,9 @@
+run: exit status 1
+string->number: contract violation
+  expected: string?
+  given: 99/10
+  context...:
+   /tmp/99-bottles-of-beer-2.rkt:76:2
+   /tmp/99-bottles-of-beer-2.rkt:211:6
+   /tmp/99-bottles-of-beer-2.rkt:208:0
+   body of "/tmp/99-bottles-of-beer-2.rkt"

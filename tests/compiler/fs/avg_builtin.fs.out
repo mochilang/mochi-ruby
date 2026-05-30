@@ -1,0 +1,10 @@
+open System
+
+let inline sum (xs: seq< ^T >) : ^T =
+  Seq.sum xs
+let inline avg (xs: seq< ^T >) : ^T =
+  Seq.average xs
+let count (xs: seq<'T>) : int =
+  Seq.length xs
+
+ignore (printfn "%A" (avg [|1; 2; 3|]))

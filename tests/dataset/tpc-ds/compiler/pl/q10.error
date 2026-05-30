@@ -1,0 +1,2 @@
+run: exit status 2
+ERROR: /tmp/q10.pl:58: user:main Type error: `integer' expected, found `ss_customer_sk' (an atom)

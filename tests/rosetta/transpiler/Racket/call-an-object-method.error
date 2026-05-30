@@ -1,0 +1,5 @@
+run error: exit status 1
+/workspace/mochi/tests/rosetta/transpiler/Racket/call-an-object-method.rkt:50:1: TellSecret: unbound identifier
+  in: TellSecret
+  location...:
+   /workspace/mochi/tests/rosetta/transpiler/Racket/call-an-object-method.rkt:50:1

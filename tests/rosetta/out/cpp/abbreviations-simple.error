@@ -1,0 +1,52 @@
+g++: exit status 1
+/tmp/abbreviations-simple.cpp: In function ‘std::vector<std::__cxx11::basic_string<char> > fields(std::string)’:
+/tmp/abbreviations-simple.cpp:44:48: error: wrong number of template arguments (0, should be at least 1)
+   44 |   std::vector<std::string> words = std::vector<>{};
+      |                                                ^
+In file included from /usr/include/c++/13/vector:66,
+                 from /tmp/abbreviations-simple.cpp:6:
+/usr/include/c++/13/bits/stl_vector.h:428:11: note: provided for ‘template<class _Tp, class _Alloc> class std::vector’
+  428 |     class vector : protected _Vector_base<_Tp, _Alloc>
+      |           ^~~~~~
+/tmp/abbreviations-simple.cpp: In function ‘auto readTable(std::string)’:
+/tmp/abbreviations-simple.cpp:130:47: error: wrong number of template arguments (0, should be at least 1)
+  130 |   std::vector<std::string> cmds = std::vector<>{};
+      |                                               ^
+/usr/include/c++/13/bits/stl_vector.h:428:11: note: provided for ‘template<class _Tp, class _Alloc> class std::vector’
+  428 |     class vector : protected _Vector_base<_Tp, _Alloc>
+      |           ^~~~~~
+/tmp/abbreviations-simple.cpp:131:39: error: wrong number of template arguments (0, should be at least 1)
+  131 |   std::vector<int> mins = std::vector<>{};
+      |                                       ^
+/usr/include/c++/13/bits/stl_vector.h:428:11: note: provided for ‘template<class _Tp, class _Alloc> class std::vector’
+  428 |     class vector : protected _Vector_base<_Tp, _Alloc>
+      |           ^~~~~~
+/tmp/abbreviations-simple.cpp: In function ‘std::vector<std::__cxx11::basic_string<char> > validate(std::vector<std::__cxx11::basic_string<char> >, std::vector<int>, std::vector<std::__cxx11::basic_string<char> >)’:
+/tmp/abbreviations-simple.cpp:154:50: error: wrong number of template arguments (0, should be at least 1)
+  154 |   std::vector<std::string> results = std::vector<>{};
+      |                                                  ^
+/usr/include/c++/13/bits/stl_vector.h:428:11: note: provided for ‘template<class _Tp, class _Alloc> class std::vector’
+  428 |     class vector : protected _Vector_base<_Tp, _Alloc>
+      |           ^~~~~~
+/tmp/abbreviations-simple.cpp:157:42: error: conversion from ‘__gnu_cxx::__alloc_traits<std::allocator<std::__cxx11::basic_string<char> >, std::__cxx11::basic_string<char> >::value_type’ {aka ‘std::__cxx11::basic_string<char>’} to non-scalar type ‘std::vector<std::__cxx11::basic_string<char> >’ requested
+  157 |     std::vector<std::string> w = words[wi];
+      |                                          ^
+/tmp/abbreviations-simple.cpp:162:49: error: conversion from ‘__gnu_cxx::__alloc_traits<std::allocator<std::__cxx11::basic_string<char> >, std::__cxx11::basic_string<char> >::value_type’ {aka ‘std::__cxx11::basic_string<char>’} to non-scalar type ‘std::vector<std::__cxx11::basic_string<char> >’ requested
+  162 |       std::vector<std::string> cmd = commands[ci];
+      |                                                 ^
+/tmp/abbreviations-simple.cpp:164:18: error: ‘upper’ was not declared in this scope; did you mean ‘toupper’?
+  164 |         auto c = upper(cmd);
+      |                  ^~~~~
+      |                  toupper
+/tmp/abbreviations-simple.cpp: In function ‘auto __mochi_main()’:
+/tmp/abbreviations-simple.cpp:203:63: error: conversion from ‘std::unordered_map<std::__cxx11::basic_string<char>, std::any>::mapped_type’ {aka ‘std::any’} to non-scalar type ‘std::vector<std::any>’ requested
+  203 |   std::vector<std::any> commands = tbl[std::string("commands")];
+      |                                                               ^
+/tmp/abbreviations-simple.cpp:204:55: error: conversion from ‘std::unordered_map<std::__cxx11::basic_string<char>, std::any>::mapped_type’ {aka ‘std::any’} to non-scalar type ‘std::vector<std::any>’ requested
+  204 |   std::vector<std::any> mins = tbl[std::string("mins")];
+      |                                                       ^
+/tmp/abbreviations-simple.cpp:206:27: error: could not convert ‘commands’ from ‘vector<std::any>’ to ‘vector<std::__cxx11::basic_string<char>>’
+  206 |   auto results = validate(commands, mins, words);
+      |                           ^~~~~~~~
+      |                           |
+      |                           vector<std::any>

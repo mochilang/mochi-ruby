@@ -1,0 +1,2 @@
+let todo = alist_to_hash_table([cons("title", "hi")])
+print(hash_table_ref(todo, "title"))

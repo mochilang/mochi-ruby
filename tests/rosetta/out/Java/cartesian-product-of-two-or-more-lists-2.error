@@ -1,0 +1,8 @@
+parse: error[P001]: /workspace/mochi/tests/rosetta/x/Mochi/cartesian-product-of-two-or-more-lists-2.mochi:6:19: unexpected token "-1" (expected "{" Statement* "}" (("else" IfStmt) | ("else" "{" Statement* "}"))?)
+  --> /workspace/mochi/tests/rosetta/x/Mochi/cartesian-product-of-two-or-more-lists-2.mochi:6:19
+
+  6 |     if i < len(xs)-1 { s = s + " " }
+    |                   ^
+
+help:
+  Check for a missing `{` or `}` to close the block.

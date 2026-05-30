@@ -1,0 +1,29 @@
+{
+  "body": [
+    {
+      "kind": "VarDecl",
+      "name": "todo",
+      "type": "Todo",
+      "expr": {
+        "kind": "NEW_CLASS",
+        "args": [
+          {
+            "kind": "String",
+            "value": "hi"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Print",
+      "expr": {
+        "kind": "Member",
+        "name": "title",
+        "expr": {
+          "kind": "Ident",
+          "name": "todo"
+        }
+      }
+    }
+  ]
+}

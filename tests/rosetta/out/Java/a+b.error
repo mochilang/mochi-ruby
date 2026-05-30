@@ -1,0 +1,12 @@
+javac: exit status 1
+/tmp/AB.java:7: error: cannot find symbol
+        int a = Integer.parseInt(String.valueOf(scanner.nextLine()));
+                                                ^
+  symbol:   variable scanner
+  location: class AB
+/tmp/AB.java:8: error: cannot find symbol
+        int b = Integer.parseInt(String.valueOf(scanner.nextLine()));
+                                                ^
+  symbol:   variable scanner
+  location: class AB
+2 errors

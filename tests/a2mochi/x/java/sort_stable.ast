@@ -1,0 +1,32 @@
+(program
+  (let items
+    (list (unknown) (unknown) (unknown))
+  )
+  (let result (unknown))
+  (call print
+    (call
+      (selector collect
+        (call
+          (selector map
+            (call
+              (selector stream
+                (cast (selector result) (type "java.util.List<?>"))
+              )
+            )
+          )
+          (unknown)
+        )
+      )
+      (call
+        (selector joining
+          (selector Collectors
+            (selector stream
+              (selector util (selector java))
+            )
+          )
+        )
+        (string " ")
+      )
+    )
+  )
+)

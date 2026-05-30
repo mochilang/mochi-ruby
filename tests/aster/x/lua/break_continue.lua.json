@@ -1,0 +1,302 @@
+{
+  "root": {
+    "kind": "chunk",
+    "children": [
+      {
+        "kind": "assignment_statement",
+        "children": [
+          {
+            "kind": "variable_list",
+            "children": [
+              {
+                "kind": "identifier",
+                "text": "numbers"
+              }
+            ]
+          },
+          {
+            "kind": "expression_list",
+            "children": [
+              {
+                "kind": "table_constructor",
+                "children": [
+                  {
+                    "kind": "field",
+                    "children": [
+                      {
+                        "kind": "number",
+                        "text": "1"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "field",
+                    "children": [
+                      {
+                        "kind": "number",
+                        "text": "2"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "field",
+                    "children": [
+                      {
+                        "kind": "number",
+                        "text": "3"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "field",
+                    "children": [
+                      {
+                        "kind": "number",
+                        "text": "4"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "field",
+                    "children": [
+                      {
+                        "kind": "number",
+                        "text": "5"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "field",
+                    "children": [
+                      {
+                        "kind": "number",
+                        "text": "6"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "field",
+                    "children": [
+                      {
+                        "kind": "number",
+                        "text": "7"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "field",
+                    "children": [
+                      {
+                        "kind": "number",
+                        "text": "8"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "field",
+                    "children": [
+                      {
+                        "kind": "number",
+                        "text": "9"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "for_statement",
+        "children": [
+          {
+            "kind": "for_generic_clause",
+            "children": [
+              {
+                "kind": "variable_list",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "text": "_"
+                  },
+                  {
+                    "kind": "identifier",
+                    "text": "n"
+                  }
+                ]
+              },
+              {
+                "kind": "expression_list",
+                "children": [
+                  {
+                    "kind": "function_call",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "ipairs"
+                      },
+                      {
+                        "kind": "arguments",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "numbers"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "block",
+            "children": [
+              {
+                "kind": "if_statement",
+                "children": [
+                  {
+                    "kind": "parenthesized_expression",
+                    "children": [
+                      {
+                        "kind": "binary_expression",
+                        "text": "==",
+                        "children": [
+                          {
+                            "kind": "parenthesized_expression",
+                            "children": [
+                              {
+                                "kind": "binary_expression",
+                                "text": "%",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "n"
+                                  },
+                                  {
+                                    "kind": "number",
+                                    "text": "2"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "number",
+                            "text": "0"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "block",
+                    "children": [
+                      {
+                        "kind": "goto_statement",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "__cont_1"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "if_statement",
+                "children": [
+                  {
+                    "kind": "parenthesized_expression",
+                    "children": [
+                      {
+                        "kind": "binary_expression",
+                        "text": "\u003e",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "n"
+                          },
+                          {
+                            "kind": "number",
+                            "text": "7"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "block",
+                    "children": [
+                      {
+                        "kind": "break_statement"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "function_call",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "text": "print"
+                  },
+                  {
+                    "kind": "arguments",
+                    "children": [
+                      {
+                        "kind": "function_call",
+                        "children": [
+                          {
+                            "kind": "dot_index_expression",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "string"
+                              },
+                              {
+                                "kind": "identifier",
+                                "text": "format"
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "arguments",
+                            "children": [
+                              {
+                                "kind": "string",
+                                "text": "\"odd number: %s\""
+                              },
+                              {
+                                "kind": "identifier",
+                                "text": "n"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "label_statement",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "text": "__cont_1"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

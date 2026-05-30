@@ -1,0 +1,61 @@
+public class Main {
+    static long i_2 = 10L;
+
+    static double abs_float(double x) {
+        if ((double)(x) < (double)(0.0)) {
+            return -x;
+        } else {
+            return x;
+        }
+    }
+
+    static double trapezoidal_area(java.util.function.Function<Double,Double> f, double x_start, double x_end, long steps) {
+        double step = (double)((double)(((double)(x_end) - (double)(x_start))) / (double)((((Number)(steps)).doubleValue())));
+        double x1_1 = (double)(x_start);
+        double fx1_1 = (double)(f.apply((double)(x_start)));
+        double area_1 = (double)(0.0);
+        long i_1 = 0L;
+        while ((long)(i_1) < (long)(steps)) {
+            double x2_1 = (double)((double)(x1_1) + (double)(step));
+            double fx2_1 = (double)(f.apply((double)(x2_1)));
+            area_1 = (double)((double)(area_1) + (double)((double)((double)(abs_float((double)((double)(fx2_1) + (double)(fx1_1)))) * (double)(step)) / (double)(2.0)));
+            x1_1 = (double)(x2_1);
+            fx1_1 = (double)(fx2_1);
+            i_1 = (long)((long)(i_1) + 1L);
+        }
+        return area_1;
+    }
+
+    static double f(double x) {
+        return (double)((double)((double)(x) * (double)(x)) * (double)(x)) + (double)((double)(x) * (double)(x));
+    }
+    public static void main(String[] args) {
+        System.out.println("f(x) = x^3 + x^2");
+        System.out.println("The area between the curve, x = -5, x = 5 and the x axis is:");
+        while ((long)(i_2) <= 100000L) {
+            double result = (double)(trapezoidal_area(Main::f, (double)(-5.0), (double)(5.0), (long)(i_2)));
+            System.out.println("with " + _p(i_2) + " steps: " + _p(result));
+            i_2 = (long)((long)(i_2) * 10L);
+        }
+    }
+
+    static String _p(Object v) {
+        if (v == null) return "<nil>";
+        if (v.getClass().isArray()) {
+            if (v instanceof int[]) return java.util.Arrays.toString((int[]) v);
+            if (v instanceof long[]) return java.util.Arrays.toString((long[]) v);
+            if (v instanceof double[]) return java.util.Arrays.toString((double[]) v);
+            if (v instanceof boolean[]) return java.util.Arrays.toString((boolean[]) v);
+            if (v instanceof byte[]) return java.util.Arrays.toString((byte[]) v);
+            if (v instanceof char[]) return java.util.Arrays.toString((char[]) v);
+            if (v instanceof short[]) return java.util.Arrays.toString((short[]) v);
+            if (v instanceof float[]) return java.util.Arrays.toString((float[]) v);
+            return java.util.Arrays.deepToString((Object[]) v);
+        }
+        if (v instanceof Double || v instanceof Float) {
+            double d = ((Number) v).doubleValue();
+            return String.valueOf(d);
+        }
+        return String.valueOf(v);
+    }
+}

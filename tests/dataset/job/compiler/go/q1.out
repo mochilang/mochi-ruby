@@ -1,0 +1,8 @@
+# command-line-arguments
+/tmp/q1.go:85:3: undefined: Production_note
+/tmp/q1.go:86:3: undefined: Movie_title
+/tmp/q1.go:87:3: undefined: Movie_year
+/tmp/q1.go:142:10: invalid operation: ctRaw (variable of struct type Company_type) is not an interface
+/tmp/q1.go:176:3: undefined: Production_note
+/tmp/q1.go:184:3: undefined: Movie_title
+/tmp/q1.go:192:3: undefined: Movie_year

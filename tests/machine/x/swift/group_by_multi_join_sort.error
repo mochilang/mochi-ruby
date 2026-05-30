@@ -1,0 +1,7 @@
+/tmp/TestSwiftCompiler_VMValid_Goldengroup_by_multi_join_sort102759871/001/main.swift:52:5: error: the compiler is unable to type-check this expression in reasonable time; try breaking up the expression into distinct sub-expressions
+50 | let start_date = "1993-10-01"
+51 | let end_date = "1994-01-01"
+52 | var result = { () -> [Any] in
+   |     `- error: the compiler is unable to type-check this expression in reasonable time; try breaking up the expression into distinct sub-expressions
+53 | 	var _groups: [String:_Group] = [:]
+54 | 	var _order: [String] = []

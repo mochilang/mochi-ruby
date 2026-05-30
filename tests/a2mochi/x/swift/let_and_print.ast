@@ -1,0 +1,10 @@
+(program
+  (let a (int 10))
+  (let b (int 20))
+  (call print
+    (binary +
+      (group (selector a))
+      (group (selector b))
+    )
+  )
+)

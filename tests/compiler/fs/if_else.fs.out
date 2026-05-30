@@ -1,0 +1,18 @@
+open System
+
+exception Return_foo of int
+let rec foo (n: int) : int =
+    try
+        let mutable n = n
+        if (n < 0) then
+            raise (Return_foo ((-1)))
+        elif (n = 0) then
+            raise (Return_foo (0))
+        else
+            raise (Return_foo (1))
+        failwith "unreachable"
+    with Return_foo v -> v
+
+ignore (printfn "%A" (foo ((-2))))
+ignore (printfn "%A" (foo (0)))
+ignore (printfn "%A" (foo (3)))

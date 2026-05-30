@@ -1,0 +1,3 @@
+let math = Math
+print(math.sqrt(16.0))
+print(math.PI)

@@ -1,0 +1,111 @@
+gfortran: exit status 1
+/tmp/csv-to-html-translation-5.f90:24:21:
+
+   24 |     line = split(c,''//char(10)//'')(i0)
+      |                     1
+Error: Invalid character in name at (1)
+/tmp/csv-to-html-translation-5.f90:74:10:
+
+   74 |     out = ''
+      |          1
+Error: Cannot convert CHARACTER(0) to INTEGER(4) at (1)
+/tmp/csv-to-html-translation-5.f90:77:11:
+
+   77 |       ch = s(i+1:(i + 1))
+      |           1
+Error: Cannot convert CHARACTER(*) to INTEGER(4) at (1)
+/tmp/csv-to-html-translation-5.f90:78:11:
+
+   78 |       if ((ch == '&')) then
+      |           1
+Error: Operands of comparison operator ‘==’ at (1) are INTEGER(4)/CHARACTER(1)
+/tmp/csv-to-html-translation-5.f90:79:14:
+
+   79 |         out = out // '&amp;'
+      |              1
+Error: Operands of string concatenation operator at (1) are INTEGER(4)/CHARACTER(5)
+/tmp/csv-to-html-translation-5.f90:80:16:
+
+   80 |       else if ((ch == '<')) then
+      |                1
+Error: Operands of comparison operator ‘==’ at (1) are INTEGER(4)/CHARACTER(1)
+/tmp/csv-to-html-translation-5.f90:81:14:
+
+   81 |         out = out // '&lt;'
+      |              1
+Error: Operands of string concatenation operator at (1) are INTEGER(4)/CHARACTER(4)
+/tmp/csv-to-html-translation-5.f90:82:16:
+
+   82 |       else if ((ch == '>')) then
+      |                1
+Error: Operands of comparison operator ‘==’ at (1) are INTEGER(4)/CHARACTER(1)
+/tmp/csv-to-html-translation-5.f90:83:14:
+
+   83 |         out = out // '&gt;'
+      |              1
+Error: Operands of string concatenation operator at (1) are INTEGER(4)/CHARACTER(4)
+/tmp/csv-to-html-translation-5.f90:76:24:
+
+   76 |     do while ((i < size(s)))
+      |                        1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/csv-to-html-translation-5.f90:89:4:
+
+   89 |     res = out
+      |    1
+Error: Incompatible ranks 0 and 1 in assignment at (1)
+/tmp/csv-to-html-translation-5.f90:50:13:
+
+   50 |     n = size(sep)
+      |             1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/csv-to-html-translation-5.f90:56:28:
+
+   56 |         app4(size(out)+1) = s(start+1:i)
+      |                            1
+Error: Cannot convert CHARACTER(*) to INTEGER(4) at (1)
+/tmp/csv-to-html-translation-5.f90:51:26:
+
+   51 |     do while (((i <= size(s)) - n))
+      |                          1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/csv-to-html-translation-5.f90:67:39:
+
+   67 |     app5(size(out)+1) = s(start+1:size(s))
+      |                                       1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/csv-to-html-translation-5.f90:69:4:
+
+   69 |     res = out
+      |    1
+Error: Incompatible ranks 0 and 1 in assignment at (1)
+/tmp/csv-to-html-translation-5.f90:28:25:
+
+   28 |     app1(size(rows)+1) = split(line,',')
+      |                         1
+Error: Type mismatch in argument ‘s’ at (1); passed INTEGER(4) to CHARACTER(100)
+/tmp/csv-to-html-translation-5.f90:28:36:
+
+   28 |     app1(size(rows)+1) = split(line,',')
+      |                                    1
+Warning: Character length of actual argument shorter than of dummy argument ‘sep’ (1/100) at (1)
+/tmp/csv-to-html-translation-5.f90:23:26:
+
+   23 |   do i0 = 1, size(split(c,''//char(10)//''))
+      |                          1
+Warning: Character length of actual argument shorter than of dummy argument ‘sep’ (1/100) at (1)
+/tmp/csv-to-html-translation-5.f90:23:18:
+
+   23 |   do i0 = 1, size(split(c,''//char(10)//''))
+      |                  1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/csv-to-html-translation-5.f90:37:43:
+
+   37 |       cells = trim(trim(cells // '<td>') // htmlEscape(cell)) // '</td>'
+      |                                           1
+Error: Type mismatch in argument ‘s’ at (1); passed INTEGER(4) to CHARACTER(100)
+/tmp/csv-to-html-translation-5.f90:35:20:
+
+   35 |     do i3 = 1, size(row)
+      |                    1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array

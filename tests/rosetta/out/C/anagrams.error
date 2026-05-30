@@ -1,0 +1,73 @@
+cc: exit status 1
+/tmp/anagrams.c: In function ‘sortStrings’:
+/tmp/anagrams.c:180:11: error: incompatible types when assigning to type ‘list_string’ from type ‘int’
+  180 |     res = 0;
+      |           ^
+/tmp/anagrams.c: In function ‘mochi_main’:
+/tmp/anagrams.c:230:16: error: incompatible types when initializing type ‘int’ using type ‘map_string_int’
+  230 |   int groups = tmp7;
+      |                ^~~~
+/tmp/anagrams.c:233:13: warning: initialization of ‘int’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  233 |     int w = words.data[tmp8];
+      |             ^~~~~
+/tmp/anagrams.c:234:31: warning: passing argument 1 of ‘sortRunes’ makes pointer from integer without a cast [-Wint-conversion]
+  234 |     __auto_type k = sortRunes(w);
+      |                               ^
+      |                               |
+      |                               int
+/tmp/anagrams.c:131:23: note: expected ‘char *’ but argument is of type ‘int’
+  131 | char *sortRunes(char *s) {
+      |                 ~~~~~~^
+/tmp/anagrams.c:235:14: error: expected ‘)’ before ‘in’
+  235 |     if (((!(k in groups)))) {
+      |            ~ ^~~
+      |              )
+/tmp/anagrams.c:240:13: error: request for member ‘data’ in something not a structure or union
+  240 |       groups.data[k] = tmp10;
+      |             ^
+/tmp/anagrams.c:243:21: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  243 |       tmp11.data[0] = w;
+      |                     ^
+/tmp/anagrams.c:244:52: error: request for member ‘data’ in something not a structure or union
+  244 |       list_string tmp12 = concat_list_string(groups.data[k], tmp11);
+      |                                                    ^
+/tmp/anagrams.c:245:13: error: request for member ‘data’ in something not a structure or union
+  245 |       groups.data[k] = 0;
+      |             ^
+/tmp/anagrams.c:247:22: error: request for member ‘data’ in something not a structure or union
+  247 |     if (strlen(groups.data[k]) > maxLen) {
+      |                      ^
+/tmp/anagrams.c:248:29: error: request for member ‘data’ in something not a structure or union
+  248 |       maxLen = strlen(groups.data[k]);
+      |                             ^
+/tmp/anagrams.c:252:17: error: incompatible types when initializing type ‘int’ using type ‘map_string_int’
+  252 |   int printed = tmp13;
+      |                 ^~~~~
+/tmp/anagrams.c:254:13: warning: initialization of ‘int’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  254 |     int w = words.data[tmp14];
+      |             ^~~~~
+/tmp/anagrams.c:255:31: warning: passing argument 1 of ‘sortRunes’ makes pointer from integer without a cast [-Wint-conversion]
+  255 |     __auto_type k = sortRunes(w);
+      |                               ^
+      |                               |
+      |                               int
+/tmp/anagrams.c:131:23: note: expected ‘char *’ but argument is of type ‘int’
+  131 | char *sortRunes(char *s) {
+      |                 ~~~~~~^
+/tmp/anagrams.c:256:15: error: request for member ‘data’ in something not a structure or union
+  256 |     if (groups.data[k].len == maxLen) {
+      |               ^
+/tmp/anagrams.c:257:16: error: expected ‘)’ before ‘in’
+  257 |       if (((!(k in printed)))) {
+      |              ~ ^~~
+      |                )
+/tmp/anagrams.c:258:43: error: request for member ‘data’ in something not a structure or union
+  258 |         __auto_type g = sortStrings(groups.data[k]);
+      |                                           ^
+/tmp/anagrams.c:259:42: error: ‘g’ undeclared (first use in this function)
+  259 |         char *tmp15 = concat_string("[", g.data[0]);
+      |                                          ^
+/tmp/anagrams.c:259:42: note: each undeclared identifier is reported only once for each function it appears in
+/tmp/anagrams.c:271:16: error: request for member ‘data’ in something not a structure or union
+  271 |         printed.data[k] = 1;
+      |                ^

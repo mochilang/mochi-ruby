@@ -1,0 +1,159 @@
+// Solution for SPOJ DICE1 - Dice Contest
+// https://www.spoj.com/problems/DICE1/
+// Roll a die on a 4-row infinite strip (y=1..4), minimize cost.
+// Cost of a move = face value on top after rolling.
+// Use bounded Dijkstra: x in [min(x1,x2)-8, max(x1,x2)+8].
+
+fun splitLine(s: string): list<string> {
+  var parts: list<string> = []
+  var cur = ""
+  var i = 0
+  while i < len(s) {
+    let ch = s[i:i+1]
+    if ch == " " || ch == "\t" {
+      if len(cur) > 0 { parts = append(parts, cur); cur = "" }
+    } else {
+      cur = cur + ch
+    }
+    i = i + 1
+  }
+  if len(cur) > 0 { parts = append(parts, cur) }
+  return parts
+}
+
+let digitMap = {"0":0,"1":1,"2":2,"3":3,"4":4,"5":5,"6":6,"7":7,"8":8,"9":9}
+
+fun parseIntStr(s: string): int {
+  var neg = false
+  var start = 0
+  if len(s) > 0 && s[0:1] == "-" { neg = true; start = 1 }
+  var n = 0
+  var i = start
+  while i < len(s) {
+    n = n * 10 + (digitMap[s[i:i+1]] as int)
+    i = i + 1
+  }
+  if neg { return 0 - n }
+  return n
+}
+
+// orientation stored as list<int> of length 6: [top, bot, N, S, E, W] (1-indexed face values)
+fun rollN(o: list<int>): list<int> {
+  return [o[3], o[2], o[0], o[1], o[4], o[5]]
+}
+fun rollS(o: list<int>): list<int> {
+  return [o[2], o[3], o[1], o[0], o[4], o[5]]
+}
+fun rollE(o: list<int>): list<int> {
+  return [o[5], o[4], o[2], o[3], o[0], o[1]]
+}
+fun rollW(o: list<int>): list<int> {
+  return [o[4], o[5], o[2], o[3], o[1], o[0]]
+}
+
+fun oriKey(o: list<int>): string {
+  return str(o[0]) + "," + str(o[1]) + "," + str(o[2]) + "," + str(o[3]) + "," + str(o[4]) + "," + str(o[5])
+}
+
+fun stateKey(x: int, y: int, ok: string): string {
+  return str(x) + "," + str(y) + "," + ok
+}
+
+fun main() {
+  let tLine = input()
+  if tLine == "" { return }
+  let t = int(tLine)
+  var caseIdx = 0
+  while caseIdx < t {
+    let faceLine = input()
+    let parts = splitLine(faceLine)
+    var face: list<int> = [0]
+    var fi = 0
+    while fi < 6 {
+      face = append(face, parseIntStr(parts[fi]))
+      fi = fi + 1
+    }
+
+    let posLine = input()
+    let pp = splitLine(posLine)
+    let x1 = parseIntStr(pp[0])
+    let y1 = parseIntStr(pp[1])
+    let x2 = parseIntStr(pp[2])
+    let y2 = parseIntStr(pp[3])
+
+    let xmin = (if x1 < x2 { x1 } else { x2 }) - 8
+    let xmax = (if x1 > x2 { x1 } else { x2 }) + 8
+
+    var dist: map<string, int> = {}
+    var visited: map<string, bool> = {}
+
+    // Initial orientation: top=1, bot=6, N=5, S=2, E=4, W=3
+    let startOri: list<int> = [1, 6, 5, 2, 4, 3]
+    let sk = stateKey(x1, y1, oriKey(startOri))
+    dist[sk] = 0
+
+    // PQ: each entry [cost, x, y, top, bot, N, S, E, W]
+    var pq: list<list<int>> = [[0, x1, y1, 1, 6, 5, 2, 4, 3]]
+    var ans = 1000000000
+
+    while len(pq) > 0 {
+      var best = 0
+      var bi = 1
+      while bi < len(pq) {
+        if pq[bi][0] < pq[best][0] { best = bi }
+        bi = bi + 1
+      }
+      let cur = pq[best]
+      var newpq: list<list<int>> = []
+      var qi = 0
+      while qi < len(pq) {
+        if qi != best { newpq = append(newpq, pq[qi]) }
+        qi = qi + 1
+      }
+      pq = newpq
+
+      let ccost = cur[0]
+      let cx = cur[1]
+      let cy = cur[2]
+      let co: list<int> = [cur[3], cur[4], cur[5], cur[6], cur[7], cur[8]]
+      let ck = stateKey(cx, cy, oriKey(co))
+
+      if visited[ck] == true { continue }
+      visited[ck] = true
+
+      if cx == x2 && cy == y2 { ans = ccost; break }
+
+      // 4 moves: N, S, E, W
+      var dirIdx = 0
+      while dirIdx < 4 {
+        var nx = cx
+        var ny = cy
+        var no: list<int> = co
+        if dirIdx == 0 { ny = cy + 1; no = rollN(co) }
+        else if dirIdx == 1 { ny = cy - 1; no = rollS(co) }
+        else if dirIdx == 2 { nx = cx + 1; no = rollE(co) }
+        else { nx = cx - 1; no = rollW(co) }
+
+        if ny >= 1 && ny <= 4 && nx >= xmin && nx <= xmax {
+          let ncost = ccost + face[no[0]]
+          let nk = stateKey(nx, ny, oriKey(no))
+          if visited[nk] != true {
+            let prev = dist[nk]
+            var go = true
+            if prev { if ncost >= (prev as int) { go = false } }
+            if go {
+              dist[nk] = ncost
+              pq = append(pq, [ncost, nx, ny, no[0], no[1], no[2], no[3], no[4], no[5]])
+            }
+          }
+        }
+        dirIdx = dirIdx + 1
+      }
+    }
+
+    print(ans)
+    caseIdx = caseIdx + 1
+  }
+}
+
+main()

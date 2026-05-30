@@ -1,0 +1,7 @@
+(ns main)
+
+(defn -main []
+  (println (some #(= 2 %) [1 2 3]))
+  (println (some #(= "b" %) ["a" "b"])))
+
+(-main)

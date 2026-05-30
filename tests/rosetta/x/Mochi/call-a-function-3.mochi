@@ -1,0 +1,22 @@
+// Inline definitions from call-a-function-1
+fun f(): list<any> {
+  return [0, 0.0]
+}
+
+fun g(a: int, b: float): int {
+  return 0
+}
+
+fun h(s: string, nums: list<int>) {
+  // variadic parameters simulated with list
+}
+
+fun main() {
+  h("ex1", [])
+  h("ex2", [1,2])
+  h("ex3", [1,2,3,4])
+  let list = [1,2,3,4]
+  h("ex4", list)
+}
+
+main()

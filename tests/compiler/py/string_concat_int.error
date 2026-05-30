@@ -1,0 +1,7 @@
+generated code does not match expected
+- print("value: " + 7)
++ fun main() {
+- 
++   print(("value: " + str(7)))
++ }
++ 

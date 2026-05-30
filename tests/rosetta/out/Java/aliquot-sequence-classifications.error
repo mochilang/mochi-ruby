@@ -1,0 +1,8 @@
+parse: error[P999]: /workspace/mochi/tests/rosetta/x/Mochi/aliquot-sequence-classifications.mochi:63:28: unexpected token "-2" (expected "]")
+  --> /workspace/mochi/tests/rosetta/x/Mochi/aliquot-sequence-classifications.mochi:63:28
+
+ 63 |     } else if last == seq[n-2] {
+    |                            ^
+
+help:
+  Parse error occurred. Check syntax near this location.

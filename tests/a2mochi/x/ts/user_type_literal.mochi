@@ -1,0 +1,10 @@
+type Person {
+  name: string
+  age: int
+}
+type Book {
+  title: string
+  author: Person
+}
+let book: Book = {"title": "Go", "author": {"name": "Bob", "age": 42}}
+print(book["author"]["name"])

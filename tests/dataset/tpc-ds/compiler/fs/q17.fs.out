@@ -1,0 +1,160 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    ss_sold_date_sk: int
+    ss_item_sk: int
+    ss_customer_sk: int
+    ss_ticket_number: int
+    ss_quantity: int
+    ss_store_sk: int
+}
+type Anon2 = {
+    sr_returned_date_sk: int
+    sr_customer_sk: int
+    sr_item_sk: int
+    sr_ticket_number: int
+    sr_return_quantity: int
+}
+type Anon3 = {
+    cs_sold_date_sk: int
+    cs_item_sk: int
+    cs_bill_customer_sk: int
+    cs_quantity: int
+}
+type Anon4 = {
+    d_date_sk: int
+    d_quarter_name: string
+}
+type Anon5 = {
+    s_store_sk: int
+    s_state: string
+}
+type Anon6 = {
+    i_item_sk: int
+    i_item_id: string
+    i_item_desc: string
+}
+type Anon7 = {
+    qty: int
+    ret: int
+    csq: int
+    i_item_id: string
+    i_item_desc: string
+    s_state: string
+}
+type Anon8 = {
+    i_item_id: obj
+    i_item_desc: obj
+    s_state: obj
+    store_sales_quantitycount: obj
+    store_sales_quantityave: obj
+    store_sales_quantitystdev: float
+    store_sales_quantitycov: float
+    store_returns_quantitycount: obj
+    store_returns_quantityave: obj
+    store_returns_quantitystdev: float
+    store_returns_quantitycov: float
+    catalog_sales_quantitycount: obj
+    catalog_sales_quantityave: obj
+    catalog_sales_quantitystdev: float
+    catalog_sales_quantitycov: float
+}
+type Anon9 = {
+    i_item_id: string
+    i_item_desc: string
+    s_state: string
+}
+type Anon10 = {
+    i_item_id: string
+    i_item_desc: string
+    s_state: string
+    store_sales_quantitycount: int
+    store_sales_quantityave: float
+    store_sales_quantitystdev: float
+    store_sales_quantitycov: float
+    store_returns_quantitycount: int
+    store_returns_quantityave: float
+    store_returns_quantitystdev: float
+    store_returns_quantitycov: float
+    catalog_sales_quantitycount: int
+    catalog_sales_quantityave: float
+    catalog_sales_quantitystdev: float
+    catalog_sales_quantitycov: float
+}
+type _Group<'K,'T>(key: 'K) =
+    member val key = key with get, set
+    member val Items = System.Collections.Generic.List<'T>() with get
+    member this.size = this.Items.Count
+    interface System.Collections.Generic.IEnumerable<'T> with
+        member this.GetEnumerator() = (this.Items :> seq<'T>).GetEnumerator()
+    interface System.Collections.IEnumerable with
+        member this.GetEnumerator() = (this.Items :> System.Collections.IEnumerable).GetEnumerator()
+
+let _group_by (src: 'T list) (keyfn: 'T -> 'K) : _Group<'K,'T> list =
+    let groups = System.Collections.Generic.Dictionary<string,_Group<'K,'T>>()
+    let order = System.Collections.Generic.List<string>()
+    for it in src do
+        let key = keyfn it
+        let ks = string key
+        let mutable g = Unchecked.defaultof<_Group<'K,'T>>
+        if groups.TryGetValue(ks, &g) then ()
+        else
+            g <- _Group<'K,'T>(key)
+            groups.Add(ks, g)
+            order.Add(ks)
+        g.Items.Add(it)
+    [ for ks in order -> groups[ks] ]
+
+type StoreSale = {
+    mutable ss_sold_date_sk: int
+    mutable ss_item_sk: int
+    mutable ss_customer_sk: int
+    mutable ss_ticket_number: int
+    mutable ss_quantity: int
+    mutable ss_store_sk: int
+}
+type StoreReturn = {
+    mutable sr_returned_date_sk: int
+    mutable sr_customer_sk: int
+    mutable sr_item_sk: int
+    mutable sr_ticket_number: int
+    mutable sr_return_quantity: int
+}
+type CatalogSale = {
+    mutable cs_sold_date_sk: int
+    mutable cs_item_sk: int
+    mutable cs_bill_customer_sk: int
+    mutable cs_quantity: int
+}
+type DateDim = {
+    mutable d_date_sk: int
+    mutable d_quarter_name: string
+}
+type Store = {
+    mutable s_store_sk: int
+    mutable s_state: string
+}
+type Item = {
+    mutable i_item_sk: int
+    mutable i_item_id: string
+    mutable i_item_desc: string
+}
+let store_sales: Anon1 list = [{ ss_sold_date_sk = 1; ss_item_sk = 1; ss_customer_sk = 1; ss_ticket_number = 1; ss_quantity = 10; ss_store_sk = 1 }]
+let store_returns: Anon2 list = [{ sr_returned_date_sk = 2; sr_customer_sk = 1; sr_item_sk = 1; sr_ticket_number = 1; sr_return_quantity = 2 }]
+let catalog_sales: Anon3 list = [{ cs_sold_date_sk = 3; cs_item_sk = 1; cs_bill_customer_sk = 1; cs_quantity = 5 }]
+let date_dim: Anon4 list = [{ d_date_sk = 1; d_quarter_name = "1998Q1" }; { d_date_sk = 2; d_quarter_name = "1998Q2" }; { d_date_sk = 3; d_quarter_name = "1998Q3" }]
+let store: Anon5 list = [{ s_store_sk = 1; s_state = "CA" }]
+let item: Anon6 list = [{ i_item_sk = 1; i_item_id = "I1"; i_item_desc = "Item 1" }]
+let joined: Anon7 list = [ for ss in store_sales do 
+  for sr in store_returns do 
+  for cs in catalog_sales do 
+  for d1 in date_dim do 
+  for d2 in date_dim do 
+  for d3 in date_dim do 
+  for s in store do 
+  for i in item do if ss.ss_customer_sk = sr.sr_customer_sk && ss.ss_item_sk = sr.sr_item_sk && ss.ss_ticket_number = sr.sr_ticket_number && sr.sr_customer_sk = cs.cs_bill_customer_sk && sr.sr_item_sk = cs.cs_item_sk && ss.ss_sold_date_sk = d1.d_date_sk && d1.d_quarter_name = "1998Q1" && List.contains sr.sr_returned_date_sk = d2.d_date_sk && d2.d_quarter_name ["1998Q1"; "1998Q2"; "1998Q3"] && List.contains cs.cs_sold_date_sk = d3.d_date_sk && d3.d_quarter_name ["1998Q1"; "1998Q2"; "1998Q3"] && ss.ss_store_sk = s.s_store_sk && ss.ss_item_sk = i.i_item_sk then yield { qty = ss.ss_quantity; ret = sr.sr_return_quantity; csq = cs.cs_quantity; i_item_id = i.i_item_id; i_item_desc = i.i_item_desc; s_state = s.s_state } ]
+let result: Anon8 list = [ for g in _group_by [ for j in joined do yield j ] (fun j -> { i_item_id = j.i_item_id; i_item_desc = j.i_item_desc; s_state = j.s_state }) do
+    yield { i_item_id = g.key.i_item_id; i_item_desc = g.key.i_item_desc; s_state = g.key.s_state; store_sales_quantitycount = List.length [ for _ in g do yield _ ]; store_sales_quantityave = (float (List.sum [ for x in g do yield x.qty ]) / float (List.length [ for x in g do yield x.qty ])); store_sales_quantitystdev = 0.0; store_sales_quantitycov = 0.0; store_returns_quantitycount = List.length [ for _ in g do yield _ ]; store_returns_quantityave = (float (List.sum [ for x in g do yield x.ret ]) / float (List.length [ for x in g do yield x.ret ])); store_returns_quantitystdev = 0.0; store_returns_quantitycov = 0.0; catalog_sales_quantitycount = List.length [ for _ in g do yield _ ]; catalog_sales_quantityave = (float (List.sum [ for x in g do yield x.csq ]) / float (List.length [ for x in g do yield x.csq ])); catalog_sales_quantitystdev = 0.0; catalog_sales_quantitycov = 0.0 } ]
+printfn "%A" (JsonSerializer.Serialize(result))
+assert (result = [{ i_item_id = "I1"; i_item_desc = "Item 1"; s_state = "CA"; store_sales_quantitycount = 1; store_sales_quantityave = 10.0; store_sales_quantitystdev = 0.0; store_sales_quantitycov = 0.0; store_returns_quantitycount = 1; store_returns_quantityave = 2.0; store_returns_quantitystdev = 0.0; store_returns_quantitycov = 0.0; catalog_sales_quantitycount = 1; catalog_sales_quantityave = 5.0; catalog_sales_quantitystdev = 0.0; catalog_sales_quantitycov = 0.0 }])

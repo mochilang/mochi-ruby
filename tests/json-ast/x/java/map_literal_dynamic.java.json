@@ -1,0 +1,89 @@
+{
+  "body": [
+    {
+      "kind": "VarDecl",
+      "name": "x",
+      "type": "int",
+      "expr": {
+        "kind": "Literal",
+        "value": "3"
+      }
+    },
+    {
+      "kind": "VarDecl",
+      "name": "y",
+      "type": "int",
+      "expr": {
+        "kind": "Literal",
+        "value": "4"
+      }
+    },
+    {
+      "kind": "VarDecl",
+      "name": "m",
+      "type": "Data1",
+      "expr": {
+        "kind": "NEW_CLASS",
+        "args": [
+          {
+            "kind": "Ident",
+            "name": "x"
+          },
+          {
+            "kind": "Ident",
+            "name": "y"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Print",
+      "expr": {
+        "kind": "Binary",
+        "left": {
+          "kind": "Binary",
+          "left": {
+            "kind": "Call",
+            "target": {
+              "kind": "Member",
+              "name": "get",
+              "expr": {
+                "kind": "Ident",
+                "name": "m"
+              }
+            },
+            "args": [
+              {
+                "kind": "String",
+                "value": "a"
+              }
+            ]
+          },
+          "right": {
+            "kind": "String",
+            "value": " "
+          },
+          "op": "PLUS"
+        },
+        "right": {
+          "kind": "Call",
+          "target": {
+            "kind": "Member",
+            "name": "get",
+            "expr": {
+              "kind": "Ident",
+              "name": "m"
+            }
+          },
+          "args": [
+            {
+              "kind": "String",
+              "value": "b"
+            }
+          ]
+        },
+        "op": "PLUS"
+      }
+    }
+  ]
+}

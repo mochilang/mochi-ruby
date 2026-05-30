@@ -1,0 +1,10 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    days: int
+}
+let web_sales: Anon1 list = [{ days = 10 }; { days = 40 }; { days = 70 }; { days = 100 }; { days = 130 }]
+let result: obj = List.length web_sales * 12 + 2
+printfn "%A" (JsonSerializer.Serialize(result))
+assert (result = 62)

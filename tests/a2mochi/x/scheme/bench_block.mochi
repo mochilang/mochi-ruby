@@ -1,0 +1,4 @@
+let _now_seeded = false
+let _now_seed = 0
+fun now() {
+}

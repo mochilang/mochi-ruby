@@ -1,0 +1,14 @@
+javac: exit status 1
+/tmp/BinaryStrings.java:7: error: <identifier> expected
+    static String char(int n) {
+                 ^
+/tmp/BinaryStrings.java:7: error: <identifier> expected
+    static String char(int n) {
+                      ^
+/tmp/BinaryStrings.java:19: error: '.class' expected
+            s = s + ((Number)char(bs.get(i))).doubleValue();
+                                 ^
+/tmp/BinaryStrings.java:19: error: ';' expected
+            s = s + ((Number)char(bs.get(i))).doubleValue();
+                                           ^
+4 errors

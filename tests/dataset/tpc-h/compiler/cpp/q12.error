@@ -1,0 +1,393 @@
+/tmp/TestCPPCompiler_TPCHQueriesq122136620868/001/prog.cpp: In function ‘int main()’:
+/tmp/TestCPPCompiler_TPCHQueriesq122136620868/001/prog.cpp:314:5: error: conversion from ‘vector<__struct5>’ to non-scalar type ‘vector<Result>’ requested
+  193 |   std::vector<Result> result = ([&]() {
+      |                                ~~~~~~~~
+  194 |     std::vector<__struct4> __groups;
+      |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  195 |     for (auto l : lineitem) {
+      |     ~~~~~~~~~~~~~~~~~~~~~~~~~
+  196 |       for (auto o : orders) {
+      |       ~~~~~~~~~~~~~~~~~~~~~~~
+  197 |         if (!((o.o_orderkey == l.l_orderkey)))
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  198 |           continue;
+      |           ~~~~~~~~~
+  199 |         if (!(((((((std::find(std::vector<std::string>{std::string("MAIL"),
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  200 |                                                        std::string("SHIP")}
+      |                                                        ~~~~~~~~~~~~~~~~~~~~
+  201 |                                   .begin(),
+      |                                   ~~~~~~~~~
+  202 |                               std::vector<std::string>{std::string("MAIL"),
+      |                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  203 |                                                        std::string("SHIP")}
+      |                                                        ~~~~~~~~~~~~~~~~~~~~
+  204 |                                   .end(),
+      |                                   ~~~~~~~
+  205 |                               l.l_shipmode) !=
+      |                               ~~~~~~~~~~~~~~~~
+  206 |                     std::vector<std::string>{std::string("MAIL"),
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  207 |                                              std::string("SHIP")}
+      |                                              ~~~~~~~~~~~~~~~~~~~~
+  208 |                         .end())) &&
+      |                         ~~~~~~~~~~~
+  209 |                   ((l.l_commitdate < l.l_receiptdate))) &&
+      |                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  210 |                  ((l.l_shipdate < l.l_commitdate))) &&
+      |                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  211 |                 ((l.l_receiptdate >= std::string("1994-01-01")))) &&
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  212 |                ((l.l_receiptdate < std::string("1995-01-01"))))))
+      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  213 |           continue;
+      |           ~~~~~~~~~
+  214 |         auto __key = l.l_shipmode;
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~
+  215 |         bool __found = false;
+      |         ~~~~~~~~~~~~~~~~~~~~~
+  216 |         for (auto &__g : __groups) {
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  217 |           if (__any_eq(__g.key, __key)) {
+      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  218 |             __g.items.push_back(Result{l, o});
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  219 |             __found = true;
+      |             ~~~~~~~~~~~~~~~
+  220 |             break;
+      |             ~~~~~~
+  221 |           }
+      |           ~
+  222 |         }
+      |         ~
+  223 |         if (!__found) {
+      |         ~~~~~~~~~~~~~~~
+  224 |           __groups.push_back(
+      |           ~~~~~~~~~~~~~~~~~~~
+  225 |               __struct4{__key, std::vector<Result>{Result{l, o}}});
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  226 |         }
+      |         ~
+  227 |       }
+      |       ~
+  228 |     }
+      |     ~
+  229 |     std::vector<std::pair<decltype(std::declval<__struct4>().key), __struct5>>
+      |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  230 |         __items;
+      |         ~~~~~~~~
+  231 |     for (auto &g : __groups) {
+      |     ~~~~~~~~~~~~~~~~~~~~~~~~~~
+  232 |       __items.push_back(
+      |       ~~~~~~~~~~~~~~~~~~
+  233 |           {g.key,
+      |           ~~~~~~~
+  234 |            __struct5{
+      |            ~~~~~~~~~~
+  235 |                g.key, ([&](auto v) {
+      |                ~~~~~~~~~~~~~~~~~~~~~
+  236 |                  return std::accumulate(v.begin(), v.end(), 0.0);
+      |                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  237 |                })(([&]() {
+      |                ~~~~~~~~~~~
+  238 |                  std::vector<decltype((
+      |                  ~~~~~~~~~~~~~~~~~~~~~~
+  239 |                      (std::find(
+      |                      ~~~~~~~~~~~
+  240 |                           std::vector<std::string>{std::string("1-URGENT"),
+      |                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  241 |                                                    std::string("2-HIGH")}
+      |                                                    ~~~~~~~~~~~~~~~~~~~~~~
+  242 |                               .begin(),
+      |                               ~~~~~~~~~
+  243 |                           std::vector<std::string>{std::string("1-URGENT"),
+      |                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  244 |                                                    std::string("2-HIGH")}
+      |                                                    ~~~~~~~~~~~~~~~~~~~~~~
+  245 |                               .end(),
+      |                               ~~~~~~~
+  246 |                           std::declval<Result>().o.o_orderpriority) !=
+      |                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  247 |                       std::vector<std::string>{std::string("1-URGENT"),
+      |                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  248 |                                                std::string("2-HIGH")}
+      |                                                ~~~~~~~~~~~~~~~~~~~~~~
+  249 |                           .end())
+      |                           ~~~~~~~
+  250 |                          ? 1
+      |                          ~~~
+  251 |                          : 0))>
+      |                          ~~~~~~
+  252 |                      __items;
+      |                      ~~~~~~~~
+  253 |                  for (auto x : g.items) {
+      |                  ~~~~~~~~~~~~~~~~~~~~~~~~
+  254 |                    __items.push_back(
+      |                    ~~~~~~~~~~~~~~~~~~
+  255 |                        ((std::find(
+      |                        ~~~~~~~~~~~~
+  256 |                              std::vector<std::string>{std::string("1-URGENT"),
+      |                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  257 |                                                       std::string("2-HIGH")}
+      |                                                       ~~~~~~~~~~~~~~~~~~~~~~
+  258 |                                  .begin(),
+      |                                  ~~~~~~~~~
+  259 |                              std::vector<std::string>{std::string("1-URGENT"),
+      |                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  260 |                                                       std::string("2-HIGH")}
+      |                                                       ~~~~~~~~~~~~~~~~~~~~~~
+  261 |                                  .end(),
+      |                                  ~~~~~~~
+  262 |                              x.o.o_orderpriority) !=
+      |                              ~~~~~~~~~~~~~~~~~~~~~~~
+  263 |                          std::vector<std::string>{std::string("1-URGENT"),
+      |                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  264 |                                                   std::string("2-HIGH")}
+      |                                                   ~~~~~~~~~~~~~~~~~~~~~~
+  265 |                              .end())
+      |                              ~~~~~~~
+  266 |                             ? 1
+      |                             ~~~
+  267 |                             : 0));
+      |                             ~~~~~~
+  268 |                  }
+      |                  ~
+  269 |                  return __items;
+      |                  ~~~~~~~~~~~~~~~
+  270 |                })()),
+      |                ~~~~~~
+  271 |                ([&](auto v) {
+      |                ~~~~~~~~~~~~~~
+  272 |                  return std::accumulate(v.begin(), v.end(), 0.0);
+      |                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  273 |                })(([&]() {
+      |                ~~~~~~~~~~~
+  274 |                  std::vector<decltype((
+      |                  ~~~~~~~~~~~~~~~~~~~~~~
+  275 |                      (!((std::find(
+      |                      ~~~~~~~~~~~~~~
+  276 |                              std::vector<std::string>{std::string("1-URGENT"),
+      |                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  277 |                                                       std::string("2-HIGH")}
+      |                                                       ~~~~~~~~~~~~~~~~~~~~~~
+  278 |                                  .begin(),
+      |                                  ~~~~~~~~~
+  279 |                              std::vector<std::string>{std::string("1-URGENT"),
+      |                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  280 |                                                       std::string("2-HIGH")}
+      |                                                       ~~~~~~~~~~~~~~~~~~~~~~
+  281 |                                  .end(),
+      |                                  ~~~~~~~
+  282 |                              std::declval<Result>().o.o_orderpriority) !=
+      |                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  283 |                          std::vector<std::string>{std::string("1-URGENT"),
+      |                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  284 |                                                   std::string("2-HIGH")}
+      |                                                   ~~~~~~~~~~~~~~~~~~~~~~
+  285 |                              .end())))
+      |                              ~~~~~~~~~
+  286 |                          ? 1
+      |                          ~~~
+  287 |                          : 0))>
+      |                          ~~~~~~
+  288 |                      __items;
+      |                      ~~~~~~~~
+  289 |                  for (auto x : g.items) {
+      |                  ~~~~~~~~~~~~~~~~~~~~~~~~
+  290 |                    __items.push_back((
+      |                    ~~~~~~~~~~~~~~~~~~~
+  291 |                        (!((std::find(
+      |                        ~~~~~~~~~~~~~~
+  292 |                                std::vector<std::string>{std::string("1-URGENT"),
+      |                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  293 |                                                         std::string("2-HIGH")}
+      |                                                         ~~~~~~~~~~~~~~~~~~~~~~
+  294 |                                    .begin(),
+      |                                    ~~~~~~~~~
+  295 |                                std::vector<std::string>{std::string("1-URGENT"),
+      |                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  296 |                                                         std::string("2-HIGH")}
+      |                                                         ~~~~~~~~~~~~~~~~~~~~~~
+  297 |                                    .end(),
+      |                                    ~~~~~~~
+  298 |                                x.o.o_orderpriority) !=
+      |                                ~~~~~~~~~~~~~~~~~~~~~~~
+  299 |                            std::vector<std::string>{std::string("1-URGENT"),
+      |                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  300 |                                                     std::string("2-HIGH")}
+      |                                                     ~~~~~~~~~~~~~~~~~~~~~~
+  301 |                                .end())))
+      |                                ~~~~~~~~~
+  302 |                            ? 1
+      |                            ~~~
+  303 |                            : 0));
+      |                            ~~~~~~
+  304 |                  }
+      |                  ~
+  305 |                  return __items;
+      |                  ~~~~~~~~~~~~~~~
+  306 |                })())}});
+      |                ~~~~~~~~~
+  307 |     }
+      |     ~
+  308 |     std::sort(__items.begin(), __items.end(),
+      |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  309 |               [](auto &a, auto &b) { return a.first < b.first; });
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  310 |     std::vector<__struct5> __res;
+      |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  311 |     for (auto &p : __items)
+      |     ~~~~~~~~~~~~~~~~~~~~~~~
+  312 |       __res.push_back(p.second);
+      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~
+  313 |     return __res;
+      |     ~~~~~~~~~~~~~
+  314 |   })();
+      |   ~~^~
+/tmp/TestCPPCompiler_TPCHQueriesq122136620868/001/prog.cpp: In instantiation of ‘main()::<lambda()>::<lambda(auto:3&, auto:4&)> [with auto:3 = std::pair<std::any, __struct5>; auto:4 = std::pair<std::any, __struct5>]’:
+/usr/include/c++/13/bits/predefined_ops.h:158:30:   required from ‘constexpr bool __gnu_cxx::__ops::_Iter_comp_iter<_Compare>::operator()(_Iterator1, _Iterator2) [with _Iterator1 = __gnu_cxx::__normal_iterator<std::pair<std::any, __struct5>*, std::vector<std::pair<std::any, __struct5> > >; _Iterator2 = __gnu_cxx::__normal_iterator<std::pair<std::any, __struct5>*, std::vector<std::pair<std::any, __struct5> > >; _Compare = main()::<lambda()>::<lambda(auto:3&, auto:4&)>]’
+/usr/include/c++/13/bits/stl_algo.h:1819:14:   required from ‘void std::__insertion_sort(_RandomAccessIterator, _RandomAccessIterator, _Compare) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<pair<any, __struct5>*, vector<pair<any, __struct5> > >; _Compare = __gnu_cxx::__ops::_Iter_comp_iter<main()::<lambda()>::<lambda(auto:3&, auto:4&)> >]’
+/usr/include/c++/13/bits/stl_algo.h:1859:25:   required from ‘void std::__final_insertion_sort(_RandomAccessIterator, _RandomAccessIterator, _Compare) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<pair<any, __struct5>*, vector<pair<any, __struct5> > >; _Compare = __gnu_cxx::__ops::_Iter_comp_iter<main()::<lambda()>::<lambda(auto:3&, auto:4&)> >]’
+/usr/include/c++/13/bits/stl_algo.h:1950:31:   required from ‘void std::__sort(_RandomAccessIterator, _RandomAccessIterator, _Compare) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<pair<any, __struct5>*, vector<pair<any, __struct5> > >; _Compare = __gnu_cxx::__ops::_Iter_comp_iter<main()::<lambda()>::<lambda(auto:3&, auto:4&)> >]’
+/usr/include/c++/13/bits/stl_algo.h:4894:18:   required from ‘void std::sort(_RAIter, _RAIter, _Compare) [with _RAIter = __gnu_cxx::__normal_iterator<pair<any, __struct5>*, vector<pair<any, __struct5> > >; _Compare = main()::<lambda()>::<lambda(auto:3&, auto:4&)>]’
+/tmp/TestCPPCompiler_TPCHQueriesq122136620868/001/prog.cpp:308:14:   required from here
+/tmp/TestCPPCompiler_TPCHQueriesq122136620868/001/prog.cpp:309:53: error: no match for ‘operator<’ (operand types are ‘std::any’ and ‘std::any’)
+  309 |               [](auto &a, auto &b) { return a.first < b.first; });
+      |                                             ~~~~~~~~^~~~~~~~~
+In file included from /usr/include/c++/13/bits/stl_algobase.h:64,
+                 from /usr/include/c++/13/algorithm:60,
+                 from /tmp/TestCPPCompiler_TPCHQueriesq122136620868/001/prog.cpp:2:
+/usr/include/c++/13/bits/stl_pair.h:835:5: note: candidate: ‘template<class _T1, class _T2> constexpr bool std::operator<(const pair<_T1, _T2>&, const pair<_T1, _T2>&)’
+  835 |     operator<(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/stl_pair.h:835:5: note:   template argument deduction/substitution failed:
+/tmp/TestCPPCompiler_TPCHQueriesq122136620868/001/prog.cpp:309:53: note:   ‘std::any’ is not derived from ‘const std::pair<_T1, _T2>’
+  309 |               [](auto &a, auto &b) { return a.first < b.first; });
+      |                                             ~~~~~~~~^~~~~~~~~
+In file included from /usr/include/c++/13/bits/stl_algobase.h:67:
+/usr/include/c++/13/bits/stl_iterator.h:455:5: note: candidate: ‘template<class _Iterator> constexpr bool std::operator<(const reverse_iterator<_Iterator>&, const reverse_iterator<_Iterator>&)’
+  455 |     operator<(const reverse_iterator<_Iterator>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/stl_iterator.h:455:5: note:   template argument deduction/substitution failed:
+/tmp/TestCPPCompiler_TPCHQueriesq122136620868/001/prog.cpp:309:53: note:   ‘std::any’ is not derived from ‘const std::reverse_iterator<_Iterator>’
+  309 |               [](auto &a, auto &b) { return a.first < b.first; });
+      |                                             ~~~~~~~~^~~~~~~~~
+/usr/include/c++/13/bits/stl_iterator.h:500:5: note: candidate: ‘template<class _IteratorL, class _IteratorR> constexpr bool std::operator<(const reverse_iterator<_Iterator>&, const reverse_iterator<_IteratorR>&)’
+  500 |     operator<(const reverse_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/stl_iterator.h:500:5: note:   template argument deduction/substitution failed:
+/tmp/TestCPPCompiler_TPCHQueriesq122136620868/001/prog.cpp:309:53: note:   ‘std::any’ is not derived from ‘const std::reverse_iterator<_Iterator>’
+  309 |               [](auto &a, auto &b) { return a.first < b.first; });
+      |                                             ~~~~~~~~^~~~~~~~~
+/usr/include/c++/13/bits/stl_iterator.h:1705:5: note: candidate: ‘template<class _IteratorL, class _IteratorR> constexpr bool std::operator<(const move_iterator<_IteratorL>&, const move_iterator<_IteratorR>&)’
+ 1705 |     operator<(const move_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/stl_iterator.h:1705:5: note:   template argument deduction/substitution failed:
+/tmp/TestCPPCompiler_TPCHQueriesq122136620868/001/prog.cpp:309:53: note:   ‘std::any’ is not derived from ‘const std::move_iterator<_IteratorL>’
+  309 |               [](auto &a, auto &b) { return a.first < b.first; });
+      |                                             ~~~~~~~~^~~~~~~~~
+/usr/include/c++/13/bits/stl_iterator.h:1770:5: note: candidate: ‘template<class _Iterator> constexpr bool std::operator<(const move_iterator<_IteratorL>&, const move_iterator<_IteratorL>&)’
+ 1770 |     operator<(const move_iterator<_Iterator>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/stl_iterator.h:1770:5: note:   template argument deduction/substitution failed:
+/tmp/TestCPPCompiler_TPCHQueriesq122136620868/001/prog.cpp:309:53: note:   ‘std::any’ is not derived from ‘const std::move_iterator<_IteratorL>’
+  309 |               [](auto &a, auto &b) { return a.first < b.first; });
+      |                                             ~~~~~~~~^~~~~~~~~
+In file included from /usr/include/c++/13/bits/basic_string.h:47,
+                 from /usr/include/c++/13/string:54,
+                 from /usr/include/c++/13/bits/locale_classes.h:40,
+                 from /usr/include/c++/13/bits/ios_base.h:41,
+                 from /usr/include/c++/13/ios:44,
+                 from /usr/include/c++/13/ostream:40,
+                 from /usr/include/c++/13/iostream:41,
+                 from /tmp/TestCPPCompiler_TPCHQueriesq122136620868/001/prog.cpp:4:
+/usr/include/c++/13/string_view:671:5: note: candidate: ‘template<class _CharT, class _Traits> constexpr bool std::operator<(basic_string_view<_CharT, _Traits>, basic_string_view<_CharT, _Traits>)’
+  671 |     operator< (basic_string_view<_CharT, _Traits> __x,
+      |     ^~~~~~~~
+/usr/include/c++/13/string_view:671:5: note:   template argument deduction/substitution failed:
+/tmp/TestCPPCompiler_TPCHQueriesq122136620868/001/prog.cpp:309:53: note:   ‘std::any’ is not derived from ‘std::basic_string_view<_CharT, _Traits>’
+  309 |               [](auto &a, auto &b) { return a.first < b.first; });
+      |                                             ~~~~~~~~^~~~~~~~~
+/usr/include/c++/13/string_view:678:5: note: candidate: ‘template<class _CharT, class _Traits> constexpr bool std::operator<(basic_string_view<_CharT, _Traits>, __type_identity_t<basic_string_view<_CharT, _Traits> >)’
+  678 |     operator< (basic_string_view<_CharT, _Traits> __x,
+      |     ^~~~~~~~
+/usr/include/c++/13/string_view:678:5: note:   template argument deduction/substitution failed:
+/tmp/TestCPPCompiler_TPCHQueriesq122136620868/001/prog.cpp:309:53: note:   ‘std::any’ is not derived from ‘std::basic_string_view<_CharT, _Traits>’
+  309 |               [](auto &a, auto &b) { return a.first < b.first; });
+      |                                             ~~~~~~~~^~~~~~~~~
+/usr/include/c++/13/string_view:686:5: note: candidate: ‘template<class _CharT, class _Traits> constexpr bool std::operator<(__type_identity_t<basic_string_view<_CharT, _Traits> >, basic_string_view<_CharT, _Traits>)’
+  686 |     operator< (__type_identity_t<basic_string_view<_CharT, _Traits>> __x,
+      |     ^~~~~~~~
+/usr/include/c++/13/string_view:686:5: note:   template argument deduction/substitution failed:
+/tmp/TestCPPCompiler_TPCHQueriesq122136620868/001/prog.cpp:309:53: note:   ‘std::any’ is not derived from ‘std::basic_string_view<_CharT, _Traits>’
+  309 |               [](auto &a, auto &b) { return a.first < b.first; });
+      |                                             ~~~~~~~~^~~~~~~~~
+/usr/include/c++/13/bits/basic_string.h:3829:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> bool std::operator<(const __cxx11::basic_string<_CharT, _Traits, _Allocator>&, const __cxx11::basic_string<_CharT, _Traits, _Allocator>&)’
+ 3829 |     operator<(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/basic_string.h:3829:5: note:   template argument deduction/substitution failed:
+/tmp/TestCPPCompiler_TPCHQueriesq122136620868/001/prog.cpp:309:53: note:   ‘std::any’ is not derived from ‘const std::__cxx11::basic_string<_CharT, _Traits, _Allocator>’
+  309 |               [](auto &a, auto &b) { return a.first < b.first; });
+      |                                             ~~~~~~~~^~~~~~~~~
+/usr/include/c++/13/bits/basic_string.h:3843:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> bool std::operator<(const __cxx11::basic_string<_CharT, _Traits, _Allocator>&, const _CharT*)’
+ 3843 |     operator<(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/basic_string.h:3843:5: note:   template argument deduction/substitution failed:
+/tmp/TestCPPCompiler_TPCHQueriesq122136620868/001/prog.cpp:309:53: note:   ‘std::any’ is not derived from ‘const std::__cxx11::basic_string<_CharT, _Traits, _Allocator>’
+  309 |               [](auto &a, auto &b) { return a.first < b.first; });
+      |                                             ~~~~~~~~^~~~~~~~~
+/usr/include/c++/13/bits/basic_string.h:3856:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> bool std::operator<(const _CharT*, const __cxx11::basic_string<_CharT, _Traits, _Allocator>&)’
+ 3856 |     operator<(const _CharT* __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/basic_string.h:3856:5: note:   template argument deduction/substitution failed:
+/tmp/TestCPPCompiler_TPCHQueriesq122136620868/001/prog.cpp:309:53: note:   mismatched types ‘const _CharT*’ and ‘std::any’
+  309 |               [](auto &a, auto &b) { return a.first < b.first; });
+      |                                             ~~~~~~~~^~~~~~~~~
+In file included from /usr/include/c++/13/bits/memory_resource.h:47,
+                 from /usr/include/c++/13/string:58:
+/usr/include/c++/13/tuple:1961:5: note: candidate: ‘template<class ... _TElements, class ... _UElements> constexpr bool std::operator<(const tuple<_UTypes ...>&, const tuple<_UTypes ...>&)’
+ 1961 |     operator<(const tuple<_TElements...>& __t,
+      |     ^~~~~~~~
+/usr/include/c++/13/tuple:1961:5: note:   template argument deduction/substitution failed:
+/tmp/TestCPPCompiler_TPCHQueriesq122136620868/001/prog.cpp:309:53: note:   ‘std::any’ is not derived from ‘const std::tuple<_UTypes ...>’
+  309 |               [](auto &a, auto &b) { return a.first < b.first; });
+      |                                             ~~~~~~~~^~~~~~~~~
+In file included from /usr/include/c++/13/map:63,
+                 from /tmp/TestCPPCompiler_TPCHQueriesq122136620868/001/prog.cpp:5:
+/usr/include/c++/13/bits/stl_map.h:1551:5: note: candidate: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> bool std::operator<(const map<_Key, _Tp, _Compare, _Allocator>&, const map<_Key, _Tp, _Compare, _Allocator>&)’
+ 1551 |     operator<(const map<_Key, _Tp, _Compare, _Alloc>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/stl_map.h:1551:5: note:   template argument deduction/substitution failed:
+/tmp/TestCPPCompiler_TPCHQueriesq122136620868/001/prog.cpp:309:53: note:   ‘std::any’ is not derived from ‘const std::map<_Key, _Tp, _Compare, _Allocator>’
+  309 |               [](auto &a, auto &b) { return a.first < b.first; });
+      |                                             ~~~~~~~~^~~~~~~~~
+In file included from /usr/include/c++/13/map:64:
+/usr/include/c++/13/bits/stl_multimap.h:1172:5: note: candidate: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> bool std::operator<(const multimap<_Key, _Tp, _Compare, _Allocator>&, const multimap<_Key, _Tp, _Compare, _Allocator>&)’
+ 1172 |     operator<(const multimap<_Key, _Tp, _Compare, _Alloc>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/stl_multimap.h:1172:5: note:   template argument deduction/substitution failed:
+/tmp/TestCPPCompiler_TPCHQueriesq122136620868/001/prog.cpp:309:53: note:   ‘std::any’ is not derived from ‘const std::multimap<_Key, _Tp, _Compare, _Allocator>’
+  309 |               [](auto &a, auto &b) { return a.first < b.first; });
+      |                                             ~~~~~~~~^~~~~~~~~
+In file included from /usr/include/c++/13/vector:66,
+                 from /tmp/TestCPPCompiler_TPCHQueriesq122136620868/001/prog.cpp:10:
+/usr/include/c++/13/bits/stl_vector.h:2079:5: note: candidate: ‘template<class _Tp, class _Alloc> bool std::operator<(const vector<_Tp, _Alloc>&, const vector<_Tp, _Alloc>&)’
+ 2079 |     operator<(const vector<_Tp, _Alloc>& __x, const vector<_Tp, _Alloc>& __y)
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/stl_vector.h:2079:5: note:   template argument deduction/substitution failed:
+/tmp/TestCPPCompiler_TPCHQueriesq122136620868/001/prog.cpp:309:53: note:   ‘std::any’ is not derived from ‘const std::vector<_Tp, _Alloc>’
+  309 |               [](auto &a, auto &b) { return a.first < b.first; });
+      |                                             ~~~~~~~~^~~~~~~~~
+In file included from /usr/include/c++/13/bits/ios_base.h:46:
+/usr/include/c++/13/system_error:324:3: note: candidate: ‘bool std::operator<(const error_code&, const error_code&)’
+  324 |   operator<(const error_code& __lhs, const error_code& __rhs) noexcept
+      |   ^~~~~~~~
+/usr/include/c++/13/system_error:324:31: note:   no known conversion for argument 1 from ‘std::any’ to ‘const std::error_code&’
+  324 |   operator<(const error_code& __lhs, const error_code& __rhs) noexcept
+      |             ~~~~~~~~~~~~~~~~~~^~~~~
+/usr/include/c++/13/system_error:507:3: note: candidate: ‘bool std::operator<(const error_condition&, const error_condition&)’
+  507 |   operator<(const error_condition& __lhs,
+      |   ^~~~~~~~
+/usr/include/c++/13/system_error:507:36: note:   no known conversion for argument 1 from ‘std::any’ to ‘const std::error_condition&’
+  507 |   operator<(const error_condition& __lhs,
+      |             ~~~~~~~~~~~~~~~~~~~~~~~^~~~~

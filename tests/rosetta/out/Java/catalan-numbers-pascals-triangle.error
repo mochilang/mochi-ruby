@@ -1,0 +1,8 @@
+parse: error[P999]: /workspace/mochi/tests/rosetta/x/Mochi/catalan-numbers-pascals-triangle.mochi:16:22: unexpected token "-1" (expected "]")
+  --> /workspace/mochi/tests/rosetta/x/Mochi/catalan-numbers-pascals-triangle.mochi:16:22
+
+ 16 |     t[j] = t[j] + t[j-1]
+    |                      ^
+
+help:
+  Parse error occurred. Check syntax near this location.

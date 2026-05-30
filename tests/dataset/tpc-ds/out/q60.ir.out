@@ -1,0 +1,38 @@
+func main (regs=20)
+  // let store_sales = [
+  Const        r0, [{"item": 1, "price": 10}, {"item": 1, "price": 20}]
+  // let catalog_sales = [
+  Const        r1, [{"item": 1, "price": 15}]
+  // let web_sales = [
+  Const        r2, [{"item": 1, "price": 15}]
+  // let all_sales = store_sales union all catalog_sales union all web_sales
+  Const        r3, [{"item": 1, "price": 10}, {"item": 1, "price": 20}, {"item": 1, "price": 15}]
+  Const        r4, [{"item": 1, "price": 10}, {"item": 1, "price": 20}, {"item": 1, "price": 15}, {"item": 1, "price": 15}]
+  // let result = sum(from s in all_sales select s.price)
+  Const        r5, []
+  Const        r6, "price"
+  IterPrep     r7, r4
+  Len          r8, r7
+  Const        r10, 0
+  Move         r9, r10
+L1:
+  LessInt      r11, r9, r8
+  JumpIfFalse  r11, L0
+  Index        r12, r7, r9
+  Move         r13, r12
+  Const        r6, "price"
+  Index        r14, r13, r6
+  Append       r15, r5, r14
+  Move         r5, r15
+  Const        r16, 1
+  AddInt       r9, r9, r16
+  Jump         L1
+L0:
+  Sum          r17, r5
+  // json(result)
+  JSON         r17
+  // expect result == 60
+  Const        r18, 60
+  Equal        r19, r17, r18
+  Expect       r19
+  Return       r0

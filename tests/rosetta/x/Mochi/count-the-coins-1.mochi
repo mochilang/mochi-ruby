@@ -1,0 +1,27 @@
+// Mochi translation of Rosetta "Count the coins" task variant 1
+// Based on Go version in tests/rosetta/x/Go/count-the-coins-1.go
+
+fun countChange(amount: int): int {
+  var ways: list<int> = []
+  var i = 0
+  while i <= amount {
+    ways = append(ways, 0)
+    i = i + 1
+  }
+  ways[0] = 1
+  var coins = [1, 5, 10, 25]
+  var idx = 0
+  while idx < len(coins) {
+    let coin = coins[idx]
+    var j = coin
+    while j <= amount {
+      ways[j] = ways[j] + ways[j - coin]
+      j = j + 1
+    }
+    idx = idx + 1
+  }
+  return ways[amount]
+}
+
+let amount = 10
+print("amount, ways to make change: " + str(amount) + " " + str(countChange(amount)))

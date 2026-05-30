@@ -1,0 +1,13 @@
+
+/workspace/mochi/tests/machine/x/hs/group_by_join.hs:131:253: error:
+    • Couldn't match type ‘AnyValue’ with ‘Int’
+      Expected: Map.Map String Int
+        Actual: Map.Map String AnyValue
+    • In the second argument of ‘Map.lookup’, namely ‘(c)’
+      In the second argument of ‘fromMaybe’, namely
+        ‘(Map.lookup "id" (c))’
+      In the second argument of ‘(==)’, namely
+        ‘fromMaybe (error "missing") (Map.lookup "id" (c))’
+    |
+131 | stats = [Map.fromList [("name", VString (key (g))), ("count", VInt (length (items g)))] | g <- _group_by [(o, c) | o <- orders, c <- customers, (fromMaybe (error "missing") (Map.lookup "customerId" (o)) == fromMaybe (error "missing") (Map.lookup "id" (c)))] (\(o, c) -> fromMaybe (error "missing") (Map.lookup "name" c)), let g = g]
+    |                                                                                                                                                                                                                                                             ^

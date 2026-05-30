@@ -1,0 +1,10 @@
+generated code does not match expected
+- let square = fun(x: int): int => x * x
++ let square = None
+- print(square(6))  // 36
++ fun main() {
+- 
++   let square = lambda x: (x * x)
++   print(square(6))
++ }
++ 

@@ -1,0 +1,9 @@
+(program
+  (fun boom
+    (type bool)
+    (call print
+      (call String (string boom))
+    )
+    (return (bool true))
+  )
+)

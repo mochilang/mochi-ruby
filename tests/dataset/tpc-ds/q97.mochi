@@ -1,0 +1,34 @@
+// Compare store and catalog customers
+type StoreSale { ss_customer_sk: int, ss_item_sk: int }
+type CatalogSale { cs_bill_customer_sk: int, cs_item_sk: int }
+
+let store_sales = [
+  {ss_customer_sk: 1, ss_item_sk: 1},
+  {ss_customer_sk: 2, ss_item_sk: 1}
+]
+
+let catalog_sales = [
+  {cs_bill_customer_sk: 1, cs_item_sk: 1},
+  {cs_bill_customer_sk: 3, cs_item_sk: 2}
+]
+
+let ssci = from ss in store_sales group by {customer_sk: ss.ss_customer_sk, item_sk: ss.ss_item_sk} into g select {customer_sk: g.key.customer_sk, item_sk: g.key.item_sk}
+let csci = from cs in catalog_sales group by {customer_sk: cs.cs_bill_customer_sk, item_sk: cs.cs_item_sk} into g select {customer_sk: g.key.customer_sk, item_sk: g.key.item_sk}
+
+let both = count(from s in ssci join c in csci on s.customer_sk == c.customer_sk && s.item_sk == c.item_sk select 1)
+let store_only = count(from s in ssci where !(exists(from c in csci where s.customer_sk == c.customer_sk && s.item_sk == c.item_sk select c)) select 1)
+let catalog_only = count(from c in csci where !(exists(from s in ssci where s.customer_sk == c.customer_sk && s.item_sk == c.item_sk select s)) select 1)
+
+let result = {
+  store_only: store_only,
+  catalog_only: catalog_only,
+  store_and_catalog: both
+}
+
+json(result)
+
+test "TPCDS Q97 overlap" {
+  expect result.store_only == 1 &&
+         result.catalog_only == 1 &&
+         result.store_and_catalog == 1
+}

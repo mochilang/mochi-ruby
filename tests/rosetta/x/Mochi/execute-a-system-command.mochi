@@ -1,0 +1,8 @@
+// Mochi translation of Rosetta "Execute a system command" task
+// Runs the command "ls -l" and prints its output using Python's subprocess module.
+
+import python "subprocess" as subprocess
+extern fun subprocess.getoutput(cmd: string): string
+
+let out = subprocess.getoutput("ls -l")
+print(out)

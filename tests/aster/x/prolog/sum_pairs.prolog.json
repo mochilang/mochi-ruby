@@ -1,0 +1,213 @@
+{
+  "kind": "program",
+  "children": [
+    {
+      "kind": "clause",
+      "children": [
+        {
+          "kind": ":-",
+          "children": [
+            {
+              "kind": "initialization",
+              "children": [
+                {
+                  "kind": "atom",
+                  "text": "main"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "bool",
+          "text": "true"
+        }
+      ]
+    },
+    {
+      "kind": "clause",
+      "children": [
+        {
+          "kind": ":-",
+          "children": [
+            {
+              "kind": "style_check",
+              "children": [
+                {
+                  "kind": "-",
+                  "children": [
+                    {
+                      "kind": "atom",
+                      "text": "singleton"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "bool",
+          "text": "true"
+        }
+      ]
+    },
+    {
+      "kind": "clause",
+      "children": [
+        {
+          "kind": "sum_pairs",
+          "children": [
+            {
+              "kind": "list"
+            },
+            {
+              "kind": "list"
+            }
+          ]
+        },
+        {
+          "kind": "bool",
+          "text": "true"
+        }
+      ]
+    },
+    {
+      "kind": "clause",
+      "children": [
+        {
+          "kind": "sum_pairs",
+          "children": [
+            {
+              "kind": "[|]",
+              "children": [
+                {
+                  "kind": "var",
+                  "text": "A"
+                },
+                {
+                  "kind": "[|]",
+                  "children": [
+                    {
+                      "kind": "var",
+                      "text": "B"
+                    },
+                    {
+                      "kind": "var",
+                      "text": "T"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "[|]",
+              "children": [
+                {
+                  "kind": "var",
+                  "text": "S"
+                },
+                {
+                  "kind": "var",
+                  "text": "R"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": ",",
+          "children": [
+            {
+              "kind": "is",
+              "children": [
+                {
+                  "kind": "var",
+                  "text": "S"
+                },
+                {
+                  "kind": "+",
+                  "children": [
+                    {
+                      "kind": "var",
+                      "text": "A"
+                    },
+                    {
+                      "kind": "var",
+                      "text": "B"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "sum_pairs",
+              "children": [
+                {
+                  "kind": "var",
+                  "text": "T"
+                },
+                {
+                  "kind": "var",
+                  "text": "R"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "clause",
+      "children": [
+        {
+          "kind": "main"
+        },
+        {
+          "kind": ",",
+          "children": [
+            {
+              "kind": "sum_pairs",
+              "children": [
+                {
+                  "kind": "list",
+                  "children": [
+                    {
+                      "kind": "number",
+                      "text": "1"
+                    },
+                    {
+                      "kind": "number",
+                      "text": "2"
+                    },
+                    {
+                      "kind": "number",
+                      "text": "3"
+                    },
+                    {
+                      "kind": "number",
+                      "text": "4"
+                    }
+                  ]
+                },
+                {
+                  "kind": "var",
+                  "text": "R"
+                }
+              ]
+            },
+            {
+              "kind": "writeln",
+              "children": [
+                {
+                  "kind": "var",
+                  "text": "R"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

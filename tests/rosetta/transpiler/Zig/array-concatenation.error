@@ -1,0 +1,5 @@
+zig build: exit status 1
+/tmp/array-concatenation.zig:40:15: error: function parameter shadows declaration of 'a'
+/tmp/array-concatenation.zig:8:1: note: declared here
+/tmp/array-concatenation.zig:51:14: error: function parameter shadows declaration of 'a'
+/tmp/array-concatenation.zig:8:1: note: declared here

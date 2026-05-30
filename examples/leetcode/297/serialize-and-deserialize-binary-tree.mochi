@@ -1,0 +1,155 @@
+// LeetCode 297 - Serialize and Deserialize Binary Tree
+// Tree helpers implemented without using union types or pattern matching.
+
+// Utility to convert a string of digits to an int
+fun parseInt(s: string): int {
+  var result = 0
+  var i = 0
+  let digits = {
+    "0": 0,
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "6": 6,
+    "7": 7,
+    "8": 8,
+    "9": 9,
+  }
+  while i < len(s) {
+    result = result * 10 + digits[s[i]]
+    i = i + 1
+  }
+  return result
+}
+
+// Split a string by comma without relying on a built-in
+fun splitComma(s: string): list<string> {
+  var parts: list<string> = []
+  var current = ""
+  var i = 0
+  while i < len(s) {
+    let c = s[i]
+    if c == "," {
+      parts = parts + [current]
+      current = ""
+    } else {
+      current = current + c
+    }
+    i = i + 1
+  }
+  parts = parts + [current]
+  return parts
+}
+
+// Join a list of strings with a separator
+fun join(parts: list<string>, sep: string): string {
+  var result = ""
+  var i = 0
+  while i < len(parts) {
+    if i > 0 { result = result + sep }
+    result = result + parts[i]
+    i = i + 1
+  }
+  return result
+}
+
+fun Leaf(): map<string, any> {
+  return {"__name": "Leaf"}
+}
+
+fun Node(left: map<string, any>, value: int, right: map<string, any>): map<string, any> {
+  return {"__name": "Node", "left": left, "value": value, "right": right}
+}
+
+fun isLeaf(t: map<string, any>): bool {
+  return t["__name"] == "Leaf"
+}
+
+fun left(t: map<string, any>): map<string, any> { return t["left"] }
+fun right(t: map<string, any>): map<string, any> { return t["right"] }
+fun value(t: map<string, any>): int { return t["value"] as int }
+
+// Convert the binary tree to a comma separated string using BFS
+fun serialize(root: map<string, any>): string {
+  if isLeaf(root) { return "" }
+  var queue: list<map<string, any>> = [root]
+  var parts: list<string> = []
+  while len(queue) > 0 {
+    let node = queue[0]
+    queue = queue[1:len(queue)]
+    if isLeaf(node) {
+      parts = parts + ["null"]
+    } else {
+      parts = parts + [str(value(node))]
+      queue = queue + [left(node)]
+      queue = queue + [right(node)]
+    }
+  }
+  // remove trailing "null" values
+  var i = len(parts) - 1
+  while i >= 0 && parts[i] == "null" {
+    i = i - 1
+  }
+  parts = parts[0:i+1]
+  return join(parts, ",")
+}
+
+// Reconstruct the tree from a serialized string
+fun deserialize(data: string): map<string, any> {
+  if data == "" { return Leaf() }
+  let vals = splitComma(data)
+
+  fun build(i: int): map<string, any> {
+    if i >= len(vals) { return Leaf() }
+    let v = vals[i]
+    if v == "null" { return Leaf() }
+    let leftNode = build(2 * i + 1)
+    let rightNode = build(2 * i + 2)
+    return Node(leftNode, parseInt(v), rightNode)
+  }
+
+  return build(0)
+}
+
+// Example tree: [1,2,3,null,null,4,5]
+let example = Node(
+  Node(Leaf(), 2, Leaf()),
+  1,
+  Node(Node(Leaf(), 4, Leaf()), 3, Node(Leaf(), 5, Leaf()))
+)
+
+test "serialize round trip" {
+  let s = serialize(example)
+  let t = deserialize(s)
+  expect serialize(t) == s
+}
+
+test "empty tree" {
+  expect serialize(Leaf()) == ""
+  expect isLeaf(deserialize("")) == true
+}
+
+test "single node" {
+  let s = serialize(Node(Leaf(), 7, Leaf()))
+  expect s == "7"
+  expect serialize(deserialize(s)) == "7"
+}
+
+/*
+Common Mochi language errors and how to fix them:
+1. Forgetting to call Leaf() when creating empty children:
+     Node(Leaf, 1, Leaf) // ❌ not a function call
+   Use Leaf() instead.
+2. Using '=' instead of '==' when comparing strings:
+     if v = "null" { } // ❌ assignment
+   Use '==' for comparison.
+3. Declaring a variable with 'let' and then reassigning it.
+   Use 'var' for mutable values like queues or indices.
+4. Trying Python-style methods like parts.join(",").
+   Use the join(parts, ",") helper defined above.
+5. Forgetting to parse strings to ints with parseInt when reconstructing nodes.
+   `Node(Leaf(), v, Leaf())`  // ❌ v is a string
+   Use `Node(Leaf(), parseInt(v), Leaf())`.
+*/

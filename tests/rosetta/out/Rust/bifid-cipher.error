@@ -1,0 +1,374 @@
+rustc: exit status 1
+error[E0308]: mismatched types
+ --> /tmp/bifid-cipher.rs:4:124
+  |
+4 |         let mut emap: std::collections::HashMap<&'static str, Vec<i32>> = { let mut m = std::collections::BTreeMap::new(); m };
+  |                                                                                                                            ^ expected `HashMap<&str, Vec<i32>>`, found `BTreeMap<_, _>`
+  |
+  = note: expected struct `HashMap<&'static str, Vec<i32>>`
+             found struct `BTreeMap<_, _>`
+
+error[E0308]: mismatched types
+ --> /tmp/bifid-cipher.rs:5:128
+  |
+5 |         let mut dmap: std::collections::HashMap<&'static str, &'static str> = { let mut m = std::collections::BTreeMap::new(); m };
+  |                                                                                                                                ^ expected `HashMap<&str, &str>`, found `BTreeMap<_, _>`
+  |
+  = note: expected struct `HashMap<&'static str, &'static str>`
+             found struct `BTreeMap<_, _>`
+
+error[E0425]: cannot find function `upper` in this scope
+  --> /tmp/bifid-cipher.rs:21:17
+   |
+21 |         let s = upper(text);
+   |                 ^^^^^ not found in this scope
+
+error[E0308]: mismatched types
+  --> /tmp/bifid-cipher.rs:26:34
+   |
+26 |             if emap.contains_key(&ch != " " && ch) {
+   |                     ------------ ^^^^^^^^^^^^^^^^ expected `&_`, found `bool`
+   |                     |
+   |                     arguments to this method are incorrect
+   |
+   = note: expected reference `&_`
+                   found type `bool`
+note: method defined here
+  --> /rustc/17067e9ac6d7ecb70e50f92c1944e545188d2359/library/std/src/collections/hash/map.rs:1137:12
+help: consider borrowing here
+   |
+26 |             if emap.contains_key(&(&ch != " " && ch)) {
+   |                                  ++                +
+
+error[E0308]: mismatched types
+  --> /tmp/bifid-cipher.rs:31:16
+   |
+20 |     fn remove_space(text: &'static str, emap: std::collections::HashMap<&'static str, Vec<i32>>) -> &'static str {
+   |                                                                                                     ------------ expected `&'static str` because of return type
+...
+31 |         return out;
+   |                ^^^ expected `&str`, found `String`
+   |
+help: consider borrowing here
+   |
+31 |         return &out;
+   |                +
+
+error[E0308]: mismatched types
+  --> /tmp/bifid-cipher.rs:34:16
+   |
+34 |         text = remove_space(text, emap);
+   |                ^^^^^^^^^^^^^^^^^^^^^^^^ types differ in mutability
+   |
+   = note: expected mutable reference `&mut &'static _`
+                      found reference `&'static _`
+help: consider dereferencing here to assign to the mutably borrowed value
+   |
+34 |         *text = remove_space(text, emap);
+   |         +
+
+error[E0308]: mismatched types
+  --> /tmp/bifid-cipher.rs:39:44
+   |
+39 |             let ch = &text[i as usize..i + 1 as usize];
+   |                                            ^^^^^^^^^^ expected `i32`, found `usize`
+
+error[E0308]: mismatched types
+  --> /tmp/bifid-cipher.rs:39:40
+   |
+39 |             let ch = &text[i as usize..i + 1 as usize];
+   |                                        ^^^^^^^^^^^^^^ expected `usize`, found `i32`
+
+error[E0277]: cannot add `usize` to `i32`
+  --> /tmp/bifid-cipher.rs:39:42
+   |
+39 |             let ch = &text[i as usize..i + 1 as usize];
+   |                                          ^ no implementation for `i32 + usize`
+   |
+   = help: the trait `Add<usize>` is not implemented for `i32`
+   = help: the following other types implement trait `Add<Rhs>`:
+             `&i32` implements `Add<i32>`
+             `&i32` implements `Add`
+             `i32` implements `Add<&i32>`
+             `i32` implements `Add`
+
+error[E0308]: mismatched types
+  --> /tmp/bifid-cipher.rs:51:100
+   |
+51 |             let key = format!("{}{}", format!("{}{}", row0[j as usize].to_string(), ","), row0[j + 1 as usize].to_string());
+   |                                                                                                    ^^^^^^^^^^ expected `i32`, found `usize`
+
+error[E0277]: cannot add `usize` to `i32`
+  --> /tmp/bifid-cipher.rs:51:98
+   |
+51 |             let key = format!("{}{}", format!("{}{}", row0[j as usize].to_string(), ","), row0[j + 1 as usize].to_string());
+   |                                                                                                  ^ no implementation for `i32 + usize`
+   |
+   = help: the trait `Add<usize>` is not implemented for `i32`
+   = help: the following other types implement trait `Add<Rhs>`:
+             `&i32` implements `Add<i32>`
+             `&i32` implements `Add`
+             `i32` implements `Add<&i32>`
+             `i32` implements `Add`
+
+error[E0277]: the type `[i32]` cannot be indexed by `i32`
+  --> /tmp/bifid-cipher.rs:51:96
+   |
+51 |             let key = format!("{}{}", format!("{}{}", row0[j as usize].to_string(), ","), row0[j + 1 as usize].to_string());
+   |                                                                                                ^^^^^^^^^^^^^^ slice indices are of type `usize` or ranges of `usize`
+   |
+   = help: the trait `SliceIndex<[i32]>` is not implemented for `i32`
+           but it is implemented for `usize`
+   = help: for that trait implementation, expected `usize`, found `i32`
+   = note: required for `Vec<i32>` to implement `Index<i32>`
+
+error[E0277]: the trait bound `&str: Borrow<String>` is not satisfied
+  --> /tmp/bifid-cipher.rs:52:30
+   |
+52 |             res += *dmap.get(&key).unwrap();
+   |                          --- ^^^^ the trait `Borrow<String>` is not implemented for `&str`
+   |                          |
+   |                          required by a bound introduced by this call
+   |
+   = help: the trait `Borrow<str>` is implemented for `String`
+note: required by a bound in `HashMap::<K, V, S>::get`
+  --> /rustc/17067e9ac6d7ecb70e50f92c1944e545188d2359/library/std/src/collections/hash/map.rs:906:5
+
+error[E0308]: mismatched types
+  --> /tmp/bifid-cipher.rs:55:16
+   |
+33 | ...pt(text: &mut &'static str, emap: std::collections::HashMap<&'static str, Vec<i32>>, dmap: std::collections::HashMap<&'static str, &'static str>) -> &'static str {
+   |                                                                                                                                                         ------------ expected `&'static str` because of return type
+...
+55 | ...rn res;
+   |       ^^^ expected `&str`, found `String`
+   |
+help: consider borrowing here
+   |
+55 |         return &res;
+   |                +
+
+error[E0308]: mismatched types
+  --> /tmp/bifid-cipher.rs:58:16
+   |
+58 |         text = remove_space(text, emap);
+   |                ^^^^^^^^^^^^^^^^^^^^^^^^ types differ in mutability
+   |
+   = note: expected mutable reference `&mut &'static _`
+                      found reference `&'static _`
+help: consider dereferencing here to assign to the mutably borrowed value
+   |
+58 |         *text = remove_space(text, emap);
+   |         +
+
+error[E0308]: mismatched types
+  --> /tmp/bifid-cipher.rs:62:44
+   |
+62 |             let ch = &text[i as usize..i + 1 as usize];
+   |                                            ^^^^^^^^^^ expected `i32`, found `usize`
+
+error[E0308]: mismatched types
+  --> /tmp/bifid-cipher.rs:62:40
+   |
+62 |             let ch = &text[i as usize..i + 1 as usize];
+   |                                        ^^^^^^^^^^^^^^ expected `usize`, found `i32`
+
+error[E0277]: cannot add `usize` to `i32`
+  --> /tmp/bifid-cipher.rs:62:42
+   |
+62 |             let ch = &text[i as usize..i + 1 as usize];
+   |                                          ^ no implementation for `i32 + usize`
+   |
+   = help: the trait `Add<usize>` is not implemented for `i32`
+   = help: the following other types implement trait `Add<Rhs>`:
+             `&i32` implements `Add<i32>`
+             `&i32` implements `Add`
+             `i32` implements `Add<&i32>`
+             `i32` implements `Add`
+
+error[E0277]: the trait bound `&str: Borrow<String>` is not satisfied
+  --> /tmp/bifid-cipher.rs:84:30
+   |
+84 |             res += *dmap.get(&key).unwrap();
+   |                          --- ^^^^ the trait `Borrow<String>` is not implemented for `&str`
+   |                          |
+   |                          required by a bound introduced by this call
+   |
+   = help: the trait `Borrow<str>` is implemented for `String`
+note: required by a bound in `HashMap::<K, V, S>::get`
+  --> /rustc/17067e9ac6d7ecb70e50f92c1944e545188d2359/library/std/src/collections/hash/map.rs:906:5
+
+error[E0308]: mismatched types
+  --> /tmp/bifid-cipher.rs:87:16
+   |
+57 | ...pt(text: &mut &'static str, emap: std::collections::HashMap<&'static str, Vec<i32>>, dmap: std::collections::HashMap<&'static str, &'static str>) -> &'static str {
+   |                                                                                                                                                         ------------ expected `&'static str` because of return type
+...
+87 | ...rn res;
+   |       ^^^ expected `&str`, found `String`
+   |
+help: consider borrowing here
+   |
+87 |         return &res;
+   |                +
+
+error[E0308]: arguments to this function are incorrect
+   --> /tmp/bifid-cipher.rs:100:21
+    |
+100 |         let mut s = encrypt(&mut textRosetta, emap, dmap);
+    |                     ^^^^^^^
+    |
+note: expected `HashMap<&str, Vec<i32>>`, found `i32`
+   --> /tmp/bifid-cipher.rs:100:47
+    |
+100 |         let mut s = encrypt(&mut textRosetta, emap, dmap);
+    |                                               ^^^^
+    = note: expected struct `HashMap<&'static str, Vec<i32>>`
+                 found type `i32`
+note: expected `HashMap<&str, &str>`, found `i32`
+   --> /tmp/bifid-cipher.rs:100:53
+    |
+100 |         let mut s = encrypt(&mut textRosetta, emap, dmap);
+    |                                                     ^^^^
+    = note: expected struct `HashMap<&'static str, &'static str>`
+                 found type `i32`
+note: function defined here
+   --> /tmp/bifid-cipher.rs:33:8
+    |
+33  | ...fn encrypt(text: &mut &'static str, emap: std::collections::HashMap<&'static str, Vec<i32>>, dmap: std::collections::HashMap<&'static str, &'static str>) -...
+    |       ^^^^^^^                          -------------------------------------------------------  -----------------------------------------------------------
+
+error[E0308]: arguments to this function are incorrect
+   --> /tmp/bifid-cipher.rs:102:13
+    |
+102 |         s = decrypt(&mut s, emap, dmap);
+    |             ^^^^^^^
+    |
+note: expected `HashMap<&str, Vec<i32>>`, found `i32`
+   --> /tmp/bifid-cipher.rs:102:29
+    |
+102 |         s = decrypt(&mut s, emap, dmap);
+    |                             ^^^^
+    = note: expected struct `HashMap<&'static str, Vec<i32>>`
+                 found type `i32`
+note: expected `HashMap<&str, &str>`, found `i32`
+   --> /tmp/bifid-cipher.rs:102:35
+    |
+102 |         s = decrypt(&mut s, emap, dmap);
+    |                                   ^^^^
+    = note: expected struct `HashMap<&'static str, &'static str>`
+                 found type `i32`
+note: function defined here
+   --> /tmp/bifid-cipher.rs:57:8
+    |
+57  | ...fn decrypt(text: &mut &'static str, emap: std::collections::HashMap<&'static str, Vec<i32>>, dmap: std::collections::HashMap<&'static str, &'static str>) -...
+    |       ^^^^^^^                          -------------------------------------------------------  -----------------------------------------------------------
+
+error[E0308]: arguments to this function are incorrect
+   --> /tmp/bifid-cipher.rs:109:13
+    |
+109 |         s = encrypt(&mut textWikipedia, emap, dmap);
+    |             ^^^^^^^
+    |
+note: expected `HashMap<&str, Vec<i32>>`, found `i32`
+   --> /tmp/bifid-cipher.rs:109:41
+    |
+109 |         s = encrypt(&mut textWikipedia, emap, dmap);
+    |                                         ^^^^
+    = note: expected struct `HashMap<&'static str, Vec<i32>>`
+                 found type `i32`
+note: expected `HashMap<&str, &str>`, found `i32`
+   --> /tmp/bifid-cipher.rs:109:47
+    |
+109 |         s = encrypt(&mut textWikipedia, emap, dmap);
+    |                                               ^^^^
+    = note: expected struct `HashMap<&'static str, &'static str>`
+                 found type `i32`
+note: function defined here
+   --> /tmp/bifid-cipher.rs:33:8
+    |
+33  | ...fn encrypt(text: &mut &'static str, emap: std::collections::HashMap<&'static str, Vec<i32>>, dmap: std::collections::HashMap<&'static str, &'static str>) -...
+    |       ^^^^^^^                          -------------------------------------------------------  -----------------------------------------------------------
+
+error[E0308]: arguments to this function are incorrect
+   --> /tmp/bifid-cipher.rs:111:13
+    |
+111 |         s = decrypt(&mut s, emap, dmap);
+    |             ^^^^^^^
+    |
+note: expected `HashMap<&str, Vec<i32>>`, found `i32`
+   --> /tmp/bifid-cipher.rs:111:29
+    |
+111 |         s = decrypt(&mut s, emap, dmap);
+    |                             ^^^^
+    = note: expected struct `HashMap<&'static str, Vec<i32>>`
+                 found type `i32`
+note: expected `HashMap<&str, &str>`, found `i32`
+   --> /tmp/bifid-cipher.rs:111:35
+    |
+111 |         s = decrypt(&mut s, emap, dmap);
+    |                                   ^^^^
+    = note: expected struct `HashMap<&'static str, &'static str>`
+                 found type `i32`
+note: function defined here
+   --> /tmp/bifid-cipher.rs:57:8
+    |
+57  | ...fn decrypt(text: &mut &'static str, emap: std::collections::HashMap<&'static str, Vec<i32>>, dmap: std::collections::HashMap<&'static str, &'static str>) -...
+    |       ^^^^^^^                          -------------------------------------------------------  -----------------------------------------------------------
+
+error[E0308]: arguments to this function are incorrect
+   --> /tmp/bifid-cipher.rs:118:13
+    |
+118 |         s = encrypt(&mut textTest, emap, dmap);
+    |             ^^^^^^^
+    |
+note: expected `HashMap<&str, Vec<i32>>`, found `i32`
+   --> /tmp/bifid-cipher.rs:118:36
+    |
+118 |         s = encrypt(&mut textTest, emap, dmap);
+    |                                    ^^^^
+    = note: expected struct `HashMap<&'static str, Vec<i32>>`
+                 found type `i32`
+note: expected `HashMap<&str, &str>`, found `i32`
+   --> /tmp/bifid-cipher.rs:118:42
+    |
+118 |         s = encrypt(&mut textTest, emap, dmap);
+    |                                          ^^^^
+    = note: expected struct `HashMap<&'static str, &'static str>`
+                 found type `i32`
+note: function defined here
+   --> /tmp/bifid-cipher.rs:33:8
+    |
+33  | ...fn encrypt(text: &mut &'static str, emap: std::collections::HashMap<&'static str, Vec<i32>>, dmap: std::collections::HashMap<&'static str, &'static str>) -...
+    |       ^^^^^^^                          -------------------------------------------------------  -----------------------------------------------------------
+
+error[E0308]: arguments to this function are incorrect
+   --> /tmp/bifid-cipher.rs:120:13
+    |
+120 |         s = decrypt(&mut s, emap, dmap);
+    |             ^^^^^^^
+    |
+note: expected `HashMap<&str, Vec<i32>>`, found `i32`
+   --> /tmp/bifid-cipher.rs:120:29
+    |
+120 |         s = decrypt(&mut s, emap, dmap);
+    |                             ^^^^
+    = note: expected struct `HashMap<&'static str, Vec<i32>>`
+                 found type `i32`
+note: expected `HashMap<&str, &str>`, found `i32`
+   --> /tmp/bifid-cipher.rs:120:35
+    |
+120 |         s = decrypt(&mut s, emap, dmap);
+    |                                   ^^^^
+    = note: expected struct `HashMap<&'static str, &'static str>`
+                 found type `i32`
+note: function defined here
+   --> /tmp/bifid-cipher.rs:57:8
+    |
+57  | ...fn decrypt(text: &mut &'static str, emap: std::collections::HashMap<&'static str, Vec<i32>>, dmap: std::collections::HashMap<&'static str, &'static str>) -...
+    |       ^^^^^^^                          -------------------------------------------------------  -----------------------------------------------------------
+
+error: aborting due to 26 previous errors
+
+Some errors have detailed explanations: E0277, E0308, E0425.
+For more information about an error, try `rustc --explain E0277`.

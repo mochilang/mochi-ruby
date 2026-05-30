@@ -1,0 +1,12 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    qty: int
+    cash: float
+    fee: float
+}
+let web_returns: Anon1 list = [{ qty = 60; cash = 20.0; fee = 1.0 }; { qty = 100; cash = 30.0; fee = 2.0 }; { qty = 95; cash = 25.0; fee = 3.0 }]
+let result: obj = (float (List.sum [ for r in web_returns do yield r.qty ]) / float (List.length [ for r in web_returns do yield r.qty ]))
+printfn "%A" (JsonSerializer.Serialize(result))
+assert (result = 85.0)

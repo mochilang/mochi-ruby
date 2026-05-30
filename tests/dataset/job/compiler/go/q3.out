@@ -1,0 +1,2 @@
+# command-line-arguments
+/tmp/q3.go:150:9: invalid operation: kRaw (variable of struct type Keyword) is not an interface

@@ -1,0 +1,4 @@
+00aπ
+ string cast to []rune: [00]
+     string range loop: 00                                                                                                   
+          string bytes: 0x61 0xcf 0x80

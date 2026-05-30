@@ -1,0 +1,3 @@
+let x = 2
+let label = cond(else("unknown"))
+print(label)

@@ -1,0 +1,63 @@
+func main (regs=10)
+  // let result = twoSum([2,7,11,15], 9)
+  Const        r2, [2, 7, 11, 15]
+  Move         r0, r2
+  Const        r3, 9
+  Move         r1, r3
+  Call2        r4, twoSum, r0, r1
+  Move         r5, r4
+  // print(result[0])
+  Const        r6, 0
+  Index        r7, r5, r6
+  Print        r7
+  // print(result[1])
+  Const        r8, 1
+  Index        r9, r5, r8
+  Print        r9
+  Return       r0
+
+  // fun twoSum(nums: list<int>, target: int): list<int> {
+func twoSum (regs=24)
+  // let n = len(nums)
+  Len          r3, r0
+  Move         r4, r3
+  // for i in 0..n {
+  Const        r5, 0
+  Move         r6, r5
+L4:
+  LessInt      r7, r6, r4
+  JumpIfFalse  r7, L0
+  // for j in i+1..n {
+  Const        r8, 1
+  AddInt       r9, r6, r8
+  Move         r10, r9
+L3:
+  LessInt      r11, r10, r4
+  JumpIfFalse  r11, L1
+  // if nums[i] + nums[j] == target {
+  Index        r12, r0, r6
+  Index        r13, r0, r10
+  Add          r14, r12, r13
+  Equal        r15, r14, r1
+  JumpIfFalse  r15, L2
+  // return [i, j]
+  Move         r16, r6
+  Move         r17, r10
+  MakeList     r18, 2, r16
+  Return       r18
+L2:
+  // for j in i+1..n {
+  Const        r19, 1
+  AddInt       r20, r10, r19
+  Move         r10, r20
+  Jump         L3
+L1:
+  // for i in 0..n {
+  Const        r21, 1
+  AddInt       r22, r6, r21
+  Move         r6, r22
+  Jump         L4
+L0:
+  // return [-1, -1]
+  Const        r23, [-1, -1]
+  Return       r23

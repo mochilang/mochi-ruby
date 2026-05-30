@@ -1,0 +1,25 @@
+/tmp/TestCCompiler_TPCDS_Goldenq233853696362/001/prog.c: In function ‘main’:
+/tmp/TestCCompiler_TPCDS_Goldenq233853696362/001/prog.c:415:7: warning: implicit declaration of function ‘customer_totals_item_list_t_create’ [-Wimplicit-function-declaration]
+  415 |       customer_totals_item_list_t_create(tmp5.len);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/TestCCompiler_TPCDS_Goldenq233853696362/001/prog.c:415:7: error: invalid initializer
+/tmp/TestCCompiler_TPCDS_Goldenq233853696362/001/prog.c:419:30: warning: implicit declaration of function ‘store_sale_list_t_create’ [-Wimplicit-function-declaration]
+  419 |     store_sale_list_t tmp8 = store_sale_list_t_create(_gp.items.len);
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/TestCCompiler_TPCDS_Goldenq233853696362/001/prog.c:419:30: error: invalid initializer
+/tmp/TestCCompiler_TPCDS_Goldenq233853696362/001/prog.c:463:53: error: ‘(catalog_sale_t *)&catalog_sales’ is a pointer; did you mean to use ‘->’?
+  463 |   list_float tmp19 = list_float_create(catalog_sales.len * date_dim.len);
+      |                                                     ^
+      |                                                     ->
+/tmp/TestCCompiler_TPCDS_Goldenq233853696362/001/prog.c:463:68: error: ‘(date_dim_t *)&date_dim’ is a pointer; did you mean to use ‘->’?
+  463 |   list_float tmp19 = list_float_create(catalog_sales.len * date_dim.len);
+      |                                                                    ^
+      |                                                                    ->
+/tmp/TestCCompiler_TPCDS_Goldenq233853696362/001/prog.c:486:49: error: ‘(web_sale_t *)&web_sales’ is a pointer; did you mean to use ‘->’?
+  486 |   list_float tmp23 = list_float_create(web_sales.len * date_dim.len);
+      |                                                 ^
+      |                                                 ->
+/tmp/TestCCompiler_TPCDS_Goldenq233853696362/001/prog.c:486:64: error: ‘(date_dim_t *)&date_dim’ is a pointer; did you mean to use ‘->’?
+  486 |   list_float tmp23 = list_float_create(web_sales.len * date_dim.len);
+      |                                                                ^
+      |                                                                ->

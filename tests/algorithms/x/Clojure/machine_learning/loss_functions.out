@@ -1,0 +1,6 @@
+0.2529995012327421
+Execution error (NumberFormatException) at java.lang.NumberFormatException/forInputString (NumberFormatException.java:67).
+For input string: "2.0"
+
+Full report at:
+/tmp/clojure-1036308009059515064.edn

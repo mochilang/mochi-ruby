@@ -1,0 +1,18 @@
+Map<String, Function> _structParsers = {};
+
+abstract class Foo {}
+class Empty extends Foo {
+  Empty();
+}
+class Node extends Foo {
+  Foo child;
+  Node({required this.child});
+}
+
+List<Foo> listit() {
+  return [Empty()];
+}
+
+void main() {
+  print(listit().length);
+}

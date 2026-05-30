@@ -1,0 +1,60 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    ss_item_sk: int
+    ss_store_sk: int
+    ss_net_profit: float
+}
+type Anon2 = {
+    i_item_sk: int
+    i_product_name: string
+}
+type Anon3 = {
+    item_sk: obj
+    avg_profit: obj
+}
+type Anon4 = {
+    best_performing: obj
+    worst_performing: obj
+}
+type Anon5 = {
+    best_performing: string
+    worst_performing: string
+}
+type _Group<'K,'T>(key: 'K) =
+    member val key = key with get, set
+    member val Items = System.Collections.Generic.List<'T>() with get
+    member this.size = this.Items.Count
+    interface System.Collections.Generic.IEnumerable<'T> with
+        member this.GetEnumerator() = (this.Items :> seq<'T>).GetEnumerator()
+    interface System.Collections.IEnumerable with
+        member this.GetEnumerator() = (this.Items :> System.Collections.IEnumerable).GetEnumerator()
+
+let _group_by (src: 'T list) (keyfn: 'T -> 'K) : _Group<'K,'T> list =
+    let groups = System.Collections.Generic.Dictionary<string,_Group<'K,'T>>()
+    let order = System.Collections.Generic.List<string>()
+    for it in src do
+        let key = keyfn it
+        let ks = string key
+        let mutable g = Unchecked.defaultof<_Group<'K,'T>>
+        if groups.TryGetValue(ks, &g) then ()
+        else
+            g <- _Group<'K,'T>(key)
+            groups.Add(ks, g)
+            order.Add(ks)
+        g.Items.Add(it)
+    [ for ks in order -> groups[ks] ]
+
+let store_sales: Anon1 list = [{ ss_item_sk = 1; ss_store_sk = 1; ss_net_profit = 5.0 }; { ss_item_sk = 1; ss_store_sk = 1; ss_net_profit = 5.0 }; { ss_item_sk = 2; ss_store_sk = 1; ss_net_profit = -1.0 }]
+let item: Anon2 list = [{ i_item_sk = 1; i_product_name = "ItemA" }; { i_item_sk = 2; i_product_name = "ItemB" }]
+let grouped_base: obj = ([ for g in _group_by [ for ss in store_sales do yield ss ] (fun ss -> ss.ss_item_sk) do
+    yield { item_sk = g.key; avg_profit = (float (List.sum [ for x in g do yield x.ss_net_profit ]) / float (List.length [ for x in g do yield x.ss_net_profit ])) } ])
+let grouped: obj = grouped_base
+let best: obj = first [ for x in grouped do yield (-x.avg_profit, x) ] |> List.sortByDescending fst |> List.map snd
+let worst: obj = first [ for x in grouped do yield (x.avg_profit, x) ] |> List.sortBy fst |> List.map snd
+let best_name: obj = first [ for i in item do if i.i_item_sk = best.item_sk then yield i.i_product_name ]
+let worst_name: obj = first [ for i in item do if i.i_item_sk = worst.item_sk then yield i.i_product_name ]
+let result: Anon4 = { best_performing = best_name; worst_performing = worst_name }
+printfn "%A" (JsonSerializer.Serialize(result))
+assert (result = { best_performing = "ItemA"; worst_performing = "ItemB" })

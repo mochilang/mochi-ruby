@@ -1,0 +1,2 @@
+let name = "mochi";;
+print_endline ((String.make 1 (String.get name 0)) ^ "!");;

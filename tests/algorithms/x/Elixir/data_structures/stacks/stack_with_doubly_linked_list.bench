@@ -1,0 +1,30 @@
+warning: variable "s" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 130 │       s = if _len(s) > 0 do
+     │       ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/data_structures/stacks/stack_with_doubly_linked_list.exs:130:7: Main.print_stack/1
+
+    warning: module attribute @data_dir was set but never used
+    │
+  3 │   @data_dir nil
+    │   ~~~~~~~~~~~~~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/data_structures/stacks/stack_with_doubly_linked_list.exs:3: Main (module)
+
+Stack operations using Doubly LinkedList
+stack elements are:
+7->6->5->4->
+warning: using map.field notation (without parentheses) to invoke function :ok.head() is deprecated, you must add parentheses instead: remote.function()
+  /workspace/mochi/tests/algorithms/x/Elixir/data_structures/stacks/stack_with_doubly_linked_list.exs:68: Main.top/1
+  /workspace/mochi/tests/algorithms/x/Elixir/data_structures/stacks/stack_with_doubly_linked_list.exs:149: Main.main/0
+  /workspace/mochi/tests/algorithms/x/Elixir/data_structures/stacks/stack_with_doubly_linked_list.exs:170: Main.bench_main/0
+  /workspace/mochi/tests/algorithms/x/Elixir/data_structures/stacks/stack_with_doubly_linked_list.exs:178: (file)
+  (elixir 1.18.3) src/elixir_compiler.erl:77: :elixir_compiler.dispatch/4
+
+** (UndefinedFunctionError) function :ok.head/0 is undefined (module :ok is not available)
+    :ok.head()
+    /workspace/mochi/tests/algorithms/x/Elixir/data_structures/stacks/stack_with_doubly_linked_list.exs:68: Main.top/1
+    /workspace/mochi/tests/algorithms/x/Elixir/data_structures/stacks/stack_with_doubly_linked_list.exs:149: Main.main/0
+    /workspace/mochi/tests/algorithms/x/Elixir/data_structures/stacks/stack_with_doubly_linked_list.exs:170: Main.bench_main/0
+    /workspace/mochi/tests/algorithms/x/Elixir/data_structures/stacks/stack_with_doubly_linked_list.exs:178: (file)

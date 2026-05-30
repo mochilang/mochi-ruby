@@ -1,0 +1,15 @@
+open System
+exception BreakException of int
+exception ContinueException of int
+
+let numbers = [|1; 2; 3; 4; 5; 6; 7; 8; 9|]
+try
+    for n in numbers do
+        try
+            if ((n % 2) = 0) then
+                raise (ContinueException 0)
+            if (n > 7) then
+                raise (BreakException 0)
+            ignore (printfn "%A" ("odd number:", n))
+        with ContinueException n when n = 0 -> ()
+with BreakException n when n = 0 -> ()

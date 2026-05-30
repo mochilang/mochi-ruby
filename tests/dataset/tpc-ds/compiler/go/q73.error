@@ -1,0 +1,3 @@
+go run error: exit status 1
+# command-line-arguments
+/tmp/TestGoCompiler_TPCDSq731078680174/001/main.go:152:32: cannot use func() []Group {…}() (value of type []Group) as []v value in argument to _convSlice[v, Group]

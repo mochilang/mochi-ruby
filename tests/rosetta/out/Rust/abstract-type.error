@@ -1,0 +1,11 @@
+rustc: exit status 1
+error: mismatched closing delimiter: `]`
+  --> /tmp/abstract-type.rs:19:50
+   |
+19 | ...ec![format!("{}", format!("{}{}", format!("{}{}", format!("{}{}", format!("{}{}", format!("{}{}", beastName(&b), ", who's a "), beastKind(&b)), ", cries: ""), beastCry(&b)), ""."))].in...
+   |       -                     ^ unclosed delimiter                                                                                                                                       ^ mismatched closing delimiter
+   |       |
+   |       closing delimiter possibly meant for this
+
+error: aborting due to 1 previous error
+

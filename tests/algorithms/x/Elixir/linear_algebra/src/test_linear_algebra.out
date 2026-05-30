@@ -1,0 +1,260 @@
+warning: variable "num" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+    │
+ 57 │       {num, res} = try do
+    │        ~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/linear_algebra/src/test_linear_algebra.exs:57:8: Main.int_to_string/1
+
+     warning: variable "frac" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 103 │         {frac, i, res} = try do
+     │          ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/linear_algebra/src/test_linear_algebra.exs:103:10: Main.float_to_string/2
+
+     warning: variable "i" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 103 │         {frac, i, res} = try do
+     │                ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/linear_algebra/src/test_linear_algebra.exs:103:16: Main.float_to_string/2
+
+     warning: variable "i" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 150 │       {i, s} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/linear_algebra/src/test_linear_algebra.exs:150:8: Main.vector_str_int/1
+
+     warning: variable "i" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 181 │       {i, s} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/linear_algebra/src/test_linear_algebra.exs:181:8: Main.vector_str_float/2
+
+     warning: variable "i" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 206 │       {i, res} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/linear_algebra/src/test_linear_algebra.exs:206:8: Main.vector_add/2
+
+     warning: variable "i" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 230 │       {i, res} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/linear_algebra/src/test_linear_algebra.exs:230:8: Main.vector_sub/2
+
+     warning: variable "i" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 254 │       {i, res} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/linear_algebra/src/test_linear_algebra.exs:254:8: Main.vector_scalar_mul/2
+
+     warning: variable "i" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 278 │       {i, sum} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/linear_algebra/src/test_linear_algebra.exs:278:8: Main.vector_dot/2
+
+     warning: variable "high" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 320 │       {high, i, low, mid} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/linear_algebra/src/test_linear_algebra.exs:320:8: Main.sqrt_newton/1
+
+     warning: variable "i" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 320 │       {high, i, low, mid} = try do
+     │              ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/linear_algebra/src/test_linear_algebra.exs:320:14: Main.sqrt_newton/1
+
+     warning: variable "low" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 320 │       {high, i, low, mid} = try do
+     │                 ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/linear_algebra/src/test_linear_algebra.exs:320:17: Main.sqrt_newton/1
+
+     warning: variable "i" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 345 │       {i, sum} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/linear_algebra/src/test_linear_algebra.exs:345:8: Main.euclidean_length/1
+
+     warning: variable "i" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 369 │       {i, v} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/linear_algebra/src/test_linear_algebra.exs:369:8: Main.zero_vector/1
+
+     warning: variable "i" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 402 │       {i, res} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/linear_algebra/src/test_linear_algebra.exs:402:8: Main.axpy/3
+
+     warning: variable "i" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 426 │       {i, res} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/linear_algebra/src/test_linear_algebra.exs:426:8: Main.copy_vector/1
+
+     warning: variable "v" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 439 │       v = List.replace_at(v, idx, val)
+     │       ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/linear_algebra/src/test_linear_algebra.exs:439:7: Main.change_component/3
+
+     warning: variable "j" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 467 │           {j, s} = try do
+     │            ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/linear_algebra/src/test_linear_algebra.exs:467:12: Main.matrix_str/1
+
+     warning: variable "i" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 480 │       {i, s} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/linear_algebra/src/test_linear_algebra.exs:480:8: Main.matrix_str/1
+
+     warning: variable "j" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 514 │             {j, r} = try do
+     │              ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/linear_algebra/src/test_linear_algebra.exs:514:14: Main.submatrix/3
+
+     warning: variable "i" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 531 │       {i, res} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/linear_algebra/src/test_linear_algebra.exs:531:8: Main.submatrix/3
+
+     warning: variable "c" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 570 │       {c, det} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/linear_algebra/src/test_linear_algebra.exs:570:8: Main.determinant/1
+
+     warning: variable "j" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 619 │           {j, sum} = try do
+     │            ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/linear_algebra/src/test_linear_algebra.exs:619:12: Main.matrix_mul_vector/2
+
+     warning: variable "i" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 632 │       {i, res} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/linear_algebra/src/test_linear_algebra.exs:632:8: Main.matrix_mul_vector/2
+
+     warning: variable "j" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 660 │           {j, row} = try do
+     │            ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/linear_algebra/src/test_linear_algebra.exs:660:12: Main.matrix_mul_scalar/2
+
+     warning: variable "i" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 673 │       {i, res} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/linear_algebra/src/test_linear_algebra.exs:673:8: Main.matrix_mul_scalar/2
+
+     warning: variable "m" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 686 │       m = List.replace_at(m, i, List.replace_at(Enum.at(m, i), j, val))
+     │       ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/linear_algebra/src/test_linear_algebra.exs:686:7: Main.matrix_change_component/4
+
+     warning: variable "j" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 715 │           {j, row} = try do
+     │            ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/linear_algebra/src/test_linear_algebra.exs:715:12: Main.matrix_add/2
+
+     warning: variable "i" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 728 │       {i, res} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/linear_algebra/src/test_linear_algebra.exs:728:8: Main.matrix_add/2
+
+     warning: variable "j" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 756 │           {j, row} = try do
+     │            ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/linear_algebra/src/test_linear_algebra.exs:756:12: Main.matrix_sub/2
+
+     warning: variable "i" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 769 │       {i, res} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/linear_algebra/src/test_linear_algebra.exs:769:8: Main.matrix_sub/2
+
+     warning: variable "i" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 793 │       {i, m} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/linear_algebra/src/test_linear_algebra.exs:793:8: Main.square_zero_matrix/1
+
+component0 ok
+component2 ok
+str_vector ok
+size ok
+add0 ok
+add1 ok
+add2 ok
+sub0 ok
+sub1 ok
+sub2 ok
+scalar_mul ok
+dot_product ok
+zero_vector ok
+unit_basis ok
+axpy ok
+copy ok
+change_component fail
+(1,0,0)
+(0,1,0)
+matrix_str ok
+determinant ok
+matrix_vec_mul ok
+matrix_scalar_mul ok
+change_component_matrix fail
+|1,2,3|
+|2,4,5|
+|6,7,8|
+
+|1,2,5|
+|2,4,5|
+|6,7,8|
+
+matrix_component ok
+matrix_add ok
+matrix_sub ok
+square_zero_matrix ok

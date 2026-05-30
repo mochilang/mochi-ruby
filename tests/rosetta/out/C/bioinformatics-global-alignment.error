@@ -1,0 +1,74 @@
+cc: exit status 1
+/tmp/bioinformatics-global-alignment.c: In function ‘distinct’:
+/tmp/bioinformatics-global-alignment.c:138:15: warning: initialization of ‘int’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  138 |       int r = res.data[tmp4];
+      |               ^~~
+/tmp/bioinformatics-global-alignment.c:139:14: warning: comparison between pointer and integer
+  139 |       if ((r == s)) {
+      |              ^~
+/tmp/bioinformatics-global-alignment.c: In function ‘permutations’:
+/tmp/bioinformatics-global-alignment.c:157:20: error: incompatible types when assigning to type ‘int’ from type ‘list_string’
+  157 |     tmp7.data[0] = xs;
+      |                    ^~
+/tmp/bioinformatics-global-alignment.c:158:12: error: incompatible types when returning type ‘list_int’ but ‘int’ was expected
+  158 |     return tmp7;
+      |            ^~~~
+/tmp/bioinformatics-global-alignment.c:174:37: error: request for member ‘len’ in something not a structure or union
+  174 |     for (int tmp10 = 0; tmp10 < subs.len; tmp10++) {
+      |                                     ^
+/tmp/bioinformatics-global-alignment.c:175:27: error: request for member ‘data’ in something not a structure or union
+  175 |       list_string p = subs.data[tmp10];
+      |                           ^
+/tmp/bioinformatics-global-alignment.c:186:7: error: ‘res’ undeclared (first use in this function); did you mean ‘rest’?
+  186 |       res = 0;
+      |       ^~~
+      |       rest
+/tmp/bioinformatics-global-alignment.c:186:7: note: each undeclared identifier is reported only once for each function it appears in
+/tmp/bioinformatics-global-alignment.c: In function ‘deduplicate’:
+/tmp/bioinformatics-global-alignment.c:228:21: warning: assignment to ‘int’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  228 |       tmp14.data[0] = s1;
+      |                     ^
+/tmp/bioinformatics-global-alignment.c:229:40: error: incompatible type for argument 1 of ‘concat_list_int’
+  229 |       list_int tmp15 = concat_list_int(filtered, tmp14);
+      |                                        ^~~~~~~~
+      |                                        |
+      |                                        list_string
+/tmp/bioinformatics-global-alignment.c:49:42: note: expected ‘list_int’ but argument is of type ‘list_string’
+   49 | static list_int concat_list_int(list_int a, list_int b) {
+      |                                 ~~~~~~~~~^
+/tmp/bioinformatics-global-alignment.c:230:18: error: incompatible types when assigning to type ‘list_string’ from type ‘list_int’
+  230 |       filtered = tmp15;
+      |                  ^~~~~
+/tmp/bioinformatics-global-alignment.c: In function ‘shortestCommonSuperstring’:
+/tmp/bioinformatics-global-alignment.c:252:21: error: request for member ‘len’ in something not a structure or union
+  252 |   while (idx < perms.len) {
+      |                     ^
+/tmp/bioinformatics-global-alignment.c:253:29: error: request for member ‘data’ in something not a structure or union
+  253 |     __auto_type perm = perms.data[idx];
+      |                             ^
+/tmp/bioinformatics-global-alignment.c:254:23: error: ‘perm’ undeclared (first use in this function); did you mean ‘perms’?
+  254 |     __auto_type sup = perm.data[0];
+      |                       ^~~~
+      |                       perms
+/tmp/bioinformatics-global-alignment.c:259:11: error: ‘sup’ undeclared (first use in this function)
+  259 |           sup, slice_string(perm.data[i + 1], ov, strlen(perm.data[i + 1])));
+      |           ^~~
+/tmp/bioinformatics-global-alignment.c:259:47: error: ‘ov’ undeclared (first use in this function)
+  259 |           sup, slice_string(perm.data[i + 1], ov, strlen(perm.data[i + 1])));
+      |                                               ^~
+/tmp/bioinformatics-global-alignment.c: In function ‘mochi_main’:
+/tmp/bioinformatics-global-alignment.c:363:28: error: incompatible types when initializing type ‘int’ using type ‘list_string’
+  363 |   list_int tests_data[] = {tmp33, tmp34, tmp35, tmp36};
+      |                            ^~~~~
+/tmp/bioinformatics-global-alignment.c:363:35: error: incompatible types when initializing type ‘int *’ using type ‘list_string’
+  363 |   list_int tests_data[] = {tmp33, tmp34, tmp35, tmp36};
+      |                                   ^~~~~
+/tmp/bioinformatics-global-alignment.c:363:42: error: incompatible types when initializing type ‘int’ using type ‘list_string’
+  363 |   list_int tests_data[] = {tmp33, tmp34, tmp35, tmp36};
+      |                                          ^~~~~
+/tmp/bioinformatics-global-alignment.c:363:49: error: incompatible types when initializing type ‘int *’ using type ‘list_string’
+  363 |   list_int tests_data[] = {tmp33, tmp34, tmp35, tmp36};
+      |                                                 ^~~~~
+/tmp/bioinformatics-global-alignment.c:366:24: error: invalid initializer
+  366 |     list_string seqs = tests.data[tmp37];
+      |                        ^~~~~

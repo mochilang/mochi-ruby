@@ -1,0 +1,30 @@
+warning: variable "num" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+    │
+ 94 │       {num, position, _} = try do
+    │        ~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/strings/barcode_validator.exs:94:8: Main.get_check_digit/1
+
+    warning: variable "position" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+    │
+ 94 │       {num, position, _} = try do
+    │             ~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/strings/barcode_validator.exs:94:13: Main.get_check_digit/1
+
+    warning: module attribute @data_dir was set but never used
+    │
+  3 │   @data_dir nil
+    │   ~~~~~~~~~~~~~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/strings/barcode_validator.exs:3: Main (module)
+
+0
+0
+0
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+false
+false
+false
+false
+8718452538119

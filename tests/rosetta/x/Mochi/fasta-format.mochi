@@ -1,0 +1,68 @@
+// Mochi translation of Rosetta "FASTA format" task
+// Based on tests/rosetta/x/Go/fasta-format.go
+
+let FASTA = ">Rosetta_Example_1\n" +
+  "THERECANBENOSPACE\n" +
+  ">Rosetta_Example_2\n" +
+  "THERECANBESEVERAL\n" +
+  "LINESBUTTHEYALLMUST\n" +
+  "BECONCATENATED"
+
+fun splitLines(s: string): list<string> {
+  var lines: list<string> = []
+  var start = 0
+  var i = 0
+  while i < len(s) {
+    if substring(s, i, i+1) == "\n" {
+      lines = append(lines, substring(s, start, i))
+      i = i + 1
+      start = i
+    } else {
+      i = i + 1
+    }
+  }
+  lines = append(lines, substring(s, start, len(s)))
+  return lines
+}
+
+fun parseFasta(text: string): list<string> {
+  var key = ""
+  var val = ""
+  var out: list<string> = []
+  for line in splitLines(text) {
+    if line == "" {
+      continue
+    }
+    if substring(line, 0, 1) == ">" {
+      if key != "" {
+        out = append(out, key + ": " + val)
+      }
+      var hdr = substring(line, 1, len(line))
+      var idx = 0
+      while idx < len(hdr) && substring(hdr, idx, idx+1) != " " {
+        idx = idx + 1
+      }
+      key = substring(hdr, 0, idx)
+      val = ""
+    } else {
+      if key == "" {
+        print("missing header")
+        return []
+      }
+      val = val + line
+    }
+  }
+  if key != "" {
+    out = append(out, key + ": " + val)
+  }
+  return out
+}
+
+fun main() {
+  let res = parseFasta(FASTA)
+  for line in res {
+    print(line)
+  }
+}
+
+main()

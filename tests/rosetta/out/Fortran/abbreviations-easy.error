@@ -1,0 +1,206 @@
+gfortran: exit status 1
+/tmp/abbreviations-easy.f90:111:17:
+
+  111 |           if ((c(0+1:wlen) == ww)) then
+      |                 1
+Error: Expected a right parenthesis in expression at (1)
+/tmp/abbreviations-easy.f90:120:11:
+
+  120 |         end if
+      |           1
+Error: Expecting END DO statement at (1)
+/tmp/abbreviations-easy.f90:138:13:
+
+  138 |     allocate(mins(0))
+      |             1
+Error: Allocate-object at (1) is neither a data pointer nor an allocatable variable
+/tmp/abbreviations-easy.f90:137:12:
+
+  137 |     commands = fields(table)
+      |            1
+Error: Symbol ‘commands’ at (1) has no IMPLICIT type
+/tmp/abbreviations-easy.f90:152:29:
+
+  152 |       allocate(app4(size(mins)+1))
+      |                             1
+Error: Symbol ‘mins’ at (1) has no IMPLICIT type
+/tmp/abbreviations-easy.f90:91:46:
+
+   91 |   recursive integer function validate(commands,words,mins) result(res)
+      |                                              1
+Error: PROCEDURE attribute conflicts with INTENT attribute in ‘commands’ at (1)
+/tmp/abbreviations-easy.f90:91:57:
+
+   91 |   recursive integer function validate(commands,words,mins) result(res)
+      |                                                         1
+Error: PROCEDURE attribute conflicts with INTENT attribute in ‘mins’ at (1)
+/tmp/abbreviations-easy.f90:91:52:
+
+   91 |   recursive integer function validate(commands,words,mins) result(res)
+      |                                                    1
+Error: PROCEDURE attribute conflicts with INTENT attribute in ‘words’ at (1)
+/tmp/abbreviations-easy.f90:76:47:
+
+   76 |   recursive character(len=100) function join(xs,sep) result(res)
+      |                                               1
+Error: PROCEDURE attribute conflicts with INTENT attribute in ‘xs’ at (1)
+/tmp/abbreviations-easy.f90:39:11:
+
+   39 |       ch = s(i+1:(i + 1))
+      |           1
+Error: Cannot convert CHARACTER(*) to INTEGER(4) at (1)
+/tmp/abbreviations-easy.f90:40:15:
+
+   40 |       if ((((((ch == ' ') .or. ch) == ''//char(10)//'') .or. ch) == '   ')) then
+      |               1
+Error: Operands of comparison operator ‘==’ at (1) are INTEGER(4)/CHARACTER(1)
+/tmp/abbreviations-easy.f90:45:32:
+
+   45 |           app0(size(words)+1) = cur
+      |                                1
+Error: Cannot convert CHARACTER(100) to INTEGER(4) at (1)
+/tmp/abbreviations-easy.f90:50:15:
+
+   50 |         cur = (cur + ch)
+      |               1
+Error: Operands of binary numeric operator ‘+’ at (1) are CHARACTER(100)/INTEGER(4)
+/tmp/abbreviations-easy.f90:38:24:
+
+   38 |     do while ((i < size(s)))
+      |                        1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/abbreviations-easy.f90:54:14:
+
+   54 |     if ((size(cur) > 0)) then
+      |              1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/abbreviations-easy.f90:58:28:
+
+   58 |       app1(size(words)+1) = cur
+      |                            1
+Error: Cannot convert CHARACTER(100) to INTEGER(4) at (1)
+/tmp/abbreviations-easy.f90:61:4:
+
+   61 |     res = words
+      |    1
+Error: Incompatible ranks 0 and 1 in assignment at (1)
+/tmp/abbreviations-easy.f90:146:15:
+
+  146 |         if ((((ch >= 'A') .and. ch) <= 'Z')) then
+      |               1
+Error: Operands of comparison operator ‘>=’ at (1) are INTEGER(4)/CHARACTER(1)
+/tmp/abbreviations-easy.f90:144:26:
+
+  144 |       do while ((j < size(cmd)))
+      |                          1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/abbreviations-easy.f90:164:50:
+
+  164 |       out1 = (out1 + padRight(words(((k)+1)),size(results(((k)+1))))) // ' '
+      |                                                  1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/abbreviations-easy.f90:168:37:
+
+  168 |     print *, 'full words:  ' // join(results,' ')
+      |                                     1
+Error: Rank mismatch in argument ‘xs’ at (1) (scalar and rank-1)
+/tmp/abbreviations-easy.f90:168:45:
+
+  168 |     print *, 'full words:  ' // join(results,' ')
+      |                                             1
+Warning: Character length of actual argument shorter than of dummy argument ‘sep’ (1/100) at (1)
+/tmp/abbreviations-easy.f90:83:15:
+
+   83 |         res = (res + sep)
+      |               1
+Error: Operands of binary numeric operator ‘+’ at (1) are CHARACTER(100)/CHARACTER(100)
+/tmp/abbreviations-easy.f90:85:13:
+
+   85 |       res = (res + xs(((i)+1)))
+      |             1
+Error: Operands of binary numeric operator ‘+’ at (1) are CHARACTER(100)/INTEGER(4)
+/tmp/abbreviations-easy.f90:81:24:
+
+   81 |     do while ((i < size(xs)))
+      |                        1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/abbreviations-easy.f90:96:14:
+
+   96 |     if ((size(words) == 0)) then
+      |              1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/abbreviations-easy.f90:97:6:
+
+   97 |       res = results
+      |      1
+Error: Incompatible ranks 0 and 1 in assignment at (1)
+/tmp/abbreviations-easy.f90:104:18:
+
+  104 |       wlen = size(w)
+      |                  1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/abbreviations-easy.f90:108:89:
+
+  108 |         if ((((((mins(((ci)+1)) /= 0) .and. wlen) >= mins(((ci)+1))) .and. wlen) <= size(cmd))) then
+      |                                                                                         1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/abbreviations-easy.f90:108:43:
+
+  108 |         if ((((((mins(((ci)+1)) /= 0) .and. wlen) >= mins(((ci)+1))) .and. wlen) <= size(cmd))) then
+      |                                           1
+Error: Operands of logical operator ‘.and.’ at (1) are LOGICAL(4)/INTEGER(4)
+/tmp/abbreviations-easy.f90:109:14:
+
+  109 |           c = upper(cmd)
+      |              1
+Error: Function ‘upper’ at (1) has no IMPLICIT type
+/tmp/abbreviations-easy.f90:110:15:
+
+  110 |           ww = upper(w)
+      |               1
+Error: Function ‘upper’ at (1) has no IMPLICIT type
+/tmp/abbreviations-easy.f90:106:27:
+
+  106 |       do while ((ci < size(commands)))
+      |                           1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/abbreviations-easy.f90:126:32:
+
+  126 |         app3(1:size(results)) = results
+      |                                1
+Error: Cannot convert INTEGER(4) to CHARACTER(100) at (1)
+/tmp/abbreviations-easy.f90:128:18:
+
+  128 |         results = app3
+      |                  1
+Error: Cannot convert CHARACTER(100) to INTEGER(4) at (1)
+/tmp/abbreviations-easy.f90:101:25:
+
+  101 |     do while ((wi < size(words)))
+      |                         1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/abbreviations-easy.f90:132:4:
+
+  132 |     res = results
+      |    1
+Error: Incompatible ranks 0 and 1 in assignment at (1)
+/tmp/abbreviations-easy.f90:67:10:
+
+   67 |     out = s
+      |          1
+Error: Cannot convert CHARACTER(100) to INTEGER(4) at (1)
+/tmp/abbreviations-easy.f90:68:13:
+
+   68 |     i = size(s)
+      |             1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/abbreviations-easy.f90:70:12:
+
+   70 |       out = out // ' '
+      |            1
+Error: Operands of string concatenation operator at (1) are INTEGER(4)/CHARACTER(1)
+/tmp/abbreviations-easy.f90:73:10:
+
+   73 |     res = out
+      |          1
+Error: Cannot convert INTEGER(4) to CHARACTER(100) at (1)

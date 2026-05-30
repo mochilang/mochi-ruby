@@ -1,0 +1,39 @@
+cc: exit status 1
+/tmp/cholesky-decomposition-1.c: In function ‘makeSym’:
+/tmp/cholesky-decomposition-1.c:95:10: error: incompatible types when returning type ‘tmp_item_t’ but ‘int’ was expected
+   95 |   return (tmp_item_t){.order = order, .ele = elements};
+      |          ^
+/tmp/cholesky-decomposition-1.c: At top level:
+/tmp/cholesky-decomposition-1.c:98:15: error: unknown type name ‘map_string_int’
+   98 | int unpackSym(map_string_int m) {
+      |               ^~~~~~~~~~~~~~
+/tmp/cholesky-decomposition-1.c: In function ‘printMat’:
+/tmp/cholesky-decomposition-1.c:140:15: error: request for member ‘len’ in something not a structure or union
+  140 |   while (i < m.len) {
+      |               ^
+/tmp/cholesky-decomposition-1.c:143:17: error: request for member ‘data’ in something not a structure or union
+  143 |     while (j < m.data[i].len) {
+      |                 ^
+/tmp/cholesky-decomposition-1.c:144:26: error: request for member ‘data’ in something not a structure or union
+  144 |       char *tmp5 = _str(m.data[i].data[j]);
+      |                          ^
+/tmp/cholesky-decomposition-1.c:147:16: error: request for member ‘data’ in something not a structure or union
+  147 |       if (j < m.data[i].len - 1) {
+      |                ^
+/tmp/cholesky-decomposition-1.c: At top level:
+/tmp/cholesky-decomposition-1.c:158:14: error: unknown type name ‘map_string_int’
+  158 | int printSym(map_string_int m) { printMat(unpackSym(m)); }
+      |              ^~~~~~~~~~~~~~
+/tmp/cholesky-decomposition-1.c:160:16: error: unknown type name ‘map_string_int’
+  160 | int printLower(map_string_int m) {
+      |                ^~~~~~~~~~~~~~
+/tmp/cholesky-decomposition-1.c:191:19: error: unknown type name ‘map_string_int’
+  191 | int choleskyLower(map_string_int a) {
+      |                   ^~~~~~~~~~~~~~
+/tmp/cholesky-decomposition-1.c:236:10: error: unknown type name ‘map_string_int’
+  236 | int demo(map_string_int a) {
+      |          ^~~~~~~~~~~~~~
+/tmp/cholesky-decomposition-1.c: In function ‘_mochi_main’:
+/tmp/cholesky-decomposition-1.c:252:3: warning: implicit declaration of function ‘demo’ [-Wimplicit-function-declaration]
+  252 |   demo(makeSym(3, tmp14));
+      |   ^~~~

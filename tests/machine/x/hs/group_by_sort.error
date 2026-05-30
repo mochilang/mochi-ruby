@@ -1,0 +1,8 @@
+
+/workspace/mochi/tests/machine/x/hs/group_by_sort.hs:127:1: error:
+    Multiple declarations of ‘items’
+    Declared at: /workspace/mochi/tests/machine/x/hs/group_by_sort.hs:37:37
+                 /workspace/mochi/tests/machine/x/hs/group_by_sort.hs:127:1
+    |
+127 | items = [Map.fromList [("cat", VString ("a")), ("val", VInt (3))], Map.fromList [("cat", VString ("a")), ("val", VInt (1))], Map.fromList [("cat", VString ("b")), ("val", VInt (5))], Map.fromList [("cat", VString ("b")), ("val", VInt (2))]]
+    | ^^^^^

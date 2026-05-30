@@ -1,0 +1,4 @@
+zig build: exit status 1
+/tmp/blum-integer.zig:67:9: error: local variable is never mutated
+/tmp/blum-integer.zig:67:9: note: consider using 'const'
+/tmp/blum-integer.zig:129:9: error: unused local variable

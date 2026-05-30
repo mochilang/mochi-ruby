@@ -1,0 +1,17 @@
+program main;
+{$mode objfpc}
+
+uses SysUtils, fgl, fphttpclient, Classes, Variants, fpjson, jsonparser;
+
+type
+  generic TArray<T> = array of T;
+
+function id(x: integer): integer;
+begin
+  result := x;
+  exit;
+end;
+
+begin
+  writeln(id(123));
+end.

@@ -1,0 +1,43 @@
+generated code does not match expected
+- type Counter {
++ let T = TypeVar('T')
+-   value: int
++ fun _get(obj, name) {
+- 
++   if obj is None {
+-   fun inc(): int {
++   return None
+-     value = value + 1
++ }
+-     return value
++   if isinstance(obj, dict) {
+-   }
++   if name in obj {
+- }
++   return obj[name]
+- 
++ }
+- let c = Counter { value: 0 }
++ }
+- print(c.inc())
++   if hasattr(obj, name) {
+- print(c.inc())
++   return getattr(obj, name)
+- 
++ }
++   if isinstance(obj, (list, tuple)) {
++   for it in obj {
++   try:
++   return _get(it, name)
++   except Exception:
++ }
++ }
++   raise Exception("field not found: " + name)
++ }
++ let c = Counter(value=0)
++ fun main() {
++   let c = Counter(value=0)
++   print(_get(c, "inc")())
++   print(_get(c, "inc")())
++ }
++ 

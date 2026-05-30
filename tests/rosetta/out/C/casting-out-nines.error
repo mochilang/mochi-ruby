@@ -1,0 +1,47 @@
+cc: exit status 1
+/tmp/casting-out-nines.c: In function ‘_mochi_main’:
+/tmp/casting-out-nines.c:165:26: error: invalid operands to binary + (have ‘char *’ and ‘char *’)
+  165 |     printf("%d\n", tmp13 + tc.begin + ", end = " + tc.end + ":");
+      |                          ^ ~~~~~~~~
+      |                              |
+      |                              char *
+/tmp/casting-out-nines.c:166:13: error: incompatible types when initializing type ‘int’ using type ‘list_string’
+  166 |     int s = subset(tc.base, tc.begin, tc.end);
+      |             ^~~~~~
+/tmp/casting-out-nines.c:170:26: error: incompatible type for argument 1 of ‘_str’
+  170 |     char *tmp16 = _str(tc.kaprekar);
+      |                        ~~^~~~~~~~~
+      |                          |
+      |                          list_string
+/tmp/casting-out-nines.c:38:23: note: expected ‘int’ but argument is of type ‘list_string’
+   38 | static char *_str(int v) {
+      |                   ~~~~^
+/tmp/casting-out-nines.c:172:26: error: incompatible type for argument 1 of ‘_str’
+  172 |     char *tmp18 = _str(tc.kaprekar);
+      |                        ~~^~~~~~~~~
+      |                          |
+      |                          list_string
+/tmp/casting-out-nines.c:38:23: note: expected ‘int’ but argument is of type ‘list_string’
+   38 | static char *_str(int v) {
+      |                   ~~~~^
+/tmp/casting-out-nines.c:174:14: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘char *’ [-Wformat=]
+  174 |     printf("%d\n", tmp19);
+      |             ~^     ~~~~~
+      |              |     |
+      |              int   char *
+      |             %s
+/tmp/casting-out-nines.c:179:15: warning: initialization of ‘int’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  179 |       int k = tc.kaprekar.data[i];
+      |               ^~
+/tmp/casting-out-nines.c:181:20: error: request for member ‘len’ in something not a structure or union
+  181 |       while (sx < s.len) {
+      |                    ^
+/tmp/casting-out-nines.c:182:15: error: request for member ‘data’ in something not a structure or union
+  182 |         if ((s.data[sx] == k)) {
+      |               ^
+/tmp/casting-out-nines.c:190:36: error: invalid operands to binary + (have ‘char *’ and ‘char *’)
+  190 |         printf("%d\n", "Fail:" + k + " not in subset");
+      |                        ~~~~~~~~~~~ ^
+      |                                |   |
+      |                                |   char *
+      |                                char *

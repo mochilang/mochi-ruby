@@ -1,0 +1,2 @@
+fun mochi_remove(nums: any, i: any): any {}
+fun _print(args: any): any {}

@@ -1,0 +1,281 @@
+{
+  "kind": "program",
+  "children": [
+    {
+      "kind": "clause",
+      "children": [
+        {
+          "kind": ":-",
+          "children": [
+            {
+              "kind": "initialization",
+              "children": [
+                {
+                  "kind": "atom",
+                  "text": "main"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "bool",
+          "text": "true"
+        }
+      ]
+    },
+    {
+      "kind": "clause",
+      "children": [
+        {
+          "kind": ":-",
+          "children": [
+            {
+              "kind": "style_check",
+              "children": [
+                {
+                  "kind": "-",
+                  "children": [
+                    {
+                      "kind": "atom",
+                      "text": "singleton"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "bool",
+          "text": "true"
+        }
+      ]
+    },
+    {
+      "kind": "clause",
+      "children": [
+        {
+          "kind": "has_factor",
+          "children": [
+            {
+              "kind": "var",
+              "text": "N"
+            },
+            {
+              "kind": "var",
+              "text": "F"
+            }
+          ]
+        },
+        {
+          "kind": ",",
+          "children": [
+            {
+              "kind": "=\u003c",
+              "children": [
+                {
+                  "kind": "*",
+                  "children": [
+                    {
+                      "kind": "var",
+                      "text": "F"
+                    },
+                    {
+                      "kind": "var",
+                      "text": "F"
+                    }
+                  ]
+                },
+                {
+                  "kind": "var",
+                  "text": "N"
+                }
+              ]
+            },
+            {
+              "kind": ";",
+              "children": [
+                {
+                  "kind": "=:=",
+                  "children": [
+                    {
+                      "kind": "mod",
+                      "children": [
+                        {
+                          "kind": "var",
+                          "text": "N"
+                        },
+                        {
+                          "kind": "var",
+                          "text": "F"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "number",
+                      "text": "0"
+                    }
+                  ]
+                },
+                {
+                  "kind": ",",
+                  "children": [
+                    {
+                      "kind": "is",
+                      "children": [
+                        {
+                          "kind": "var",
+                          "text": "F1"
+                        },
+                        {
+                          "kind": "+",
+                          "children": [
+                            {
+                              "kind": "var",
+                              "text": "F"
+                            },
+                            {
+                              "kind": "number",
+                              "text": "1"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "has_factor",
+                      "children": [
+                        {
+                          "kind": "var",
+                          "text": "N"
+                        },
+                        {
+                          "kind": "var",
+                          "text": "F1"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "clause",
+      "children": [
+        {
+          "kind": "is_prime",
+          "children": [
+            {
+              "kind": "number",
+              "text": "2"
+            }
+          ]
+        },
+        {
+          "kind": "bool",
+          "text": "true"
+        }
+      ]
+    },
+    {
+      "kind": "clause",
+      "children": [
+        {
+          "kind": "is_prime",
+          "children": [
+            {
+              "kind": "var",
+              "text": "N"
+            }
+          ]
+        },
+        {
+          "kind": ",",
+          "children": [
+            {
+              "kind": "\u003e",
+              "children": [
+                {
+                  "kind": "var",
+                  "text": "N"
+                },
+                {
+                  "kind": "number",
+                  "text": "2"
+                }
+              ]
+            },
+            {
+              "kind": "\\+",
+              "children": [
+                {
+                  "kind": "has_factor",
+                  "children": [
+                    {
+                      "kind": "var",
+                      "text": "N"
+                    },
+                    {
+                      "kind": "number",
+                      "text": "2"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "clause",
+      "children": [
+        {
+          "kind": "main"
+        },
+        {
+          "kind": ";",
+          "children": [
+            {
+              "kind": "-\u003e",
+              "children": [
+                {
+                  "kind": "is_prime",
+                  "children": [
+                    {
+                      "kind": "number",
+                      "text": "7"
+                    }
+                  ]
+                },
+                {
+                  "kind": "writeln",
+                  "children": [
+                    {
+                      "kind": "bool",
+                      "text": "true"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "writeln",
+              "children": [
+                {
+                  "kind": "bool",
+                  "text": "false"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

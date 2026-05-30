@@ -1,0 +1,102 @@
+// LeetCode 124 - Binary Tree Maximum Path Sum
+
+// Basic tree helpers without using union types
+fun Leaf(): map<string, any> {
+  return {"__name": "Leaf"}
+}
+
+fun Node(left: map<string, any>, value: int, right: map<string, any>): map<string, any> {
+  return {"__name": "Node", "left": left, "value": value, "right": right}
+}
+
+fun isLeaf(t: map<string, any>): bool {
+  return t["__name"] == "Leaf"
+}
+
+fun left(t: map<string, any>): map<string, any> {
+  return t["left"]
+}
+
+fun right(t: map<string, any>): map<string, any> {
+  return t["right"]
+}
+
+fun value(t: map<string, any>): int {
+  return t["value"] as int
+}
+
+fun max(a: int, b: int): int { if a > b { return a } return b }
+fun positive(x: int): int { if x > 0 { return x } return 0 }
+
+fun maxPathSum(root: map<string, any>): int {
+  var best = -2147483648
+
+  fun dfs(t: map<string, any>): int {
+    if isLeaf(t) { return 0 }
+
+    let leftVal = dfs(left(t))
+    let rightVal = dfs(right(t))
+
+    let leftPos = positive(leftVal)
+    let rightPos = positive(rightVal)
+
+    let candidate = value(t) + leftPos + rightPos
+    if candidate > best { best = candidate }
+
+    return positive(value(t) + max(leftPos, rightPos))
+  }
+
+  dfs(root)
+  return best
+}
+
+// Test cases based on the LeetCode examples
+
+test "example 1" {
+  let tree = Node(
+    Node(Leaf(), 2, Leaf()),
+    1,
+    Node(Leaf(), 3, Leaf())
+  )
+  expect maxPathSum(tree) == 6
+}
+
+test "example 2" {
+  let tree = Node(
+    Node(Leaf(), 9, Leaf()),
+    -10,
+    Node(
+      Node(Leaf(), 15, Leaf()),
+      20,
+      Node(Leaf(), 7, Leaf())
+    )
+  )
+  expect maxPathSum(tree) == 42
+}
+
+test "single negative" {
+  expect maxPathSum(Node(Leaf(), -3, Leaf())) == (-3)
+}
+
+test "all negative" {
+  let tree = Node(
+    Node(Leaf(), -5, Leaf()),
+    -2,
+    Node(Leaf(), -4, Leaf())
+  )
+  expect maxPathSum(tree) == (-2)
+}
+
+/*
+Common Mochi language errors and how to fix them:
+1. Using '=' instead of '==' when comparing values.
+   if x = 1 { ... }  // ❌ assignment
+   if x == 1 { ... } // ✅ comparison
+2. Reassigning a value bound with 'let'.
+   let n = 0
+   n = 1  // error[E004]
+   // Fix: declare with 'var n = 0' if mutation is needed.
+3. Using 'None' or 'null' instead of calling Leaf() for empty children.
+   Node(Leaf, 1, Leaf) // ❌ not a function call
+   Node(Leaf(), 1, Leaf()) // ✅
+*/

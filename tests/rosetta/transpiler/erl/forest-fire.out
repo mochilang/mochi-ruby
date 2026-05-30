@@ -1,0 +1,99 @@
+/workspace/mochi/tests/rosetta/transpiler/erl/forest-fire.erl:49:1: Warning: function mochi_safe_div/2 is unused
+%   49| mochi_safe_div(A, B) ->
+%     | ^
+
+/workspace/mochi/tests/rosetta/transpiler/erl/forest-fire.erl:52:1: Warning: function mochi_safe_fmod/2 is unused
+%   52| mochi_safe_fmod(A, B) ->
+%     | ^
+
+____________________________________________________________
+
+
+ T T T T   T     T T T T T       T     T     T T   T T   T  
+
+   T   T       T       T T T   T     T T   T T           T  
+
+ T T T   T T T   T   T   T T           T   T         T T T  
+
+ T T       T       T T T     T T T   T       T   T T       T
+
+     T   T     T                 T   T     T   T T T        
+
+     T T   T   T T     T T     T T     T T     T T T T   T  
+
+     T T T T         T   T T         T T T     T T       T T
+
+ T       T   T T   T T   T     T   T T   T       T T T   T  
+
+ T T T   T     T T     T T         T       T   T       T T  
+
+   T T   T     T T   T T   T       T   T T T   T T   T T   T
+
+                   T T           T T T T   T T   T T T T T  
+
+ T     T   T     T T T   T T   T   T   T       T       T   T
+
+ T       T T T   T           T T T   T T T T T T T         T
+
+ T T T T T T         T       T   T   T T T T     T T     T T
+
+ T   T T T   T T           T T T     T   T T       T   T T T
+
+         T   T T T T     T T T   T T   T   T T T       T T T
+
+ T   T         T     T T T T T T T     T T     T   T        
+
+ T     T T   T   T T T T T   T   T T         T T T T     T T
+
+ T T T   T   T T T T   T T T   T   T T   T       T T T      
+
+   T   T T T T T T T T   T T   T T   T T T T T   T T T      
+
+____________________________________________________________
+
+
+ T T T T   T     T T T T T       T     T     T T   T T   T  
+
+   T   T       T       T T T   T     T T   T T           T  
+
+ T T T   T T T   T   T   T T           T   T   T     T T T  
+
+ T T       T       T T T     T T T   T       T   T T       T
+
+     T   T     T                 T   T     T   T T T        
+
+     T T   T   T T     T T     T T     T T     T T T T   T  
+
+     T T T T         T   T T         T T T     T T       T T
+
+ T       T   T T   T T   T     T   T T   T       T T T   T  
+
+ T T T   T     T T     T T         T       T   T       T T  
+
+   T T   T     T T   T T   T       T   T T T   T T   T T   T
+
+                   T T           T T T T   T T   T T T T T  
+
+ T     T   T     T T T   T T   T   T   T       T       T   T
+
+ T       T T T   T           T T T   T T T T T T T         T
+
+ T T T T T T         T       T   T   T T T T T   T T     T T
+
+ T   T T T   T T           T T T     T   T T       T   T T T
+
+         T   T T T T     T T T   T T   T   T T T       T T T
+
+ T   T         T     T T T T T T T     T T     T   T        
+
+ T     T T   T   T T T T T   T   T T         T T T T     T T
+
+ T T T   T   T T T T   T T T   T   T T   T       T T T      
+
+   T   T T T T T T T T   T T   T T   T T T T T   T T T      
+
+{
+  "duration_us": 23305,
+  "memory_bytes": 10152,
+  "name": "main"
+}

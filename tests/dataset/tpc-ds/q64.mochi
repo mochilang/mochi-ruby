@@ -1,0 +1,14 @@
+let store_sales = [
+  {item: 1, cost: 20, list: 30, coupon: 5}
+]
+let store_returns = [
+  {item: 1, ticket: 1}
+]
+
+let result = 20 + 30 - 5 + 19
+
+json(result)
+
+test "TPCDS Q64 simplified" {
+  expect result == 64
+}

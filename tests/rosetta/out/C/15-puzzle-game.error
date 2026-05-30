@@ -1,0 +1,41 @@
+cc: exit status 1
+/tmp/15-puzzle-game.c: In function ‘isValidMove’:
+/tmp/15-puzzle-game.c:183:12: error: incompatible types when returning type ‘tmp_item_t’ but ‘int’ was expected
+  183 |     return (tmp_item_t){.idx = empty - 4,
+      |            ^
+/tmp/15-puzzle-game.c:187:12: error: incompatible types when returning type ‘tmp_item1_t’ but ‘int’ was expected
+  187 |     return (tmp_item1_t){.idx = empty + 4,
+      |            ^
+/tmp/15-puzzle-game.c:191:12: error: incompatible types when returning type ‘tmp_item2_t’ but ‘int’ was expected
+  191 |     return (tmp_item2_t){.idx = empty + 1, .ok = empty % 4 < 3};
+      |            ^
+/tmp/15-puzzle-game.c:194:12: error: incompatible types when returning type ‘tmp_item3_t’ but ‘int’ was expected
+  194 |     return (tmp_item3_t){.idx = empty - 1, .ok = empty % 4 > 0};
+      |            ^
+/tmp/15-puzzle-game.c:196:10: error: incompatible types when returning type ‘tmp_item4_t’ but ‘int’ was expected
+  196 |   return (tmp_item4_t){.idx = 0, .ok = 0};
+      |          ^
+/tmp/15-puzzle-game.c: In function ‘doMove’:
+/tmp/15-puzzle-game.c:201:11: error: request for member ‘data’ in something not a structure or union
+  201 |   if (((!r.data["ok"]))) {
+      |           ^
+/tmp/15-puzzle-game.c:205:25: error: request for member ‘data’ in something not a structure or union
+  205 |   __auto_type j = atoi(r.data["idx"]);
+      |                         ^
+/tmp/15-puzzle-game.c:207:30: error: ‘j’ undeclared (first use in this function)
+  207 |   board.data[i] = board.data[j];
+      |                              ^
+/tmp/15-puzzle-game.c:207:30: note: each undeclared identifier is reported only once for each function it appears in
+/tmp/15-puzzle-game.c: In function ‘playOneMove’:
+/tmp/15-puzzle-game.c:279:7: warning: ‘return’ with no value, in function returning non-void
+  279 |       return;
+      |       ^~~~~~
+/tmp/15-puzzle-game.c:252:5: note: declared here
+  252 | int playOneMove() {
+      |     ^~~~~~~~~~~
+/tmp/15-puzzle-game.c:297:5: warning: ‘return’ with no value, in function returning non-void
+  297 |     return;
+      |     ^~~~~~
+/tmp/15-puzzle-game.c:252:5: note: declared here
+  252 | int playOneMove() {
+      |     ^~~~~~~~~~~

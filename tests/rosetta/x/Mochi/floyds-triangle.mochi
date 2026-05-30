@@ -1,0 +1,35 @@
+fun floyd(n: int) {
+  print("Floyd " + str(n) + ":")
+  let lowerLeftCorner = n * (n - 1) / 2 + 1
+  var lastInColumn = lowerLeftCorner
+  var lastInRow = 1
+  var i = 1
+  var row = 1
+  var line = ""
+  while row <= n {
+    let w = len(str(lastInColumn))
+    if i < lastInRow {
+      line = line + pad(str(i), w) + " "
+      lastInColumn = lastInColumn + 1
+    } else {
+      line = line + pad(str(i), w)
+      print(line)
+      line = ""
+      row = row + 1
+      lastInRow = lastInRow + row
+      lastInColumn = lowerLeftCorner
+    }
+    i = i + 1
+  }
+}
+
+fun pad(s: string, w: int): string {
+  var t = s
+  while len(t) < w {
+    t = " " + t
+  }
+  return t
+}
+
+floyd(5)
+floyd(14)

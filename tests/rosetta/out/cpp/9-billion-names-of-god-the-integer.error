@@ -1,0 +1,76 @@
+g++: exit status 1
+/tmp/9-billion-names-of-god-the-integer.cpp: In function ‘std::vector<int> bigFromInt(int)’:
+/tmp/9-billion-names-of-god-the-integer.cpp:58:41: error: wrong number of template arguments (0, should be at least 1)
+   58 |   std::vector<int> digits = std::vector<>{};
+      |                                         ^
+In file included from /usr/include/c++/13/vector:66,
+                 from /tmp/9-billion-names-of-god-the-integer.cpp:5:
+/usr/include/c++/13/bits/stl_vector.h:428:11: note: provided for ‘template<class _Tp, class _Alloc> class std::vector’
+  428 |     class vector : protected _Vector_base<_Tp, _Alloc>
+      |           ^~~~~~
+/tmp/9-billion-names-of-god-the-integer.cpp: In function ‘std::vector<int> bigAdd(std::vector<int>, std::vector<int>)’:
+/tmp/9-billion-names-of-god-the-integer.cpp:68:38: error: wrong number of template arguments (0, should be at least 1)
+   68 |   std::vector<int> res = std::vector<>{};
+      |                                      ^
+/usr/include/c++/13/bits/stl_vector.h:428:11: note: provided for ‘template<class _Tp, class _Alloc> class std::vector’
+  428 |     class vector : protected _Vector_base<_Tp, _Alloc>
+      |           ^~~~~~
+/tmp/9-billion-names-of-god-the-integer.cpp: In function ‘std::vector<int> bigSub(std::vector<int>, std::vector<int>)’:
+/tmp/9-billion-names-of-god-the-integer.cpp:89:38: error: wrong number of template arguments (0, should be at least 1)
+   89 |   std::vector<int> res = std::vector<>{};
+      |                                      ^
+/usr/include/c++/13/bits/stl_vector.h:428:11: note: provided for ‘template<class _Tp, class _Alloc> class std::vector’
+  428 |     class vector : protected _Vector_base<_Tp, _Alloc>
+      |           ^~~~~~
+/tmp/9-billion-names-of-god-the-integer.cpp:93:30: error: conversion from ‘__gnu_cxx::__alloc_traits<std::allocator<int>, int>::value_type’ {aka ‘int’} to non-scalar type ‘std::vector<int>’ requested
+   93 |     std::vector<int> av = a[i];
+      |                              ^
+/tmp/9-billion-names-of-god-the-integer.cpp:98:22: error: no match for ‘operator-’ (operand types are ‘std::vector<int>’ and ‘int’)
+   98 |     auto diff = ((av - bv) - borrow);
+      |                   ~~ ^ ~~
+      |                   |    |
+      |                   |    int
+      |                   std::vector<int>
+In file included from /usr/include/c++/13/string:48,
+                 from /usr/include/c++/13/bits/locale_classes.h:40,
+                 from /usr/include/c++/13/bits/ios_base.h:41,
+                 from /usr/include/c++/13/ios:44,
+                 from /usr/include/c++/13/ostream:40,
+                 from /usr/include/c++/13/iostream:41,
+                 from /tmp/9-billion-names-of-god-the-integer.cpp:3:
+/usr/include/c++/13/bits/stl_iterator.h:625:5: note: candidate: ‘template<class _IteratorL, class _IteratorR> constexpr decltype ((__y.base() - __x.base())) std::operator-(const reverse_iterator<_IteratorL>&, const reverse_iterator<_IteratorR>&)’
+  625 |     operator-(const reverse_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/stl_iterator.h:625:5: note:   template argument deduction/substitution failed:
+/tmp/9-billion-names-of-god-the-integer.cpp:98:24: note:   ‘std::vector<int>’ is not derived from ‘const std::reverse_iterator<_IteratorL>’
+   98 |     auto diff = ((av - bv) - borrow);
+      |                        ^~
+/usr/include/c++/13/bits/stl_iterator.h:1800:5: note: candidate: ‘template<class _IteratorL, class _IteratorR> constexpr decltype ((__x.base() - __y.base())) std::operator-(const move_iterator<_IteratorL>&, const move_iterator<_IteratorR>&)’
+ 1800 |     operator-(const move_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/stl_iterator.h:1800:5: note:   template argument deduction/substitution failed:
+/tmp/9-billion-names-of-god-the-integer.cpp:98:24: note:   ‘std::vector<int>’ is not derived from ‘const std::move_iterator<_IteratorL>’
+   98 |     auto diff = ((av - bv) - borrow);
+      |                        ^~
+/tmp/9-billion-names-of-god-the-integer.cpp: In function ‘std::vector<std::vector<int> > cumu(int)’:
+/tmp/9-billion-names-of-god-the-integer.cpp:131:12: error: conversion from ‘vector<vector<std::any>>’ to non-scalar type ‘vector<vector<std::vector<int>>>’ requested
+  131 |       std::vector<std::vector<std::any>>{std::vector<std::any>{bigFromInt(1)}};
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/9-billion-names-of-god-the-integer.cpp:134:46: error: conversion from ‘vector<std::any>’ to non-scalar type ‘vector<std::vector<int>>’ requested
+  134 |     std::vector<std::vector<int>> row = std::vector<std::any>{bigFromInt(0)};
+      |                                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/9-billion-names-of-god-the-integer.cpp:138:44: error: conversion from ‘vector<int>’ to non-scalar type ‘vector<std::vector<std::any>>’ requested
+  138 |           cache[(y - x)][minInt(x, (y - x))];
+      |                                            ^
+/tmp/9-billion-names-of-god-the-integer.cpp:139:58: error: could not convert ‘val’ from ‘vector<std::vector<std::any>>’ to ‘vector<int>’
+  139 |       row.push_back(bigAdd(row[(((int)row.size()) - 1)], val));
+      |                                                          ^~~
+      |                                                          |
+      |                                                          vector<std::vector<std::any>>
+/tmp/9-billion-names-of-god-the-integer.cpp: In function ‘std::vector<std::__cxx11::basic_string<char> > row(int)’:
+/tmp/9-billion-names-of-god-the-integer.cpp:150:46: error: wrong number of template arguments (0, should be at least 1)
+  150 |   std::vector<std::string> out = std::vector<>{};
+      |                                              ^
+/usr/include/c++/13/bits/stl_vector.h:428:11: note: provided for ‘template<class _Tp, class _Alloc> class std::vector’
+  428 |     class vector : protected _Vector_base<_Tp, _Alloc>
+      |           ^~~~~~

@@ -1,0 +1,4 @@
+exit status 1
+/tmp/TestCSTranspiler_Algorithms_Golden001_data_structures_queues_priority_queue_using_list377536216/001/Program.cs(136,48): error CS0266: Cannot implicitly convert type 'object[]' to 'System.Numerics.BigInteger[][]'. An explicit conversion exists (are you missing a cast?) [/tmp/TestCSTranspiler_Algorithms_Golden001_data_structures_queues_priority_queue_using_list377536216/001/app.csproj]
+
+The build failed. Fix the build errors and run again.

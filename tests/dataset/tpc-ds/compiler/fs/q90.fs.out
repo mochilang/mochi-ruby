@@ -1,0 +1,40 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    ws_sold_time_sk: int
+    ws_ship_hdemo_sk: int
+    ws_web_page_sk: int
+}
+type Anon2 = {
+    hd_demo_sk: int
+    hd_dep_count: int
+}
+type Anon3 = {
+    t_time_sk: int
+    t_hour: int
+}
+type Anon4 = {
+    wp_web_page_sk: int
+    wp_char_count: int
+}
+type WebSale = {
+    mutable ws_sold_time_sk: int
+    mutable ws_ship_hdemo_sk: int
+    mutable ws_web_page_sk: int
+}
+let web_sales: Anon1 list = [{ ws_sold_time_sk = 1; ws_ship_hdemo_sk = 1; ws_web_page_sk = 10 }; { ws_sold_time_sk = 1; ws_ship_hdemo_sk = 1; ws_web_page_sk = 10 }; { ws_sold_time_sk = 2; ws_ship_hdemo_sk = 1; ws_web_page_sk = 10 }]
+let household_demographics: Anon2 list = [{ hd_demo_sk = 1; hd_dep_count = 2 }]
+let time_dim: Anon3 list = [{ t_time_sk = 1; t_hour = 7 }; { t_time_sk = 2; t_hour = 14 }]
+let web_page: Anon4 list = [{ wp_web_page_sk = 10; wp_char_count = 5100 }]
+let amc: obj = List.length [ for ws in web_sales do 
+  for hd in household_demographics do 
+  for t in time_dim do 
+  for wp in web_page do if ws.ws_ship_hdemo_sk = hd.hd_demo_sk && ws.ws_sold_time_sk = t.t_time_sk && ws.ws_web_page_sk = wp.wp_web_page_sk && t.t_hour >= 7 && t.t_hour <= 8 && hd.hd_dep_count = 2 && wp.wp_char_count >= 5000 && wp.wp_char_count <= 5200 then yield ws ]
+let pmc: obj = List.length [ for ws in web_sales do 
+  for hd in household_demographics do 
+  for t in time_dim do 
+  for wp in web_page do if ws.ws_ship_hdemo_sk = hd.hd_demo_sk && ws.ws_sold_time_sk = t.t_time_sk && ws.ws_web_page_sk = wp.wp_web_page_sk && t.t_hour >= 14 && t.t_hour <= 15 && hd.hd_dep_count = 2 && wp.wp_char_count >= 5000 && wp.wp_char_count <= 5200 then yield ws ]
+let result: obj = (amc) / (pmc)
+printfn "%A" (JsonSerializer.Serialize(result))
+assert (result = 2.0)

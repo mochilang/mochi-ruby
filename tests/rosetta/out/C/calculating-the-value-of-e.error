@@ -1,0 +1,10 @@
+cc: exit status 1
+/tmp/calculating-the-value-of-e.c:51:8: warning: conflicting types for built-in function ‘pow10’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+   51 | double pow10(int n) {
+      |        ^~~~~
+/tmp/calculating-the-value-of-e.c: In function ‘_mochi_main’:
+/tmp/calculating-the-value-of-e.c:88:25: error: invalid operands to binary + (have ‘char *’ and ‘char *’)
+   88 |   printf("%s\n", "e = " + formatFloat(e, 15));
+      |                  ~~~~~~ ^ ~~~~~~~~~~~~~~~~~~
+      |                  |        |
+      |                  char *   char *

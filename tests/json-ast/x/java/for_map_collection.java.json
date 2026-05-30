@@ -1,0 +1,39 @@
+{
+  "body": [
+    {
+      "kind": "VarDecl",
+      "name": "m",
+      "type": "Data1",
+      "expr": {
+        "kind": "NEW_CLASS",
+        "args": [
+          {
+            "kind": "Literal",
+            "value": "1"
+          },
+          {
+            "kind": "Literal",
+            "value": "2"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "ForEach",
+      "name": "k",
+      "expr": {
+        "kind": "Ident",
+        "name": "m"
+      },
+      "body": [
+        {
+          "kind": "Print",
+          "expr": {
+            "kind": "Ident",
+            "name": "k"
+          }
+        }
+      ]
+    }
+  ]
+}

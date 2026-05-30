@@ -1,0 +1,155 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    d_date_sk: int
+    d_date: int
+}
+type Anon2 = {
+    ss_sold_date_sk: int
+    s_store_sk: int
+    ss_ext_sales_price: float
+    ss_net_profit: float
+}
+type Anon3 = {
+    sr_returned_date_sk: int
+    s_store_sk: int
+    sr_return_amt: float
+    sr_net_loss: float
+}
+type Anon4 = {
+    cs_sold_date_sk: int
+    cs_call_center_sk: int
+    cs_ext_sales_price: float
+    cs_net_profit: float
+}
+type Anon5 = {
+    cr_returned_date_sk: int
+    cr_call_center_sk: int
+    cr_return_amount: float
+    cr_net_loss: float
+}
+type Anon6 = {
+    ws_sold_date_sk: int
+    ws_web_page_sk: int
+    ws_ext_sales_price: float
+    ws_net_profit: float
+}
+type Anon7 = {
+    wr_returned_date_sk: int
+    wr_web_page_sk: int
+    wr_return_amt: float
+    wr_net_loss: float
+}
+type Anon8 = {
+    s_store_sk: obj
+    sales: obj
+    profit: obj
+}
+type Anon9 = {
+    s_store_sk: obj
+    returns: obj
+    profit_loss: obj
+}
+type Anon10 = {
+    cs_call_center_sk: obj
+    sales: obj
+    profit: obj
+}
+type Anon11 = {
+    cr_call_center_sk: obj
+    returns: obj
+    profit_loss: obj
+}
+type Anon12 = {
+    wp_web_page_sk: obj
+    sales: obj
+    profit: obj
+}
+type Anon13 = {
+    wp_web_page_sk: obj
+    returns: obj
+    profit_loss: obj
+}
+type Anon14 = {
+    channel: string
+    id: obj
+    sales: obj
+    returns: obj
+    profit: obj
+}
+type Anon15 = {
+    channel: obj
+    id: obj
+    sales: obj
+    returns: obj
+    profit: obj
+}
+type Anon16 = {
+    channel: obj
+    id: obj
+}
+type Anon17 = {
+    channel: string
+    id: int
+    sales: float
+    returns: float
+    profit: float
+}
+type _Group<'K,'T>(key: 'K) =
+    member val key = key with get, set
+    member val Items = System.Collections.Generic.List<'T>() with get
+    member this.size = this.Items.Count
+    interface System.Collections.Generic.IEnumerable<'T> with
+        member this.GetEnumerator() = (this.Items :> seq<'T>).GetEnumerator()
+    interface System.Collections.IEnumerable with
+        member this.GetEnumerator() = (this.Items :> System.Collections.IEnumerable).GetEnumerator()
+
+let _group_by (src: 'T list) (keyfn: 'T -> 'K) : _Group<'K,'T> list =
+    let groups = System.Collections.Generic.Dictionary<string,_Group<'K,'T>>()
+    let order = System.Collections.Generic.List<string>()
+    for it in src do
+        let key = keyfn it
+        let ks = string key
+        let mutable g = Unchecked.defaultof<_Group<'K,'T>>
+        if groups.TryGetValue(ks, &g) then ()
+        else
+            g <- _Group<'K,'T>(key)
+            groups.Add(ks, g)
+            order.Add(ks)
+        g.Items.Add(it)
+    [ for ks in order -> groups[ks] ]
+
+let date_dim: Anon1 list = [{ d_date_sk = 1; d_date = 1 }]
+let store_sales: Anon2 list = [{ ss_sold_date_sk = 1; s_store_sk = 1; ss_ext_sales_price = 100.0; ss_net_profit = 10.0 }]
+let store_returns: Anon3 list = [{ sr_returned_date_sk = 1; s_store_sk = 1; sr_return_amt = 5.0; sr_net_loss = 1.0 }]
+let catalog_sales: Anon4 list = [{ cs_sold_date_sk = 1; cs_call_center_sk = 1; cs_ext_sales_price = 150.0; cs_net_profit = 15.0 }]
+let catalog_returns: Anon5 list = [{ cr_returned_date_sk = 1; cr_call_center_sk = 1; cr_return_amount = 7.0; cr_net_loss = 3.0 }]
+let web_sales: Anon6 list = [{ ws_sold_date_sk = 1; ws_web_page_sk = 1; ws_ext_sales_price = 200.0; ws_net_profit = 20.0 }]
+let web_returns: Anon7 list = [{ wr_returned_date_sk = 1; wr_web_page_sk = 1; wr_return_amt = 10.0; wr_net_loss = 2.0 }]
+let ss: Anon8 list = [ for g in _group_by [ for ss in store_sales do 
+  for d in date_dim do if d.d_date_sk = ss.ss_sold_date_sk then yield (ss, d) ] (fun (ss, d) -> ss.s_store_sk) do
+    yield { s_store_sk = g.key; sales = List.sum [ for x in g do yield x.ss.ss_ext_sales_price ]; profit = List.sum [ for x in g do yield x.ss.ss_net_profit ] } ]
+let sr: Anon9 list = [ for g in _group_by [ for sr in store_returns do 
+  for d in date_dim do if d.d_date_sk = sr.sr_returned_date_sk then yield (sr, d) ] (fun (sr, d) -> sr.s_store_sk) do
+    yield { s_store_sk = g.key; returns = List.sum [ for x in g do yield x.sr.sr_return_amt ]; profit_loss = List.sum [ for x in g do yield x.sr.sr_net_loss ] } ]
+let cs: Anon10 list = [ for g in _group_by [ for cs in catalog_sales do 
+  for d in date_dim do if d.d_date_sk = cs.cs_sold_date_sk then yield (cs, d) ] (fun (cs, d) -> cs.cs_call_center_sk) do
+    yield { cs_call_center_sk = g.key; sales = List.sum [ for x in g do yield x.cs.cs_ext_sales_price ]; profit = List.sum [ for x in g do yield x.cs.cs_net_profit ] } ]
+let cr: Anon11 list = [ for g in _group_by [ for cr in catalog_returns do 
+  for d in date_dim do if d.d_date_sk = cr.cr_returned_date_sk then yield (cr, d) ] (fun (cr, d) -> cr.cr_call_center_sk) do
+    yield { cr_call_center_sk = g.key; returns = List.sum [ for x in g do yield x.cr.cr_return_amount ]; profit_loss = List.sum [ for x in g do yield x.cr.cr_net_loss ] } ]
+let ws: Anon12 list = [ for g in _group_by [ for ws in web_sales do 
+  for d in date_dim do if d.d_date_sk = ws.ws_sold_date_sk then yield (ws, d) ] (fun (ws, d) -> ws.ws_web_page_sk) do
+    yield { wp_web_page_sk = g.key; sales = List.sum [ for x in g do yield x.ws.ws_ext_sales_price ]; profit = List.sum [ for x in g do yield x.ws.ws_net_profit ] } ]
+let wr: Anon13 list = [ for g in _group_by [ for wr in web_returns do 
+  for d in date_dim do if d.d_date_sk = wr.wr_returned_date_sk then yield (wr, d) ] (fun (wr, d) -> wr.wr_web_page_sk) do
+    yield { wp_web_page_sk = g.key; returns = List.sum [ for x in g do yield x.wr.wr_return_amt ]; profit_loss = List.sum [ for x in g do yield x.wr.wr_net_loss ] } ]
+let per_channel: obj = concat [ for s in ss do 
+  let r = List.tryFind (fun r -> s.s_store_sk = r.s_store_sk) sr yield { channel = "store channel"; id = s.s_store_sk; sales = s.sales; returns = (if r = () then 0.0 else r.returns); profit = s.profit - ((if r = () then 0.0 else r.profit_loss)) } ] [ for c in cs do 
+  for r in cr do if c.cs_call_center_sk = r.cr_call_center_sk then yield { channel = "catalog channel"; id = c.cs_call_center_sk; sales = c.sales; returns = r.returns; profit = c.profit - r.profit_loss } ] [ for w in ws do 
+  let r = List.tryFind (fun r -> w.wp_web_page_sk = r.wp_web_page_sk) wr yield { channel = "web channel"; id = w.wp_web_page_sk; sales = w.sales; returns = (if r = () then 0.0 else r.returns); profit = w.profit - ((if r = () then 0.0 else r.profit_loss)) } ]
+let result: Anon15 list = [ for g in _group_by [ for p in per_channel do yield p ] (fun p -> { channel = p.channel; id = p.id }) |> List.sortBy (fun gTmp -> let g = gTmp in g.key.channel) do
+    yield { channel = g.key.channel; id = g.key.id; sales = List.sum [ for x in g do yield x.p.sales ]; returns = List.sum [ for x in g do yield x.p.returns ]; profit = List.sum [ for x in g do yield x.p.profit ] } ]
+printfn "%A" (JsonSerializer.Serialize(result))
+assert (result = [{ channel = "catalog channel"; id = 1; sales = 150.0; returns = 7.0; profit = 12.0 }; { channel = "store channel"; id = 1; sales = 100.0; returns = 5.0; profit = 9.0 }; { channel = "web channel"; id = 1; sales = 200.0; returns = 10.0; profit = 18.0 }])

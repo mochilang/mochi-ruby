@@ -1,0 +1,21 @@
+
+/workspace/mochi/tests/machine/x/hs/group_by.hs:129:183: error:
+    • Couldn't match expected type ‘Double’ with actual type ‘Int’
+    • In the second argument of ‘div’, namely
+        ‘length
+           [fromMaybe (error "missing") (Map.lookup "age" (p)) | p <- g]’
+      In the first argument of ‘VDouble’, namely
+        ‘((sum
+             [fromMaybe (error "missing") (Map.lookup "age" (p)) | p <- g]
+             `div`
+               length
+                 [fromMaybe (error "missing") (Map.lookup "age" (p)) | p <- g]))’
+      In the expression:
+        VDouble
+          ((sum [fromMaybe (error "missing") (Map.lookup "age" (p)) | p <- g]
+              `div`
+                length
+                  [fromMaybe (error "missing") (Map.lookup "age" (p)) | p <- g]))
+    |
+129 | stats = [Map.fromList [("city", VString (key (g))), ("count", VInt (length (items g))), ("avg_age", VDouble ((sum [fromMaybe (error "missing") (Map.lookup "age" (p)) | p <- g] `div` length [fromMaybe (error "missing") (Map.lookup "age" (p)) | p <- g])))] | g <- _group_by people (\person -> fromMaybe (error "missing") (Map.lookup "city" person)), let g = g]
+    |                                                                                                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

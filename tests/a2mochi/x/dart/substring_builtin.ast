@@ -1,0 +1,8 @@
+(program
+  (fun main
+    (call print
+      (call substring (string mochi) (int 1) (int 4))
+    )
+  )
+  (call main)
+)

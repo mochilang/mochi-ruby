@@ -1,0 +1,312 @@
+swiftc: exit status 1
+/tmp/2048.swift:256:10: error: cannot assign value of type 'Any?' to type '[[Int]]'
+254 | var board = newBoard()
+255 | var r = spawnTile(board)
+256 | board = r["board"]
+    |          `- error: cannot assign value of type 'Any?' to type '[[Int]]'
+257 | var full = r["full"]
+258 | r = spawnTile(board)
+
+/tmp/2048.swift:259:10: error: cannot assign value of type 'Any?' to type '[[Int]]'
+257 | var full = r["full"]
+258 | r = spawnTile(board)
+259 | board = r["board"]
+    |          `- error: cannot assign value of type 'Any?' to type '[[Int]]'
+260 | full = r["full"]
+261 | var score = 0
+
+/tmp/2048.swift:269:18: error: cannot assign value of type 'Any?' to type '[[Int]]'
+267 |     if cmd == "a" || cmd == "A" {
+268 |         let m = moveLeft(board, score)
+269 |         board = m["board"]
+    |                  `- error: cannot assign value of type 'Any?' to type '[[Int]]'
+270 |         score = m["score"]
+271 |         moved = m["moved"]
+
+/tmp/2048.swift:270:18: error: cannot assign value of type 'Any?' to type 'Int'
+268 |         let m = moveLeft(board, score)
+269 |         board = m["board"]
+270 |         score = m["score"]
+    |                  `- error: cannot assign value of type 'Any?' to type 'Int'
+271 |         moved = m["moved"]
+272 |     }
+
+/tmp/2048.swift:271:18: error: optional type 'Any?' cannot be used as a boolean; test for '!= nil' instead
+269 |         board = m["board"]
+270 |         score = m["score"]
+271 |         moved = m["moved"]
+    |                  `- error: optional type 'Any?' cannot be used as a boolean; test for '!= nil' instead
+272 |     }
+273 |     if cmd == "d" || cmd == "D" {
+
+/tmp/2048.swift:275:18: error: cannot assign value of type 'Any?' to type '[[Int]]'
+273 |     if cmd == "d" || cmd == "D" {
+274 |         let m = moveRight(board, score)
+275 |         board = m["board"]
+    |                  `- error: cannot assign value of type 'Any?' to type '[[Int]]'
+276 |         score = m["score"]
+277 |         moved = m["moved"]
+
+/tmp/2048.swift:276:18: error: cannot assign value of type 'Any?' to type 'Int'
+274 |         let m = moveRight(board, score)
+275 |         board = m["board"]
+276 |         score = m["score"]
+    |                  `- error: cannot assign value of type 'Any?' to type 'Int'
+277 |         moved = m["moved"]
+278 |     }
+
+/tmp/2048.swift:277:18: error: optional type 'Any?' cannot be used as a boolean; test for '!= nil' instead
+275 |         board = m["board"]
+276 |         score = m["score"]
+277 |         moved = m["moved"]
+    |                  `- error: optional type 'Any?' cannot be used as a boolean; test for '!= nil' instead
+278 |     }
+279 |     if cmd == "w" || cmd == "W" {
+
+/tmp/2048.swift:281:18: error: cannot assign value of type 'Any?' to type '[[Int]]'
+279 |     if cmd == "w" || cmd == "W" {
+280 |         let m = moveUp(board, score)
+281 |         board = m["board"]
+    |                  `- error: cannot assign value of type 'Any?' to type '[[Int]]'
+282 |         score = m["score"]
+283 |         moved = m["moved"]
+
+/tmp/2048.swift:282:18: error: cannot assign value of type 'Any?' to type 'Int'
+280 |         let m = moveUp(board, score)
+281 |         board = m["board"]
+282 |         score = m["score"]
+    |                  `- error: cannot assign value of type 'Any?' to type 'Int'
+283 |         moved = m["moved"]
+284 |     }
+
+/tmp/2048.swift:283:18: error: optional type 'Any?' cannot be used as a boolean; test for '!= nil' instead
+281 |         board = m["board"]
+282 |         score = m["score"]
+283 |         moved = m["moved"]
+    |                  `- error: optional type 'Any?' cannot be used as a boolean; test for '!= nil' instead
+284 |     }
+285 |     if cmd == "s" || cmd == "S" {
+
+/tmp/2048.swift:287:18: error: cannot assign value of type 'Any?' to type '[[Int]]'
+285 |     if cmd == "s" || cmd == "S" {
+286 |         let m = moveDown(board, score)
+287 |         board = m["board"]
+    |                  `- error: cannot assign value of type 'Any?' to type '[[Int]]'
+288 |         score = m["score"]
+289 |         moved = m["moved"]
+
+/tmp/2048.swift:288:18: error: cannot assign value of type 'Any?' to type 'Int'
+286 |         let m = moveDown(board, score)
+287 |         board = m["board"]
+288 |         score = m["score"]
+    |                  `- error: cannot assign value of type 'Any?' to type 'Int'
+289 |         moved = m["moved"]
+290 |     }
+
+/tmp/2048.swift:289:18: error: optional type 'Any?' cannot be used as a boolean; test for '!= nil' instead
+287 |         board = m["board"]
+288 |         score = m["score"]
+289 |         moved = m["moved"]
+    |                  `- error: optional type 'Any?' cannot be used as a boolean; test for '!= nil' instead
+290 |     }
+291 |     if cmd == "q" || cmd == "Q" {
+
+/tmp/2048.swift:296:19: error: cannot assign value of type 'Any?' to type '[[Int]]'
+294 |     if moved {
+295 |         let r2 = spawnTile(board)
+296 |         board = r2["board"]
+    |                   `- error: cannot assign value of type 'Any?' to type '[[Int]]'
+297 |         full = r2["full"]
+298 |         if full && (!hasMoves(board)) {
+
+/tmp/2048.swift:298:12: error: optional type 'Any?' cannot be used as a boolean; test for '!= nil' instead
+296 |         board = r2["board"]
+297 |         full = r2["full"]
+298 |         if full && (!hasMoves(board)) {
+    |            `- error: optional type 'Any?' cannot be used as a boolean; test for '!= nil' instead
+299 |             draw(board, score)
+300 |             print("Game Over")
+
+/tmp/2048.swift:48:15: error: cannot assign through subscript: 'b' is a 'let' constant
+ 46 |         val = 2
+ 47 |     }
+ 48 |     b[cell[1]][cell[0]] = val
+    |               `- error: cannot assign through subscript: 'b' is a 'let' constant
+ 49 |     return ["board": b, "full": empty.count == 1]
+ 50 | }
+
+/tmp/2048.swift:52:9: warning: variable 's' was never mutated; consider changing to 'let' constant
+ 50 | }
+ 51 | func pad(_ n: Int) -> String {
+ 52 |     var s = String(n)
+    |         `- warning: variable 's' was never mutated; consider changing to 'let' constant
+ 53 |     var pad = 4 - s.count
+ 54 |     var i = 0
+
+/tmp/2048.swift:53:9: warning: variable 'pad' was never mutated; consider changing to 'let' constant
+ 51 | func pad(_ n: Int) -> String {
+ 52 |     var s = String(n)
+ 53 |     var pad = 4 - s.count
+    |         `- warning: variable 'pad' was never mutated; consider changing to 'let' constant
+ 54 |     var i = 0
+ 55 |     var out = ""
+
+/tmp/2048.swift:70:17: warning: variable 'v' was never mutated; consider changing to 'let' constant
+ 68 |         var x = 0
+ 69 |         while x < SIZE {
+ 70 |             var v = b[y][x]
+    |                 `- warning: variable 'v' was never mutated; consider changing to 'let' constant
+ 71 |             if v == 0 {
+ 72 |                 line = line + "    |"
+
+/tmp/2048.swift:129:9: error: cannot assign to value: 'score' is a 'let' constant
+127 |         let r = slideLeft(b[y])
+128 |         let new = r["row"]
+129 |         score = score + r["gain"]
+    |         `- error: cannot assign to value: 'score' is a 'let' constant
+130 |         var x = 0
+131 |         while x < SIZE {
+
+/tmp/2048.swift:129:26: error: cannot convert value of type 'Any?' to expected argument type 'Int'
+127 |         let r = slideLeft(b[y])
+128 |         let new = r["row"]
+129 |         score = score + r["gain"]
+    |                          `- error: cannot convert value of type 'Any?' to expected argument type 'Int'
+130 |         var x = 0
+131 |         while x < SIZE {
+
+/tmp/2048.swift:132:30: error: value of type 'Any?' has no subscripts
+130 |         var x = 0
+131 |         while x < SIZE {
+132 |             if b[y][x] != new[x] {
+    |                              `- error: value of type 'Any?' has no subscripts
+133 |                 moved = true
+134 |             }
+
+/tmp/2048.swift:135:17: error: cannot assign through subscript: 'b' is a 'let' constant
+133 |                 moved = true
+134 |             }
+135 |             b[y][x] = new[x]
+    |                 `- error: cannot assign through subscript: 'b' is a 'let' constant
+136 |             x = x + 1
+137 |         }
+
+/tmp/2048.swift:135:26: error: value of type 'Any?' has no subscripts
+133 |                 moved = true
+134 |             }
+135 |             b[y][x] = new[x]
+    |                          `- error: value of type 'Any?' has no subscripts
+136 |             x = x + 1
+137 |         }
+
+/tmp/2048.swift:148:16: error: cannot assign value of type 'Any?' to type '[Int]'
+146 |         var rev = reverseRow(b[y])
+147 |         let r = slideLeft(rev)
+148 |         rev = r["row"]
+    |                `- error: cannot assign value of type 'Any?' to type '[Int]'
+149 |         score = score + r["gain"]
+150 |         rev = reverseRow(rev)
+
+/tmp/2048.swift:149:9: error: cannot assign to value: 'score' is a 'let' constant
+147 |         let r = slideLeft(rev)
+148 |         rev = r["row"]
+149 |         score = score + r["gain"]
+    |         `- error: cannot assign to value: 'score' is a 'let' constant
+150 |         rev = reverseRow(rev)
+151 |         var x = 0
+
+/tmp/2048.swift:149:26: error: cannot convert value of type 'Any?' to expected argument type 'Int'
+147 |         let r = slideLeft(rev)
+148 |         rev = r["row"]
+149 |         score = score + r["gain"]
+    |                          `- error: cannot convert value of type 'Any?' to expected argument type 'Int'
+150 |         rev = reverseRow(rev)
+151 |         var x = 0
+
+/tmp/2048.swift:156:17: error: cannot assign through subscript: 'b' is a 'let' constant
+154 |                 moved = true
+155 |             }
+156 |             b[y][x] = rev[x]
+    |                 `- error: cannot assign through subscript: 'b' is a 'let' constant
+157 |             x = x + 1
+158 |         }
+
+/tmp/2048.swift:175:13: error: cannot assign through subscript: 'b' is a 'let' constant
+173 |     var y = 0
+174 |     while y < SIZE {
+175 |         b[y][x] = col[y]
+    |             `- error: cannot assign through subscript: 'b' is a 'let' constant
+176 |         y = y + 1
+177 |     }
+
+/tmp/2048.swift:186:9: error: cannot assign to value: 'score' is a 'let' constant
+184 |         let r = slideLeft(col)
+185 |         let new = r["row"]
+186 |         score = score + r["gain"]
+    |         `- error: cannot assign to value: 'score' is a 'let' constant
+187 |         var y = 0
+188 |         while y < SIZE {
+
+/tmp/2048.swift:186:26: error: cannot convert value of type 'Any?' to expected argument type 'Int'
+184 |         let r = slideLeft(col)
+185 |         let new = r["row"]
+186 |         score = score + r["gain"]
+    |                          `- error: cannot convert value of type 'Any?' to expected argument type 'Int'
+187 |         var y = 0
+188 |         while y < SIZE {
+
+/tmp/2048.swift:189:30: error: value of type 'Any?' has no subscripts
+187 |         var y = 0
+188 |         while y < SIZE {
+189 |             if b[y][x] != new[y] {
+    |                              `- error: value of type 'Any?' has no subscripts
+190 |                 moved = true
+191 |             }
+
+/tmp/2048.swift:192:17: error: cannot assign through subscript: 'b' is a 'let' constant
+190 |                 moved = true
+191 |             }
+192 |             b[y][x] = new[y]
+    |                 `- error: cannot assign through subscript: 'b' is a 'let' constant
+193 |             y = y + 1
+194 |         }
+
+/tmp/2048.swift:192:26: error: value of type 'Any?' has no subscripts
+190 |                 moved = true
+191 |             }
+192 |             b[y][x] = new[y]
+    |                          `- error: value of type 'Any?' has no subscripts
+193 |             y = y + 1
+194 |         }
+
+/tmp/2048.swift:205:16: error: cannot assign value of type 'Any?' to type '[Int]'
+203 |         var col: [Int] = reverseRow(getCol(b, x))
+204 |         let r = slideLeft(col)
+205 |         col = r["row"]
+    |                `- error: cannot assign value of type 'Any?' to type '[Int]'
+206 |         score = score + r["gain"]
+207 |         col = reverseRow(col)
+
+/tmp/2048.swift:206:9: error: cannot assign to value: 'score' is a 'let' constant
+204 |         let r = slideLeft(col)
+205 |         col = r["row"]
+206 |         score = score + r["gain"]
+    |         `- error: cannot assign to value: 'score' is a 'let' constant
+207 |         col = reverseRow(col)
+208 |         var y = 0
+
+/tmp/2048.swift:206:26: error: cannot convert value of type 'Any?' to expected argument type 'Int'
+204 |         let r = slideLeft(col)
+205 |         col = r["row"]
+206 |         score = score + r["gain"]
+    |                          `- error: cannot convert value of type 'Any?' to expected argument type 'Int'
+207 |         col = reverseRow(col)
+208 |         var y = 0
+
+/tmp/2048.swift:213:17: error: cannot assign through subscript: 'b' is a 'let' constant
+211 |                 moved = true
+212 |             }
+213 |             b[y][x] = col[y]
+    |                 `- error: cannot assign through subscript: 'b' is a 'let' constant
+214 |             y = y + 1
+215 |         }

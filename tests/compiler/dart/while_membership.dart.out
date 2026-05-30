@@ -1,0 +1,16 @@
+Map<int, bool> set = {};
+
+int i = 1;
+
+int count = 0;
+
+void main() {
+  for (var n in [1, 2, 3]) {
+    set[n] = true;
+  }
+  while ((set.containsKey(i))) {
+    i = ((i + 1)).toInt();
+    count = ((count + 1)).toInt();
+  }
+  print(count);
+}

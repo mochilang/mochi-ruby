@@ -1,0 +1,68 @@
+// LeetCode #33: Search in Rotated Sorted Array
+// Below are some common Mochi language errors and how to fix them.
+//
+// Error 1: Using '=' instead of '==' for comparison
+// if nums[mid] = target { ... }
+// Fix:
+// if nums[mid] == target { ... }
+//
+// Error 2: Declaring a mutable variable with 'let'
+// let left = 0
+// left = left + 1  // ❌ cannot reassign
+// Fix:
+// var left = 0
+// left = left + 1
+//
+// Error 3: Off-by-one loop condition
+// while left < right { }
+// Fix:
+// while left <= right { }
+
+fun search(nums: list<int>, target: int): int {
+  var left = 0
+  var right = len(nums) - 1
+  while left <= right {
+    let mid = (left + right) / 2
+    if nums[mid] == target {
+      return mid
+    }
+    if nums[left] <= nums[mid] {
+      if nums[left] <= target && target < nums[mid] {
+        right = mid - 1
+      } else {
+        left = mid + 1
+      }
+    } else {
+      if nums[mid] < target && target <= nums[right] {
+        left = mid + 1
+      } else {
+        right = mid - 1
+      }
+    }
+  }
+  return -1
+}
+
+// Test cases from LeetCode
+
+test "example 1" {
+  expect search([4,5,6,7,0,1,2], 0) == 4
+}
+
+test "example 2" {
+  expect search([4,5,6,7,0,1,2], 3) == (-1)
+}
+
+test "example 3" {
+  expect search([1], 0) == (-1)
+}
+
+// Additional edge cases
+
+test "single element found" {
+  expect search([1], 1) == 0
+}
+
+test "two elements" {
+  expect search([3,1], 1) == 1
+}

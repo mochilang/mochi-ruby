@@ -1,0 +1,5 @@
+WARNING: importing already defined binding: equal?
+WARNING: importing already defined binding: let-syntax
+WARNING: importing already defined binding: letrec-syntax
+[{"movie_title":"Alpha"}]
+   test Q3 returns lexicographically smallest sequel title ... ok

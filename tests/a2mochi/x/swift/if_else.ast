@@ -1,0 +1,17 @@
+(program
+  (let x (int 5))
+  (if
+    (group
+      (binary >
+        (group (selector x))
+        (int 3)
+      )
+    )
+    (block
+      (call print (string big))
+    )
+    (block
+      (call print (string small))
+    )
+  )
+)

@@ -1,0 +1,62 @@
+{
+  "root": {
+    "kind": "chunk",
+    "children": [
+      {
+        "kind": "for_statement",
+        "children": [
+          {
+            "kind": "for_numeric_clause",
+            "children": [
+              {
+                "kind": "identifier",
+                "text": "i"
+              },
+              {
+                "kind": "number",
+                "text": "1"
+              },
+              {
+                "kind": "binary_expression",
+                "text": "-",
+                "children": [
+                  {
+                    "kind": "number",
+                    "text": "4"
+                  },
+                  {
+                    "kind": "number",
+                    "text": "1"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "block",
+            "children": [
+              {
+                "kind": "function_call",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "text": "print"
+                  },
+                  {
+                    "kind": "arguments",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "i"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

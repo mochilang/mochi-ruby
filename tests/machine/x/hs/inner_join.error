@@ -1,0 +1,13 @@
+
+/workspace/mochi/tests/machine/x/hs/inner_join.hs:131:372: error:
+    • Couldn't match type ‘AnyValue’ with ‘Int’
+      Expected: Map.Map String Int
+        Actual: Map.Map String AnyValue
+    • In the second argument of ‘Map.lookup’, namely ‘(c)’
+      In the second argument of ‘fromMaybe’, namely
+        ‘(Map.lookup "id" (c))’
+      In the second argument of ‘(==)’, namely
+        ‘fromMaybe (error "missing") (Map.lookup "id" (c))’
+    |
+131 | result = [Map.fromList [("orderId", VInt (fromMaybe (error "missing") (Map.lookup "id" o))), ("customerName", fromMaybe (error "missing") (Map.lookup "name" c)), ("total", VInt (fromMaybe (error "missing") (Map.lookup "total" o)))] | o <- orders, c <- customers, (fromMaybe (error "missing") (Map.lookup "customerId" (o)) == fromMaybe (error "missing") (Map.lookup "id" (c)))]
+    |                                                                                                                                                                                                                                                                                                                                                                                    ^

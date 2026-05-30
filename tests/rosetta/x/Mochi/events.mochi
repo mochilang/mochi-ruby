@@ -1,0 +1,18 @@
+type Event {
+  set: bool
+}
+
+fun main() {
+  print("program start")
+  var ev = Event{set: false}
+  print("program sleeping")
+  print("task start")
+  ev.set = true
+  print("program signaling event")
+  if ev.set {
+    print("event reset by task")
+    ev.set = false
+  }
+}
+
+main()

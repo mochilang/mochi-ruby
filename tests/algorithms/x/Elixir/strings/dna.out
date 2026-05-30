@@ -1,0 +1,12 @@
+warning: module attribute @data_dir was set but never used
+    │
+  3 │   @data_dir nil
+    │   ~~~~~~~~~~~~~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/strings/dna.exs:3: Main (module)
+
+"CGAT"
+"TACG"
+"GACT"
+ValueError: Invalid Strand
+""

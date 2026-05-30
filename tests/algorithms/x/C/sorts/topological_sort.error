@@ -1,0 +1,10 @@
+compile: exit status 1
+/workspace/mochi/tests/algorithms/x/C/sorts/topological_sort.c: In function ‘user_main’:
+/workspace/mochi/tests/algorithms/x/C/sorts/topological_sort.c:174:56: error: incompatible type for argument 2 of ‘topological_sort’
+  174 |     const char* *result = topological_sort("a", (Anon1){}, NULL, 0);
+      |                                                        ^~
+      |                                                        |
+      |                                                        Anon1
+/workspace/mochi/tests/algorithms/x/C/sorts/topological_sort.c:145:57: note: expected ‘MapSI’ but argument is of type ‘Anon1’
+  145 | const char* * topological_sort(const char* start, MapSI visited, const char* * sort, size_t sort_len) {
+      |                                                   ~~~~~~^~~~~~~

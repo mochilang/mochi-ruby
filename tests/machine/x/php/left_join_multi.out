@@ -1,0 +1,12 @@
+--- Left Join Multi ---
+int(100)
+string(5) "Alice"
+array(2) {
+  ["orderId"]=>
+  int(100)
+  ["sku"]=>
+  string(1) "a"
+}
+int(101)
+string(3) "Bob"
+NULL

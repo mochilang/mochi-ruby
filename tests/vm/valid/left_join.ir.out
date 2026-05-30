@@ -1,0 +1,156 @@
+func main (regs=83)
+  // let customers = [
+  Const        r0, [{"id": 1, "name": "Alice"}, {"id": 2, "name": "Bob"}]
+  Move         r1, r0
+  // let orders = [
+  Const        r2, [{"customerId": 1, "id": 100, "total": 250}, {"customerId": 3, "id": 101, "total": 80}]
+  Move         r3, r2
+  // let result = from o in orders
+  Const        r4, []
+  IterPrep     r5, r3
+  Len          r6, r5
+  // left join c in customers on o.customerId == c.id
+  IterPrep     r7, r1
+  Len          r8, r7
+  MakeMap      r9, 0, r0
+  Const        r10, 0
+L2:
+  LessInt      r11, r10, r8
+  JumpIfFalse  r11, L0
+  Index        r12, r7, r10
+  Move         r13, r12
+  Const        r14, "id"
+  Index        r15, r13, r14
+  Index        r16, r9, r15
+  Const        r17, nil
+  NotEqual     r18, r16, r17
+  JumpIfTrue   r18, L1
+  MakeList     r19, 0, r0
+  SetIndex     r9, r15, r19
+L1:
+  Index        r16, r9, r15
+  Append       r20, r16, r12
+  SetIndex     r9, r15, r20
+  Const        r21, 1
+  AddInt       r10, r10, r21
+  Jump         L2
+L0:
+  // let result = from o in orders
+  Const        r22, 0
+L7:
+  LessInt      r23, r22, r6
+  JumpIfFalse  r23, L3
+  Index        r24, r5, r22
+  Move         r25, r24
+  // left join c in customers on o.customerId == c.id
+  Const        r26, "customerId"
+  Index        r27, r25, r26
+  // let result = from o in orders
+  Index        r28, r9, r27
+  Const        r17, nil
+  NotEqual     r29, r28, r17
+  JumpIfFalse  r29, L4
+  Len          r30, r28
+  Const        r31, 0
+L5:
+  LessInt      r32, r31, r30
+  JumpIfFalse  r32, L4
+  Index        r33, r28, r31
+  Move         r13, r33
+  // orderId: o.id,
+  Const        r34, "orderId"
+  Const        r14, "id"
+  Index        r35, r25, r14
+  // customer: c,
+  Const        r36, "customer"
+  // total: o.total
+  Const        r37, "total"
+  Const        r38, "total"
+  Index        r39, r25, r38
+  // orderId: o.id,
+  Move         r40, r34
+  Move         r41, r35
+  // customer: c,
+  Move         r42, r36
+  Move         r43, r13
+  // total: o.total
+  Move         r44, r37
+  Move         r45, r39
+  // select {
+  MakeMap      r46, 3, r40
+  // let result = from o in orders
+  Append       r47, r4, r46
+  Move         r4, r47
+  Const        r21, 1
+  AddInt       r31, r31, r21
+  Jump         L5
+L4:
+  JumpIfTrue   r29, L6
+  Const        r17, nil
+  Move         r13, r17
+  // orderId: o.id,
+  Const        r48, "orderId"
+  Const        r14, "id"
+  Index        r49, r25, r14
+  // customer: c,
+  Const        r50, "customer"
+  // total: o.total
+  Const        r51, "total"
+  Const        r38, "total"
+  Index        r52, r25, r38
+  // orderId: o.id,
+  Move         r53, r48
+  Move         r54, r49
+  // customer: c,
+  Move         r55, r50
+  Move         r56, r13
+  // total: o.total
+  Move         r57, r51
+  Move         r58, r52
+  // select {
+  MakeMap      r59, 3, r53
+  // let result = from o in orders
+  Append       r60, r4, r59
+  Move         r4, r60
+L6:
+  Const        r21, 1
+  AddInt       r22, r22, r21
+  Jump         L7
+L3:
+  Move         r61, r4
+  // print("--- Left Join ---")
+  Const        r62, "--- Left Join ---"
+  Print        r62
+  // for entry in result {
+  IterPrep     r63, r61
+  Len          r64, r63
+  Const        r65, 0
+L9:
+  LessInt      r66, r65, r64
+  JumpIfFalse  r66, L8
+  Index        r67, r63, r65
+  Move         r68, r67
+  // print("Order", entry.orderId, "customer", entry.customer, "total", entry.total)
+  Const        r75, "Order"
+  Move         r69, r75
+  Const        r76, "orderId"
+  Index        r77, r68, r76
+  Move         r70, r77
+  Const        r78, "customer"
+  Move         r71, r78
+  Const        r78, "customer"
+  Index        r79, r68, r78
+  Move         r72, r79
+  Const        r38, "total"
+  Move         r73, r38
+  Const        r38, "total"
+  Index        r80, r68, r38
+  Move         r74, r80
+  PrintN       r69, 6, r69
+  // for entry in result {
+  Const        r81, 1
+  AddInt       r82, r65, r81
+  Move         r65, r82
+  Jump         L9
+L8:
+  Return       r0

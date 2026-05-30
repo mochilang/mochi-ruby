@@ -1,0 +1,13 @@
+run: exit status 1
+# command-line-arguments
+/tmp/X/001/main.go:37:14: invalid argument: any(a) (value of interface type any) for built-in len
+/tmp/X/001/main.go:58:14: invalid argument: any(p) (value of interface type any) for built-in len
+/tmp/X/001/main.go:59:7: invalid operation: cannot index p (variable of type *[]int)
+/tmp/X/001/main.go:60:5: invalid operation: cannot index p (variable of type *[]int)
+/tmp/X/001/main.go:63:6: invalid operation: cannot index p (variable of type *[]int)
+/tmp/X/001/main.go:103:10: cannot use s4 (variable of type []int) as *[]int value in argument to topple
+/tmp/X/001/main.go:131:10: cannot use s3_a (variable of type []int) as *[]int value in argument to topple
+/tmp/X/001/main.go:135:10: cannot use s3_b (variable of type []int) as *[]int value in argument to topple
+/tmp/X/001/main.go:164:10: cannot use s4b (variable of type []int) as *[]int value in argument to topple
+/tmp/X/001/main.go:170:10: cannot use s5 (variable of type []int) as *[]int value in argument to topple
+/tmp/X/001/main.go:170:10: too many errors

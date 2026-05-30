@@ -1,0 +1,11 @@
+(program
+  (fun boom
+    (type int)
+    (block
+      (call print (string boom))
+      (return (int 1))
+    )
+  )
+  (call print (int 0))
+  (call print (int 1))
+)

@@ -1,0 +1,194 @@
+(ns main (:refer-clojure :exclude [new_heap parent left right swap cmp get_valid_parent heapify_up heapify_down update_item delete_item insert_item get_top extract_top identity negate]))
+
+(require 'clojure.set)
+
+(defn in [x coll]
+  (cond (string? coll) (clojure.string/includes? coll x) (map? coll) (contains? coll x) (sequential? coll) (some (fn [e] (= e x)) coll) :else false))
+
+(defn padStart [s w p]
+  (loop [out (str s)] (if (< (count out) w) (recur (str p out)) out)))
+
+(defn indexOf [s sub]
+  (let [idx (clojure.string/index-of s sub)] (if (nil? idx) -1 idx)))
+
+(defn split [s sep]
+  (clojure.string/split s (re-pattern sep)))
+
+(defn toi [s]
+  (int (Double/valueOf (str s))))
+
+(defn _ord [s]
+  (int (first s)))
+
+(defn mochi_str [v]
+  (cond (float? v) (let [s (str v)] (if (clojure.string/ends-with? s ".0") (subs s 0 (- (count s) 2)) s)) :else (str v)))
+
+(defn _fetch [url]
+  {:data [{:from "" :intensity {:actual 0 :forecast 0 :index ""} :to ""}]})
+
+(def nowSeed (atom (let [s (System/getenv "MOCHI_NOW_SEED")] (if (and s (not (= s ""))) (Integer/parseInt s) 0))))
+
+(declare new_heap parent left right swap cmp get_valid_parent heapify_up heapify_down update_item delete_item insert_item get_top extract_top identity negate)
+
+(declare _read_file)
+
+(def ^:dynamic cmp_arr nil)
+
+(def ^:dynamic delete_item_arr nil)
+
+(def ^:dynamic delete_item_h nil)
+
+(def ^:dynamic delete_item_index nil)
+
+(def ^:dynamic delete_item_last_index nil)
+
+(def ^:dynamic delete_item_moved nil)
+
+(def ^:dynamic delete_item_pm nil)
+
+(def ^:dynamic extract_top_h nil)
+
+(def ^:dynamic extract_top_top nil)
+
+(def ^:dynamic get_top_arr nil)
+
+(def ^:dynamic get_valid_parent_l nil)
+
+(def ^:dynamic get_valid_parent_r nil)
+
+(def ^:dynamic get_valid_parent_vp nil)
+
+(def ^:dynamic heapify_down_h nil)
+
+(def ^:dynamic heapify_down_idx nil)
+
+(def ^:dynamic heapify_down_vp nil)
+
+(def ^:dynamic heapify_up_h nil)
+
+(def ^:dynamic heapify_up_idx nil)
+
+(def ^:dynamic heapify_up_p nil)
+
+(def ^:dynamic insert_item_arr nil)
+
+(def ^:dynamic insert_item_arr_len nil)
+
+(def ^:dynamic insert_item_h nil)
+
+(def ^:dynamic insert_item_pm nil)
+
+(def ^:dynamic left_l nil)
+
+(def ^:dynamic main_h nil)
+
+(def ^:dynamic right_r nil)
+
+(def ^:dynamic swap_arr nil)
+
+(def ^:dynamic swap_h nil)
+
+(def ^:dynamic swap_item_i nil)
+
+(def ^:dynamic swap_item_j nil)
+
+(def ^:dynamic swap_pm nil)
+
+(def ^:dynamic swap_tmp nil)
+
+(def ^:dynamic update_item_arr nil)
+
+(def ^:dynamic update_item_h nil)
+
+(def ^:dynamic update_item_index nil)
+
+(def ^:dynamic update_item_pm nil)
+
+(defn new_heap [new_heap_key]
+  (try (throw (ex-info "return" {:v {:arr [] :key new_heap_key :pos_map {} :size 0}})) (catch clojure.lang.ExceptionInfo e (if (= (ex-message e) "return") (get (ex-data e) :v) (throw e)))))
+
+(defn parent [parent_i]
+  (try (if (> parent_i 0) (quot (- parent_i 1) 2) (- 1)) (catch clojure.lang.ExceptionInfo e (if (= (ex-message e) "return") (get (ex-data e) :v) (throw e)))))
+
+(defn left [left_i left_size]
+  (binding [left_l nil] (try (do (set! left_l (+ (* 2 left_i) 1)) (if (< left_l left_size) left_l (- 1))) (catch clojure.lang.ExceptionInfo e (if (= (ex-message e) "return") (get (ex-data e) :v) (throw e))))))
+
+(defn right [right_i right_size]
+  (binding [right_r nil] (try (do (set! right_r (+ (* 2 right_i) 2)) (if (< right_r right_size) right_r (- 1))) (catch clojure.lang.ExceptionInfo e (if (= (ex-message e) "return") (get (ex-data e) :v) (throw e))))))
+
+(defn swap [swap_h_p swap_i swap_j]
+  (binding [swap_h swap_h_p swap_arr nil swap_item_i nil swap_item_j nil swap_pm nil swap_tmp nil] (try (do (set! swap_arr (:arr swap_h)) (set! swap_item_i (get (get swap_arr swap_i) 0)) (set! swap_item_j (get (get swap_arr swap_j) 0)) (set! swap_pm (:pos_map swap_h)) (set! swap_pm (assoc swap_pm swap_item_i (+ swap_j 1))) (set! swap_pm (assoc swap_pm swap_item_j (+ swap_i 1))) (set! swap_h (assoc swap_h :pos_map swap_pm)) (set! swap_tmp (get swap_arr swap_i)) (set! swap_arr (assoc swap_arr swap_i (get swap_arr swap_j))) (set! swap_arr (assoc swap_arr swap_j swap_tmp)) (set! swap_h (assoc swap_h :arr swap_arr))) (finally (alter-var-root (var swap_h) (constantly swap_h))))))
+
+(defn cmp [cmp_h cmp_i cmp_j]
+  (binding [cmp_arr nil] (try (do (set! cmp_arr (:arr cmp_h)) (throw (ex-info "return" {:v (< (get (get cmp_arr cmp_i) 1) (get (get cmp_arr cmp_j) 1))}))) (catch clojure.lang.ExceptionInfo e (if (= (ex-message e) "return") (get (ex-data e) :v) (throw e))))))
+
+(defn get_valid_parent [get_valid_parent_h get_valid_parent_i]
+  (binding [get_valid_parent_l nil get_valid_parent_r nil get_valid_parent_vp nil] (try (do (set! get_valid_parent_vp get_valid_parent_i) (set! get_valid_parent_l (left get_valid_parent_i (:size get_valid_parent_h))) (when (and (not= get_valid_parent_l -1) (= (cmp get_valid_parent_h get_valid_parent_l get_valid_parent_vp) false)) (set! get_valid_parent_vp get_valid_parent_l)) (set! get_valid_parent_r (right get_valid_parent_i (:size get_valid_parent_h))) (when (and (not= get_valid_parent_r -1) (= (cmp get_valid_parent_h get_valid_parent_r get_valid_parent_vp) false)) (set! get_valid_parent_vp get_valid_parent_r)) (throw (ex-info "return" {:v get_valid_parent_vp}))) (catch clojure.lang.ExceptionInfo e (if (= (ex-message e) "return") (get (ex-data e) :v) (throw e))))))
+
+(defn heapify_up [heapify_up_h_p heapify_up_index]
+  (binding [heapify_up_h heapify_up_h_p heapify_up_idx nil heapify_up_p nil] (try (do (set! heapify_up_idx heapify_up_index) (set! heapify_up_p (parent heapify_up_idx)) (while (and (not= heapify_up_p -1) (= (cmp heapify_up_h heapify_up_idx heapify_up_p) false)) (do (let [__res (swap heapify_up_h heapify_up_idx heapify_up_p)] (do (set! heapify_up_h swap_h) __res)) (set! heapify_up_idx heapify_up_p) (set! heapify_up_p (parent heapify_up_p))))) (finally (alter-var-root (var heapify_up_h) (constantly heapify_up_h))))))
+
+(defn heapify_down [heapify_down_h_p heapify_down_index]
+  (binding [heapify_down_h heapify_down_h_p heapify_down_idx nil heapify_down_vp nil] (try (do (set! heapify_down_idx heapify_down_index) (set! heapify_down_vp (get_valid_parent heapify_down_h heapify_down_idx)) (while (not= heapify_down_vp heapify_down_idx) (do (let [__res (swap heapify_down_h heapify_down_idx heapify_down_vp)] (do (set! heapify_down_h swap_h) __res)) (set! heapify_down_idx heapify_down_vp) (set! heapify_down_vp (get_valid_parent heapify_down_h heapify_down_idx))))) (finally (alter-var-root (var heapify_down_h) (constantly heapify_down_h))))))
+
+(defn update_item [update_item_h_p update_item_item update_item_item_value]
+  (binding [update_item_h update_item_h_p update_item_arr nil update_item_index nil update_item_pm nil] (try (do (set! update_item_pm (:pos_map update_item_h)) (when (= (get update_item_pm update_item_item) 0) (throw (ex-info "return" {:v nil}))) (set! update_item_index (- (get update_item_pm update_item_item) 1)) (set! update_item_arr (:arr update_item_h)) (set! update_item_arr (assoc update_item_arr update_item_index [update_item_item ((:key update_item_h) update_item_item_value)])) (set! update_item_h (assoc update_item_h :arr update_item_arr)) (set! update_item_h (assoc update_item_h :pos_map update_item_pm)) (let [__res (heapify_up update_item_h update_item_index)] (do (set! update_item_h heapify_up_h) __res)) (let [__res (heapify_down update_item_h update_item_index)] (do (set! update_item_h heapify_down_h) __res))) (catch clojure.lang.ExceptionInfo e (if (= (ex-message e) "return") (get (ex-data e) :v) (throw e))) (finally (alter-var-root (var update_item_h) (constantly update_item_h))))))
+
+(defn delete_item [delete_item_h_p delete_item_item]
+  (binding [delete_item_h delete_item_h_p delete_item_arr nil delete_item_index nil delete_item_last_index nil delete_item_moved nil delete_item_pm nil] (try (do (set! delete_item_pm (:pos_map delete_item_h)) (when (= (get delete_item_pm delete_item_item) 0) (throw (ex-info "return" {:v nil}))) (set! delete_item_index (- (get delete_item_pm delete_item_item) 1)) (set! delete_item_pm (assoc delete_item_pm delete_item_item 0)) (set! delete_item_arr (:arr delete_item_h)) (set! delete_item_last_index (- (:size delete_item_h) 1)) (when (not= delete_item_index delete_item_last_index) (do (set! delete_item_arr (assoc delete_item_arr delete_item_index (get delete_item_arr delete_item_last_index))) (set! delete_item_moved (get (get delete_item_arr delete_item_index) 0)) (set! delete_item_pm (assoc delete_item_pm delete_item_moved (+ delete_item_index 1))))) (set! delete_item_h (assoc delete_item_h :size (- (:size delete_item_h) 1))) (set! delete_item_h (assoc delete_item_h :arr delete_item_arr)) (set! delete_item_h (assoc delete_item_h :pos_map delete_item_pm)) (when (> (:size delete_item_h) delete_item_index) (do (let [__res (heapify_up delete_item_h delete_item_index)] (do (set! delete_item_h heapify_up_h) __res)) (let [__res (heapify_down delete_item_h delete_item_index)] (do (set! delete_item_h heapify_down_h) __res))))) (catch clojure.lang.ExceptionInfo e (if (= (ex-message e) "return") (get (ex-data e) :v) (throw e))) (finally (alter-var-root (var delete_item_h) (constantly delete_item_h))))))
+
+(defn insert_item [insert_item_h_p insert_item_item insert_item_item_value]
+  (binding [insert_item_h insert_item_h_p insert_item_arr nil insert_item_arr_len nil insert_item_pm nil] (try (do (set! insert_item_arr (:arr insert_item_h)) (set! insert_item_arr_len (count insert_item_arr)) (if (= insert_item_arr_len (:size insert_item_h)) (set! insert_item_arr (conj insert_item_arr [insert_item_item ((:key insert_item_h) insert_item_item_value)])) (set! insert_item_arr (assoc insert_item_arr (:size insert_item_h) [insert_item_item ((:key insert_item_h) insert_item_item_value)]))) (set! insert_item_pm (:pos_map insert_item_h)) (set! insert_item_pm (assoc insert_item_pm insert_item_item (+ (:size insert_item_h) 1))) (set! insert_item_h (assoc insert_item_h :size (+ (:size insert_item_h) 1))) (set! insert_item_h (assoc insert_item_h :arr insert_item_arr)) (set! insert_item_h (assoc insert_item_h :pos_map insert_item_pm)) (let [__res (heapify_up insert_item_h (- (:size insert_item_h) 1))] (do (set! insert_item_h heapify_up_h) __res))) (finally (alter-var-root (var insert_item_h) (constantly insert_item_h))))))
+
+(defn get_top [get_top_h]
+  (binding [get_top_arr nil] (try (do (set! get_top_arr (:arr get_top_h)) (if (> (:size get_top_h) 0) (get get_top_arr 0) [])) (catch clojure.lang.ExceptionInfo e (if (= (ex-message e) "return") (get (ex-data e) :v) (throw e))))))
+
+(defn extract_top [extract_top_h_p]
+  (binding [extract_top_h extract_top_h_p extract_top_top nil] (try (do (set! extract_top_top (get_top extract_top_h)) (when (> (count extract_top_top) 0) (let [__res (delete_item extract_top_h (nth extract_top_top 0))] (do (set! extract_top_h delete_item_h) __res))) (throw (ex-info "return" {:v extract_top_top}))) (catch clojure.lang.ExceptionInfo e (if (= (ex-message e) "return") (get (ex-data e) :v) (throw e))) (finally (alter-var-root (var extract_top_h) (constantly extract_top_h))))))
+
+(defn identity [identity_x]
+  (try (throw (ex-info "return" {:v identity_x})) (catch clojure.lang.ExceptionInfo e (if (= (ex-message e) "return") (get (ex-data e) :v) (throw e)))))
+
+(defn negate [negate_x]
+  (try (throw (ex-info "return" {:v (- negate_x)})) (catch clojure.lang.ExceptionInfo e (if (= (ex-message e) "return") (get (ex-data e) :v) (throw e)))))
+
+(def ^:dynamic main_h nil)
+
+(defn -main []
+  (let [rt (Runtime/getRuntime)
+    start-mem (- (.totalMemory rt) (.freeMemory rt))
+    start (System/nanoTime)]
+      (alter-var-root (var main_h) (constantly (new_heap identity)))
+      (let [__res (insert_item main_h 5 34)] (do (alter-var-root (var main_h) (constantly insert_item_h)) __res))
+      (let [__res (insert_item main_h 6 31)] (do (alter-var-root (var main_h) (constantly insert_item_h)) __res))
+      (let [__res (insert_item main_h 7 37)] (do (alter-var-root (var main_h) (constantly insert_item_h)) __res))
+      (println (mochi_str (get_top main_h)))
+      (println (mochi_str (let [__res (extract_top main_h)] (do (alter-var-root (var main_h) (constantly extract_top_h)) __res))))
+      (println (mochi_str (let [__res (extract_top main_h)] (do (alter-var-root (var main_h) (constantly extract_top_h)) __res))))
+      (println (mochi_str (let [__res (extract_top main_h)] (do (alter-var-root (var main_h) (constantly extract_top_h)) __res))))
+      (alter-var-root (var main_h) (constantly (new_heap negate)))
+      (let [__res (insert_item main_h 5 34)] (do (alter-var-root (var main_h) (constantly insert_item_h)) __res))
+      (let [__res (insert_item main_h 6 31)] (do (alter-var-root (var main_h) (constantly insert_item_h)) __res))
+      (let [__res (insert_item main_h 7 37)] (do (alter-var-root (var main_h) (constantly insert_item_h)) __res))
+      (println (mochi_str (get_top main_h)))
+      (println (mochi_str (let [__res (extract_top main_h)] (do (alter-var-root (var main_h) (constantly extract_top_h)) __res))))
+      (println (mochi_str (let [__res (extract_top main_h)] (do (alter-var-root (var main_h) (constantly extract_top_h)) __res))))
+      (println (mochi_str (let [__res (extract_top main_h)] (do (alter-var-root (var main_h) (constantly extract_top_h)) __res))))
+      (let [__res (insert_item main_h 8 45)] (do (alter-var-root (var main_h) (constantly insert_item_h)) __res))
+      (let [__res (insert_item main_h 9 40)] (do (alter-var-root (var main_h) (constantly insert_item_h)) __res))
+      (let [__res (insert_item main_h 10 50)] (do (alter-var-root (var main_h) (constantly insert_item_h)) __res))
+      (println (mochi_str (get_top main_h)))
+      (let [__res (update_item main_h 10 30)] (do (alter-var-root (var main_h) (constantly update_item_h)) __res))
+      (println (mochi_str (get_top main_h)))
+      (let [__res (delete_item main_h 10)] (do (alter-var-root (var main_h) (constantly delete_item_h)) __res))
+      (println (mochi_str (get_top main_h)))
+      (System/gc)
+      (let [end (System/nanoTime)
+        end-mem (- (.totalMemory rt) (.freeMemory rt))
+        duration-us (quot (- end start) 1000)
+        memory-bytes (Math/abs ^long (- end-mem start-mem))]
+        (println (str "{\n  \"duration_us\": " duration-us ",\n  \"memory_bytes\": " memory-bytes ",\n  \"name\": \"main\"\n}"))
+      )
+    ))
+
+(-main)

@@ -1,0 +1,5 @@
+fun _union_all(a: any, b: any) {}
+fun _union(a: any, b: any) {}
+fun _except(a: any, b: any) {}
+fun _intersect(a: any, b: any) {}
+print(_union_all([1, 2], [2, 3]))

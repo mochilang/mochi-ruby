@@ -1,0 +1,50 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    ca_county: string
+    d_qoy: int
+    d_year: int
+    ss_ext_sales_price: float
+}
+type Anon2 = {
+    ca_county: string
+    d_qoy: int
+    d_year: int
+    ws_ext_sales_price: float
+}
+type Anon3 = {
+    ca_county: string
+    d_year: int
+    web_q1_q2_increase: obj
+    store_q1_q2_increase: obj
+    web_q2_q3_increase: obj
+    store_q2_q3_increase: obj
+}
+type Anon4 = {
+    ca_county: string
+    d_year: int
+    web_q1_q2_increase: float
+    store_q1_q2_increase: float
+    web_q2_q3_increase: float
+    store_q2_q3_increase: float
+}
+let store_sales: Anon1 list = [{ ca_county = "A"; d_qoy = 1; d_year = 2000; ss_ext_sales_price = 100.0 }; { ca_county = "A"; d_qoy = 2; d_year = 2000; ss_ext_sales_price = 120.0 }; { ca_county = "A"; d_qoy = 3; d_year = 2000; ss_ext_sales_price = 160.0 }; { ca_county = "B"; d_qoy = 1; d_year = 2000; ss_ext_sales_price = 80.0 }; { ca_county = "B"; d_qoy = 2; d_year = 2000; ss_ext_sales_price = 90.0 }; { ca_county = "B"; d_qoy = 3; d_year = 2000; ss_ext_sales_price = 100.0 }]
+let web_sales: Anon2 list = [{ ca_county = "A"; d_qoy = 1; d_year = 2000; ws_ext_sales_price = 100.0 }; { ca_county = "A"; d_qoy = 2; d_year = 2000; ws_ext_sales_price = 150.0 }; { ca_county = "A"; d_qoy = 3; d_year = 2000; ws_ext_sales_price = 250.0 }; { ca_county = "B"; d_qoy = 1; d_year = 2000; ws_ext_sales_price = 80.0 }; { ca_county = "B"; d_qoy = 2; d_year = 2000; ws_ext_sales_price = 90.0 }; { ca_county = "B"; d_qoy = 3; d_year = 2000; ws_ext_sales_price = 95.0 }]
+let counties: string list = ["A"; "B"]
+let mutable result: obj = [||]
+for county in counties do
+    let ss1: obj = List.sum [ for s in store_sales do if s.ca_county = county && s.d_qoy = 1 then yield s.ss_ext_sales_price ]
+    let ss2: obj = List.sum [ for s in store_sales do if s.ca_county = county && s.d_qoy = 2 then yield s.ss_ext_sales_price ]
+    let ss3: obj = List.sum [ for s in store_sales do if s.ca_county = county && s.d_qoy = 3 then yield s.ss_ext_sales_price ]
+    let ws1: obj = List.sum [ for w in web_sales do if w.ca_county = county && w.d_qoy = 1 then yield w.ws_ext_sales_price ]
+    let ws2: obj = List.sum [ for w in web_sales do if w.ca_county = county && w.d_qoy = 2 then yield w.ws_ext_sales_price ]
+    let ws3: obj = List.sum [ for w in web_sales do if w.ca_county = county && w.d_qoy = 3 then yield w.ws_ext_sales_price ]
+    let web_g1: obj = ws2 / ws1
+    let store_g1: obj = ss2 / ss1
+    let web_g2: obj = ws3 / ws2
+    let store_g2: obj = ss3 / ss2
+    if web_g1 > store_g1 && web_g2 > store_g2 then
+        result <- result @ [{ ca_county = county; d_year = 2000; web_q1_q2_increase = web_g1; store_q1_q2_increase = store_g1; web_q2_q3_increase = web_g2; store_q2_q3_increase = store_g2 }]
+printfn "%A" (JsonSerializer.Serialize(result))
+assert (result = [{ ca_county = "A"; d_year = 2000; web_q1_q2_increase = 1.5; store_q1_q2_increase = 1.2; web_q2_q3_increase = 1.6666666666666667; store_q2_q3_increase = 1.3333333333333333 }])

@@ -1,0 +1,25 @@
+<?php
+$xs = [1, 2, 3, 4];
+$ys = [10, 20, 30];
+$res = (function() use ($xs, $ys) {
+	$res = [];
+	foreach ((is_string($xs) ? str_split($xs) : $xs) as $x) {
+		if (!(($x > 2))) { continue; }
+		foreach ((is_string($ys) ? str_split($ys) : $ys) as $y) {
+			$res[] = ((is_array($x) && is_array($y)) ? array_merge($x, $y) : ((is_string($x) || is_string($y)) ? ($x . $y) : ($x + $y)));
+		}
+	}
+	return $res;
+})();
+foreach ((is_string($res) ? str_split($res) : $res) as $v) {
+	_print($v);
+}
+
+function _print(...$args) {
+    $parts = [];
+    foreach ($args as $a) {
+        if (is_null($a)) { $parts[] = '<nil>'; }
+        elseif (is_array($a) || is_object($a)) { $parts[] = json_encode($a); } else { $parts[] = strval($a); }
+    }
+    echo implode(' ', $parts), PHP_EOL;
+}

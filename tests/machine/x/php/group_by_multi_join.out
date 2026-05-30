@@ -1,0 +1,16 @@
+array(2) {
+  [0]=>
+  array(2) {
+    ["part"]=>
+    int(100)
+    ["total"]=>
+    int(20)
+  }
+  [1]=>
+  array(2) {
+    ["part"]=>
+    int(200)
+    ["total"]=>
+    int(15)
+  }
+}

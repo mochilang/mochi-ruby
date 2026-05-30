@@ -1,0 +1,4 @@
+unsupported feature at line 45:  unsupported for-in loop
+  44 |     END-PERFORM
+  45 |     *> unsupported for-in loop
+  46 |     STOP RUN.

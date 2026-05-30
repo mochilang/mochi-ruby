@@ -1,0 +1,91 @@
+gfortran: exit status 1
+/tmp/caesar-cipher-2.f90:55:7:
+
+   55 |       res = upper(((n - 65))+1:(n - 64))
+      |       1
+Error: Unclassifiable statement at (1)
+/tmp/caesar-cipher-2.f90:102:26:
+
+  102 |       if ((((key < 1) .or. key) > 25)) then
+      |                          1
+Error: Operands of logical operator ‘.or.’ at (1) are LOGICAL(4)/INTEGER(4)
+/tmp/caesar-cipher-2.f90:68:26:
+
+   68 |     if ((((r >= 'a') .and. r) <= 'z')) then
+      |                          1
+Error: Operands of logical operator ‘.and.’ at (1) are LOGICAL(4)/CHARACTER(100)
+/tmp/caesar-cipher-2.f90:35:12:
+
+   35 |     upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+      |            1
+Error: Cannot convert CHARACTER(26) to INTEGER(4) at (1)
+/tmp/caesar-cipher-2.f90:36:12:
+
+   36 |     lower = 'abcdefghijklmnopqrstuvwxyz'
+      |            1
+Error: Cannot convert CHARACTER(26) to INTEGER(4) at (1)
+/tmp/caesar-cipher-2.f90:37:10:
+
+   37 |     idx = indexOf(upper,ch)
+      |          1
+Error: Type mismatch in argument ‘s’ at (1); passed INTEGER(4) to CHARACTER(100)
+/tmp/caesar-cipher-2.f90:23:24:
+
+   23 |     do while ((i < size(s)))
+      |                        1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/caesar-cipher-2.f90:42:10:
+
+   42 |     idx = indexOf(lower,ch)
+      |          1
+Error: Type mismatch in argument ‘s’ at (1); passed INTEGER(4) to CHARACTER(100)
+/tmp/caesar-cipher-2.f90:52:12:
+
+   52 |     upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+      |            1
+Error: Cannot convert CHARACTER(26) to INTEGER(4) at (1)
+/tmp/caesar-cipher-2.f90:53:12:
+
+   53 |     lower = 'abcdefghijklmnopqrstuvwxyz'
+      |            1
+Error: Cannot convert CHARACTER(26) to INTEGER(4) at (1)
+/tmp/caesar-cipher-2.f90:54:25:
+
+   54 |     if ((((n >= 65) .and. n) < 91)) then
+      |                         1
+Error: Operands of logical operator ‘.and.’ at (1) are LOGICAL(4)/INTEGER(4)
+/tmp/caesar-cipher-2.f90:58:25:
+
+   58 |     if ((((n >= 97) .and. n) < 123)) then
+      |                         1
+Error: Operands of logical operator ‘.and.’ at (1) are LOGICAL(4)/INTEGER(4)
+/tmp/caesar-cipher-2.f90:72:26:
+
+   72 |     if ((((r >= 'A') .and. r) <= 'Z')) then
+      |                          1
+Error: Operands of logical operator ‘.and.’ at (1) are LOGICAL(4)/CHARACTER(100)
+/tmp/caesar-cipher-2.f90:85:13:
+
+   85 |       out = (out + shiftRune(s((i)+1:(i + 1)),k))
+      |             1
+Error: Operands of binary numeric operator ‘+’ at (1) are CHARACTER(100)/CHARACTER(100)
+/tmp/caesar-cipher-2.f90:84:24:
+
+   84 |     do while ((i < size(s)))
+      |                        1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/caesar-cipher-2.f90:107:11:
+
+  107 |       ct = encipher(pt,key)
+      |           1
+Error: Cannot convert CHARACTER(100) to INTEGER(4) at (1)
+/tmp/caesar-cipher-2.f90:110:14:
+
+  110 |       print *, '  Enciphered: ' // ct
+      |              1
+Error: Operands of string concatenation operator at (1) are CHARACTER(14)/INTEGER(4)
+/tmp/caesar-cipher-2.f90:111:34:
+
+  111 |       print *, '  Deciphered: ' // decipher(ct,key)
+      |                                  1
+Error: Type mismatch in argument ‘s’ at (1); passed INTEGER(4) to CHARACTER(100)

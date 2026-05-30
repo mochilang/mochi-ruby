@@ -1,0 +1,15 @@
+func main (regs=6)
+  // let s = "catch"
+  Const        r0, "catch"
+  Move         r1, r0
+  // print("cat" in s)
+  Const        r2, "cat"
+  Const        r0, "catch"
+  In           r3, r2, r0
+  Print        r3
+  // print("dog" in s)
+  Const        r4, "dog"
+  Const        r0, "catch"
+  In           r5, r4, r0
+  Print        r5
+  Return       r0

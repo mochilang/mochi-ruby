@@ -1,0 +1,199 @@
+{
+  "root": {
+    "kind": "program",
+    "children": [
+      {
+        "kind": "for_statement",
+        "children": [
+          {
+            "kind": "for_generic",
+            "children": [
+              {
+                "kind": "identifier_list",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "text": "_"
+                  },
+                  {
+                    "kind": "identifier",
+                    "text": "v"
+                  }
+                ]
+              },
+              {
+                "kind": "function_call",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "text": "ipairs"
+                  },
+                  {
+                    "kind": "function_arguments",
+                    "children": [
+                      {
+                        "kind": "tableconstructor",
+                        "children": [
+                          {
+                            "kind": "fieldlist",
+                            "children": [
+                              {
+                                "kind": "field",
+                                "children": [
+                                  {
+                                    "kind": "number",
+                                    "text": "10"
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "field",
+                                "children": [
+                                  {
+                                    "kind": "number",
+                                    "text": "20"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "function_call",
+            "children": [
+              {
+                "kind": "identifier",
+                "text": "print"
+              },
+              {
+                "kind": "function_arguments",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "text": "v"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "variable_declaration",
+        "children": [
+          {
+            "kind": "variable_declarator",
+            "children": [
+              {
+                "kind": "identifier",
+                "text": "\nm"
+              }
+            ]
+          },
+          {
+            "kind": "tableconstructor",
+            "children": [
+              {
+                "kind": "fieldlist",
+                "children": [
+                  {
+                    "kind": "field",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "a"
+                      },
+                      {
+                        "kind": "number",
+                        "text": "1"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "field",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "b"
+                      },
+                      {
+                        "kind": "number",
+                        "text": "2"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "for_statement",
+        "children": [
+          {
+            "kind": "for_generic",
+            "children": [
+              {
+                "kind": "identifier_list",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "text": "_"
+                  },
+                  {
+                    "kind": "identifier",
+                    "text": "v"
+                  }
+                ]
+              },
+              {
+                "kind": "function_call",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "text": "pairs"
+                  },
+                  {
+                    "kind": "function_arguments",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "m"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "function_call",
+            "children": [
+              {
+                "kind": "identifier",
+                "text": "print"
+              },
+              {
+                "kind": "function_arguments",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "text": "v"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

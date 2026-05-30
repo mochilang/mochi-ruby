@@ -1,0 +1,28 @@
+rustc: exit status 1
+error[E0425]: cannot find function `lower` in this scope
+  --> /tmp/abc_problem.rs:28:17
+   |
+28 |         let c = lower(&word[0..1]);
+   |                 ^^^^^ not found in this scope
+
+error[E0425]: cannot find function `lower` in this scope
+  --> /tmp/abc_problem.rs:32:21
+   |
+32 |             if c == lower(&b[0..1]) || c == lower(&b[1..2]) {
+   |                     ^^^^^ not found in this scope
+
+error[E0425]: cannot find function `lower` in this scope
+  --> /tmp/abc_problem.rs:32:45
+   |
+32 |             if c == lower(&b[0..1]) || c == lower(&b[1..2]) {
+   |                                             ^^^^^ not found in this scope
+
+error[E0425]: cannot find function `canSpell` in this scope
+  --> /tmp/abc_problem.rs:41:20
+   |
+41 |                 if canSpell(&word[(1) as usize..(word.len()) as usize], rest) {
+   |                    ^^^^^^^^ not found in this scope
+
+error: aborting due to 4 previous errors
+
+For more information about this error, try `rustc --explain E0425`.

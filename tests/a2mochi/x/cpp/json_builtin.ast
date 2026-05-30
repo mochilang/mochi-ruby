@@ -1,0 +1,9 @@
+(program
+  (var auto)
+  (fun main
+    (type int)
+    (call json (selector m))
+    (return (int 0))
+  )
+  (call main)
+)

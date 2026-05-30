@@ -1,0 +1,119 @@
+{
+  "kind": "program",
+  "children": [
+    {
+      "kind": "clause",
+      "children": [
+        {
+          "kind": ":-",
+          "children": [
+            {
+              "kind": "initialization",
+              "children": [
+                {
+                  "kind": "atom",
+                  "text": "main"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "bool",
+          "text": "true"
+        }
+      ]
+    },
+    {
+      "kind": "clause",
+      "children": [
+        {
+          "kind": ":-",
+          "children": [
+            {
+              "kind": "style_check",
+              "children": [
+                {
+                  "kind": "-",
+                  "children": [
+                    {
+                      "kind": "atom",
+                      "text": "singleton"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "bool",
+          "text": "true"
+        }
+      ]
+    },
+    {
+      "kind": "clause",
+      "children": [
+        {
+          "kind": "foo",
+          "children": [
+            {
+              "kind": "var",
+              "text": "X"
+            }
+          ]
+        },
+        {
+          "kind": "bar",
+          "children": [
+            {
+              "kind": "var",
+              "text": "X"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "clause",
+      "children": [
+        {
+          "kind": "bar",
+          "children": [
+            {
+              "kind": "var",
+              "text": "X"
+            }
+          ]
+        },
+        {
+          "kind": "writeln",
+          "children": [
+            {
+              "kind": "var",
+              "text": "X"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "clause",
+      "children": [
+        {
+          "kind": "main"
+        },
+        {
+          "kind": "foo",
+          "children": [
+            {
+              "kind": "atom",
+              "text": "hello"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

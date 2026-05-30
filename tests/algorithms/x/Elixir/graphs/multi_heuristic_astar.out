@@ -1,0 +1,50 @@
+warning: variable "current" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 314 │       {current, key, path} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/graphs/multi_heuristic_astar.exs:314:8: Main.reconstruct/3
+
+     warning: variable "key" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 314 │       {current, key, path} = try do
+     │                 ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/graphs/multi_heuristic_astar.exs:314:17: Main.reconstruct/3
+
+     error: invalid use of _. _ can only be used inside patterns to ignore values and cannot be used in expressions. Make sure you are inside a pattern or change it accordingly
+     │
+ 509 │             {back_pointer, g_function, _, open_list, visited}
+     │                                        ^
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/graphs/multi_heuristic_astar.exs:509:40: Main.multi_a_star/3
+
+     warning: variable "back_pointer" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 518 │       {back_pointer, g_function, _, open_list, visited} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/graphs/multi_heuristic_astar.exs:518:8: Main.multi_a_star/3
+
+     warning: variable "g_function" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 518 │       {back_pointer, g_function, _, open_list, visited} = try do
+     │                      ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/graphs/multi_heuristic_astar.exs:518:22: Main.multi_a_star/3
+
+     warning: variable "open_list" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 518 │       {back_pointer, g_function, _, open_list, visited} = try do
+     │                                     ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/graphs/multi_heuristic_astar.exs:518:37: Main.multi_a_star/3
+
+     warning: variable "visited" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 518 │       {back_pointer, g_function, _, open_list, visited} = try do
+     │                                                ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/graphs/multi_heuristic_astar.exs:518:48: Main.multi_a_star/3
+
+** (CompileError) /workspace/mochi/tests/algorithms/x/Elixir/graphs/multi_heuristic_astar.exs: cannot compile module Main (errors have been logged)

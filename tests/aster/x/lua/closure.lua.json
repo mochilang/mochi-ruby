@@ -1,0 +1,157 @@
+{
+  "root": {
+    "kind": "chunk",
+    "children": [
+      {
+        "kind": "function_declaration",
+        "children": [
+          {
+            "kind": "identifier",
+            "text": "makeAdder"
+          },
+          {
+            "kind": "parameters",
+            "children": [
+              {
+                "kind": "identifier",
+                "text": "n"
+              }
+            ]
+          },
+          {
+            "kind": "block",
+            "children": [
+              {
+                "kind": "return_statement",
+                "children": [
+                  {
+                    "kind": "expression_list",
+                    "children": [
+                      {
+                        "kind": "function_definition",
+                        "children": [
+                          {
+                            "kind": "parameters",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "x"
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "block",
+                            "children": [
+                              {
+                                "kind": "return_statement",
+                                "children": [
+                                  {
+                                    "kind": "expression_list",
+                                    "children": [
+                                      {
+                                        "kind": "parenthesized_expression",
+                                        "children": [
+                                          {
+                                            "kind": "binary_expression",
+                                            "text": "+",
+                                            "children": [
+                                              {
+                                                "kind": "identifier",
+                                                "text": "x"
+                                              },
+                                              {
+                                                "kind": "identifier",
+                                                "text": "n"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "assignment_statement",
+        "children": [
+          {
+            "kind": "variable_list",
+            "children": [
+              {
+                "kind": "identifier",
+                "text": "add10"
+              }
+            ]
+          },
+          {
+            "kind": "expression_list",
+            "children": [
+              {
+                "kind": "function_call",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "text": "makeAdder"
+                  },
+                  {
+                    "kind": "arguments",
+                    "children": [
+                      {
+                        "kind": "number",
+                        "text": "10"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "function_call",
+        "children": [
+          {
+            "kind": "identifier",
+            "text": "print"
+          },
+          {
+            "kind": "arguments",
+            "children": [
+              {
+                "kind": "function_call",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "text": "add10"
+                  },
+                  {
+                    "kind": "arguments",
+                    "children": [
+                      {
+                        "kind": "number",
+                        "text": "7"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+(program
+  (fun main
+    (type int)
+    (call print
+      (cast (string 1995) (type int))
+    )
+    (return (int 0))
+  )
+  (call main)
+)

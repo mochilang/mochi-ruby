@@ -1,0 +1,37 @@
+// core/types.mochi
+// User-defined types: Person and Book
+
+/// Type: Person
+type Person {
+  name: string
+  age: int
+  email: string
+}
+
+/// Type: Book
+type Book {
+  title: string
+  author: Person
+  pages: int
+  tags: list<string>
+  metadata: map<string, string>
+  published: bool
+}
+
+// Example variables using the custom types
+let author: Person
+
+let bob: Person = Person { name: "Bob", age: 42, email: "bob@ex.com" }
+
+let book: Book = Book {
+  title: "Example",
+  author: bob,
+  pages: 100,
+  tags: ["guide"],
+  metadata: {"isbn": "123"},
+  published: true,
+}
+
+print("custom types defined")
+print(book.author.name)
+

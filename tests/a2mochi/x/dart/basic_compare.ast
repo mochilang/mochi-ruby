@@ -1,0 +1,20 @@
+(program
+  (fun main
+    (let a
+      (type int)
+      (binary - (int 10) (int 3))
+    )
+    (let b
+      (type int)
+      (binary + (int 2) (int 2))
+    )
+    (call print (selector a))
+    (call print
+      (binary == (selector a) (int 7))
+    )
+    (call print
+      (binary < (selector b) (int 5))
+    )
+  )
+  (call main)
+)

@@ -1,0 +1,7 @@
+Smalltalk at: #square put: nil.
+
+Object subclass: #Main instanceVariableNames: '' classVariableNames: '' poolDictionaries: '' category: nil!
+
+!!
+square := [:x | (x * x) ].
+(square value: 6) displayOn: Transcript. Transcript cr.

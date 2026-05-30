@@ -1,0 +1,268 @@
+rustc: exit status 1
+error: cast cannot be followed by a method call
+  --> /tmp/arrays.rs:17:68
+   |
+17 |     println!("{}", vec![format!("{}", format!("{}{}", "len(a) = ", a.len() as i32.to_string()))].into_iter().filter(|s| !s.is_empty()).co...
+   |                                                                    ^^^^^^^^^^^^^^
+   |
+help: try surrounding the expression in parentheses
+   |
+17 |     println!("{}", vec![format!("{}", format!("{}{}", "len(a) = ", (a.len() as i32).to_string()))].into_iter().filter(|s| !s.is_empty()).collect::<Vec<_>>().join(" ") );
+   |                                                                    +              +
+
+error: cast cannot be followed by a method call
+  --> /tmp/arrays.rs:25:100
+   |
+25 |     println!("{}", vec![format!("{}", format!("{}{}", format!("{}{}", format!("{}{}", "len(s) = ", s.len() as i32.to_string()), "  cap(s)...
+   |                                                                                                    ^^^^^^^^^^^^^^
+   |
+help: try surrounding the expression in parentheses
+   |
+25 |     println!("{}", vec![format!("{}", format!("{}{}", format!("{}{}", format!("{}{}", "len(s) = ", (s.len() as i32).to_string()), "  cap(s) = "), cap_s.to_string()))].into_iter().filter(|s| !s.is_empty()).collect::<Vec<_>>().join(" ") );
+   |                                                                                                    +              +
+
+error: cast cannot be followed by a method call
+  --> /tmp/arrays.rs:37:100
+   |
+37 |     println!("{}", vec![format!("{}", format!("{}{}", format!("{}{}", format!("{}{}", "len(s) = ", s.len() as i32.to_string()), "  cap(s)...
+   |                                                                                                    ^^^^^^^^^^^^^^
+   |
+help: try surrounding the expression in parentheses
+   |
+37 |     println!("{}", vec![format!("{}", format!("{}{}", format!("{}{}", format!("{}{}", "len(s) = ", (s.len() as i32).to_string()), "  cap(s) = "), cap_s.to_string()))].into_iter().filter(|s| !s.is_empty()).collect::<Vec<_>>().join(" ") );
+   |                                                                                                    +              +
+
+error: cast cannot be followed by a method call
+  --> /tmp/arrays.rs:47:100
+   |
+47 |     println!("{}", vec![format!("{}", format!("{}{}", format!("{}{}", format!("{}{}", "len(s) = ", s.len() as i32.to_string()), "  cap(s)...
+   |                                                                                                    ^^^^^^^^^^^^^^
+   |
+help: try surrounding the expression in parentheses
+   |
+47 |     println!("{}", vec![format!("{}", format!("{}{}", format!("{}{}", format!("{}{}", "len(s) = ", (s.len() as i32).to_string()), "  cap(s) = "), cap_s.to_string()))].into_iter().filter(|s| !s.is_empty()).collect::<Vec<_>>().join(" ") );
+   |                                                                                                    +              +
+
+error[E0308]: mismatched types
+ --> /tmp/arrays.rs:7:18
+  |
+7 |             s += xs[i as usize].to_string();
+  |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^ expected `&str`, found `String`
+  |
+help: consider borrowing here
+  |
+7 |             s += &xs[i as usize].to_string();
+  |                  +
+
+error[E0308]: mismatched types
+  --> /tmp/arrays.rs:14:16
+   |
+3  |     fn listStr(xs: Vec<i32>) -> &'static str {
+   |                                 ------------ expected `&'static str` because of return type
+...
+14 |         return s;
+   |                ^ expected `&str`, found `String`
+   |
+help: consider borrowing here
+   |
+14 |         return &s;
+   |                +
+
+warning: unused variable: `i`
+  --> /tmp/arrays.rs:42:9
+   |
+42 |     for i in 0..8 {
+   |         ^ help: if this is intentional, prefix it with an underscore: `_i`
+   |
+   = note: `#[warn(unused_variables)]` on by default
+
+error[E0382]: borrow of moved value: `a`
+  --> /tmp/arrays.rs:19:5
+   |
+16 |     let mut a = vec![0, 0, 0, 0, 0];
+   |         ----- move occurs because `a` has type `Vec<i32>`, which does not implement the `Copy` trait
+17 |     println!("{}", vec![format!("{}", format!("{}{}", "len(a) = ", a.len() as i32.to_string()))].into_iter().filter(|s| !s.is_empty()).co...
+18 |     println!("{}", vec![format!("{}", format!("{}{}", "a = ", listStr(a)))].into_iter().filter(|s| !s.is_empty()).collect::<Vec<_>>().joi...
+   |                                                                       - value moved here
+19 |     a[0] = 3;
+   |     ^ value borrowed here after move
+   |
+note: consider changing this parameter type in function `listStr` to borrow instead if owning the value isn't necessary
+  --> /tmp/arrays.rs:3:20
+   |
+3  |     fn listStr(xs: Vec<i32>) -> &'static str {
+   |        -------     ^^^^^^^^ this parameter takes ownership of the value
+   |        |
+   |        in this function
+help: consider cloning the value if the performance cost is acceptable
+   |
+18 |     println!("{}", vec![format!("{}", format!("{}{}", "a = ", listStr(a.clone())))].into_iter().filter(|s| !s.is_empty()).collect::<Vec<_>>().join(" ") );
+   |                                                                        ++++++++
+
+error[E0382]: borrow of moved value: `a`
+  --> /tmp/arrays.rs:21:66
+   |
+16 |     let mut a = vec![0, 0, 0, 0, 0];
+   |         ----- move occurs because `a` has type `Vec<i32>`, which does not implement the `Copy` trait
+...
+20 |     println!("{}", vec![format!("{}", format!("{}{}", "a = ", listStr(a)))].into_iter().filter(|s| !s.is_empty()).collect::<Vec<_>>().joi...
+   |                                                                       - value moved here
+21 |     println!("{}", vec![format!("{}", format!("{}{}", "a[0] = ", a[0].to_string()))].into_iter().filter(|s| !s.is_empty()).collect::<Vec<...
+   |                                                                  ^ value borrowed here after move
+   |
+note: consider changing this parameter type in function `listStr` to borrow instead if owning the value isn't necessary
+  --> /tmp/arrays.rs:3:20
+   |
+3  |     fn listStr(xs: Vec<i32>) -> &'static str {
+   |        -------     ^^^^^^^^ this parameter takes ownership of the value
+   |        |
+   |        in this function
+help: consider cloning the value if the performance cost is acceptable
+   |
+20 |     println!("{}", vec![format!("{}", format!("{}{}", "a = ", listStr(a.clone())))].into_iter().filter(|s| !s.is_empty()).collect::<Vec<_>>().join(" ") );
+   |                                                                        ++++++++
+
+error[E0382]: borrow of moved value: `s`
+  --> /tmp/arrays.rs:25:100
+   |
+22 |     let mut s = a[0..4].to_vec();
+   |         ----- move occurs because `s` has type `Vec<i32>`, which does not implement the `Copy` trait
+23 |     let mut cap_s = 5;
+24 |     println!("{}", vec![format!("{}", format!("{}{}", "s = ", listStr(s)))].into_iter().filter(|s| !s.is_empty()).collect::<Vec<_>>().joi...
+   |                                                                       - value moved here
+25 |     println!("{}", vec![format!("{}", format!("{}{}", format!("{}{}", format!("{}{}", "len(s) = ", s.len() as i32.to_string()), "  cap(s)...
+   |                                                                                                    ^ value borrowed here after move
+   |
+note: consider changing this parameter type in function `listStr` to borrow instead if owning the value isn't necessary
+  --> /tmp/arrays.rs:3:20
+   |
+3  |     fn listStr(xs: Vec<i32>) -> &'static str {
+   |        -------     ^^^^^^^^ this parameter takes ownership of the value
+   |        |
+   |        in this function
+help: consider cloning the value if the performance cost is acceptable
+   |
+24 |     println!("{}", vec![format!("{}", format!("{}{}", "s = ", listStr(s.clone())))].into_iter().filter(|s| !s.is_empty()).collect::<Vec<_>>().join(" ") );
+   |                                                                        ++++++++
+
+error[E0382]: borrow of moved value: `s`
+  --> /tmp/arrays.rs:29:5
+   |
+22 |     let mut s = a[0..4].to_vec();
+   |         ----- move occurs because `s` has type `Vec<i32>`, which does not implement the `Copy` trait
+...
+27 |     println!("{}", vec![format!("{}", format!("{}{}", "s = ", listStr(s)))].into_iter().filter(|s| !s.is_empty()).collect::<Vec<_>>().joi...
+   |                                                                       - value moved here
+28 |     a[0] = 22;
+29 |     s[0] = 22;
+   |     ^ value borrowed here after move
+   |
+note: consider changing this parameter type in function `listStr` to borrow instead if owning the value isn't necessary
+  --> /tmp/arrays.rs:3:20
+   |
+3  |     fn listStr(xs: Vec<i32>) -> &'static str {
+   |        -------     ^^^^^^^^ this parameter takes ownership of the value
+   |        |
+   |        in this function
+help: consider cloning the value if the performance cost is acceptable
+   |
+27 |     println!("{}", vec![format!("{}", format!("{}{}", "s = ", listStr(s.clone())))].into_iter().filter(|s| !s.is_empty()).collect::<Vec<_>>().join(" ") );
+   |                                                                        ++++++++
+
+error[E0382]: borrow of moved value: `s`
+  --> /tmp/arrays.rs:32:25
+   |
+22 |     let mut s = a[0..4].to_vec();
+   |         ----- move occurs because `s` has type `Vec<i32>`, which does not implement the `Copy` trait
+...
+31 |     println!("{}", vec![format!("{}", format!("{}{}", "s = ", listStr(s)))].into_iter().filter(|s| !s.is_empty()).collect::<Vec<_>>().joi...
+   |                                                                       - value moved here
+32 |     s = { let mut tmp = s.clone(); tmp.push(4); tmp };
+   |                         ^ value borrowed here after move
+   |
+note: consider changing this parameter type in function `listStr` to borrow instead if owning the value isn't necessary
+  --> /tmp/arrays.rs:3:20
+   |
+3  |     fn listStr(xs: Vec<i32>) -> &'static str {
+   |        -------     ^^^^^^^^ this parameter takes ownership of the value
+   |        |
+   |        in this function
+help: consider cloning the value if the performance cost is acceptable
+   |
+31 |     println!("{}", vec![format!("{}", format!("{}{}", "s = ", listStr(s.clone())))].into_iter().filter(|s| !s.is_empty()).collect::<Vec<_>>().join(" ") );
+   |                                                                        ++++++++
+
+error[E0382]: borrow of moved value: `s`
+  --> /tmp/arrays.rs:37:100
+   |
+22 |     let mut s = a[0..4].to_vec();
+   |         ----- move occurs because `s` has type `Vec<i32>`, which does not implement the `Copy` trait
+...
+36 |     println!("{}", vec![format!("{}", format!("{}{}", "s = ", listStr(s)))].into_iter().filter(|s| !s.is_empty()).collect::<Vec<_>>().joi...
+   |                                                                       - value moved here
+37 |     println!("{}", vec![format!("{}", format!("{}{}", format!("{}{}", format!("{}{}", "len(s) = ", s.len() as i32.to_string()), "  cap(s)...
+   |                                                                                                    ^ value borrowed here after move
+   |
+note: consider changing this parameter type in function `listStr` to borrow instead if owning the value isn't necessary
+  --> /tmp/arrays.rs:3:20
+   |
+3  |     fn listStr(xs: Vec<i32>) -> &'static str {
+   |        -------     ^^^^^^^^ this parameter takes ownership of the value
+   |        |
+   |        in this function
+help: consider cloning the value if the performance cost is acceptable
+   |
+36 |     println!("{}", vec![format!("{}", format!("{}{}", "s = ", listStr(s.clone())))].into_iter().filter(|s| !s.is_empty()).collect::<Vec<_>>().join(" ") );
+   |                                                                        ++++++++
+
+error[E0382]: borrow of moved value: `a`
+  --> /tmp/arrays.rs:38:5
+   |
+16 |     let mut a = vec![0, 0, 0, 0, 0];
+   |         ----- move occurs because `a` has type `Vec<i32>`, which does not implement the `Copy` trait
+...
+30 |     println!("{}", vec![format!("{}", format!("{}{}", "a = ", listStr(a)))].into_iter().filter(|s| !s.is_empty()).collect::<Vec<_>>().joi...
+   |                                                                       - value moved here
+...
+38 |     a[4] = -1;
+   |     ^ value borrowed here after move
+   |
+note: consider changing this parameter type in function `listStr` to borrow instead if owning the value isn't necessary
+  --> /tmp/arrays.rs:3:20
+   |
+3  |     fn listStr(xs: Vec<i32>) -> &'static str {
+   |        -------     ^^^^^^^^ this parameter takes ownership of the value
+   |        |
+   |        in this function
+help: consider cloning the value if the performance cost is acceptable
+   |
+30 |     println!("{}", vec![format!("{}", format!("{}{}", "a = ", listStr(a.clone())))].into_iter().filter(|s| !s.is_empty()).collect::<Vec<_>>().join(" ") );
+   |                                                                        ++++++++
+
+error[E0382]: borrow of moved value: `s`
+  --> /tmp/arrays.rs:47:100
+   |
+22 |     let mut s = a[0..4].to_vec();
+   |         ----- move occurs because `s` has type `Vec<i32>`, which does not implement the `Copy` trait
+...
+46 |     println!("{}", vec![format!("{}", format!("{}{}", "s = ", listStr(s)))].into_iter().filter(|s| !s.is_empty()).collect::<Vec<_>>().joi...
+   |                                                                       - value moved here
+47 |     println!("{}", vec![format!("{}", format!("{}{}", format!("{}{}", format!("{}{}", "len(s) = ", s.len() as i32.to_string()), "  cap(s)...
+   |                                                                                                    ^ value borrowed here after move
+   |
+note: consider changing this parameter type in function `listStr` to borrow instead if owning the value isn't necessary
+  --> /tmp/arrays.rs:3:20
+   |
+3  |     fn listStr(xs: Vec<i32>) -> &'static str {
+   |        -------     ^^^^^^^^ this parameter takes ownership of the value
+   |        |
+   |        in this function
+help: consider cloning the value if the performance cost is acceptable
+   |
+46 |     println!("{}", vec![format!("{}", format!("{}{}", "s = ", listStr(s.clone())))].into_iter().filter(|s| !s.is_empty()).collect::<Vec<_>>().join(" ") );
+   |                                                                        ++++++++
+
+error: aborting due to 14 previous errors; 1 warning emitted
+
+Some errors have detailed explanations: E0308, E0382.
+For more information about an error, try `rustc --explain E0308`.

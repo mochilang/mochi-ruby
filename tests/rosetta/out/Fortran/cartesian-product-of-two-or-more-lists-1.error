@@ -1,0 +1,106 @@
+gfortran: exit status 1
+/tmp/cartesian-product-of-two-or-more-lists-1.f90:45:29:
+
+   45 |         write(s3,'(G0)') row(((j)+1))
+      |                             1
+Error: Syntax error in WRITE statement at (1)
+/tmp/cartesian-product-of-two-or-more-lists-1.f90:65:38:
+
+   65 |     print *, llStr(cart2((/1,2/),(//)))
+      |                                      1
+Error: Empty array constructor at (1) is not allowed
+/tmp/cartesian-product-of-two-or-more-lists-1.f90:66:30:
+
+   66 |     print *, llStr(cart2((//),(/1,2/)))
+      |                              1
+Error: Empty array constructor at (1) is not allowed
+/tmp/cartesian-product-of-two-or-more-lists-1.f90:36:49:
+
+   36 |   recursive character(len=100) function llStr(lst) result(res)
+      |                                                 1
+Error: PROCEDURE attribute conflicts with INTENT attribute in ‘lst’ at (1)
+/tmp/cartesian-product-of-two-or-more-lists-1.f90:18:36:
+
+   18 |   recursive integer function cart2(a,b) result(res)
+      |                                    1
+Error: PROCEDURE attribute conflicts with INTENT attribute in ‘a’ at (1)
+/tmp/cartesian-product-of-two-or-more-lists-1.f90:18:38:
+
+   18 |   recursive integer function cart2(a,b) result(res)
+      |                                      1
+Error: PROCEDURE attribute conflicts with INTENT attribute in ‘b’ at (1)
+/tmp/cartesian-product-of-two-or-more-lists-1.f90:63:25:
+
+   63 |     print *, llStr(cart2((/1,2/),(/3,4/)))
+      |                         1
+Error: Rank mismatch in argument ‘a’ at (1) (scalar and rank-1)
+/tmp/cartesian-product-of-two-or-more-lists-1.f90:63:33:
+
+   63 |     print *, llStr(cart2((/1,2/),(/3,4/)))
+      |                                 1
+Error: Rank mismatch in argument ‘b’ at (1) (scalar and rank-1)
+/tmp/cartesian-product-of-two-or-more-lists-1.f90:29:8:
+
+   29 |         app2(size(p)+1) = (/x,y/)
+      |        1
+Error: Incompatible ranks 0 and 1 in assignment at (1)
+/tmp/cartesian-product-of-two-or-more-lists-1.f90:24:22:
+
+   24 |       do i1 = 1, size(b)
+      |                      1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/cartesian-product-of-two-or-more-lists-1.f90:22:20:
+
+   22 |     do i0 = 1, size(a)
+      |                    1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/cartesian-product-of-two-or-more-lists-1.f90:33:4:
+
+   33 |     res = p
+      |    1
+Error: Incompatible ranks 0 and 1 in assignment at (1)
+/tmp/cartesian-product-of-two-or-more-lists-1.f90:63:19:
+
+   63 |     print *, llStr(cart2((/1,2/),(/3,4/)))
+      |                   1
+Error: Expected a procedure for argument ‘lst’ at (1)
+/tmp/cartesian-product-of-two-or-more-lists-1.f90:46:13:
+
+   46 |         s = (s + s3)
+      |             1
+Error: Operands of binary numeric operator ‘+’ at (1) are CHARACTER(100)/CHARACTER(100)
+/tmp/cartesian-product-of-two-or-more-lists-1.f90:47:23:
+
+   47 |         if (((j < size(row)) - 1)) then
+      |                       1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/cartesian-product-of-two-or-more-lists-1.f90:44:26:
+
+   44 |       do while ((j < size(row)))
+      |                          1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/cartesian-product-of-two-or-more-lists-1.f90:53:21:
+
+   53 |       if (((i < size(lst)) - 1)) then
+      |                     1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/cartesian-product-of-two-or-more-lists-1.f90:40:24:
+
+   40 |     do while ((i < size(lst)))
+      |                        1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/cartesian-product-of-two-or-more-lists-1.f90:64:25:
+
+   64 |     print *, llStr(cart2((/3,4/),(/1,2/)))
+      |                         1
+Error: Rank mismatch in argument ‘a’ at (1) (scalar and rank-1)
+/tmp/cartesian-product-of-two-or-more-lists-1.f90:64:33:
+
+   64 |     print *, llStr(cart2((/3,4/),(/1,2/)))
+      |                                 1
+Error: Rank mismatch in argument ‘b’ at (1) (scalar and rank-1)
+/tmp/cartesian-product-of-two-or-more-lists-1.f90:64:19:
+
+   64 |     print *, llStr(cart2((/3,4/),(/1,2/)))
+      |                   1
+Error: Expected a procedure for argument ‘lst’ at (1)

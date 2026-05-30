@@ -1,0 +1,33 @@
+cc: exit status 1
+/tmp/angle-difference-between-two-bearings-2.c: In function ‘angleDiff’:
+/tmp/angle-difference-between-two-bearings-2.c:52:17: error: invalid operands to binary % (have ‘double’ and ‘double’)
+   52 |   return ((diff % 360.0 + 360.0 + 180.0) % 360.0) - 180.0;
+      |                 ^
+/tmp/angle-difference-between-two-bearings-2.c: In function ‘_mochi_main’:
+/tmp/angle-difference-between-two-bearings-2.c:92:27: error: incompatible types when initializing type ‘int’ using type ‘list_float’
+   92 |   list_int tmp1_data[] = {tmp2, tmp3, tmp4,  tmp5,  tmp6,  tmp7,
+      |                           ^~~~
+/tmp/angle-difference-between-two-bearings-2.c:92:33: error: incompatible types when initializing type ‘int *’ using type ‘list_int’
+   92 |   list_int tmp1_data[] = {tmp2, tmp3, tmp4,  tmp5,  tmp6,  tmp7,
+      |                                 ^~~~
+/tmp/angle-difference-between-two-bearings-2.c:93:27: error: incompatible types when initializing type ‘int’ using type ‘list_float’
+   93 |                           tmp8, tmp9, tmp10, tmp11, tmp12, tmp13};
+      |                           ^~~~
+/tmp/angle-difference-between-two-bearings-2.c:93:33: error: incompatible types when initializing type ‘int *’ using type ‘list_int’
+   93 |                           tmp8, tmp9, tmp10, tmp11, tmp12, tmp13};
+      |                                 ^~~~
+/tmp/angle-difference-between-two-bearings-2.c:93:53: error: incompatible types when initializing type ‘int’ using type ‘list_float’
+   93 |                           tmp8, tmp9, tmp10, tmp11, tmp12, tmp13};
+      |                                                     ^~~~~
+/tmp/angle-difference-between-two-bearings-2.c:93:60: error: incompatible types when initializing type ‘int *’ using type ‘list_float’
+   93 |                           tmp8, tmp9, tmp10, tmp11, tmp12, tmp13};
+      |                                                            ^~~~~
+/tmp/angle-difference-between-two-bearings-2.c:95:15: error: incompatible types when assigning to type ‘int’ from type ‘list_list_int’
+   95 |   testCases = tmp1;
+      |               ^~~~
+/tmp/angle-difference-between-two-bearings-2.c:96:40: error: request for member ‘len’ in something not a structure or union
+   96 |   for (int tmp14 = 0; tmp14 < testCases.len; tmp14++) {
+      |                                        ^
+/tmp/angle-difference-between-two-bearings-2.c:97:30: error: request for member ‘data’ in something not a structure or union
+   97 |     list_float tc = testCases.data[tmp14];
+      |                              ^

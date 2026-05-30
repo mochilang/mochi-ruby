@@ -1,0 +1,16 @@
+warning: variable "current_max" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 111 │       {best, current_max, heap} = try do
+     │              ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/greedy_methods/smallest_range.exs:111:14: Main.smallest_range/1
+
+     warning: variable "heap" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 111 │       {best, current_max, heap} = try do
+     │                           ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/greedy_methods/smallest_range.exs:111:27: Main.smallest_range/1
+
+"[20, 24]"
+"[1, 1]"

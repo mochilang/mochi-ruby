@@ -1,0 +1,92 @@
+// LeetCode 111 - Minimum Depth of Binary Tree
+
+// Binary tree definition shared across the LeetCode examples.
+type Tree =
+  Leaf
+  | Node(left: Tree, value: int, right: Tree)
+
+// Recursively compute the minimal number of nodes from the root to
+// the nearest leaf.
+fun minDepth(root: Tree): int {
+  fun helper(left: Tree, right: Tree): int {
+    let leftDepth = minDepth(left)
+    let rightDepth = minDepth(right)
+    if leftDepth == 0 && rightDepth == 0 {
+      return 1
+    }
+    if leftDepth == 0 {
+      return rightDepth + 1
+    }
+    if rightDepth == 0 {
+      return leftDepth + 1
+    }
+    if leftDepth < rightDepth {
+      return leftDepth + 1
+    }
+    return rightDepth + 1
+  }
+
+  return match root {
+    Leaf => 0
+    Node(l, _, r) => helper(l, r)
+  }
+}
+
+// Test cases from the LeetCode problem statement
+
+test "example 1" {
+  let tree = Node {
+    left: Node { left: Leaf {}, value: 9, right: Leaf {} },
+    value: 3,
+    right: Node {
+      left: Node { left: Leaf {}, value: 15, right: Leaf {} },
+      value: 20,
+      right: Node { left: Leaf {}, value: 7, right: Leaf {} }
+    }
+  }
+  expect minDepth(tree) == 2
+}
+
+test "example 2" {
+  let tree = Node {
+    left: Leaf {},
+    value: 2,
+    right: Node { left: Leaf {}, value: 3, right: Leaf {} }
+  }
+  expect minDepth(tree) == 2
+}
+
+test "single node" {
+  expect minDepth(Node { left: Leaf {}, value: 1, right: Leaf {} }) == 1
+}
+
+test "empty" {
+  expect minDepth(Leaf {}) == 0
+}
+
+/*
+Common Mochi language errors and how to fix them:
+1. Confusing '=' with '==' in conditional checks:
+     if depth = 1 { }
+   // Use '==' for comparisons.
+2. Attempting to reassign a value bound with 'let':
+     let d = 0
+     d = 1  // error[E004]
+   // Use 'var' when the variable should change.
+3. Using Python style 'None' instead of the 'Leaf' constructor:
+     let t = None  // error[I001]
+   // Construct an empty tree with 'Leaf {}'.
+4. Forgetting braces when creating a Leaf instance:
+     let t = Leaf   // error[T008]
+  // The correct form is 'Leaf {}'.
+5. Missing a branch when matching on an enum:
+     fun f(t: Tree): int {
+       match t { Node(_, v, _) => v }  // error[T007]
+     }
+   // Provide a case for 'Leaf' as well to return a value.
+6. Forgetting to use 'return' inside branches:
+     fun foo(x: int): int {
+       if x > 0 { 1 }  // error: returns null
+     }
+   // Use 'return 1' so the function returns an int.
+*/

@@ -1,0 +1,130 @@
+func main (regs=71)
+  // let customers = [
+  Const        r0, [{"id": 1, "name": "Alice"}, {"id": 2, "name": "Bob"}, {"id": 3, "name": "Charlie"}]
+  Move         r1, r0
+  // let orders = [
+  Const        r2, [{"customerId": 1, "id": 100, "total": 250}, {"customerId": 2, "id": 101, "total": 125}, {"customerId": 1, "id": 102, "total": 300}]
+  Move         r3, r2
+  // let result = from o in orders
+  Const        r4, []
+  // orderId: o.id,
+  Const        r5, "orderId"
+  Const        r6, "id"
+  // orderCustomerId: o.customerId,
+  Const        r7, "orderCustomerId"
+  Const        r8, "customerId"
+  // pairedCustomerName: c.name,
+  Const        r9, "pairedCustomerName"
+  Const        r10, "name"
+  // orderTotal: o.total
+  Const        r11, "orderTotal"
+  Const        r12, "total"
+  // let result = from o in orders
+  IterPrep     r13, r3
+  Len          r14, r13
+  Const        r16, 0
+  Move         r15, r16
+L3:
+  LessInt      r17, r15, r14
+  JumpIfFalse  r17, L0
+  Index        r18, r13, r15
+  Move         r19, r18
+  // from c in customers
+  IterPrep     r20, r1
+  Len          r21, r20
+  Const        r16, 0
+  Move         r22, r16
+L2:
+  LessInt      r23, r22, r21
+  JumpIfFalse  r23, L1
+  Index        r24, r20, r22
+  Move         r25, r24
+  // orderId: o.id,
+  Const        r26, "orderId"
+  Const        r6, "id"
+  Index        r27, r19, r6
+  // orderCustomerId: o.customerId,
+  Const        r28, "orderCustomerId"
+  Const        r8, "customerId"
+  Index        r29, r19, r8
+  // pairedCustomerName: c.name,
+  Const        r30, "pairedCustomerName"
+  Const        r10, "name"
+  Index        r31, r25, r10
+  // orderTotal: o.total
+  Const        r32, "orderTotal"
+  Const        r12, "total"
+  Index        r33, r19, r12
+  // orderId: o.id,
+  Move         r34, r26
+  Move         r35, r27
+  // orderCustomerId: o.customerId,
+  Move         r36, r28
+  Move         r37, r29
+  // pairedCustomerName: c.name,
+  Move         r38, r30
+  Move         r39, r31
+  // orderTotal: o.total
+  Move         r40, r32
+  Move         r41, r33
+  // select {
+  MakeMap      r42, 4, r34
+  // let result = from o in orders
+  Append       r43, r4, r42
+  Move         r4, r43
+  // from c in customers
+  Const        r44, 1
+  AddInt       r22, r22, r44
+  Jump         L2
+L1:
+  // let result = from o in orders
+  Const        r44, 1
+  AddInt       r15, r15, r44
+  Jump         L3
+L0:
+  Move         r45, r4
+  // print("--- Cross Join: All order-customer pairs ---")
+  Const        r46, "--- Cross Join: All order-customer pairs ---"
+  Print        r46
+  // for entry in result {
+  IterPrep     r47, r45
+  Len          r48, r47
+  Const        r49, 0
+L5:
+  LessInt      r50, r49, r48
+  JumpIfFalse  r50, L4
+  Index        r51, r47, r49
+  Move         r52, r51
+  // print("Order", entry.orderId,
+  Const        r61, "Order"
+  Move         r53, r61
+  Const        r5, "orderId"
+  Index        r62, r52, r5
+  Move         r54, r62
+  // "(customerId:", entry.orderCustomerId,
+  Const        r63, "(customerId:"
+  Move         r55, r63
+  Const        r7, "orderCustomerId"
+  Index        r64, r52, r7
+  Move         r56, r64
+  // ", total: $", entry.orderTotal,
+  Const        r65, ", total: $"
+  Move         r57, r65
+  Const        r11, "orderTotal"
+  Index        r66, r52, r11
+  Move         r58, r66
+  // ") paired with", entry.pairedCustomerName)
+  Const        r67, ") paired with"
+  Move         r59, r67
+  Const        r9, "pairedCustomerName"
+  Index        r68, r52, r9
+  Move         r60, r68
+  // print("Order", entry.orderId,
+  PrintN       r53, 8, r53
+  // for entry in result {
+  Const        r69, 1
+  AddInt       r70, r49, r69
+  Move         r49, r70
+  Jump         L5
+L4:
+  Return       r0

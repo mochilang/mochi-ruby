@@ -1,0 +1,7 @@
+/workspace/mochi/tests/algorithms/x/Erlang/electronics/charging_inductor.erl:113:2: Warning: variable 'Half_2' exported from 'case' (line 94, column 9)
+%  113| {Half_2, N_2, Sum_2, Term_2, X} = Fun(Half_2, N, Sum, Term, X),
+%     |  ^
+
+2.817
+1.543
+0.016

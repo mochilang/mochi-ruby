@@ -1,0 +1,4 @@
+open System
+
+let value = (((1 + 2)) * 3)
+ignore (printfn "%A" (value))

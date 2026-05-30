@@ -1,0 +1,215 @@
+rustc: exit status 1
+error[E0308]: mismatched types
+ --> /tmp/anagrams-deranged-anagrams.rs:7:76
+  |
+7 |             arr = { let mut tmp = arr.clone(); tmp.push(&s[i as usize..i + 1 as usize]); tmp };
+  |                                                                            ^^^^^^^^^^ expected `i32`, found `usize`
+
+error[E0308]: mismatched types
+ --> /tmp/anagrams-deranged-anagrams.rs:7:72
+  |
+7 |             arr = { let mut tmp = arr.clone(); tmp.push(&s[i as usize..i + 1 as usize]); tmp };
+  |                                                                        ^^^^^^^^^^^^^^ expected `usize`, found `i32`
+
+error[E0277]: cannot add `usize` to `i32`
+ --> /tmp/anagrams-deranged-anagrams.rs:7:74
+  |
+7 |             arr = { let mut tmp = arr.clone(); tmp.push(&s[i as usize..i + 1 as usize]); tmp };
+  |                                                                          ^ no implementation for `i32 + usize`
+  |
+  = help: the trait `Add<usize>` is not implemented for `i32`
+  = help: the following other types implement trait `Add<Rhs>`:
+            `&i32` implements `Add<i32>`
+            `&i32` implements `Add`
+            `i32` implements `Add<&i32>`
+            `i32` implements `Add`
+
+error[E0308]: mismatched types
+  --> /tmp/anagrams-deranged-anagrams.rs:15:46
+   |
+15 |                 if arr[j as usize] > arr[j + 1 as usize] {
+   |                                              ^^^^^^^^^^ expected `i32`, found `usize`
+
+error[E0277]: cannot add `usize` to `i32`
+  --> /tmp/anagrams-deranged-anagrams.rs:15:44
+   |
+15 |                 if arr[j as usize] > arr[j + 1 as usize] {
+   |                                            ^ no implementation for `i32 + usize`
+   |
+   = help: the trait `Add<usize>` is not implemented for `i32`
+   = help: the following other types implement trait `Add<Rhs>`:
+             `&i32` implements `Add<i32>`
+             `&i32` implements `Add`
+             `i32` implements `Add<&i32>`
+             `i32` implements `Add`
+
+error[E0277]: the type `[&'static str]` cannot be indexed by `i32`
+  --> /tmp/anagrams-deranged-anagrams.rs:15:42
+   |
+15 |                 if arr[j as usize] > arr[j + 1 as usize] {
+   |                                          ^^^^^^^^^^^^^^ slice indices are of type `usize` or ranges of `usize`
+   |
+   = help: the trait `SliceIndex<[&'static str]>` is not implemented for `i32`
+           but it is implemented for `usize`
+   = help: for that trait implementation, expected `usize`, found `i32`
+   = note: required for `Vec<&'static str>` to implement `Index<i32>`
+
+error[E0308]: mismatched types
+  --> /tmp/anagrams-deranged-anagrams.rs:17:47
+   |
+17 |                     arr[j as usize] = arr[j + 1 as usize];
+   |                                               ^^^^^^^^^^ expected `i32`, found `usize`
+
+error[E0277]: cannot add `usize` to `i32`
+  --> /tmp/anagrams-deranged-anagrams.rs:17:45
+   |
+17 |                     arr[j as usize] = arr[j + 1 as usize];
+   |                                             ^ no implementation for `i32 + usize`
+   |
+   = help: the trait `Add<usize>` is not implemented for `i32`
+   = help: the following other types implement trait `Add<Rhs>`:
+             `&i32` implements `Add<i32>`
+             `&i32` implements `Add`
+             `i32` implements `Add<&i32>`
+             `i32` implements `Add`
+
+error[E0277]: the type `[&'static str]` cannot be indexed by `i32`
+  --> /tmp/anagrams-deranged-anagrams.rs:17:43
+   |
+17 |                     arr[j as usize] = arr[j + 1 as usize];
+   |                                           ^^^^^^^^^^^^^^ slice indices are of type `usize` or ranges of `usize`
+   |
+   = help: the trait `SliceIndex<[&'static str]>` is not implemented for `i32`
+           but it is implemented for `usize`
+   = help: for that trait implementation, expected `usize`, found `i32`
+   = note: required for `Vec<&'static str>` to implement `Index<i32>`
+
+error[E0308]: mismatched types
+  --> /tmp/anagrams-deranged-anagrams.rs:18:29
+   |
+18 |                     arr[j + 1 as usize] = tmp;
+   |                             ^^^^^^^^^^ expected `i32`, found `usize`
+
+error[E0277]: cannot add `usize` to `i32`
+  --> /tmp/anagrams-deranged-anagrams.rs:18:27
+   |
+18 |                     arr[j + 1 as usize] = tmp;
+   |                           ^ no implementation for `i32 + usize`
+   |
+   = help: the trait `Add<usize>` is not implemented for `i32`
+   = help: the following other types implement trait `Add<Rhs>`:
+             `&i32` implements `Add<i32>`
+             `&i32` implements `Add`
+             `i32` implements `Add<&i32>`
+             `i32` implements `Add`
+
+error[E0277]: the type `[&'static str]` cannot be indexed by `i32`
+  --> /tmp/anagrams-deranged-anagrams.rs:18:25
+   |
+18 |                     arr[j + 1 as usize] = tmp;
+   |                         ^^^^^^^^^^^^^^ slice indices are of type `usize` or ranges of `usize`
+   |
+   = help: the trait `SliceIndex<[&'static str]>` is not implemented for `i32`
+           but it is implemented for `usize`
+   = help: for that trait implementation, expected `usize`, found `i32`
+   = note: required for `Vec<&'static str>` to implement `Index<i32>`
+
+error[E0308]: mismatched types
+  --> /tmp/anagrams-deranged-anagrams.rs:30:16
+   |
+3  |     fn sortRunes(s: &'static str) -> &'static str {
+   |                                      ------------ expected `&'static str` because of return type
+...
+30 |         return out;
+   |                ^^^ expected `&str`, found `String`
+   |
+help: consider borrowing here
+   |
+30 |         return &out;
+   |                +
+
+error[E0308]: mismatched types
+  --> /tmp/anagrams-deranged-anagrams.rs:38:35
+   |
+38 |             if &a[i as usize..i + 1 as usize] == &b[i as usize..i + 1 as usize] {
+   |                                   ^^^^^^^^^^ expected `i32`, found `usize`
+
+error[E0308]: mismatched types
+  --> /tmp/anagrams-deranged-anagrams.rs:38:31
+   |
+38 |             if &a[i as usize..i + 1 as usize] == &b[i as usize..i + 1 as usize] {
+   |                               ^^^^^^^^^^^^^^ expected `usize`, found `i32`
+
+error[E0277]: cannot add `usize` to `i32`
+  --> /tmp/anagrams-deranged-anagrams.rs:38:33
+   |
+38 |             if &a[i as usize..i + 1 as usize] == &b[i as usize..i + 1 as usize] {
+   |                                 ^ no implementation for `i32 + usize`
+   |
+   = help: the trait `Add<usize>` is not implemented for `i32`
+   = help: the following other types implement trait `Add<Rhs>`:
+             `&i32` implements `Add<i32>`
+             `&i32` implements `Add`
+             `i32` implements `Add<&i32>`
+             `i32` implements `Add`
+
+error[E0308]: mismatched types
+  --> /tmp/anagrams-deranged-anagrams.rs:38:69
+   |
+38 |             if &a[i as usize..i + 1 as usize] == &b[i as usize..i + 1 as usize] {
+   |                                                                     ^^^^^^^^^^ expected `i32`, found `usize`
+
+error[E0308]: mismatched types
+  --> /tmp/anagrams-deranged-anagrams.rs:38:65
+   |
+38 |             if &a[i as usize..i + 1 as usize] == &b[i as usize..i + 1 as usize] {
+   |                                                                 ^^^^^^^^^^^^^^ expected `usize`, found `i32`
+
+error[E0277]: cannot add `usize` to `i32`
+  --> /tmp/anagrams-deranged-anagrams.rs:38:67
+   |
+38 |             if &a[i as usize..i + 1 as usize] == &b[i as usize..i + 1 as usize] {
+   |                                                                   ^ no implementation for `i32 + usize`
+   |
+   = help: the trait `Add<usize>` is not implemented for `i32`
+   = help: the following other types implement trait `Add<Rhs>`:
+             `&i32` implements `Add<i32>`
+             `&i32` implements `Add`
+             `i32` implements `Add<&i32>`
+             `i32` implements `Add`
+
+error[E0308]: mismatched types
+  --> /tmp/anagrams-deranged-anagrams.rs:47:130
+   |
+47 |         let mut m: std::collections::HashMap<&'static str, Vec<&'static str>> = { let mut m = std::collections::BTreeMap::new(); m };
+   |                                                                                                                                  ^ expected `HashMap<&str, Vec<&str>>`, found `BTreeMap<_, _>`
+   |
+   = note: expected struct `HashMap<&'static str, Vec<&'static str>>`
+              found struct `BTreeMap<_, _>`
+
+error[E0308]: mismatched types
+  --> /tmp/anagrams-deranged-anagrams.rs:63:26
+   |
+49 |         let mut w1 = String::new();
+   |                      ------------- expected due to this value
+...
+63 |                     w1 = c;
+   |                          ^- help: try using a conversion method: `.to_string()`
+   |                          |
+   |                          expected `String`, found `&str`
+
+error[E0308]: mismatched types
+  --> /tmp/anagrams-deranged-anagrams.rs:64:26
+   |
+50 |         let mut w2 = String::new();
+   |                      ------------- expected due to this value
+...
+64 |                     w2 = w;
+   |                          ^- help: try using a conversion method: `.to_string()`
+   |                          |
+   |                          expected `String`, found `&str`
+
+error: aborting due to 22 previous errors
+
+Some errors have detailed explanations: E0277, E0308.
+For more information about an error, try `rustc --explain E0277`.

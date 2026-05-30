@@ -1,0 +1,5 @@
+(program
+  (call print
+    (selector toInt (string 1995))
+  )
+)

@@ -1,0 +1,17 @@
+warning: variable "capacity" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 128 │       {capacity, fractions, idx, max_value} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/greedy_methods/fractional_knapsack_2.exs:128:8: Main.fractional_knapsack/3
+
+     warning: variable "idx" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 128 │       {capacity, fractions, idx, max_value} = try do
+     │                             ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/greedy_methods/fractional_knapsack_2.exs:128:29: Main.fractional_knapsack/3
+
+%{fractions: [1.0, 0.0, 0.0, 0.0, 1.0], max_value: 13.0}
+%{fractions: [1.0, 0.0, 0.0, 1.0], max_value: 10.0}
+%{fractions: [], max_value: 0.0}

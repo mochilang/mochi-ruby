@@ -1,0 +1,55 @@
+cc: exit status 1
+/tmp/anagrams-deranged-anagrams.c: In function ‘mochi_main’:
+/tmp/anagrams-deranged-anagrams.c:192:11: error: incompatible types when initializing type ‘int’ using type ‘map_string_int’
+  192 |   int m = tmp7;
+      |           ^~~~
+/tmp/anagrams-deranged-anagrams.c:197:13: warning: initialization of ‘int’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  197 |     int w = words.data[tmp8];
+      |             ^~~~~
+/tmp/anagrams-deranged-anagrams.c:198:11: error: request for member ‘len’ in something not a structure or union
+  198 |     if ((w.len <= bestLen)) {
+      |           ^
+/tmp/anagrams-deranged-anagrams.c:201:31: warning: passing argument 1 of ‘sortRunes’ makes pointer from integer without a cast [-Wint-conversion]
+  201 |     __auto_type k = sortRunes(w);
+      |                               ^
+      |                               |
+      |                               int
+/tmp/anagrams-deranged-anagrams.c:136:23: note: expected ‘char *’ but argument is of type ‘int’
+  136 | char *sortRunes(char *s) {
+      |                 ~~~~~~^
+/tmp/anagrams-deranged-anagrams.c:202:14: error: expected ‘)’ before ‘in’
+  202 |     if (((!(k in m)))) {
+      |            ~ ^~~
+      |              )
+/tmp/anagrams-deranged-anagrams.c:207:8: error: request for member ‘data’ in something not a structure or union
+  207 |       m.data[k] = tmp10;
+      |        ^
+/tmp/anagrams-deranged-anagrams.c:210:34: error: request for member ‘data’ in something not a structure or union
+  210 |     for (int tmp11 = 0; tmp11 < m.data[k].len; tmp11++) {
+      |                                  ^
+/tmp/anagrams-deranged-anagrams.c:211:18: error: request for member ‘data’ in something not a structure or union
+  211 |       char *c = m.data[k].data[tmp11];
+      |                  ^
+/tmp/anagrams-deranged-anagrams.c:212:21: warning: passing argument 1 of ‘deranged’ makes pointer from integer without a cast [-Wint-conversion]
+  212 |       if ((deranged(w, c))) {
+      |                     ^
+      |                     |
+      |                     int
+/tmp/anagrams-deranged-anagrams.c:171:20: note: expected ‘char *’ but argument is of type ‘int’
+  171 | int deranged(char *a, char *b) {
+      |              ~~~~~~^
+/tmp/anagrams-deranged-anagrams.c:213:20: error: request for member ‘len’ in something not a structure or union
+  213 |         bestLen = w.len;
+      |                    ^
+/tmp/anagrams-deranged-anagrams.c:215:12: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  215 |         w2 = w;
+      |            ^
+/tmp/anagrams-deranged-anagrams.c:220:19: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  220 |     tmp12.data[0] = w;
+      |                   ^
+/tmp/anagrams-deranged-anagrams.c:221:45: error: request for member ‘data’ in something not a structure or union
+  221 |     list_string tmp13 = concat_list_string(m.data[k], tmp12);
+      |                                             ^
+/tmp/anagrams-deranged-anagrams.c:222:6: error: request for member ‘data’ in something not a structure or union
+  222 |     m.data[k] = 0;
+      |      ^

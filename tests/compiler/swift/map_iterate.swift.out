@@ -1,0 +1,13 @@
+import Foundation
+
+var m: [Int: Bool] = [:]
+var sum = 0
+func main() {
+  m[1] = true
+  m[2] = true
+  for k in m.keys {
+    sum = sum + k
+  }
+  print(sum)
+}
+main()

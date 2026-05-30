@@ -1,0 +1,5 @@
+run: exit status 1
+/tmp/TestMochiToCS9-billion-names-of-god-the-integer/Program.cs(168,30): error CS0029: Cannot implicitly convert type 'System.Collections.Generic.List<System.Collections.Generic.List<int>>' to 'System.Collections.Generic.List<string>' [/tmp/TestMochiToCS9-billion-names-of-god-the-integer/app.csproj]
+/tmp/TestMochiToCS9-billion-names-of-god-the-integer/Program.cs(169,76): error CS1503: Argument 1: cannot convert from 'string' to 'System.Collections.Generic.List<int>' [/tmp/TestMochiToCS9-billion-names-of-god-the-integer/app.csproj]
+
+The build failed. Fix the build errors and run again.

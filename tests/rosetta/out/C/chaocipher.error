@@ -1,0 +1,13 @@
+cc: exit status 1
+/tmp/chaocipher.c: In function ‘rotate’:
+/tmp/chaocipher.c:52:36: error: request for member ‘len’ in something not a structure or union
+   52 |   char *tmp2 = slice_string(s, n, s.len);
+      |                                    ^
+/tmp/chaocipher.c: In function ‘scrambleLeft’:
+/tmp/chaocipher.c:64:38: error: request for member ‘len’ in something not a structure or union
+   64 |   char *tmp10 = slice_string(s, 14, s.len);
+      |                                      ^
+/tmp/chaocipher.c: In function ‘scrambleRight’:
+/tmp/chaocipher.c:75:38: error: request for member ‘len’ in something not a structure or union
+   75 |   char *tmp17 = slice_string(s, 15, s.len);
+      |                                      ^

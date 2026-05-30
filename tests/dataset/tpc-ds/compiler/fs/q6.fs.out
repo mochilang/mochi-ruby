@@ -1,0 +1,74 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    ca_address_sk: int
+    ca_state: string
+    ca_zip: string
+}
+type Anon2 = {
+    c_customer_sk: int
+    c_current_addr_sk: int
+}
+type Anon3 = {
+    ss_customer_sk: int
+    ss_sold_date_sk: int
+    ss_item_sk: int
+}
+type Anon4 = {
+    d_date_sk: int
+    d_year: int
+    d_moy: int
+    d_month_seq: int
+}
+type Anon5 = {
+    i_item_sk: int
+    i_category: string
+    i_current_price: float
+}
+type Anon6 = {
+    state: obj
+    cnt: obj
+}
+type Anon7 = {
+    state: string
+    cnt: int
+}
+type _Group<'K,'T>(key: 'K) =
+    member val key = key with get, set
+    member val Items = System.Collections.Generic.List<'T>() with get
+    member this.size = this.Items.Count
+    interface System.Collections.Generic.IEnumerable<'T> with
+        member this.GetEnumerator() = (this.Items :> seq<'T>).GetEnumerator()
+    interface System.Collections.IEnumerable with
+        member this.GetEnumerator() = (this.Items :> System.Collections.IEnumerable).GetEnumerator()
+
+let _group_by (src: 'T list) (keyfn: 'T -> 'K) : _Group<'K,'T> list =
+    let groups = System.Collections.Generic.Dictionary<string,_Group<'K,'T>>()
+    let order = System.Collections.Generic.List<string>()
+    for it in src do
+        let key = keyfn it
+        let ks = string key
+        let mutable g = Unchecked.defaultof<_Group<'K,'T>>
+        if groups.TryGetValue(ks, &g) then ()
+        else
+            g <- _Group<'K,'T>(key)
+            groups.Add(ks, g)
+            order.Add(ks)
+        g.Items.Add(it)
+    [ for ks in order -> groups[ks] ]
+
+let customer_address: Anon1 list = [{ ca_address_sk = 1; ca_state = "CA"; ca_zip = "12345" }]
+let customer: Anon2 list = [{ c_customer_sk = 1; c_current_addr_sk = 1 }]
+let store_sales: Anon3 list = [{ ss_customer_sk = 1; ss_sold_date_sk = 1; ss_item_sk = 1 }; { ss_customer_sk = 1; ss_sold_date_sk = 1; ss_item_sk = 1 }; { ss_customer_sk = 1; ss_sold_date_sk = 1; ss_item_sk = 1 }; { ss_customer_sk = 1; ss_sold_date_sk = 1; ss_item_sk = 1 }; { ss_customer_sk = 1; ss_sold_date_sk = 1; ss_item_sk = 1 }; { ss_customer_sk = 1; ss_sold_date_sk = 1; ss_item_sk = 1 }; { ss_customer_sk = 1; ss_sold_date_sk = 1; ss_item_sk = 1 }; { ss_customer_sk = 1; ss_sold_date_sk = 1; ss_item_sk = 1 }; { ss_customer_sk = 1; ss_sold_date_sk = 1; ss_item_sk = 1 }; { ss_customer_sk = 1; ss_sold_date_sk = 1; ss_item_sk = 1 }]
+let date_dim: Anon4 list = [{ d_date_sk = 1; d_year = 1999; d_moy = 5; d_month_seq = 120 }]
+let item: Anon5 list = [{ i_item_sk = 1; i_category = "A"; i_current_price = 100.0 }; { i_item_sk = 2; i_category = "A"; i_current_price = 50.0 }]
+let target_month_seq: obj = List.max [ for d in date_dim do if d.d_year = 1999 && d.d_moy = 5 then yield d.d_month_seq ]
+let result: Anon6 list = [ for g in _group_by [ for a in customer_address do 
+  for c in customer do 
+  for s in store_sales do 
+  for d in date_dim do 
+  for i in item do if a.ca_address_sk = c.c_current_addr_sk && c.c_customer_sk = s.ss_customer_sk && s.ss_sold_date_sk = d.d_date_sk && s.ss_item_sk = i.i_item_sk && d.d_month_seq = target_month_seq && i.i_current_price > 1.2 * (float (List.sum [ for j in item do if j.i_category = i.i_category then yield j.i_current_price ]) / float (List.length [ for j in item do if j.i_category = i.i_category then yield j.i_current_price ])) then yield (a, c, s, d, i) ] (fun (a, c, s, d, i) -> a.ca_state) |> List.filter (fun gTmp -> let g = gTmp in List.length g.Items >= 10) |> List.sortBy (fun gTmp -> let g = gTmp in [List.length g.Items; g.key]) |> List.take 100 do
+    yield { state = g.key; cnt = List.length g.Items } ]
+printfn "%A" (JsonSerializer.Serialize(result))
+assert (result = [{ state = "CA"; cnt = 10 }])

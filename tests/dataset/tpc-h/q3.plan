@@ -1,0 +1,12 @@
+type: [{string: any}]
+plan:
+(select
+  (selector c)
+  (where
+    (binary ==
+      (selector c_mktsegment (selector c))
+      (selector segment)
+    )
+    (scan c (selector customer))
+  )
+)

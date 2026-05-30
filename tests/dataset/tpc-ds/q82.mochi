@@ -1,0 +1,33 @@
+// Expanded sample data for TPC-DS Q82
+let item = [
+  {id: 1},
+  {id: 2},
+  {id: 3}
+]
+let inventory = [
+  {item: 1, qty: 20},
+  {item: 1, qty: 22},
+  {item: 1, qty: 5},
+  {item: 2, qty: 30},
+  {item: 2, qty: 5},
+  {item: 3, qty: 10}
+]
+let store_sales = [
+  {item: 1},
+  {item: 2}
+]
+
+var result = 0
+for inv in inventory {
+  for s in store_sales {
+    if inv.item == s.item {
+      result = result + inv.qty
+    }
+  }
+}
+
+json(result)
+
+test "TPCDS Q82 sample" {
+  expect result == 82
+}

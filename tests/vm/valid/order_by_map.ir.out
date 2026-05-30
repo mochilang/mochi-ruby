@@ -1,0 +1,52 @@
+func main (regs=28)
+  // let data = [
+  Const        r0, [{"a": 1, "b": 2}, {"a": 1, "b": 1}, {"a": 0, "b": 5}]
+  Move         r1, r0
+  // from x in data
+  Const        r2, []
+  // sort by { a: x.a, b: x.b }
+  Const        r3, "a"
+  Const        r3, "a"
+  Const        r4, "b"
+  Const        r4, "b"
+  // from x in data
+  IterPrep     r5, r1
+  Len          r6, r5
+  Const        r8, 0
+  Move         r7, r8
+L1:
+  LessInt      r9, r7, r6
+  JumpIfFalse  r9, L0
+  Index        r10, r5, r7
+  Move         r11, r10
+  // sort by { a: x.a, b: x.b }
+  Const        r14, "a"
+  Const        r3, "a"
+  Index        r15, r11, r3
+  Const        r16, "b"
+  Const        r4, "b"
+  Index        r17, r11, r4
+  Move         r18, r14
+  Move         r19, r15
+  Move         r20, r16
+  Move         r21, r17
+  MakeMap      r22, 2, r18
+  Move         r12, r22
+  // from x in data
+  Move         r13, r11
+  MakeList     r23, 2, r12
+  Append       r24, r2, r23
+  Move         r2, r24
+  Const        r25, 1
+  AddInt       r7, r7, r25
+  Jump         L1
+L0:
+  // sort by { a: x.a, b: x.b }
+  Sort         r26, r2
+  // from x in data
+  Move         r2, r26
+  // let sorted =
+  Move         r27, r2
+  // print(sorted)
+  Print        r27
+  Return       r0

@@ -1,0 +1,10 @@
+warning: module attribute @data_dir was set but never used
+    │
+  3 │   @data_dir nil
+    │   ~~~~~~~~~~~~~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/sorts/selection_sort.exs:3: Main (module)
+
+[0, 2, 2, 3, 5]
+[]
+[-45, -5, -2]

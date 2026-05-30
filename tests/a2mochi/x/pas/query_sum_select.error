@@ -1,0 +1,5 @@
+error[T001]: assignment to undeclared variable: of
+  --> :4:1
+
+help:
+  Declare `of` first using `let`.

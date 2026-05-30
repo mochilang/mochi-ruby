@@ -1,0 +1,15 @@
+(program
+  (fun main
+    (let _11200
+      (list (int 1) (int 2))
+    )
+    (let _11218
+      (binary union_all
+        (selector _11200)
+        (list (int 3))
+      )
+    )
+    (call print (selector _11218))
+  )
+  (call main)
+)

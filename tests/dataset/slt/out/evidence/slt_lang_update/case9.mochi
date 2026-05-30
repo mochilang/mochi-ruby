@@ -1,0 +1,44 @@
+/*
+# line: 135
+# EVIDENCE-OF: R-36239-04077 The scalar expressions may refer to columns
+# of the row being updated.
+# EVIDENCE-OF: R-04558-24451 In this case all scalar expressions are
+# evaluated before any assignments are made.
+UPDATE t1 SET x=x+2
+*/
+
+type t1Row {
+  x: int
+  y: string
+}
+
+var t1 = [
+  t1Row {
+    x: 2,
+    y: "unknown",
+  },
+  t1Row {
+    x: 2,
+    y: "false" + "",
+  },
+  t1Row {
+    x: 2,
+    y: "NULL",
+  },
+]
+
+/* UPDATE t1 SET x=x+2 */
+update t1
+set {
+  x: (x + 2),
+}
+
+/* SELECT count(*) FROM t1 WHERE x=4 */
+let result = count(from row in t1
+  where row.x == 4
+  select row)
+print(result)
+
+test "case9" {
+  expect result == 3
+}

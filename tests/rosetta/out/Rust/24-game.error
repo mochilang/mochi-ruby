@@ -1,0 +1,60 @@
+rustc: exit status 1
+error[E0425]: cannot find function `input` in this scope
+  --> /tmp/24_game.rs:46:24
+   |
+46 |         let mut expr = input();
+   |                        ^^^^^ not found in this scope
+
+error[E0425]: cannot find function `int` in this scope
+  --> /tmp/24_game.rs:62:55
+   |
+62 |                 while digits[(j) as usize].clone() != int(ch) - int(String::from("0")) {
+   |                                                       ^^^ not found in this scope
+
+error[E0425]: cannot find function `int` in this scope
+  --> /tmp/24_game.rs:62:65
+   |
+62 |                 while digits[(j) as usize].clone() != int(ch) - int(String::from("0")) {
+   |                                                                 ^^^ not found in this scope
+
+error[E0369]: cannot add `Vec<i32>` to `Vec<i32>`
+  --> /tmp/24_game.rs:69:70
+   |
+69 |                 digits = digits[(0) as usize..(j) as usize].to_vec() + digits[(j + 1) as usize..(digits.len()) as usize].to_vec();
+   |                          ------------------------------------------- ^ ---------------------------------------------------------- Vec<i32>
+   |                          |
+   |                          Vec<i32>
+   |
+note: the foreign item type `Vec<i32>` doesn't implement `Add`
+  --> /rustc/17067e9ac6d7ecb70e50f92c1944e545188d2359/library/alloc/src/vec/mod.rs:409:1
+   |
+   = note: not implement `Add`
+
+error[E0425]: cannot find function `int` in this scope
+  --> /tmp/24_game.rs:70:71
+   |
+70 |                 stack = { let mut tmp = stack.clone(); tmp.push(float(int(ch) - int(String::from("0")))); tmp };
+   |                                                                       ^^^ not found in this scope
+
+error[E0425]: cannot find function `int` in this scope
+  --> /tmp/24_game.rs:70:81
+   |
+70 |                 stack = { let mut tmp = stack.clone(); tmp.push(float(int(ch) - int(String::from("0")))); tmp };
+   |                                                                                 ^^^ not found in this scope
+
+error[E0425]: cannot find function `float` in this scope
+  --> /tmp/24_game.rs:70:65
+   |
+70 |                 stack = { let mut tmp = stack.clone(); tmp.push(float(int(ch) - int(String::from("0")))); tmp };
+   |                                                                 ^^^^^ not found in this scope
+
+error[E0425]: cannot find function `abs` in this scope
+  --> /tmp/24_game.rs:87:16
+   |
+87 |             if abs(stack[0].clone() - 24.0) > 1e-06 {
+   |                ^^^ not found in this scope
+
+error: aborting due to 8 previous errors
+
+Some errors have detailed explanations: E0369, E0425.
+For more information about an error, try `rustc --explain E0369`.

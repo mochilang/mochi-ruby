@@ -1,0 +1,7 @@
+(program
+  (fun _load
+    (param path (type string))
+    (param opts (type "map<string, any>"))
+    (type "list<map<string, any>>")
+  )
+)

@@ -1,0 +1,35 @@
+// Mochi translation of Rosetta "Constrained genericity" example 4
+// Demonstrates using the interface and concrete type.
+
+// Interface-like type
+ type Eatable {
+  eat: fun()
+ }
+
+// Container type
+ type Foodbox {
+  items: list<PeelFirst>
+ }
+
+// Concrete type implementing Eatable
+ type PeelFirst {
+  value: string
+ }
+
+fun peelFirstEat(p: PeelFirst) {
+  // peel code goes here
+  print("mm, that " + p.value + " was good!")
+}
+
+fun main() {
+  var fb: Foodbox = Foodbox{
+    items: [
+      PeelFirst{ value: "banana" },
+      PeelFirst{ value: "mango" }
+    ]
+  }
+  var f0 = fb.items[0]
+  peelFirstEat(f0)
+}
+
+ main()

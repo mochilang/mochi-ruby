@@ -1,0 +1,6 @@
+let base: string
+fun main() {
+  print("Joined path:", p)
+  print("Basename:", base)
+}
+let p: string

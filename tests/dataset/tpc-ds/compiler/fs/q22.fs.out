@@ -1,0 +1,88 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    inv_item_sk: int
+    inv_date_sk: int
+    inv_quantity_on_hand: int
+}
+type Anon2 = {
+    d_date_sk: int
+    d_month_seq: int
+}
+type Anon3 = {
+    i_item_sk: int
+    i_product_name: string
+    i_brand: string
+    i_class: string
+    i_category: string
+}
+type Anon4 = {
+    i_product_name: obj
+    i_brand: obj
+    i_class: obj
+    i_category: obj
+    qoh: obj
+}
+type Anon5 = {
+    product_name: string
+    brand: string
+    ``class``: string
+    category: string
+}
+type Anon6 = {
+    i_product_name: string
+    i_brand: string
+    i_class: string
+    i_category: string
+    qoh: float
+}
+type _Group<'K,'T>(key: 'K) =
+    member val key = key with get, set
+    member val Items = System.Collections.Generic.List<'T>() with get
+    member this.size = this.Items.Count
+    interface System.Collections.Generic.IEnumerable<'T> with
+        member this.GetEnumerator() = (this.Items :> seq<'T>).GetEnumerator()
+    interface System.Collections.IEnumerable with
+        member this.GetEnumerator() = (this.Items :> System.Collections.IEnumerable).GetEnumerator()
+
+let _group_by (src: 'T list) (keyfn: 'T -> 'K) : _Group<'K,'T> list =
+    let groups = System.Collections.Generic.Dictionary<string,_Group<'K,'T>>()
+    let order = System.Collections.Generic.List<string>()
+    for it in src do
+        let key = keyfn it
+        let ks = string key
+        let mutable g = Unchecked.defaultof<_Group<'K,'T>>
+        if groups.TryGetValue(ks, &g) then ()
+        else
+            g <- _Group<'K,'T>(key)
+            groups.Add(ks, g)
+            order.Add(ks)
+        g.Items.Add(it)
+    [ for ks in order -> groups[ks] ]
+
+type Inventory = {
+    mutable inv_item_sk: int
+    mutable inv_date_sk: int
+    mutable inv_quantity_on_hand: int
+}
+type DateDim = {
+    mutable d_date_sk: int
+    mutable d_month_seq: int
+}
+type Item = {
+    mutable i_item_sk: int
+    mutable i_product_name: string
+    mutable i_brand: string
+    mutable i_class: string
+    mutable i_category: string
+}
+let inventory: Anon1 list = [{ inv_item_sk = 1; inv_date_sk = 1; inv_quantity_on_hand = 10 }; { inv_item_sk = 1; inv_date_sk = 2; inv_quantity_on_hand = 20 }; { inv_item_sk = 1; inv_date_sk = 3; inv_quantity_on_hand = 10 }; { inv_item_sk = 1; inv_date_sk = 4; inv_quantity_on_hand = 20 }; { inv_item_sk = 2; inv_date_sk = 1; inv_quantity_on_hand = 50 }]
+let date_dim: Anon2 list = [{ d_date_sk = 1; d_month_seq = 0 }; { d_date_sk = 2; d_month_seq = 1 }; { d_date_sk = 3; d_month_seq = 2 }; { d_date_sk = 4; d_month_seq = 3 }]
+let item: Anon3 list = [{ i_item_sk = 1; i_product_name = "Prod1"; i_brand = "Brand1"; i_class = "Class1"; i_category = "Cat1" }; { i_item_sk = 2; i_product_name = "Prod2"; i_brand = "Brand2"; i_class = "Class2"; i_category = "Cat2" }]
+let qoh: Anon4 list = [ for g in _group_by [ for inv in inventory do 
+  for d in date_dim do 
+  for i in item do if inv.inv_date_sk = d.d_date_sk && inv.inv_item_sk = i.i_item_sk && d.d_month_seq >= 0 && d.d_month_seq <= 11 then yield (inv, d, i) ] (fun (inv, d, i) -> { product_name = i.i_product_name; brand = i.i_brand; ``class`` = i.i_class; category = i.i_category }) do
+    yield { i_product_name = g.key.product_name; i_brand = g.key.brand; i_class = g.key.class; i_category = g.key.category; qoh = (float (List.sum [ for x in g do yield x.inv_quantity_on_hand ]) / float (List.length [ for x in g do yield x.inv_quantity_on_hand ])) } ]
+printfn "%A" (JsonSerializer.Serialize(qoh))
+assert (qoh = [{ i_product_name = "Prod1"; i_brand = "Brand1"; i_class = "Class1"; i_category = "Cat1"; qoh = 15.0 }; { i_product_name = "Prod2"; i_brand = "Brand2"; i_class = "Class2"; i_category = "Cat2"; qoh = 50.0 }])

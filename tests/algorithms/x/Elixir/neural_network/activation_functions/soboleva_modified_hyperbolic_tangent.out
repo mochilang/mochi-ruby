@@ -1,0 +1,22 @@
+warning: variable "n" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+    │
+ 25 │       {n, sum, term} = try do
+    │        ~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/neural_network/activation_functions/soboleva_modified_hyperbolic_tangent.exs:25:8: Main.exp/1
+
+    warning: variable "term" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+    │
+ 25 │       {n, sum, term} = try do
+    │                ~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/neural_network/activation_functions/soboleva_modified_hyperbolic_tangent.exs:25:16: Main.exp/1
+
+    warning: variable "i" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+    │
+ 52 │       {i, result} = try do
+    │        ~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/neural_network/activation_functions/soboleva_modified_hyperbolic_tangent.exs:52:8: Main.soboleva_modified_hyperbolic_tangent/5
+
+[0.11075086031578181, -0.28236684713312954, 0.07861175393215222, -0.11800850130137092, 0.22999055832141352, 0.15660429853940047]

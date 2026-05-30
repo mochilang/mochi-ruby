@@ -1,0 +1,49 @@
+warning: variable "b" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 190 │               {b, group} = try do
+     │                ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/strings/frequency_finder.exs:190:16: Main.get_frequency_order/1
+
+     warning: variable "a" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 202 │           {a, group} = try do
+     │            ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/strings/frequency_finder.exs:202:12: Main.get_frequency_order/1
+
+     warning: variable "g" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 218 │           {g, result} = try do
+     │            ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/strings/frequency_finder.exs:218:12: Main.get_frequency_order/1
+
+     warning: variable "freq" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 230 │       {freq, result} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/strings/frequency_finder.exs:230:8: Main.get_frequency_order/1
+
+    warning: module attribute @data_dir was set but never used
+    │
+  3 │   @data_dir nil
+    │   ~~~~~~~~~~~~~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/strings/frequency_finder.exs:3: Main (module)
+
+** (Protocol.UndefinedError) protocol Enumerable not implemented for type BitString
+
+Got value:
+
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+    (elixir 1.18.3) lib/enum.ex:1: Enumerable.impl_for!/1
+    (elixir 1.18.3) lib/enum.ex:194: Enumerable.member?/2
+    (elixir 1.18.3) lib/enum.ex:2020: Enum.member?/2
+    /workspace/mochi/tests/algorithms/x/Elixir/strings/frequency_finder.exs:88: anonymous fn/4 in Main.get_letter_count/1
+    /workspace/mochi/tests/algorithms/x/Elixir/strings/frequency_finder.exs:101: Main.get_letter_count/1
+    /workspace/mochi/tests/algorithms/x/Elixir/strings/frequency_finder.exs:113: Main.get_frequency_order/1
+    /workspace/mochi/tests/algorithms/x/Elixir/strings/frequency_finder.exs:298: Main.main/0
+    /workspace/mochi/tests/algorithms/x/Elixir/strings/frequency_finder.exs:310: Main.bench_main/0

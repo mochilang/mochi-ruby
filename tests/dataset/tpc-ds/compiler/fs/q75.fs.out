@@ -1,0 +1,120 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    d_date_sk: int
+    d_year: int
+}
+type Anon2 = {
+    ss_item_sk: int
+    ss_quantity: int
+    ss_sales_price: float
+    ss_sold_date_sk: int
+}
+type Anon3 = {
+    ws_item_sk: int
+    ws_quantity: int
+    ws_sales_price: float
+    ws_sold_date_sk: int
+}
+type Anon4 = {
+    cs_item_sk: int
+    cs_quantity: int
+    cs_sales_price: float
+    cs_sold_date_sk: int
+}
+type Anon5 = {
+    i_item_sk: int
+    i_brand_id: int
+    i_class_id: int
+    i_category_id: int
+    i_manufact_id: int
+    i_category: string
+}
+type Anon6 = {
+    d_year: int
+    i_item_sk: int
+    quantity: int
+    amount: float
+}
+type Anon7 = {
+    d_year: obj
+    i_brand_id: obj
+    i_class_id: obj
+    i_category_id: obj
+    i_manufact_id: obj
+    sales_cnt: obj
+    sales_amt: obj
+}
+type Anon8 = {
+    year: obj
+    brand_id: int
+    class_id: int
+    category_id: int
+    manuf_id: int
+}
+type Anon9 = {
+    prev_year: obj
+    year: obj
+    i_brand_id: obj
+    i_class_id: obj
+    i_category_id: obj
+    i_manufact_id: obj
+    prev_yr_cnt: obj
+    curr_yr_cnt: obj
+    sales_cnt_diff: obj
+    sales_amt_diff: obj
+}
+type Anon10 = {
+    prev_year: int
+    year: int
+    i_brand_id: int
+    i_class_id: int
+    i_category_id: int
+    i_manufact_id: int
+    prev_yr_cnt: int
+    curr_yr_cnt: int
+    sales_cnt_diff: int
+    sales_amt_diff: float
+}
+type _Group<'K,'T>(key: 'K) =
+    member val key = key with get, set
+    member val Items = System.Collections.Generic.List<'T>() with get
+    member this.size = this.Items.Count
+    interface System.Collections.Generic.IEnumerable<'T> with
+        member this.GetEnumerator() = (this.Items :> seq<'T>).GetEnumerator()
+    interface System.Collections.IEnumerable with
+        member this.GetEnumerator() = (this.Items :> System.Collections.IEnumerable).GetEnumerator()
+
+let _group_by (src: 'T list) (keyfn: 'T -> 'K) : _Group<'K,'T> list =
+    let groups = System.Collections.Generic.Dictionary<string,_Group<'K,'T>>()
+    let order = System.Collections.Generic.List<string>()
+    for it in src do
+        let key = keyfn it
+        let ks = string key
+        let mutable g = Unchecked.defaultof<_Group<'K,'T>>
+        if groups.TryGetValue(ks, &g) then ()
+        else
+            g <- _Group<'K,'T>(key)
+            groups.Add(ks, g)
+            order.Add(ks)
+        g.Items.Add(it)
+    [ for ks in order -> groups[ks] ]
+
+let date_dim: Anon1 list = [{ d_date_sk = 1; d_year = 2000 }; { d_date_sk = 2; d_year = 2001 }]
+let store_sales: Anon2 list = [{ ss_item_sk = 1; ss_quantity = 50; ss_sales_price = 500.0; ss_sold_date_sk = 1 }; { ss_item_sk = 1; ss_quantity = 40; ss_sales_price = 400.0; ss_sold_date_sk = 2 }]
+let web_sales: Anon3 list = [{ ws_item_sk = 1; ws_quantity = 30; ws_sales_price = 300.0; ws_sold_date_sk = 1 }; { ws_item_sk = 1; ws_quantity = 25; ws_sales_price = 250.0; ws_sold_date_sk = 2 }]
+let catalog_sales: Anon4 list = [{ cs_item_sk = 1; cs_quantity = 20; cs_sales_price = 200.0; cs_sold_date_sk = 1 }; { cs_item_sk = 1; cs_quantity = 15; cs_sales_price = 150.0; cs_sold_date_sk = 2 }]
+let item: Anon5 list = [{ i_item_sk = 1; i_brand_id = 1; i_class_id = 2; i_category_id = 3; i_manufact_id = 4; i_category = "Electronics" }]
+let sales_detail: obj = concat [ for ss in store_sales do 
+  for d in date_dim do if d.d_date_sk = ss.ss_sold_date_sk then yield { d_year = d.d_year; i_item_sk = ss.ss_item_sk; quantity = ss.ss_quantity; amount = ss.ss_sales_price } ] [ for ws in web_sales do 
+  for d in date_dim do if d.d_date_sk = ws.ws_sold_date_sk then yield { d_year = d.d_year; i_item_sk = ws.ws_item_sk; quantity = ws.ws_quantity; amount = ws.ws_sales_price } ] [ for cs in catalog_sales do 
+  for d in date_dim do if d.d_date_sk = cs.cs_sold_date_sk then yield { d_year = d.d_year; i_item_sk = cs.cs_item_sk; quantity = cs.cs_quantity; amount = cs.cs_sales_price } ]
+let all_sales: Anon7 list = [ for g in _group_by [ for sd in sales_detail do 
+  for i in item do if i.i_item_sk = sd.i_item_sk && i.i_category = "Electronics" then yield (sd, i) ] (fun (sd, i) -> { year = sd.d_year; brand_id = i.i_brand_id; class_id = i.i_class_id; category_id = i.i_category_id; manuf_id = i.i_manufact_id }) do
+    yield { d_year = g.key.year; i_brand_id = g.key.brand_id; i_class_id = g.key.class_id; i_category_id = g.key.category_id; i_manufact_id = g.key.manuf_id; sales_cnt = List.sum [ for x in g do yield x.sd.quantity ]; sales_amt = List.sum [ for x in g do yield x.sd.amount ] } ]
+let prev_yr: obj = first [ for a in all_sales do if a.d_year = 2000 then yield a ]
+let curr_yr: obj = first [ for a in all_sales do if a.d_year = 2001 then yield a ]
+let result: obj = (if (curr_yr.sales_cnt / prev_yr.sales_cnt) < 0.9 then [{ prev_year = prev_yr.d_year; year = curr_yr.d_year; i_brand_id = curr_yr.i_brand_id; i_class_id = curr_yr.i_class_id; i_category_id = curr_yr.i_category_id; i_manufact_id = curr_yr.i_manufact_id; prev_yr_cnt = prev_yr.sales_cnt; curr_yr_cnt = curr_yr.sales_cnt; sales_cnt_diff = curr_yr.sales_cnt - prev_yr.sales_cnt; sales_amt_diff = curr_yr.sales_amt - prev_yr.sales_amt }] else [])
+printfn "%A" (JsonSerializer.Serialize(result))
+assert (result = [{ prev_year = 2000; year = 2001; i_brand_id = 1; i_class_id = 2; i_category_id = 3; i_manufact_id = 4; prev_yr_cnt = 100; curr_yr_cnt = 80; sales_cnt_diff = -20; sales_amt_diff = -200.0 }])

@@ -1,0 +1,26 @@
+open System
+
+type _Group<'T>(key: obj) =
+  member val key = key with get, set
+  member val Items = System.Collections.Generic.List<'T>() with get
+  member this.size = this.Items.Count
+let _group_by (src: 'T list) (keyfn: 'T -> obj) : _Group<'T> list =
+  src
+  |> Seq.groupBy keyfn
+  |> Seq.map (fun (k, items) ->
+      let g = _Group<'T>(k)
+      for it in items do
+        g.Items.Add(it)
+      g)
+  |> Seq.toList
+let inline sum (xs: seq< ^T >) : ^T =
+  Seq.sum xs
+let inline avg (xs: seq< ^T >) : ^T =
+  Seq.average xs
+let count (xs: seq<'T>) : int =
+  Seq.length xs
+
+let xs = [|1; 1; 2|]
+let groups = _group_by xs (fun x -> x) |> List.map (fun g -> Map.ofList [(k, g.key); (c, count g)])
+for g in groups do
+    ignore (printfn "%A" (g.k, g.c))

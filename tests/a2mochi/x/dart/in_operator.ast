@@ -1,0 +1,19 @@
+(program
+  (fun main
+    (let xs
+      (type list (type int))
+      (list (int 1) (int 2) (int 3))
+    )
+    (call print
+      (binary in (int 2) (selector xs))
+    )
+    (call print
+      (unary !
+        (group
+          (binary in (int 5) (selector xs))
+        )
+      )
+    )
+  )
+  (call main)
+)

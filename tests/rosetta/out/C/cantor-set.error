@@ -1,0 +1,61 @@
+cc: exit status 1
+/tmp/cantor-set.c: In function ‘setChar’:
+/tmp/cantor-set.c:149:34: error: invalid operands to binary + (have ‘char *’ and ‘char *’)
+  149 |   return slice_string(s, 0, idx) + ch + slice_string(s, idx + 1, strlen(s));
+      |          ~~~~~~~~~~~~~~~~~~~~~~~ ^
+      |          |
+      |          char *
+/tmp/cantor-set.c: In function ‘_mochi_main’:
+/tmp/cantor-set.c:171:33: warning: initialization of ‘int *’ from incompatible pointer type ‘stack_t *’ [-Wincompatible-pointer-types]
+  171 |     list_int tmp5 = {stack_len, stack};
+      |                                 ^~~~~
+/tmp/cantor-set.c:171:33: note: (near initialization for ‘tmp5.data’)
+/tmp/cantor-set.c:173:11: error: assignment to expression with array type
+  173 |     stack = tmp4;
+      |           ^
+/tmp/cantor-set.c:190:48: error: ‘(stack_t *)&stack’ is a pointer; did you mean to use ‘->’?
+  190 |     stack_list_t tmp6 = create_stack_list(stack.len + 1);
+      |                                                ^
+      |                                                ->
+/tmp/cantor-set.c:191:32: error: ‘(stack_t *)&stack’ is a pointer; did you mean to use ‘->’?
+  191 |     for (int i7 = 0; i7 < stack.len; i7++) {
+      |                                ^
+      |                                ->
+/tmp/cantor-set.c:192:28: error: ‘(stack_t *)&stack’ is a pointer; did you mean to use ‘->’?
+  192 |       tmp6.data[i7] = stack.data[i7];
+      |                            ^
+      |                            ->
+/tmp/cantor-set.c:194:20: error: ‘(stack_t *)&stack’ is a pointer; did you mean to use ‘->’?
+  194 |     tmp6.data[stack.len] =
+      |                    ^
+      |                    ->
+/tmp/cantor-set.c:196:21: error: ‘(stack_t *)&stack’ is a pointer; did you mean to use ‘->’?
+  196 |     tmp6.len = stack.len + 1;
+      |                     ^
+      |                     ->
+/tmp/cantor-set.c:197:11: error: assignment to expression with array type
+  197 |     stack = tmp6;
+      |           ^
+/tmp/cantor-set.c:198:48: error: ‘(stack_t *)&stack’ is a pointer; did you mean to use ‘->’?
+  198 |     stack_list_t tmp8 = create_stack_list(stack.len + 1);
+      |                                                ^
+      |                                                ->
+/tmp/cantor-set.c:199:32: error: ‘(stack_t *)&stack’ is a pointer; did you mean to use ‘->’?
+  199 |     for (int i9 = 0; i9 < stack.len; i9++) {
+      |                                ^
+      |                                ->
+/tmp/cantor-set.c:200:28: error: ‘(stack_t *)&stack’ is a pointer; did you mean to use ‘->’?
+  200 |       tmp8.data[i9] = stack.data[i9];
+      |                            ^
+      |                            ->
+/tmp/cantor-set.c:202:20: error: ‘(stack_t *)&stack’ is a pointer; did you mean to use ‘->’?
+  202 |     tmp8.data[stack.len] =
+      |                    ^
+      |                    ->
+/tmp/cantor-set.c:204:21: error: ‘(stack_t *)&stack’ is a pointer; did you mean to use ‘->’?
+  204 |     tmp8.len = stack.len + 1;
+      |                     ^
+      |                     ->
+/tmp/cantor-set.c:205:11: error: assignment to expression with array type
+  205 |     stack = tmp8;
+      |           ^

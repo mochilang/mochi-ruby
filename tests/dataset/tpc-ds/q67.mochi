@@ -1,0 +1,21 @@
+let store_sales = [
+  {reason: 1, price: 40},
+  {reason: 2, price: 27}
+]
+let reason = [
+  {id: 1, name: "PROMO"},
+  {id: 2, name: "RETURN"}
+]
+
+let result = sum(
+  from ss in store_sales
+  join r in reason on ss.reason == r.id
+  where r.name in ["PROMO", "RETURN"]
+  select ss.price
+)
+
+json(result)
+
+test "TPCDS Q67 simplified" {
+  expect result == 67
+}

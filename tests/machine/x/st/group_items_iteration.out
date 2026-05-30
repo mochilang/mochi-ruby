@@ -1,0 +1,7 @@
+Object: Dictionary new: 32 "<0x7f6680821260>" error: did not understand #at:at:ifAbsentPut:
+MessageNotUnderstood(Exception)>>signal (ExcHandling.st:254)
+Dictionary(Object)>>doesNotUnderstand: #at:at:ifAbsentPut: (SysExcept.st:1448)
+optimized [] in UndefinedObject>>executeStatements (../../../tests/machine/x/st/group_items_iteration.st:10)
+Array(SequenceableCollection)>>do: (SeqCollect.st:827)
+optimized [] in UndefinedObject>>executeStatements (../../../tests/machine/x/st/group_items_iteration.st:8)
+UndefinedObject>>executeStatements (../../../tests/machine/x/st/group_items_iteration.st:5)

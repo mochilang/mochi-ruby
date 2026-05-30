@@ -1,0 +1,16 @@
+cc: exit status 1
+/tmp/checkpoint-synchronization-2.c: In function ‘lower’:
+/tmp/checkpoint-synchronization-2.c:58:20: error: request for member ‘len’ in something not a structure or union
+   58 |   while ((i < upper.len)) {
+      |                    ^
+/tmp/checkpoint-synchronization-2.c: In function ‘_mochi_main’:
+/tmp/checkpoint-synchronization-2.c:83:27: error: invalid operands to binary + (have ‘char *’ and ‘char *’)
+   83 |       printf("%s\n", tmp5 + lower(p));
+      |                           ^ ~~~~~~~~
+      |                             |
+      |                             char *
+/tmp/checkpoint-synchronization-2.c:84:13: error: invalid operands to binary + (have ‘char *’ and ‘char *’)
+   84 |       a = a + lower(p);
+      |             ^ ~~~~~~~~
+      |               |
+      |               char *

@@ -1,0 +1,46 @@
+rustc: exit status 1
+warning: unnecessary parentheses around assigned value
+  --> /tmp/abbreviations_automatic.rs:52:20
+   |
+52 |         let size = (words.len() as i32);
+   |                    ^                  ^
+   |
+   = note: `#[warn(unused_parens)]` on by default
+help: remove these parentheses
+   |
+52 -         let size = (words.len() as i32);
+52 +         let size = words.len() as i32;
+   |
+
+warning: denote infinite loops with `loop { ... }`
+  --> /tmp/abbreviations_automatic.rs:54:9
+   |
+54 |         while true {
+   |         ^^^^^^^^^^ help: use `loop`
+   |
+   = note: `#[warn(while_true)]` on by default
+
+warning: variable does not need to be mutable
+  --> /tmp/abbreviations_automatic.rs:38:68
+   |
+38 |         let mut m: std::collections::HashMap<String, bool> = { let mut m = std::collections::HashMap::new(); m };
+   |                                                                    ----^
+   |                                                                    |
+   |                                                                    help: remove this `mut`
+   |
+   = note: `#[warn(unused_mut)]` on by default
+
+error[E0382]: use of moved value: `x`
+  --> /tmp/abbreviations_automatic.rs:45:61
+   |
+42 |             let x = xs[(i) as usize].clone();
+   |                 - move occurs because `x` has type `String`, which does not implement the `Copy` trait
+43 |             if !(m.contains_key(&x)) {
+44 |                 m.insert(x, true);
+   |                          - value moved here
+45 |                 out = { let mut tmp = out.clone(); tmp.push(x); tmp };
+   |                                                             ^ value used here after move
+
+error: aborting due to 1 previous error; 3 warnings emitted
+
+For more information about this error, try `rustc --explain E0382`.

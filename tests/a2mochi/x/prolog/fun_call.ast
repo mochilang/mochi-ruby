@@ -1,0 +1,18 @@
+(program
+  (fun add
+    (param A)
+    (param B)
+    (param R)
+    (let _11410
+      (binary + (selector _11396) (selector _11398))
+    )
+    (let _11400 (selector _11410))
+  )
+  (fun main
+    (let _11942
+      (call add (int 2) (int 3))
+    )
+    (call print (selector _11942))
+  )
+  (call main)
+)

@@ -1,0 +1,61 @@
+cc: exit status 1
+/tmp/best-shuffle.c:62:1: error: unknown type name ‘list_int’; did you mean ‘list_string’?
+   62 | list_int shuffleChars(char *s, int seed) {
+      | ^~~~~~~~
+      | list_string
+/tmp/best-shuffle.c: In function ‘shuffleChars’:
+/tmp/best-shuffle.c:91:16: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+   91 |   tmp4.data[1] = sd;
+      |                ^
+/tmp/best-shuffle.c:92:10: error: incompatible types when returning type ‘list_string’ but ‘int’ was expected
+   92 |   return tmp4;
+      |          ^~~~
+/tmp/best-shuffle.c: At top level:
+/tmp/best-shuffle.c:95:1: error: unknown type name ‘list_int’; did you mean ‘list_string’?
+   95 | list_int bestShuffle(char *s, int seed) {
+      | ^~~~~~~~
+      | list_string
+/tmp/best-shuffle.c: In function ‘bestShuffle’:
+/tmp/best-shuffle.c:97:20: error: request for member ‘data’ in something not a structure or union
+   97 |   __auto_type t = r.data[0];
+      |                    ^
+/tmp/best-shuffle.c:98:21: error: request for member ‘data’ in something not a structure or union
+   98 |   __auto_type sd = r.data[1];
+      |                     ^
+/tmp/best-shuffle.c:101:14: error: ‘t’ undeclared (first use in this function)
+  101 |   while (i < t.len) {
+      |              ^
+/tmp/best-shuffle.c:101:14: note: each undeclared identifier is reported only once for each function it appears in
+/tmp/best-shuffle.c:140:18: error: ‘sd’ undeclared (first use in this function); did you mean ‘s’?
+  140 |   tmp8.data[1] = sd;
+      |                  ^~
+      |                  s
+/tmp/best-shuffle.c:141:16: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  141 |   tmp8.data[2] = count;
+      |                ^
+/tmp/best-shuffle.c:142:10: error: incompatible types when returning type ‘list_string’ but ‘int’ was expected
+  142 |   return tmp8;
+      |          ^~~~
+/tmp/best-shuffle.c: In function ‘mochi_main’:
+/tmp/best-shuffle.c:157:25: error: request for member ‘data’ in something not a structure or union
+  157 |     __auto_type shuf = r.data[0];
+      |                         ^
+/tmp/best-shuffle.c:158:13: error: request for member ‘data’ in something not a structure or union
+  158 |     seed = r.data[1];
+      |             ^
+/tmp/best-shuffle.c:159:24: error: request for member ‘data’ in something not a structure or union
+  159 |     __auto_type cnt = r.data[2];
+      |                        ^
+/tmp/best-shuffle.c:161:39: error: ‘shuf’ undeclared (first use in this function)
+  161 |     char *tmp10 = concat_string(tmp9, shuf);
+      |                                       ^~~~
+/tmp/best-shuffle.c:163:24: error: ‘cnt’ undeclared (first use in this function); did you mean ‘int’?
+  163 |     char *tmp12 = _str(cnt);
+      |                        ^~~
+      |                        int
+/tmp/best-shuffle.c:172:14: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘char *’ [-Wformat=]
+  172 |     printf("%d\n", tmp20);
+      |             ~^     ~~~~~
+      |              |     |
+      |              int   char *
+      |             %s

@@ -1,0 +1,183 @@
+cc: exit status 1
+/tmp/catmull-clark-subdivision-surface.c: In function ‘divPoint’:
+/tmp/catmull-clark-subdivision-surface.c:277:58: warning: passing argument 1 of ‘mulPoint’ from incompatible pointer type [-Wincompatible-pointer-types]
+  277 | point_t divPoint(point_t *p, double d) { return mulPoint(&p, 1.0 / d); }
+      |                                                          ^~
+      |                                                          |
+      |                                                          point_t ** {aka struct point_t **}
+/tmp/catmull-clark-subdivision-surface.c:273:27: note: expected ‘point_t *’ {aka ‘struct point_t *’} but argument is of type ‘point_t **’ {aka ‘struct point_t **’}
+  273 | point_t mulPoint(point_t *p, double m) {
+      |                  ~~~~~~~~~^
+/tmp/catmull-clark-subdivision-surface.c: In function ‘centerPoint’:
+/tmp/catmull-clark-subdivision-surface.c:280:29: warning: passing argument 1 of ‘sumPoint’ from incompatible pointer type [-Wincompatible-pointer-types]
+  280 |   return divPoint(&sumPoint(&p1, &p2), 2.0);
+      |                             ^~~
+      |                             |
+      |                             point_t ** {aka struct point_t **}
+/tmp/catmull-clark-subdivision-surface.c:269:27: note: expected ‘point_t *’ {aka ‘struct point_t *’} but argument is of type ‘point_t **’ {aka ‘struct point_t **’}
+  269 | point_t sumPoint(point_t *p1, point_t *p2) {
+      |                  ~~~~~~~~~^~
+/tmp/catmull-clark-subdivision-surface.c:280:34: warning: passing argument 2 of ‘sumPoint’ from incompatible pointer type [-Wincompatible-pointer-types]
+  280 |   return divPoint(&sumPoint(&p1, &p2), 2.0);
+      |                                  ^~~
+      |                                  |
+      |                                  point_t ** {aka struct point_t **}
+/tmp/catmull-clark-subdivision-surface.c:269:40: note: expected ‘point_t *’ {aka ‘struct point_t *’} but argument is of type ‘point_t **’ {aka ‘struct point_t **’}
+  269 | point_t sumPoint(point_t *p1, point_t *p2) {
+      |                               ~~~~~~~~~^~
+/tmp/catmull-clark-subdivision-surface.c:280:19: error: lvalue required as unary ‘&’ operand
+  280 |   return divPoint(&sumPoint(&p1, &p2), 2.0);
+      |                   ^
+/tmp/catmull-clark-subdivision-surface.c: In function ‘getFacePoints’:
+/tmp/catmull-clark-subdivision-surface.c:291:33: error: request for member ‘data’ in something not a structure or union
+  291 |       fp = sumPoint(&fp, &points.data[idx]);
+      |                                 ^
+/tmp/catmull-clark-subdivision-surface.c: In function ‘getEdgesFaces’:
+/tmp/catmull-clark-subdivision-surface.c:411:24: error: request for member ‘data’ in something not a structure or union
+  411 |     point_t p1 = points.data[me.data[0]];
+      |                        ^
+/tmp/catmull-clark-subdivision-surface.c:412:24: error: request for member ‘data’ in something not a structure or union
+  412 |     point_t p2 = points.data[me.data[1]];
+      |                        ^
+/tmp/catmull-clark-subdivision-surface.c: In function ‘getEdgePoints’:
+/tmp/catmull-clark-subdivision-surface.c:432:24: error: request for member ‘len’ in something not a structure or union
+  432 |   while (i < edgesFaces.len) {
+      |                        ^
+/tmp/catmull-clark-subdivision-surface.c:433:29: error: request for member ‘data’ in something not a structure or union
+  433 |     edge_t edge = edgesFaces.data[i];
+      |                             ^
+/tmp/catmull-clark-subdivision-surface.c:435:29: error: request for member ‘data’ in something not a structure or union
+  435 |     point_t fp1 = facePoints.data[edge.fn1];
+      |                             ^
+/tmp/catmull-clark-subdivision-surface.c:438:23: error: request for member ‘data’ in something not a structure or union
+  438 |       fp2 = facePoints.data[edge.fn2];
+      |                       ^
+/tmp/catmull-clark-subdivision-surface.c: In function ‘getAvgFacePoints’:
+/tmp/catmull-clark-subdivision-surface.c:454:20: error: request for member ‘len’ in something not a structure or union
+  454 |   int numP = points.len;
+      |                    ^
+/tmp/catmull-clark-subdivision-surface.c:470:28: error: request for member ‘data’ in something not a structure or union
+  470 |     point_t fp = facePoints.data[fnum];
+      |                            ^
+/tmp/catmull-clark-subdivision-surface.c: In function ‘getAvgMidEdges’:
+/tmp/catmull-clark-subdivision-surface.c:495:20: error: request for member ‘len’ in something not a structure or union
+  495 |   int numP = points.len;
+      |                    ^
+/tmp/catmull-clark-subdivision-surface.c:509:41: error: request for member ‘len’ in something not a structure or union
+  509 |   for (int tmp35 = 0; tmp35 < edgesFaces.len; tmp35++) {
+      |                                         ^
+/tmp/catmull-clark-subdivision-surface.c:510:29: error: request for member ‘data’ in something not a structure or union
+  510 |     edge_t edge = edgesFaces.data[tmp35];
+      |                             ^
+/tmp/catmull-clark-subdivision-surface.c: In function ‘getPointsFaces’:
+/tmp/catmull-clark-subdivision-surface.c:540:20: error: request for member ‘len’ in something not a structure or union
+  540 |   while (i < points.len) {
+      |                    ^
+/tmp/catmull-clark-subdivision-surface.c: In function ‘getNewPoints’:
+/tmp/catmull-clark-subdivision-surface.c:562:20: error: request for member ‘len’ in something not a structure or union
+  562 |   while (i < points.len) {
+      |                    ^
+/tmp/catmull-clark-subdivision-surface.c:567:25: error: request for member ‘data’ in something not a structure or union
+  567 |     point_t old = points.data[i];
+      |                         ^
+/tmp/catmull-clark-subdivision-surface.c:569:31: error: request for member ‘data’ in something not a structure or union
+  569 |     point_t p2 = mulPoint(&afp.data[i], m2);
+      |                               ^
+/tmp/catmull-clark-subdivision-surface.c:570:31: error: request for member ‘data’ in something not a structure or union
+  570 |     point_t p3 = mulPoint(&ame.data[i], m3);
+      |                               ^
+/tmp/catmull-clark-subdivision-surface.c:575:39: error: lvalue required as unary ‘&’ operand
+  575 |     tmp42.data[newPts.len] = sumPoint(&sumPoint(&p1, &p2), &p3);
+      |                                       ^
+/tmp/catmull-clark-subdivision-surface.c: In function ‘cmcSubdiv’:
+/tmp/catmull-clark-subdivision-surface.c:601:51: error: incompatible type for argument 2 of ‘getEdgePoints’
+  601 |   point_list_t edgePoints = getEdgePoints(points, edgesFaces, facePoints);
+      |                                                   ^~~~~~~~~~
+      |                                                   |
+      |                                                   edge_list_t
+/tmp/catmull-clark-subdivision-surface.c:429:44: note: expected ‘int’ but argument is of type ‘edge_list_t’
+  429 | point_list_t getEdgePoints(int points, int edgesFaces, int facePoints) {
+      |                                        ~~~~^~~~~~~~~~
+/tmp/catmull-clark-subdivision-surface.c:601:63: error: incompatible type for argument 3 of ‘getEdgePoints’
+  601 |   point_list_t edgePoints = getEdgePoints(points, edgesFaces, facePoints);
+      |                                                               ^~~~~~~~~~
+      |                                                               |
+      |                                                               point_list_t
+/tmp/catmull-clark-subdivision-surface.c:429:60: note: expected ‘int’ but argument is of type ‘point_list_t’
+  429 | point_list_t getEdgePoints(int points, int edgesFaces, int facePoints) {
+      |                                                        ~~~~^~~~~~~~~~
+/tmp/catmull-clark-subdivision-surface.c:602:64: error: incompatible type for argument 3 of ‘getAvgFacePoints’
+  602 |   point_list_t avgFacePoints = getAvgFacePoints(points, faces, facePoints);
+      |                                                                ^~~~~~~~~~
+      |                                                                |
+      |                                                                point_list_t
+/tmp/catmull-clark-subdivision-surface.c:453:68: note: expected ‘int’ but argument is of type ‘point_list_t’
+  453 | point_list_t getAvgFacePoints(int points, list_list_int faces, int facePoints) {
+      |                                                                ~~~~^~~~~~~~~~
+/tmp/catmull-clark-subdivision-surface.c:603:53: error: incompatible type for argument 2 of ‘getAvgMidEdges’
+  603 |   point_list_t avgMidEdges = getAvgMidEdges(points, edgesFaces);
+      |                                                     ^~~~~~~~~~
+      |                                                     |
+      |                                                     edge_list_t
+/tmp/catmull-clark-subdivision-surface.c:494:45: note: expected ‘int’ but argument is of type ‘edge_list_t’
+  494 | point_list_t getAvgMidEdges(int points, int edgesFaces) {
+      |                                         ~~~~^~~~~~~~~~
+/tmp/catmull-clark-subdivision-surface.c:606:41: error: incompatible type for argument 3 of ‘getNewPoints’
+  606 |       getNewPoints(points, pointsFaces, avgFacePoints, avgMidEdges);
+      |                                         ^~~~~~~~~~~~~
+      |                                         |
+      |                                         point_list_t
+/tmp/catmull-clark-subdivision-surface.c:559:56: note: expected ‘int’ but argument is of type ‘point_list_t’
+  559 | point_list_t getNewPoints(int points, list_int pf, int afp, int ame) {
+      |                                                    ~~~~^~~
+/tmp/catmull-clark-subdivision-surface.c:606:56: error: incompatible type for argument 4 of ‘getNewPoints’
+  606 |       getNewPoints(points, pointsFaces, avgFacePoints, avgMidEdges);
+      |                                                        ^~~~~~~~~~~
+      |                                                        |
+      |                                                        point_list_t
+/tmp/catmull-clark-subdivision-surface.c:559:65: note: expected ‘int’ but argument is of type ‘point_list_t’
+  559 | point_list_t getNewPoints(int points, list_int pf, int afp, int ame) {
+      |                                                             ~~~~^~~
+/tmp/catmull-clark-subdivision-surface.c:695:19: error: incompatible types when assigning to type ‘int’ from type ‘point_list_t’
+  695 |   tmp72.data[0] = newPoints;
+      |                   ^~~~~~~~~
+/tmp/catmull-clark-subdivision-surface.c:696:19: error: incompatible types when assigning to type ‘int’ from type ‘list_list_int’
+  696 |   tmp72.data[1] = newFaces;
+      |                   ^~~~~~~~
+/tmp/catmull-clark-subdivision-surface.c: In function ‘formatPoint’:
+/tmp/catmull-clark-subdivision-surface.c:701:14: error: invalid operands to binary + (have ‘char *’ and ‘char *’)
+  701 |   return "[" + fmt4(p->x) + " " + fmt4(p->y) + " " + fmt4(p->z) + "]";
+      |          ~~~ ^ ~~~~~~~~~~
+      |          |     |
+      |          |     char *
+      |          char *
+/tmp/catmull-clark-subdivision-surface.c: In function ‘formatFace’:
+/tmp/catmull-clark-subdivision-surface.c:708:17: error: invalid operands to binary + (have ‘char *’ and ‘char *’)
+  708 |   char *s = "[" + fmt2(f.data[0]);
+      |             ~~~ ^ ~~~~~~~~~~~~~~~
+      |             |     |
+      |             |     char *
+      |             char *
+/tmp/catmull-clark-subdivision-surface.c:712:15: error: invalid operands to binary + (have ‘char *’ and ‘char *’)
+  712 |     s = tmp73 + fmt2(f.data[i]);
+      |               ^ ~~~~~~~~~~~~~~~
+      |                 |
+      |                 char *
+/tmp/catmull-clark-subdivision-surface.c: In function ‘mochi_main’:
+/tmp/catmull-clark-subdivision-surface.c:762:31: error: invalid initializer
+  762 |   point_list_t outputPoints = inputPoints;
+      |                               ^~~~~~~~~~~
+/tmp/catmull-clark-subdivision-surface.c:766:30: error: incompatible type for argument 1 of ‘cmcSubdiv’
+  766 |     list_int res = cmcSubdiv(outputPoints, outputFaces);
+      |                              ^~~~~~~~~~~~
+      |                              |
+      |                              point_list_t
+/tmp/catmull-clark-subdivision-surface.c:598:24: note: expected ‘int’ but argument is of type ‘point_list_t’
+  598 | list_int cmcSubdiv(int points, list_list_int faces) {
+      |                    ~~~~^~~~~~
+/tmp/catmull-clark-subdivision-surface.c:767:20: error: incompatible types when assigning to type ‘point_list_t’ from type ‘int’
+  767 |     outputPoints = res.data[0];
+      |                    ^~~
+/tmp/catmull-clark-subdivision-surface.c:768:19: error: incompatible types when assigning to type ‘list_list_int’ from type ‘int’
+  768 |     outputFaces = res.data[1];
+      |                   ^~~

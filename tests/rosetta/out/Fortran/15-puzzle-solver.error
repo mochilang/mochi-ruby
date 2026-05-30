@@ -1,0 +1,6 @@
+gfortran: exit status 1
+/tmp/15-puzzle-solver.f90:6:20:
+
+    6 |   print *, testpkg%FifteenPuzzleExample()
+      |                    1
+Error: Symbol ‘testpkg’ at (1) has no IMPLICIT type

@@ -1,0 +1,5 @@
+vm mismatch
+-- go --
+[{"d_year":2019,"item":"C","avg_monthly_sales":50,"sum_sales":60},{"d_year":2020,"item":"A","avg_monthly_sales":100,"sum_sales":120}]
+-- vm --
+[{"avg_monthly_sales":50,"d_year":2019,"item":"C","sum_sales":60},{"avg_monthly_sales":100,"d_year":2020,"item":"A","sum_sales":120}]

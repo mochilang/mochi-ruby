@@ -1,0 +1,21 @@
+compile: exit status 1
+/tmp/TestJavaTranspiler_Rosetta_Goldencircles-of-given-radius-through-two-points2821501518/001/Main.java:76: error: incompatible types: Object cannot be converted to Point
+            Object[] res = ((Object[])(circles(p1, p2, ((Number)(r)).doubleValue())));
+                                               ^
+/tmp/TestJavaTranspiler_Rosetta_Goldencircles-of-given-radius-through-two-points2821501518/001/Main.java:81: error: bad operand types for binary operator '=='
+            if (((Number)(caseStr)).intValue() == "Points form a diameter and describe only a single circle." || ((Number)(caseStr)).intValue() == "Coincident points with r==0.0 describe a degenerate circle.") {
+                                               ^
+  first type:  int
+  second type: String
+/tmp/TestJavaTranspiler_Rosetta_Goldencircles-of-given-radius-through-two-points2821501518/001/Main.java:81: error: bad operand types for binary operator '=='
+            if (((Number)(caseStr)).intValue() == "Points form a diameter and describe only a single circle." || ((Number)(caseStr)).intValue() == "Coincident points with r==0.0 describe a degenerate circle.") {
+                                                                                                                                                ^
+  first type:  int
+  second type: String
+/tmp/TestJavaTranspiler_Rosetta_Goldencircles-of-given-radius-through-two-points2821501518/001/Main.java:83: error: bad operand types for binary operator '=='
+            } else             if (((Number)(caseStr)).intValue() == "Two circles.") {
+                                                                  ^
+  first type:  int
+  second type: String
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+4 errors

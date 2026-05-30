@@ -1,0 +1,7 @@
+exit status 1
+/workspace/mochi/tests/rosetta/transpiler/Scala/chaos-game.scala:39: error: type mismatch;
+ found   : Double
+ required: scala.math.BigInt
+    val height: BigInt = width.toString.toDouble * 0.86602540378
+                                                 ^
+one error found

@@ -1,0 +1,5 @@
+/workspace/mochi/tests/algorithms/x/Erlang/data_structures/linked_list/skip_list.erl:267:24: Warning: variable 'J_3' exported from 'case' (line 231, column 21)
+%  267| {Forwards_2, I_8, Idx, J_3, Key, Lvl_3, Node_vals_tmp_2, Update_5, Value, X_3} = Fun_8(Forwards, I_7, Idx, J_3, Key, Lvl_3, Node_vals_tmp_2, Update_5, Value, X_3),
+%     |                        ^
+
+2:2 -> 6:4 -> 8:4 -> 9:4

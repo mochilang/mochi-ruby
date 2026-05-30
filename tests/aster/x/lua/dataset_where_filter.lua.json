@@ -1,0 +1,589 @@
+{
+  "root": {
+    "kind": "chunk",
+    "children": [
+      {
+        "kind": "assignment_statement",
+        "children": [
+          {
+            "kind": "variable_list",
+            "children": [
+              {
+                "kind": "identifier",
+                "text": "people"
+              }
+            ]
+          },
+          {
+            "kind": "expression_list",
+            "children": [
+              {
+                "kind": "table_constructor",
+                "children": [
+                  {
+                    "kind": "field",
+                    "children": [
+                      {
+                        "kind": "table_constructor",
+                        "children": [
+                          {
+                            "kind": "field",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "name"
+                              },
+                              {
+                                "kind": "string",
+                                "text": "\"Alice\""
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "field",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "age"
+                              },
+                              {
+                                "kind": "number",
+                                "text": "30"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "field",
+                    "children": [
+                      {
+                        "kind": "table_constructor",
+                        "children": [
+                          {
+                            "kind": "field",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "name"
+                              },
+                              {
+                                "kind": "string",
+                                "text": "\"Bob\""
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "field",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "age"
+                              },
+                              {
+                                "kind": "number",
+                                "text": "15"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "field",
+                    "children": [
+                      {
+                        "kind": "table_constructor",
+                        "children": [
+                          {
+                            "kind": "field",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "name"
+                              },
+                              {
+                                "kind": "string",
+                                "text": "\"Charlie\""
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "field",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "age"
+                              },
+                              {
+                                "kind": "number",
+                                "text": "65"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "field",
+                    "children": [
+                      {
+                        "kind": "table_constructor",
+                        "children": [
+                          {
+                            "kind": "field",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "name"
+                              },
+                              {
+                                "kind": "string",
+                                "text": "\"Diana\""
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "field",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "age"
+                              },
+                              {
+                                "kind": "number",
+                                "text": "45"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "assignment_statement",
+        "children": [
+          {
+            "kind": "variable_list",
+            "children": [
+              {
+                "kind": "identifier",
+                "text": "adults"
+              }
+            ]
+          },
+          {
+            "kind": "expression_list",
+            "children": [
+              {
+                "kind": "table_constructor",
+                "text": "{}"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "for_statement",
+        "children": [
+          {
+            "kind": "for_generic_clause",
+            "children": [
+              {
+                "kind": "variable_list",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "text": "_"
+                  },
+                  {
+                    "kind": "identifier",
+                    "text": "person"
+                  }
+                ]
+              },
+              {
+                "kind": "expression_list",
+                "children": [
+                  {
+                    "kind": "function_call",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "ipairs"
+                      },
+                      {
+                        "kind": "arguments",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "people"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "block",
+            "children": [
+              {
+                "kind": "if_statement",
+                "children": [
+                  {
+                    "kind": "parenthesized_expression",
+                    "children": [
+                      {
+                        "kind": "binary_expression",
+                        "text": "\u003e=",
+                        "children": [
+                          {
+                            "kind": "dot_index_expression",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "person"
+                              },
+                              {
+                                "kind": "identifier",
+                                "text": "age"
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "number",
+                            "text": "18"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "block",
+                    "children": [
+                      {
+                        "kind": "function_call",
+                        "children": [
+                          {
+                            "kind": "dot_index_expression",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "table"
+                              },
+                              {
+                                "kind": "identifier",
+                                "text": "insert"
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "arguments",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "adults"
+                              },
+                              {
+                                "kind": "table_constructor",
+                                "children": [
+                                  {
+                                    "kind": "field",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "text": "name"
+                                      },
+                                      {
+                                        "kind": "dot_index_expression",
+                                        "children": [
+                                          {
+                                            "kind": "identifier",
+                                            "text": "person"
+                                          },
+                                          {
+                                            "kind": "identifier",
+                                            "text": "name"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "kind": "field",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "text": "age"
+                                      },
+                                      {
+                                        "kind": "dot_index_expression",
+                                        "children": [
+                                          {
+                                            "kind": "identifier",
+                                            "text": "person"
+                                          },
+                                          {
+                                            "kind": "identifier",
+                                            "text": "age"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "kind": "field",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "text": "is_senior"
+                                      },
+                                      {
+                                        "kind": "parenthesized_expression",
+                                        "children": [
+                                          {
+                                            "kind": "binary_expression",
+                                            "text": "\u003e=",
+                                            "children": [
+                                              {
+                                                "kind": "dot_index_expression",
+                                                "children": [
+                                                  {
+                                                    "kind": "identifier",
+                                                    "text": "person"
+                                                  },
+                                                  {
+                                                    "kind": "identifier",
+                                                    "text": "age"
+                                                  }
+                                                ]
+                                              },
+                                              {
+                                                "kind": "number",
+                                                "text": "60"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "function_call",
+        "children": [
+          {
+            "kind": "identifier",
+            "text": "print"
+          },
+          {
+            "kind": "arguments",
+            "children": [
+              {
+                "kind": "string",
+                "text": "\"--- Adults ---\""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "for_statement",
+        "children": [
+          {
+            "kind": "for_generic_clause",
+            "children": [
+              {
+                "kind": "variable_list",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "text": "_"
+                  },
+                  {
+                    "kind": "identifier",
+                    "text": "person"
+                  }
+                ]
+              },
+              {
+                "kind": "expression_list",
+                "children": [
+                  {
+                    "kind": "function_call",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "ipairs"
+                      },
+                      {
+                        "kind": "arguments",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "adults"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "block",
+            "children": [
+              {
+                "kind": "function_call",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "text": "print"
+                  },
+                  {
+                    "kind": "arguments",
+                    "children": [
+                      {
+                        "kind": "function_call",
+                        "children": [
+                          {
+                            "kind": "dot_index_expression",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "string"
+                              },
+                              {
+                                "kind": "identifier",
+                                "text": "format"
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "arguments",
+                            "children": [
+                              {
+                                "kind": "string",
+                                "text": "\"%s is %s %s\""
+                              },
+                              {
+                                "kind": "dot_index_expression",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "person"
+                                  },
+                                  {
+                                    "kind": "identifier",
+                                    "text": "name"
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "dot_index_expression",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "person"
+                                  },
+                                  {
+                                    "kind": "identifier",
+                                    "text": "age"
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "parenthesized_expression",
+                                "children": [
+                                  {
+                                    "kind": "binary_expression",
+                                    "text": "or",
+                                    "children": [
+                                      {
+                                        "kind": "binary_expression",
+                                        "text": "and",
+                                        "children": [
+                                          {
+                                            "kind": "parenthesized_expression",
+                                            "children": [
+                                              {
+                                                "kind": "dot_index_expression",
+                                                "children": [
+                                                  {
+                                                    "kind": "identifier",
+                                                    "text": "person"
+                                                  },
+                                                  {
+                                                    "kind": "identifier",
+                                                    "text": "is_senior"
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "kind": "parenthesized_expression",
+                                            "children": [
+                                              {
+                                                "kind": "string",
+                                                "text": "\" (senior)\""
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "kind": "parenthesized_expression",
+                                        "children": [
+                                          {
+                                            "kind": "string",
+                                            "text": "\"\""
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

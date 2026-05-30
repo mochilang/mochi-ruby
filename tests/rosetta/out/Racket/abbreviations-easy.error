@@ -1,0 +1,9 @@
+run: exit status 1
+length: contract violation
+  expected: list?
+  given: "RIGHT"
+  context...:
+   /tmp/abbreviations-easy.rkt:238:6
+   /tmp/abbreviations-easy.rkt:235:0
+   /tmp/abbreviations-easy.rkt:192:2
+   body of "/tmp/abbreviations-easy.rkt"

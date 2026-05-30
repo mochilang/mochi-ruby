@@ -1,0 +1,118 @@
+run: exit status 1
+    warning: variable "seed" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+    │
+ 14 │               seed = v
+    │               ~
+    │
+    └─ /workspace/mochi/tests/rosetta/transpiler/Elixir/avl-tree.exs:14:15: Main._now/0
+
+    warning: variable "seeded" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+    │
+ 15 │               seeded = true
+    │               ~
+    │
+    └─ /workspace/mochi/tests/rosetta/transpiler/Elixir/avl-tree.exs:15:15: Main._now/0
+
+    warning: variable "n" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+    │
+ 65 │       n = Map.put(n, "Link", links)
+    │       ~
+    │
+    └─ /workspace/mochi/tests/rosetta/transpiler/Elixir/avl-tree.exs:65:7: Main.setLink/3
+
+     warning: variable "n" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 105 │       {n, root} = if nn["Balance"] == 0 do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/rosetta/transpiler/Elixir/avl-tree.exs:105:8: Main.adjustBalance/3
+
+     warning: variable "nn" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 121 │       nn = List.replace_at(nn, "Balance", 0)
+     │       ~
+     │
+     └─ /workspace/mochi/tests/rosetta/transpiler/Elixir/avl-tree.exs:121:7: Main.adjustBalance/3
+
+     warning: variable "root" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 105 │       {n, root} = if nn["Balance"] == 0 do
+     │           ~
+     │
+     └─ /workspace/mochi/tests/rosetta/transpiler/Elixir/avl-tree.exs:105:11: Main.adjustBalance/3
+
+     warning: variable "n" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 130 │       {n, root} = if n["Balance"] == bal do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/rosetta/transpiler/Elixir/avl-tree.exs:130:8: Main.insertBalance/2
+
+     warning: variable "n" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 199 │       n = List.replace_at(n, "Balance", bal)
+     │       ~
+     │
+     └─ /workspace/mochi/tests/rosetta/transpiler/Elixir/avl-tree.exs:199:7: Main.removeBalance/2
+
+     warning: variable "i" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 284 │       {i, s} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/rosetta/transpiler/Elixir/avl-tree.exs:284:8: Main.indentStr/1
+
+    warning: function _slice/3 is unused
+    │
+ 40 │   defp _slice(base, start, len) do
+    │        ~
+    │
+    └─ /workspace/mochi/tests/rosetta/transpiler/Elixir/avl-tree.exs:40:8: Main (module)
+
+    warning: function _now/0 is unused
+    │
+  3 │   defp _now() do
+    │        ~
+    │
+    └─ /workspace/mochi/tests/rosetta/transpiler/Elixir/avl-tree.exs:3:8: Main (module)
+
+    warning: function _mem/0 is unused
+    │
+ 28 │   defp _mem() do
+    │        ~
+    │
+    └─ /workspace/mochi/tests/rosetta/transpiler/Elixir/avl-tree.exs:28:8: Main (module)
+
+    warning: function _lookup_host/1 is unused
+    │
+ 31 │   defp _lookup_host(host) do
+    │        ~
+    │
+    └─ /workspace/mochi/tests/rosetta/transpiler/Elixir/avl-tree.exs:31:8: Main (module)
+
+Empty tree:
+"null"
+
+Insert test:
+** (FunctionClauseError) no function clause matching in List.replace_at/3    
+    
+    The following arguments were given to List.replace_at/3:
+    
+        # 1
+        %{"Balance" => 0, "Data" => 3, "Link" => [nil, nil]}
+    
+        # 2
+        "Balance"
+    
+        # 3
+        -1
+    
+    Attempted function clauses (showing 1 out of 1):
+    
+        def replace_at(+list+, +index+, +value+) when -is_list(list)- and -is_integer(index)-
+    
+    (elixir 1.18.3) lib/list.ex:814: List.replace_at/3
+    /workspace/mochi/tests/rosetta/transpiler/Elixir/avl-tree.exs:162: Main.insertR/2
+    /workspace/mochi/tests/rosetta/transpiler/Elixir/avl-tree.exs:176: Main.insert/2
+    /workspace/mochi/tests/rosetta/transpiler/Elixir/avl-tree.exs:343: Main.main/0
+    /workspace/mochi/tests/rosetta/transpiler/Elixir/avl-tree.exs:361: (file)

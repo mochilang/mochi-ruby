@@ -1,0 +1,196 @@
+cc: exit status 1
+/tmp/b-zier-curves-intersections.c:58:11: error: field ‘intersect’ has incomplete type
+   58 |   point_t intersect;
+      |           ^~~~~~~~~
+/tmp/b-zier-curves-intersections.c:76:16: error: field ‘p’ has incomplete type
+   76 |   quad_curve_t p;
+      |                ^
+/tmp/b-zier-curves-intersections.c:77:16: error: field ‘q’ has incomplete type
+   77 |   quad_curve_t q;
+      |                ^
+/tmp/b-zier-curves-intersections.c: In function ‘subdivideQuadSpline’:
+/tmp/b-zier-curves-intersections.c:261:18: error: incompatible types when assigning to type ‘int’ from type ‘quad_spline_t’ {aka ‘struct quad_spline_t’}
+  261 |   tmp1.data[0] = u;
+      |                  ^
+/tmp/b-zier-curves-intersections.c:262:18: error: incompatible types when assigning to type ‘int’ from type ‘quad_spline_t’ {aka ‘struct quad_spline_t’}
+  262 |   tmp1.data[1] = v;
+      |                  ^
+/tmp/b-zier-curves-intersections.c:263:10: error: incompatible types when returning type ‘list_int’ but ‘quad_spline_list_t’ was expected
+  263 |   return tmp1;
+      |          ^~~~
+/tmp/b-zier-curves-intersections.c: In function ‘subdivideQuadCurve’:
+/tmp/b-zier-curves-intersections.c:272:18: error: incompatible types when assigning to type ‘int’ from type ‘quad_curve_t’ {aka ‘struct quad_curve_t’}
+  272 |   tmp2.data[0] = u;
+      |                  ^
+/tmp/b-zier-curves-intersections.c:273:18: error: incompatible types when assigning to type ‘int’ from type ‘quad_curve_t’ {aka ‘struct quad_curve_t’}
+  273 |   tmp2.data[1] = v;
+      |                  ^
+/tmp/b-zier-curves-intersections.c:274:10: error: incompatible types when returning type ‘list_int’ but ‘quad_curve_list_t’ was expected
+  274 |   return tmp2;
+      |          ^~~~
+/tmp/b-zier-curves-intersections.c: In function ‘seemsToBeDuplicate’:
+/tmp/b-zier-curves-intersections.c:313:17: error: request for member ‘len’ in something not a structure or union
+  313 |   while (i < pts.len) {
+      |                 ^
+/tmp/b-zier-curves-intersections.c:314:25: error: request for member ‘data’ in something not a structure or union
+  314 |     __auto_type pt = pts.data[i];
+      |                         ^
+/tmp/b-zier-curves-intersections.c:315:14: error: ‘pt’ undeclared (first use in this function); did you mean ‘pts’?
+  315 |     if (absf(pt.x - xy->x) < spacing && absf(pt.y - xy->y) < spacing) {
+      |              ^~
+      |              pts
+/tmp/b-zier-curves-intersections.c:315:14: note: each undeclared identifier is reported only once for each function it appears in
+/tmp/b-zier-curves-intersections.c: In function ‘findIntersects’:
+/tmp/b-zier-curves-intersections.c:327:39: warning: division by zero [-Wdiv-by-zero]
+  327 |   int workload_len = sizeof(workload) / sizeof(workload[0]);
+      |                                       ^
+/tmp/b-zier-curves-intersections.c:331:36: warning: initialization of ‘int *’ from incompatible pointer type ‘workload_t *’ [-Wincompatible-pointer-types]
+  331 |     list_int tmp4 = {workload_len, workload};
+      |                                    ^~~~~~~~
+/tmp/b-zier-curves-intersections.c:331:36: note: (near initialization for ‘tmp4.data’)
+/tmp/b-zier-curves-intersections.c:333:14: error: assignment to expression with array type
+  333 |     workload = tmp3;
+      |              ^
+/tmp/b-zier-curves-intersections.c:335:24: error: ‘res’ undeclared (first use in this function)
+  335 |     __auto_type excl = res.data["exclude"];
+      |                        ^~~
+/tmp/b-zier-curves-intersections.c:338:10: error: ‘acc’ undeclared (first use in this function)
+  338 |     if ((acc)) {
+      |          ^~~
+/tmp/b-zier-curves-intersections.c:339:40: error: ‘inter’ undeclared (first use in this function); did you mean ‘inters’?
+  339 |       if ((!seemsToBeDuplicate(inters, inter, spacing))) {
+      |                                        ^~~~~
+      |                                        inters
+/tmp/b-zier-curves-intersections.c:339:32: error: incompatible type for argument 1 of ‘seemsToBeDuplicate’
+  339 |       if ((!seemsToBeDuplicate(inters, inter, spacing))) {
+      |                                ^~~~~~
+      |                                |
+      |                                point_list_t
+/tmp/b-zier-curves-intersections.c:311:28: note: expected ‘int’ but argument is of type ‘point_list_t’
+  311 | int seemsToBeDuplicate(int pts, point_t *xy, double spacing) {
+      |                        ~~~~^~~
+/tmp/b-zier-curves-intersections.c:348:19: error: ‘excl’ undeclared (first use in this function)
+  348 |     } else if (((!excl))) {
+      |                   ^~~~
+/tmp/b-zier-curves-intersections.c:351:24: error: ‘ps’ undeclared (first use in this function); did you mean ‘p’?
+  351 |       __auto_type p0 = ps.data[0];
+      |                        ^~
+      |                        p
+/tmp/b-zier-curves-intersections.c:353:24: error: ‘qs’ undeclared (first use in this function); did you mean ‘q’?
+  353 |       __auto_type q0 = qs.data[0];
+      |                        ^~
+      |                        q
+/tmp/b-zier-curves-intersections.c:355:59: error: ‘(workload_t *)&workload’ is a pointer; did you mean to use ‘->’?
+  355 |       workload_list_t tmp7 = create_workload_list(workload.len + 1);
+      |                                                           ^
+      |                                                           ->
+/tmp/b-zier-curves-intersections.c:356:37: error: ‘(workload_t *)&workload’ is a pointer; did you mean to use ‘->’?
+  356 |       for (int i8 = 0; i8 < workload.len; i8++) {
+      |                                     ^
+      |                                     ->
+/tmp/b-zier-curves-intersections.c:357:33: error: ‘(workload_t *)&workload’ is a pointer; did you mean to use ‘->’?
+  357 |         tmp7.data[i8] = workload.data[i8];
+      |                                 ^
+      |                                 ->
+/tmp/b-zier-curves-intersections.c:359:25: error: ‘(workload_t *)&workload’ is a pointer; did you mean to use ‘->’?
+  359 |       tmp7.data[workload.len] = (tmp_item_t){.p = p0, .q = q0};
+      |                         ^
+      |                         ->
+/tmp/b-zier-curves-intersections.c:359:47: error: ‘tmp_item_t’ has no member named ‘p’
+  359 |       tmp7.data[workload.len] = (tmp_item_t){.p = p0, .q = q0};
+      |                                               ^
+/tmp/b-zier-curves-intersections.c:359:51: error: ‘p0’ undeclared (first use in this function); did you mean ‘p’?
+  359 |       tmp7.data[workload.len] = (tmp_item_t){.p = p0, .q = q0};
+      |                                                   ^~
+      |                                                   p
+/tmp/b-zier-curves-intersections.c:359:56: error: ‘tmp_item_t’ has no member named ‘q’
+  359 |       tmp7.data[workload.len] = (tmp_item_t){.p = p0, .q = q0};
+      |                                                        ^
+/tmp/b-zier-curves-intersections.c:359:60: error: ‘q0’ undeclared (first use in this function); did you mean ‘q’?
+  359 |       tmp7.data[workload.len] = (tmp_item_t){.p = p0, .q = q0};
+      |                                                            ^~
+      |                                                            q
+/tmp/b-zier-curves-intersections.c:360:26: error: ‘(workload_t *)&workload’ is a pointer; did you mean to use ‘->’?
+  360 |       tmp7.len = workload.len + 1;
+      |                          ^
+      |                          ->
+/tmp/b-zier-curves-intersections.c:361:16: error: assignment to expression with array type
+  361 |       workload = tmp7;
+      |                ^
+/tmp/b-zier-curves-intersections.c:362:59: error: ‘(workload_t *)&workload’ is a pointer; did you mean to use ‘->’?
+  362 |       workload_list_t tmp9 = create_workload_list(workload.len + 1);
+      |                                                           ^
+      |                                                           ->
+/tmp/b-zier-curves-intersections.c:363:39: error: ‘(workload_t *)&workload’ is a pointer; did you mean to use ‘->’?
+  363 |       for (int i10 = 0; i10 < workload.len; i10++) {
+      |                                       ^
+      |                                       ->
+/tmp/b-zier-curves-intersections.c:364:34: error: ‘(workload_t *)&workload’ is a pointer; did you mean to use ‘->’?
+  364 |         tmp9.data[i10] = workload.data[i10];
+      |                                  ^
+      |                                  ->
+/tmp/b-zier-curves-intersections.c:366:25: error: ‘(workload_t *)&workload’ is a pointer; did you mean to use ‘->’?
+  366 |       tmp9.data[workload.len] = (tmp_item1_t){.p = p0, .q = q1};
+      |                         ^
+      |                         ->
+/tmp/b-zier-curves-intersections.c:366:61: error: ‘q1’ undeclared (first use in this function); did you mean ‘q’?
+  366 |       tmp9.data[workload.len] = (tmp_item1_t){.p = p0, .q = q1};
+      |                                                             ^~
+      |                                                             q
+/tmp/b-zier-curves-intersections.c:367:26: error: ‘(workload_t *)&workload’ is a pointer; did you mean to use ‘->’?
+  367 |       tmp9.len = workload.len + 1;
+      |                          ^
+      |                          ->
+/tmp/b-zier-curves-intersections.c:368:16: error: assignment to expression with array type
+  368 |       workload = tmp9;
+      |                ^
+/tmp/b-zier-curves-intersections.c:369:60: error: ‘(workload_t *)&workload’ is a pointer; did you mean to use ‘->’?
+  369 |       workload_list_t tmp11 = create_workload_list(workload.len + 1);
+      |                                                            ^
+      |                                                            ->
+/tmp/b-zier-curves-intersections.c:370:39: error: ‘(workload_t *)&workload’ is a pointer; did you mean to use ‘->’?
+  370 |       for (int i12 = 0; i12 < workload.len; i12++) {
+      |                                       ^
+      |                                       ->
+/tmp/b-zier-curves-intersections.c:371:35: error: ‘(workload_t *)&workload’ is a pointer; did you mean to use ‘->’?
+  371 |         tmp11.data[i12] = workload.data[i12];
+      |                                   ^
+      |                                   ->
+/tmp/b-zier-curves-intersections.c:373:26: error: ‘(workload_t *)&workload’ is a pointer; did you mean to use ‘->’?
+  373 |       tmp11.data[workload.len] = (tmp_item2_t){.p = p1, .q = q0};
+      |                          ^
+      |                          ->
+/tmp/b-zier-curves-intersections.c:373:53: error: ‘p1’ undeclared (first use in this function); did you mean ‘p’?
+  373 |       tmp11.data[workload.len] = (tmp_item2_t){.p = p1, .q = q0};
+      |                                                     ^~
+      |                                                     p
+/tmp/b-zier-curves-intersections.c:374:27: error: ‘(workload_t *)&workload’ is a pointer; did you mean to use ‘->’?
+  374 |       tmp11.len = workload.len + 1;
+      |                           ^
+      |                           ->
+/tmp/b-zier-curves-intersections.c:375:16: error: assignment to expression with array type
+  375 |       workload = tmp11;
+      |                ^
+/tmp/b-zier-curves-intersections.c:376:60: error: ‘(workload_t *)&workload’ is a pointer; did you mean to use ‘->’?
+  376 |       workload_list_t tmp13 = create_workload_list(workload.len + 1);
+      |                                                            ^
+      |                                                            ->
+/tmp/b-zier-curves-intersections.c:377:39: error: ‘(workload_t *)&workload’ is a pointer; did you mean to use ‘->’?
+  377 |       for (int i14 = 0; i14 < workload.len; i14++) {
+      |                                       ^
+      |                                       ->
+/tmp/b-zier-curves-intersections.c:378:35: error: ‘(workload_t *)&workload’ is a pointer; did you mean to use ‘->’?
+  378 |         tmp13.data[i14] = workload.data[i14];
+      |                                   ^
+      |                                   ->
+/tmp/b-zier-curves-intersections.c:380:26: error: ‘(workload_t *)&workload’ is a pointer; did you mean to use ‘->’?
+  380 |       tmp13.data[workload.len] = (tmp_item3_t){.p = p1, .q = q1};
+      |                          ^
+      |                          ->
+/tmp/b-zier-curves-intersections.c:381:27: error: ‘(workload_t *)&workload’ is a pointer; did you mean to use ‘->’?
+  381 |       tmp13.len = workload.len + 1;
+      |                           ^
+      |                           ->
+/tmp/b-zier-curves-intersections.c:382:16: error: assignment to expression with array type
+  382 |       workload = tmp13;
+      |                ^

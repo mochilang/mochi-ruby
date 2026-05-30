@@ -1,0 +1,31 @@
+fun bernoulli(n: int): bigrat {
+  var a: list<bigrat> = []
+  var m = 0
+  while m <= n {
+    a = append(a, 1 as bigrat / ((m + 1) as bigrat))
+    var j = m
+    while j >= 1 {
+      a[j-1] = (j as bigrat) * (a[j-1] - a[j])
+      j = j - 1
+    }
+    m = m + 1
+  }
+  return a[0]
+}
+
+fun padStart(s: string, width: int, pad: string): string {
+  var out = s
+  while len(out) < width {
+    out = pad + out
+  }
+  return out
+}
+
+for i in 0..61 {
+  let b = bernoulli(i)
+  if num(b) != 0 {
+    let numStr = str(num(b))
+    let denStr = str(denom(b))
+    print("B(" + padStart(str(i), 2, " ") + ") =" + padStart(numStr, 45, " ") + "/" + denStr)
+  }
+}

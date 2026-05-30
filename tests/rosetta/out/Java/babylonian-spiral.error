@@ -1,0 +1,8 @@
+parse: error[P999]: /workspace/mochi/tests/rosetta/x/Mochi/babylonian-spiral.mochi:7:21: unexpected token "-1" (expected "]")
+  --> /workspace/mochi/tests/rosetta/x/Mochi/babylonian-spiral.mochi:7:21
+
+  7 |   while i > 0 && h[i-1]["s"] > h[i]["s"] {
+    |                     ^
+
+help:
+  Parse error occurred. Check syntax near this location.

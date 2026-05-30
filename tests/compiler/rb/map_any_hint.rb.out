@@ -1,0 +1,10 @@
+def Leaf
+  {"__name" => "Leaf"}
+end
+
+def Node(left, value, right)
+  {"__name" => "Node", "left" => left, "value" => value, "right" => right}
+end
+
+tree = Node(Leaf(), 1, Leaf())
+puts([tree["left"]["__name"]].join(" "))

@@ -1,0 +1,33 @@
+rustc: exit status 1
+warning: denote infinite loops with `loop { ... }`
+  --> /tmp/21_game.rs:82:21
+   |
+82 |                     while true {
+   |                     ^^^^^^^^^^ help: use `loop`
+   |
+   = note: `#[warn(while_true)]` on by default
+
+error[E0277]: the trait bound `String: Borrow<&str>` is not satisfied
+  --> /tmp/21_game.rs:41:38
+   |
+41 |             n = n * 10 + *digits.get(&&str[(i) as usize..(i + 1) as usize]).unwrap();
+   |                                  --- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ the trait `Borrow<&str>` is not implemented for `String`
+   |                                  |
+   |                                  required by a bound introduced by this call
+   |
+   = help: the trait `Borrow<&_>` is not implemented for `String`
+           but trait `Borrow<_>` is implemented for it
+   = help: for that trait implementation, expected `str`, found `&str`
+note: required by a bound in `HashMap::<K, V, S>::get`
+  --> /rustc/17067e9ac6d7ecb70e50f92c1944e545188d2359/library/std/src/collections/hash/map.rs:906:5
+
+error[E0425]: cannot find function `input` in this scope
+  --> /tmp/21_game.rs:84:36
+   |
+84 |                         let line = input();
+   |                                    ^^^^^ not found in this scope
+
+error: aborting due to 2 previous errors; 1 warning emitted
+
+Some errors have detailed explanations: E0277, E0425.
+For more information about an error, try `rustc --explain E0277`.

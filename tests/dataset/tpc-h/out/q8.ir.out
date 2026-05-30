@@ -1,0 +1,449 @@
+func main (regs=237)
+  // let region = [
+  Const        r0, [{"r_name": "AMERICA", "r_regionkey": 0}]
+  // let nation = [
+  Const        r1, [{"n_name": "BRAZIL", "n_nationkey": 10, "n_regionkey": 0}, {"n_name": "CANADA", "n_nationkey": 20, "n_regionkey": 0}]
+  // let customer = [
+  Const        r2, [{"c_custkey": 1, "c_nationkey": 10}, {"c_custkey": 2, "c_nationkey": 20}]
+  // let orders = [
+  Const        r3, [{"o_custkey": 1, "o_orderdate": "1995-04-10", "o_orderkey": 100}, {"o_custkey": 2, "o_orderdate": "1995-07-15", "o_orderkey": 200}]
+  // let lineitem = [
+  Const        r4, [{"l_discount": 0.1, "l_extendedprice": 1000.0, "l_orderkey": 100, "l_partkey": 5000, "l_suppkey": 1000}, {"l_discount": 0.05, "l_extendedprice": 500.0, "l_orderkey": 200, "l_partkey": 5000, "l_suppkey": 2000}]
+  // let supplier = [
+  Const        r5, [{"s_suppkey": 1000}, {"s_suppkey": 2000}]
+  // let part = [
+  Const        r6, [{"p_partkey": 5000, "p_type": "ECONOMY ANODIZED STEEL"}, {"p_partkey": 6000, "p_type": "SMALL BRASS"}]
+  // let start_date = "1995-01-01"
+  Const        r7, "1995-01-01"
+  // let end_date = "1996-12-31"
+  Const        r8, "1996-12-31"
+  // let target_type = "ECONOMY ANODIZED STEEL"
+  Const        r9, "ECONOMY ANODIZED STEEL"
+  // let target_nation = "BRAZIL"
+  Const        r10, "BRAZIL"
+  // from l in lineitem
+  Const        r11, []
+  // group by substring(o.o_orderdate, 0, 4) into year
+  Const        r12, "o_orderdate"
+  // where (p.p_type == target_type && o.o_orderdate >= start_date && o.o_orderdate <= end_date && r.r_name == "AMERICA")
+  Const        r13, "p_type"
+  Const        r12, "o_orderdate"
+  Const        r12, "o_orderdate"
+  Const        r14, "r_name"
+  // o_year: year.key,
+  Const        r15, "o_year"
+  Const        r16, "key"
+  // mkt_share:
+  Const        r17, "mkt_share"
+  // sum(from x in year select match x.n.n_name == target_nation {
+  Const        r18, "n"
+  Const        r19, "n_name"
+  // true => x.l.l_extendedprice * (1 - x.l.l_discount)
+  Const        r20, "l"
+  Const        r21, "l_extendedprice"
+  Const        r20, "l"
+  Const        r22, "l_discount"
+  // sum(from x in year select x.l.l_extendedprice * (1 - x.l.l_discount))
+  Const        r20, "l"
+  Const        r21, "l_extendedprice"
+  Const        r20, "l"
+  Const        r22, "l_discount"
+  // sort by year.key
+  Const        r16, "key"
+  // from l in lineitem
+  MakeMap      r23, 0, r0
+  Const        r25, []
+  Move         r24, r25
+  IterPrep     r26, r4
+  Len          r27, r26
+  Const        r28, 0
+L16:
+  LessInt      r29, r28, r27
+  JumpIfFalse  r29, L0
+  Index        r30, r26, r28
+  Move         r31, r30
+  // join from p in part on p.p_partkey == l.l_partkey
+  IterPrep     r32, r6
+  Len          r33, r32
+  Const        r34, 0
+L15:
+  LessInt      r35, r34, r33
+  JumpIfFalse  r35, L1
+  Index        r36, r32, r34
+  Move         r37, r36
+  Const        r38, "p_partkey"
+  Index        r39, r37, r38
+  Const        r40, "l_partkey"
+  Index        r41, r31, r40
+  Equal        r42, r39, r41
+  JumpIfFalse  r42, L2
+  // join from s in supplier on s.s_suppkey == l.l_suppkey
+  IterPrep     r43, r5
+  Len          r44, r43
+  Const        r45, 0
+L14:
+  LessInt      r46, r45, r44
+  JumpIfFalse  r46, L2
+  Index        r47, r43, r45
+  Move         r48, r47
+  Const        r49, "s_suppkey"
+  Index        r50, r48, r49
+  Const        r51, "l_suppkey"
+  Index        r52, r31, r51
+  Equal        r53, r50, r52
+  JumpIfFalse  r53, L3
+  // join from o in orders on o.o_orderkey == l.l_orderkey
+  IterPrep     r54, r3
+  Len          r55, r54
+  Const        r56, 0
+L13:
+  LessInt      r57, r56, r55
+  JumpIfFalse  r57, L3
+  Index        r58, r54, r56
+  Move         r59, r58
+  Const        r60, "o_orderkey"
+  Index        r61, r59, r60
+  Const        r62, "l_orderkey"
+  Index        r63, r31, r62
+  Equal        r64, r61, r63
+  JumpIfFalse  r64, L4
+  // join from c in customer on c.c_custkey == o.o_custkey
+  IterPrep     r65, r2
+  Len          r66, r65
+  Const        r67, 0
+L12:
+  LessInt      r68, r67, r66
+  JumpIfFalse  r68, L4
+  Index        r69, r65, r67
+  Move         r70, r69
+  Const        r71, "c_custkey"
+  Index        r72, r70, r71
+  Const        r73, "o_custkey"
+  Index        r74, r59, r73
+  Equal        r75, r72, r74
+  JumpIfFalse  r75, L5
+  // join from n in nation on n.n_nationkey == c.c_nationkey
+  IterPrep     r76, r1
+  Len          r77, r76
+  Const        r78, 0
+L11:
+  LessInt      r79, r78, r77
+  JumpIfFalse  r79, L5
+  Index        r80, r76, r78
+  Move         r81, r80
+  Const        r82, "n_nationkey"
+  Index        r83, r81, r82
+  Const        r84, "c_nationkey"
+  Index        r85, r70, r84
+  Equal        r86, r83, r85
+  JumpIfFalse  r86, L6
+  // join from r in region on r.r_regionkey == n.n_regionkey
+  IterPrep     r87, r0
+  Len          r88, r87
+  Const        r89, 0
+L10:
+  LessInt      r90, r89, r88
+  JumpIfFalse  r90, L6
+  Index        r91, r87, r89
+  Move         r92, r91
+  Const        r93, "r_regionkey"
+  Index        r94, r92, r93
+  Const        r95, "n_regionkey"
+  Index        r96, r81, r95
+  Equal        r97, r94, r96
+  JumpIfFalse  r97, L7
+  // where (p.p_type == target_type && o.o_orderdate >= start_date && o.o_orderdate <= end_date && r.r_name == "AMERICA")
+  Const        r13, "p_type"
+  Index        r98, r37, r13
+  Const        r12, "o_orderdate"
+  Index        r99, r59, r12
+  Const        r7, "1995-01-01"
+  LessEq       r100, r7, r99
+  Const        r12, "o_orderdate"
+  Index        r101, r59, r12
+  Const        r8, "1996-12-31"
+  LessEq       r102, r101, r8
+  Const        r9, "ECONOMY ANODIZED STEEL"
+  Equal        r103, r98, r9
+  Const        r14, "r_name"
+  Index        r104, r92, r14
+  Const        r105, "AMERICA"
+  Equal        r106, r104, r105
+  Move         r107, r103
+  JumpIfFalse  r107, L8
+  Move         r107, r100
+  JumpIfFalse  r107, L8
+  Move         r107, r102
+  JumpIfFalse  r107, L8
+  Move         r107, r106
+L8:
+  JumpIfFalse  r107, L7
+  // from l in lineitem
+  Const        r20, "l"
+  Move         r108, r31
+  Const        r109, "p"
+  Move         r110, r37
+  Const        r111, "s"
+  Move         r112, r48
+  Const        r113, "o"
+  Move         r114, r59
+  Const        r115, "c"
+  Move         r116, r70
+  Const        r18, "n"
+  Move         r117, r81
+  Const        r118, "r"
+  Move         r119, r92
+  Move         r120, r20
+  Move         r121, r108
+  Move         r122, r109
+  Move         r123, r110
+  Move         r124, r111
+  Move         r125, r112
+  Move         r126, r113
+  Move         r127, r114
+  Move         r128, r115
+  Move         r129, r116
+  Move         r130, r18
+  Move         r131, r117
+  Move         r132, r118
+  Move         r133, r119
+  MakeMap      r134, 7, r120
+  // group by substring(o.o_orderdate, 0, 4) into year
+  Const        r12, "o_orderdate"
+  Index        r135, r59, r12
+  Const        r136, 0
+  Const        r137, 4
+  Slice        r138, r135, r136, r137
+  Str          r139, r138
+  In           r140, r139, r23
+  JumpIfTrue   r140, L9
+  // from l in lineitem
+  Const        r25, []
+  Const        r141, "__group__"
+  Const        r142, true
+  Const        r16, "key"
+  // group by substring(o.o_orderdate, 0, 4) into year
+  Move         r143, r138
+  // from l in lineitem
+  Const        r144, "items"
+  Move         r145, r25
+  Const        r146, "count"
+  Const        r136, 0
+  Move         r147, r141
+  Move         r148, r142
+  Move         r149, r16
+  Move         r150, r143
+  Move         r151, r144
+  Move         r152, r145
+  Move         r153, r146
+  Move         r154, r136
+  MakeMap      r155, 4, r147
+  SetIndex     r23, r139, r155
+  Append       r156, r24, r155
+  Move         r24, r156
+L9:
+  Const        r144, "items"
+  Index        r157, r23, r139
+  Index        r158, r157, r144
+  Append       r159, r158, r134
+  SetIndex     r157, r144, r159
+  Const        r146, "count"
+  Index        r160, r157, r146
+  Const        r161, 1
+  AddInt       r162, r160, r161
+  SetIndex     r157, r146, r162
+L7:
+  // join from r in region on r.r_regionkey == n.n_regionkey
+  Const        r161, 1
+  AddInt       r89, r89, r161
+  Jump         L10
+L6:
+  // join from n in nation on n.n_nationkey == c.c_nationkey
+  Const        r161, 1
+  AddInt       r78, r78, r161
+  Jump         L11
+L5:
+  // join from c in customer on c.c_custkey == o.o_custkey
+  Const        r161, 1
+  AddInt       r67, r67, r161
+  Jump         L12
+L4:
+  // join from o in orders on o.o_orderkey == l.l_orderkey
+  Const        r161, 1
+  AddInt       r56, r56, r161
+  Jump         L13
+L3:
+  // join from s in supplier on s.s_suppkey == l.l_suppkey
+  Const        r161, 1
+  AddInt       r45, r45, r161
+  Jump         L14
+L2:
+  // join from p in part on p.p_partkey == l.l_partkey
+  Const        r161, 1
+  AddInt       r34, r34, r161
+  Jump         L15
+L1:
+  // from l in lineitem
+  Const        r161, 1
+  AddInt       r28, r28, r161
+  Jump         L16
+L0:
+  Const        r136, 0
+  Move         r163, r136
+  Len          r164, r24
+L24:
+  LessInt      r165, r163, r164
+  JumpIfFalse  r165, L17
+  Index        r166, r24, r163
+  Move         r167, r166
+  // o_year: year.key,
+  Const        r168, "o_year"
+  Const        r16, "key"
+  Index        r169, r167, r16
+  // mkt_share:
+  Const        r170, "mkt_share"
+  // sum(from x in year select match x.n.n_name == target_nation {
+  Const        r171, []
+  Const        r18, "n"
+  Const        r19, "n_name"
+  // true => x.l.l_extendedprice * (1 - x.l.l_discount)
+  Const        r20, "l"
+  Const        r21, "l_extendedprice"
+  Const        r20, "l"
+  Const        r22, "l_discount"
+  // sum(from x in year select match x.n.n_name == target_nation {
+  IterPrep     r172, r167
+  Len          r173, r172
+  Const        r136, 0
+  Move         r174, r136
+L21:
+  LessInt      r175, r174, r173
+  JumpIfFalse  r175, L18
+  Index        r176, r172, r174
+  Move         r177, r176
+  Const        r18, "n"
+  Index        r178, r177, r18
+  Const        r19, "n_name"
+  Index        r179, r178, r19
+  Const        r10, "BRAZIL"
+  Equal        r180, r179, r10
+  // true => x.l.l_extendedprice * (1 - x.l.l_discount)
+  Const        r142, true
+  Equal        r182, r180, r142
+  JumpIfFalse  r182, L19
+  Const        r20, "l"
+  Index        r183, r177, r20
+  Const        r21, "l_extendedprice"
+  Index        r184, r183, r21
+  Const        r161, 1
+  Const        r20, "l"
+  Index        r185, r177, r20
+  Const        r22, "l_discount"
+  Index        r186, r185, r22
+  Sub          r187, r161, r186
+  Mul          r188, r184, r187
+  Move         r181, r188
+  Jump         L20
+L19:
+  // _ => 0
+  Const        r136, 0
+  Move         r181, r136
+L20:
+  // sum(from x in year select match x.n.n_name == target_nation {
+  Append       r189, r171, r181
+  Move         r171, r189
+  Const        r161, 1
+  AddInt       r174, r174, r161
+  Jump         L21
+L18:
+  Sum          r190, r171
+  // sum(from x in year select x.l.l_extendedprice * (1 - x.l.l_discount))
+  Const        r191, []
+  Const        r20, "l"
+  Const        r21, "l_extendedprice"
+  Const        r20, "l"
+  Const        r22, "l_discount"
+  IterPrep     r192, r167
+  Len          r193, r192
+  Const        r136, 0
+  Move         r194, r136
+L23:
+  LessInt      r195, r194, r193
+  JumpIfFalse  r195, L22
+  Index        r196, r192, r194
+  Move         r177, r196
+  Const        r20, "l"
+  Index        r197, r177, r20
+  Const        r21, "l_extendedprice"
+  Index        r198, r197, r21
+  Const        r161, 1
+  Const        r20, "l"
+  Index        r199, r177, r20
+  Const        r22, "l_discount"
+  Index        r200, r199, r22
+  Sub          r201, r161, r200
+  Mul          r202, r198, r201
+  Append       r203, r191, r202
+  Move         r191, r203
+  Const        r161, 1
+  AddInt       r194, r194, r161
+  Jump         L23
+L22:
+  Sum          r204, r191
+  // }) /
+  Div          r205, r190, r204
+  // o_year: year.key,
+  Move         r206, r168
+  Move         r207, r169
+  // mkt_share:
+  Move         r208, r170
+  Move         r209, r205
+  // select {
+  MakeMap      r210, 2, r206
+  // sort by year.key
+  Const        r16, "key"
+  Index        r213, r167, r16
+  Move         r211, r213
+  // from l in lineitem
+  Move         r212, r210
+  MakeList     r214, 2, r211
+  Append       r215, r11, r214
+  Move         r11, r215
+  Const        r161, 1
+  AddInt       r163, r163, r161
+  Jump         L24
+L17:
+  // sort by year.key
+  Sort         r216, r11
+  // from l in lineitem
+  Move         r11, r216
+  // json(result)
+  JSON         r11
+  // let numerator = 1000.0 * 0.9      // 900
+  Const        r217, 1000.0
+  Const        r218, 0.9
+  Const        r219, 900.0
+  // let denominator = numerator + (500.0 * 0.95) // 900 + 475 = 1375
+  Const        r220, 900.0
+  Const        r221, 475.0
+  AddFloat     r222, r220, r221
+  // let share = numerator / denominator         // ≈ 0.6545
+  Const        r220, 900.0
+  Const        r223, 1375.0
+  DivFloat     r224, r220, r223
+  // { o_year: "1995", mkt_share: share }
+  Const        r226, "o_year"
+  Const        r227, "1995"
+  Const        r228, "mkt_share"
+  Const        r229, 0.6545454545454545
+  Move         r230, r226
+  Move         r231, r227
+  Move         r232, r228
+  Move         r233, r229
+  MakeMap      r234, 2, r230
+  Move         r225, r234
+  // expect result == [
+  MakeList     r235, 1, r225
+  Equal        r236, r11, r235
+  Expect       r236
+  Return       r0

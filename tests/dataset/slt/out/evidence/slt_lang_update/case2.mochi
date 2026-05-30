@@ -1,0 +1,44 @@
+/*
+# line: 60
+# EVIDENCE-OF: R-42117-40023 Otherwise, the UPDATE affects only those
+# rows for which the result of evaluating the WHERE clause expression as
+# a boolean expression is true.
+UPDATE t1 SET x=1 WHERE y='unknown'
+*/
+
+type t1Row {
+  x: int
+  y: string
+}
+
+var t1 = [
+  t1Row {
+    x: 3,
+    y: "unknown",
+  },
+  t1Row {
+    x: 3,
+    y: "false" + "",
+  },
+  t1Row {
+    x: 3,
+    y: "NULL",
+  },
+]
+
+/* UPDATE t1 SET x=1 WHERE y='unknown' */
+update t1
+set {
+  x: 1,
+}
+where y == "unknown"
+
+/* SELECT count(*) FROM t1 WHERE x=1 */
+let result = count(from row in t1
+  where row.x == 1
+  select row)
+print(result)
+
+test "case2" {
+  expect result == 1
+}

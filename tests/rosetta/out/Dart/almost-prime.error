@@ -1,0 +1,13 @@
+run: exit status 254
+/tmp/almost-prime.dart:11:13: Error: A value of type 'double' can't be assigned to a variable of type 'int'.
+      n = n / (i as num);
+            ^
+/tmp/almost-prime.dart:13:20: Error: A value of type 'num' can't be assigned to a variable of type 'int'.
+    i = (i as num) + 1;
+                   ^
+/tmp/almost-prime.dart:25:20: Error: A value of type 'num' can't be assigned to a variable of type 'int'.
+    n = (n as num) + 1;
+                   ^
+/tmp/almost-prime.dart:34:20: Error: A value of type 'num' can't be assigned to a variable of type 'int'.
+    k = (k as num) + 1;
+                   ^

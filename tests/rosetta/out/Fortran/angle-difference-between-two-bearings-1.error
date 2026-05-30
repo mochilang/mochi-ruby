@@ -1,0 +1,23 @@
+gfortran: exit status 1
+/tmp/angle-difference-between-two-bearings-1.f90:11:26:
+
+   11 |     print *, angleDiff(tc(((0)+1)),tc(((1)+1)))
+      |                          1
+Error: Syntax error in argument list at (1)
+/tmp/angle-difference-between-two-bearings-1.f90:19:9:
+
+   19 |     if (((d < 0) - 180.0)) then
+      |         1
+Error: Operands of binary numeric operator ‘-’ at (1) are LOGICAL(4)/REAL(4)
+/tmp/angle-difference-between-two-bearings-1.f90:10:18:
+
+   10 |     tc = testCases(i0)
+      |                  1
+Error: Rank mismatch in array reference at (1) (1/2)
+/tmp/angle-difference-between-two-bearings-1.f90:10:19:
+
+    9 |   do i0 = 1, size(testCases)
+      |                            2
+   10 |     tc = testCases(i0)
+      |                   1
+Warning: Array reference at (1) out of bounds (16 > 8) in loop beginning at (2)

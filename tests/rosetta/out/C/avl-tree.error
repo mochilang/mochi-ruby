@@ -1,0 +1,125 @@
+cc: exit status 1
+/tmp/avl-tree.c: In function ‘Node’:
+/tmp/avl-tree.c:154:59: error: incompatible types when initializing type ‘int’ using type ‘list_int’
+  154 |   return (tmp_item_t){.data = data, .balance = 0, .link = tmp1};
+      |                                                           ^~~~
+/tmp/avl-tree.c: At top level:
+/tmp/avl-tree.c:157:13: error: unknown type name ‘map_string_int’
+  157 | int getLink(map_string_int n, int dir) {
+      |             ^~~~~~~~~~~~~~
+/tmp/avl-tree.c:161:13: error: unknown type name ‘map_string_int’
+  161 | int setLink(map_string_int n, int dir, int v) {
+      |             ^~~~~~~~~~~~~~
+/tmp/avl-tree.c:169:12: error: unknown type name ‘map_string_int’
+  169 | int single(map_string_int root, int dir) {
+      |            ^~~~~~~~~~~~~~
+/tmp/avl-tree.c:176:13: error: unknown type name ‘map_string_int’
+  176 | int _double(map_string_int root, int dir) {
+      |             ^~~~~~~~~~~~~~
+/tmp/avl-tree.c:187:19: error: unknown type name ‘map_string_int’
+  187 | int adjustBalance(map_string_int root, int dir, int bal) {
+      |                   ^~~~~~~~~~~~~~
+/tmp/avl-tree.c:203:19: error: unknown type name ‘map_string_int’
+  203 | int insertBalance(map_string_int root, int dir) {
+      |                   ^~~~~~~~~~~~~~
+/tmp/avl-tree.c: In function ‘insertR’:
+/tmp/avl-tree.c:217:26: error: ‘tmp_item_t’ has no member named ‘node’
+  217 |     return (tmp_item_t){.node = Node(data), .done = 0};
+      |                          ^~~~
+/tmp/avl-tree.c:217:46: error: ‘tmp_item_t’ has no member named ‘done’
+  217 |     return (tmp_item_t){.node = Node(data), .done = 0};
+      |                                              ^~~~
+/tmp/avl-tree.c:217:12: error: incompatible types when returning type ‘tmp_item_t’ but ‘int’ was expected
+  217 |     return (tmp_item_t){.node = Node(data), .done = 0};
+      |            ^
+/tmp/avl-tree.c:219:23: error: ‘map_string_int’ undeclared (first use in this function)
+  219 |   __auto_type node = (map_string_int)(root);
+      |                       ^~~~~~~~~~~~~~
+/tmp/avl-tree.c:219:23: note: each undeclared identifier is reported only once for each function it appears in
+/tmp/avl-tree.c:221:14: error: ‘node’ undeclared (first use in this function); did you mean ‘Node’?
+  221 |   if (((int)(node.data["Data"])) < data) {
+      |              ^~~~
+      |              Node
+/tmp/avl-tree.c:224:27: warning: implicit declaration of function ‘getLink’; did you mean ‘getline’? [-Wimplicit-function-declaration]
+  224 |   __auto_type r = insertR(getLink(node, dir), data);
+      |                           ^~~~~~~
+      |                           getline
+/tmp/avl-tree.c:225:3: warning: implicit declaration of function ‘setLink’ [-Wimplicit-function-declaration]
+  225 |   setLink(node, dir, r.data["node"]);
+      |   ^~~~~~~
+/tmp/avl-tree.c:225:22: error: ‘r’ undeclared (first use in this function)
+  225 |   setLink(node, dir, r.data["node"]);
+      |                      ^
+/tmp/avl-tree.c:236:32: warning: implicit declaration of function ‘insertBalance’ [-Wimplicit-function-declaration]
+  236 |   return (tmp_item4_t){.node = insertBalance(node, dir), .done = 1};
+      |                                ^~~~~~~~~~~~~
+/tmp/avl-tree.c: In function ‘Insert’:
+/tmp/avl-tree.c:241:11: error: request for member ‘data’ in something not a structure or union
+  241 |   return r.data["node"];
+      |           ^
+/tmp/avl-tree.c: At top level:
+/tmp/avl-tree.c:244:19: error: unknown type name ‘map_string_int’
+  244 | int removeBalance(map_string_int root, int dir) {
+      |                   ^~~~~~~~~~~~~~
+/tmp/avl-tree.c: In function ‘removeR’:
+/tmp/avl-tree.c:263:26: error: ‘tmp_item_t’ has no member named ‘node’
+  263 |     return (tmp_item_t){.node = 0, .done = 0};
+      |                          ^~~~
+/tmp/avl-tree.c:263:37: error: ‘tmp_item_t’ has no member named ‘done’
+  263 |     return (tmp_item_t){.node = 0, .done = 0};
+      |                                     ^~~~
+/tmp/avl-tree.c:263:12: error: incompatible types when returning type ‘tmp_item_t’ but ‘int’ was expected
+  263 |     return (tmp_item_t){.node = 0, .done = 0};
+      |            ^
+/tmp/avl-tree.c:265:23: error: ‘map_string_int’ undeclared (first use in this function)
+  265 |   __auto_type node = (map_string_int)(root);
+      |                       ^~~~~~~~~~~~~~
+/tmp/avl-tree.c:266:14: error: ‘node’ undeclared (first use in this function); did you mean ‘Node’?
+  266 |   if (((int)(node.data["Data"])) == data) {
+      |              ^~~~
+      |              Node
+/tmp/avl-tree.c:274:21: error: ‘heir’ undeclared (first use in this function)
+  274 |     while ((getLink(heir, 1) != 0)) {
+      |                     ^~~~
+/tmp/avl-tree.c:285:22: error: ‘r’ undeclared (first use in this function)
+  285 |   setLink(node, dir, r.data["node"]);
+      |                      ^
+/tmp/avl-tree.c:296:10: warning: implicit declaration of function ‘removeBalance’ [-Wimplicit-function-declaration]
+  296 |   return removeBalance(node, dir);
+      |          ^~~~~~~~~~~~~
+/tmp/avl-tree.c: In function ‘Remove’:
+/tmp/avl-tree.c:301:11: error: request for member ‘data’ in something not a structure or union
+  301 |   return r.data["node"];
+      |           ^
+/tmp/avl-tree.c: In function ‘dumpNode’:
+/tmp/avl-tree.c:329:27: error: request for member ‘data’ in something not a structure or union
+  329 |     char *tmp7 = _str(node.data["Data"]);
+      |                           ^
+/tmp/avl-tree.c:333:28: error: request for member ‘data’ in something not a structure or union
+  333 |     char *tmp11 = _str(node.data["Data"]);
+      |                            ^
+/tmp/avl-tree.c:336:14: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘char *’ [-Wformat=]
+  336 |     printf("%d\n", tmp13);
+      |             ~^     ~~~~~
+      |              |     |
+      |              int   char *
+      |             %s
+/tmp/avl-tree.c:338:28: error: request for member ‘data’ in something not a structure or union
+  338 |     char *tmp15 = _str(node.data["Balance"]);
+      |                            ^
+/tmp/avl-tree.c:342:28: error: request for member ‘data’ in something not a structure or union
+  342 |     char *tmp19 = _str(node.data["Balance"]);
+      |                            ^
+/tmp/avl-tree.c:345:14: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘char *’ [-Wformat=]
+  345 |     printf("%d\n", tmp21);
+      |             ~^     ~~~~~
+      |              |     |
+      |              int   char *
+      |             %s
+/tmp/avl-tree.c: In function ‘mochi_main’:
+/tmp/avl-tree.c:380:20: error: ‘map_string_int’ undeclared (first use in this function)
+  380 |   __auto_type t = (map_string_int)(tree);
+      |                    ^~~~~~~~~~~~~~
+/tmp/avl-tree.c:381:3: error: ‘t’ undeclared (first use in this function)
+  381 |   t.data["Balance"] = 0;
+      |   ^

@@ -1,0 +1,55 @@
+cc: exit status 1
+/tmp/adfgvx-cipher.c: In function ‘createPolybius’:
+/tmp/adfgvx-cipher.c:175:33: error: incompatible type for argument 1 of ‘concat_string’
+  175 |     char *tmp12 = concat_string(tmp11, " | ");
+      |                                 ^~~~~
+      |                                 |
+      |                                 list_string
+/tmp/adfgvx-cipher.c:52:34: note: expected ‘char *’ but argument is of type ‘list_string’
+   52 | static char *concat_string(char *a, char *b) {
+      |                            ~~~~~~^
+/tmp/adfgvx-cipher.c: In function ‘orderKey’:
+/tmp/adfgvx-cipher.c:221:19: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  221 |     tmp22.data[1] = i;
+      |                   ^
+/tmp/adfgvx-cipher.c:224:21: error: incompatible types when assigning to type ‘int’ from type ‘list_string’
+  224 |     tmp24.data[0] = tmp22;
+      |                     ^~~~~
+/tmp/adfgvx-cipher.c:234:25: error: request for member ‘data’ in something not a structure or union
+  234 |       if ((pairs.data[j].data[0] > pairs.data[j + 1].data[0])) {
+      |                         ^
+/tmp/adfgvx-cipher.c:234:53: error: request for member ‘data’ in something not a structure or union
+  234 |       if ((pairs.data[j].data[0] > pairs.data[j + 1].data[0])) {
+      |                                                     ^
+/tmp/adfgvx-cipher.c:248:40: error: request for member ‘data’ in something not a structure or union
+  248 |     tmp26.data[0] = (int)(pairs.data[i].data[1]);
+      |                                        ^
+/tmp/adfgvx-cipher.c: In function ‘encrypt’:
+/tmp/adfgvx-cipher.c:278:45: error: incompatible type for argument 2 of ‘concat_string’
+  278 |           char *tmp34 = concat_string(temp, tmp33);
+      |                                             ^~~~~
+      |                                             |
+      |                                             list_string
+/tmp/adfgvx-cipher.c:52:43: note: expected ‘char *’ but argument is of type ‘list_string’
+   52 | static char *concat_string(char *a, char *b) {
+      |                                     ~~~~~~^
+/tmp/adfgvx-cipher.c:280:46: error: incompatible type for argument 2 of ‘concat_string’
+  280 |           char *tmp36 = concat_string(tmp34, tmp35);
+      |                                              ^~~~~
+      |                                              |
+      |                                              list_string
+/tmp/adfgvx-cipher.c:52:43: note: expected ‘char *’ but argument is of type ‘list_string’
+   52 | static char *concat_string(char *a, char *b) {
+      |                                     ~~~~~~^
+/tmp/adfgvx-cipher.c:304:5: error: ‘table’ undeclared (first use in this function)
+  304 |     table = 0;
+      |     ^~~~~
+/tmp/adfgvx-cipher.c:304:5: note: each undeclared identifier is reported only once for each function it appears in
+/tmp/adfgvx-cipher.c: In function ‘decrypt’:
+/tmp/adfgvx-cipher.c:412:7: error: ‘cols’ undeclared (first use in this function); did you mean ‘ls’?
+  412 |       cols = 0;
+      |       ^~~~
+      |       ls
+/tmp/adfgvx-cipher.c:429:5: error: ‘table’ undeclared (first use in this function)
+  429 |     table = 0;
+      |     ^~~~~

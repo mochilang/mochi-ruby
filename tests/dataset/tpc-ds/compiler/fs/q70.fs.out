@@ -1,0 +1,65 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    s_store_sk: int
+    s_state: string
+    s_county: string
+}
+type Anon2 = {
+    d_date_sk: int
+    d_month_seq: int
+}
+type Anon3 = {
+    ss_sold_date_sk: int
+    ss_store_sk: int
+    ss_net_profit: float
+}
+type Anon4 = {
+    s_state: obj
+    s_county: obj
+    total_sum: obj
+}
+type Anon5 = {
+    state: string
+    county: string
+}
+type Anon6 = {
+    s_state: string
+    s_county: string
+    total_sum: float
+}
+type _Group<'K,'T>(key: 'K) =
+    member val key = key with get, set
+    member val Items = System.Collections.Generic.List<'T>() with get
+    member this.size = this.Items.Count
+    interface System.Collections.Generic.IEnumerable<'T> with
+        member this.GetEnumerator() = (this.Items :> seq<'T>).GetEnumerator()
+    interface System.Collections.IEnumerable with
+        member this.GetEnumerator() = (this.Items :> System.Collections.IEnumerable).GetEnumerator()
+
+let _group_by (src: 'T list) (keyfn: 'T -> 'K) : _Group<'K,'T> list =
+    let groups = System.Collections.Generic.Dictionary<string,_Group<'K,'T>>()
+    let order = System.Collections.Generic.List<string>()
+    for it in src do
+        let key = keyfn it
+        let ks = string key
+        let mutable g = Unchecked.defaultof<_Group<'K,'T>>
+        if groups.TryGetValue(ks, &g) then ()
+        else
+            g <- _Group<'K,'T>(key)
+            groups.Add(ks, g)
+            order.Add(ks)
+        g.Items.Add(it)
+    [ for ks in order -> groups[ks] ]
+
+let store: Anon1 list = [{ s_store_sk = 1; s_state = "CA"; s_county = "Orange" }; { s_store_sk = 2; s_state = "CA"; s_county = "Orange" }; { s_store_sk = 3; s_state = "TX"; s_county = "Travis" }]
+let date_dim: Anon2 list = [{ d_date_sk = 1; d_month_seq = 1200 }; { d_date_sk = 2; d_month_seq = 1201 }]
+let store_sales: Anon3 list = [{ ss_sold_date_sk = 1; ss_store_sk = 1; ss_net_profit = 10.0 }; { ss_sold_date_sk = 1; ss_store_sk = 2; ss_net_profit = 5.0 }; { ss_sold_date_sk = 2; ss_store_sk = 3; ss_net_profit = 20.0 }]
+let dms: int = 1200
+let result: Anon4 list = [ for g in _group_by [ for ss in store_sales do 
+  for d in date_dim do 
+  for s in store do if d.d_date_sk = ss.ss_sold_date_sk && s.s_store_sk = ss.ss_store_sk && d.d_month_seq >= dms && d.d_month_seq <= dms + 11 then yield (ss, d, s) ] (fun (ss, d, s) -> { state = s.s_state; county = s.s_county }) |> List.sortBy (fun gTmp -> let g = gTmp in [g.key.state; g.key.county]) do
+    yield { s_state = g.key.state; s_county = g.key.county; total_sum = List.sum [ for x in g do yield x.ss.ss_net_profit ] } ]
+printfn "%A" (JsonSerializer.Serialize(result))
+assert (result = [{ s_state = "CA"; s_county = "Orange"; total_sum = 15.0 }; { s_state = "TX"; s_county = "Travis"; total_sum = 20.0 }])

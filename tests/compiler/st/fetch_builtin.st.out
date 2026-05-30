@@ -1,0 +1,35 @@
+Object subclass: #Main instanceVariableNames: '' classVariableNames: '' poolDictionaries: '' category: nil!
+
+!Main class methodsFor: 'types'!
+newMsg: message | dict |
+	dict := Dictionary new.
+	dict at: 'message' put: message.
+	^ dict
+!
+!Main class methodsFor: 'runtime'!
+_fetch: url opts: o
+	| args cmd stream text |
+	args := OrderedCollection new.
+	args add: '-s'.
+	| method |
+	method := (o notNil and: [ o includesKey: 'method' ]) ifTrue: [ o at: 'method' ] ifFalse: [ 'GET' ].
+	args add: '-X'; add: method.
+	(o notNil and: [ o includesKey: 'headers' ]) ifTrue: [ (o at: 'headers') keysAndValuesDo: [:k :v | args add: '-H'; add: (k , ': ' , v printString) ] ].
+	(o notNil and: [ o includesKey: 'query' ]) ifTrue: [ | qs sep |
+		qs := String streamContents: [:s | (o at: 'query') keysAndValuesDo: [:k :v | s nextPutAll: k; nextPut: '='; nextPutAll: v printString; nextPut: '&' ] ].
+		qs := qs copyFrom: 1 to: qs size - 1.
+		sep := (url includes: '?') ifTrue: [ '&' ] ifFalse: [ '?' ].
+		url := url , sep , qs.
+	] .
+	(o notNil and: [ o includesKey: 'body' ]) ifTrue: [ args add: '-d'; add: (JSONReader toJSON: (o at: 'body')) ].
+	(o notNil and: [ o includesKey: 'timeout' ]) ifTrue: [ args add: '--max-time'; add: (o at: 'timeout') printString ].
+	args add: url.
+	cmd := 'curl ' , (String streamContents: [:s | args doWithIndex: [:a :i | s nextPutAll: a. i < args size ifTrue: [ s nextPut: Character space ] ] ]).
+	stream := PipeStream open: cmd.
+	text := stream contents.
+	stream close.
+	^ JSONReader fromJSON: text
+!
+!!
+data := (Main _fetch: 'file://tests/compiler/st/fetch_builtin.json' opts: nil).
+(data at: 'message') displayOn: Transcript. Transcript cr.

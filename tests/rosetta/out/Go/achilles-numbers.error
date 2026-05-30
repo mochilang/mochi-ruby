@@ -1,0 +1,9 @@
+run: exit status 1
+# command-line-arguments
+/tmp/X/001/main.go:97:10: invalid argument: any(tmp) (value of interface type any) for built-in len
+/tmp/X/001/main.go:101:15: invalid argument: any(tmp) (value of interface type any) for built-in len
+/tmp/X/001/main.go:111:15: invalid argument: any(tmp) (value of interface type any) for built-in len
+/tmp/X/001/main.go:125:10: invalid argument: any(s) (value of interface type any) for built-in len
+/tmp/X/001/main.go:137:20: invalid operation: cannot call non-function achSet["keys"] (map index expression of type bool)
+/tmp/X/001/main.go:137:27: cannot use "keys" (untyped string constant) as int value in map index
+/tmp/X/001/main.go:138:30: cannot use append(append([]int{}, ach...), []int{…}...) (value of type []int) as []any value in argument to _convSlice[any, int]

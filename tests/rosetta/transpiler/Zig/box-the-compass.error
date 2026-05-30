@@ -1,0 +1,9 @@
+zig build: exit status 1
+/tmp/box-the-compass.zig:22:9: error: local variable shadows declaration of 'i'
+/tmp/box-the-compass.zig:102:1: note: declared here
+/tmp/box-the-compass.zig:116:9: error: local variable shadows declaration of 'i'
+/tmp/box-the-compass.zig:102:1: note: declared here
+/tmp/box-the-compass.zig:125:9: error: local variable shadows declaration of 'i'
+/tmp/box-the-compass.zig:102:1: note: declared here
+/tmp/box-the-compass.zig:141:13: error: local variable is never mutated
+/tmp/box-the-compass.zig:141:13: note: consider using 'const'

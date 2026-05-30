@@ -1,0 +1,12 @@
+warning: variable "i" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+    │
+ 23 │       {i, p} = try do
+    │        ~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/electronics/electric_power.exs:23:8: Main.pow10/1
+
+"Result(name='voltage', value=2.5)"
+"Result(name='power', value=4.0)"
+"Result(name='power', value=6.0)"
+"Result(name='power', value=4.84)"
+"Result(name='current', value=3.0)"

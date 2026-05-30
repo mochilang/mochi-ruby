@@ -1,0 +1,8 @@
+parse: error[P999]: /workspace/mochi/tests/rosetta/x/Mochi/averages-median-1.mochi:28:22: unexpected token "-1" (expected "]")
+  --> /workspace/mochi/tests/rosetta/x/Mochi/averages-median-1.mochi:28:22
+
+ 28 |     m = (m + arr[half-1]) / 2.0
+    |                      ^
+
+help:
+  Parse error occurred. Check syntax near this location.

@@ -1,0 +1,101 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    cs_ship_date_sk: int
+    cs_sold_date_sk: int
+    cs_warehouse_sk: int
+    cs_ship_mode_sk: int
+    cs_call_center_sk: int
+}
+type Anon2 = {
+    w_warehouse_sk: int
+    w_warehouse_name: string
+}
+type Anon3 = {
+    sm_ship_mode_sk: int
+    sm_type: string
+}
+type Anon4 = {
+    cc_call_center_sk: int
+    cc_name: string
+}
+type Anon5 = {
+    warehouse: obj
+    sm_type: obj
+    cc_name: obj
+    d30: obj
+    d60: obj
+    d90: obj
+    d120: obj
+    dmore: obj
+}
+type Anon6 = {
+    warehouse: obj
+    sm_type: string
+    cc_name: string
+}
+type Anon7 = {
+    warehouse: string
+    sm_type: string
+    cc_name: string
+    d30: int
+    d60: int
+    d90: int
+    d120: int
+    dmore: int
+}
+type _Group<'K,'T>(key: 'K) =
+    member val key = key with get, set
+    member val Items = System.Collections.Generic.List<'T>() with get
+    member this.size = this.Items.Count
+    interface System.Collections.Generic.IEnumerable<'T> with
+        member this.GetEnumerator() = (this.Items :> seq<'T>).GetEnumerator()
+    interface System.Collections.IEnumerable with
+        member this.GetEnumerator() = (this.Items :> System.Collections.IEnumerable).GetEnumerator()
+
+let _group_by (src: 'T list) (keyfn: 'T -> 'K) : _Group<'K,'T> list =
+    let groups = System.Collections.Generic.Dictionary<string,_Group<'K,'T>>()
+    let order = System.Collections.Generic.List<string>()
+    for it in src do
+        let key = keyfn it
+        let ks = string key
+        let mutable g = Unchecked.defaultof<_Group<'K,'T>>
+        if groups.TryGetValue(ks, &g) then ()
+        else
+            g <- _Group<'K,'T>(key)
+            groups.Add(ks, g)
+            order.Add(ks)
+        g.Items.Add(it)
+    [ for ks in order -> groups[ks] ]
+
+type CatalogSale = {
+    mutable cs_ship_date_sk: int
+    mutable cs_sold_date_sk: int
+    mutable cs_warehouse_sk: int
+    mutable cs_ship_mode_sk: int
+    mutable cs_call_center_sk: int
+}
+type Warehouse = {
+    mutable w_warehouse_sk: int
+    mutable w_warehouse_name: string
+}
+type ShipMode = {
+    mutable sm_ship_mode_sk: int
+    mutable sm_type: string
+}
+type CallCenter = {
+    mutable cc_call_center_sk: int
+    mutable cc_name: string
+}
+let catalog_sales: Anon1 list = [{ cs_ship_date_sk = 31; cs_sold_date_sk = 1; cs_warehouse_sk = 1; cs_ship_mode_sk = 1; cs_call_center_sk = 1 }; { cs_ship_date_sk = 51; cs_sold_date_sk = 1; cs_warehouse_sk = 1; cs_ship_mode_sk = 1; cs_call_center_sk = 1 }; { cs_ship_date_sk = 71; cs_sold_date_sk = 1; cs_warehouse_sk = 1; cs_ship_mode_sk = 1; cs_call_center_sk = 1 }; { cs_ship_date_sk = 101; cs_sold_date_sk = 1; cs_warehouse_sk = 1; cs_ship_mode_sk = 1; cs_call_center_sk = 1 }; { cs_ship_date_sk = 131; cs_sold_date_sk = 1; cs_warehouse_sk = 1; cs_ship_mode_sk = 1; cs_call_center_sk = 1 }]
+let warehouse: Anon2 list = [{ w_warehouse_sk = 1; w_warehouse_name = "Warehouse1" }]
+let ship_mode: Anon3 list = [{ sm_ship_mode_sk = 1; sm_type = "EXP" }]
+let call_center: Anon4 list = [{ cc_call_center_sk = 1; cc_name = "CC1" }]
+let grouped: Anon5 list = [ for g in _group_by [ for cs in catalog_sales do 
+  for w in warehouse do 
+  for sm in ship_mode do 
+  for cc in call_center do if cs.cs_warehouse_sk = w.w_warehouse_sk && cs.cs_ship_mode_sk = sm.sm_ship_mode_sk && cs.cs_call_center_sk = cc.cc_call_center_sk then yield (cs, w, sm, cc) ] (fun (cs, w, sm, cc) -> { warehouse = substr w.w_warehouse_name 0 20; sm_type = sm.sm_type; cc_name = cc.cc_name }) do
+    yield { warehouse = g.key.warehouse; sm_type = g.key.sm_type; cc_name = g.key.cc_name; d30 = List.length [ for x in g do if x.cs_ship_date_sk - x.cs_sold_date_sk <= 30 then yield x ]; d60 = List.length [ for x in g do if x.cs_ship_date_sk - x.cs_sold_date_sk > 30 && x.cs_ship_date_sk - x.cs_sold_date_sk <= 60 then yield x ]; d90 = List.length [ for x in g do if x.cs_ship_date_sk - x.cs_sold_date_sk > 60 && x.cs_ship_date_sk - x.cs_sold_date_sk <= 90 then yield x ]; d120 = List.length [ for x in g do if x.cs_ship_date_sk - x.cs_sold_date_sk > 90 && x.cs_ship_date_sk - x.cs_sold_date_sk <= 120 then yield x ]; dmore = List.length [ for x in g do if x.cs_ship_date_sk - x.cs_sold_date_sk > 120 then yield x ] } ]
+printfn "%A" (JsonSerializer.Serialize(grouped))
+assert (grouped = [{ warehouse = "Warehouse1"; sm_type = "EXP"; cc_name = "CC1"; d30 = 1; d60 = 1; d90 = 1; d120 = 1; dmore = 1 }])

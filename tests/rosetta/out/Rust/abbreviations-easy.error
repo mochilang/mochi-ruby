@@ -1,0 +1,53 @@
+rustc: exit status 1
+warning: unnecessary parentheses around assigned value
+  --> /tmp/abbreviations_easy.rs:27:21
+   |
+27 |         let mut i = (s.len() as i32);
+   |                     ^              ^
+   |
+   = note: `#[warn(unused_parens)]` on by default
+help: remove these parentheses
+   |
+27 -         let mut i = (s.len() as i32);
+27 +         let mut i = s.len() as i32;
+   |
+
+warning: unnecessary parentheses around assigned value
+  --> /tmp/abbreviations_easy.rs:55:24
+   |
+55 |             let wlen = (w.len() as i32);
+   |                        ^              ^
+   |
+help: remove these parentheses
+   |
+55 -             let wlen = (w.len() as i32);
+55 +             let wlen = w.len() as i32;
+   |
+
+warning: unnecessary parentheses around function argument
+   --> /tmp/abbreviations_easy.rs:102:96
+    |
+102 | ...   out1 = format!("{}{}", format!("{}{}", out1, padRight(words[(k) as usize].clone(), (results[(k) as usize].clone().len() as i32))), ...
+    |                                                                                          ^                                          ^
+    |
+help: remove these parentheses
+    |
+102 -             out1 = format!("{}{}", format!("{}{}", out1, padRight(words[(k) as usize].clone(), (results[(k) as usize].clone().len() as i32))), String::from(" "));
+102 +             out1 = format!("{}{}", format!("{}{}", out1, padRight(words[(k) as usize].clone(), results[(k) as usize].clone().len() as i32)), String::from(" "));
+    |
+
+error[E0425]: cannot find function `upper` in this scope
+  --> /tmp/abbreviations_easy.rs:60:29
+   |
+60 |                     let c = upper(cmd);
+   |                             ^^^^^ not found in this scope
+
+error[E0425]: cannot find function `upper` in this scope
+  --> /tmp/abbreviations_easy.rs:61:30
+   |
+61 |                     let ww = upper(w);
+   |                              ^^^^^ not found in this scope
+
+error: aborting due to 2 previous errors; 3 warnings emitted
+
+For more information about this error, try `rustc --explain E0425`.

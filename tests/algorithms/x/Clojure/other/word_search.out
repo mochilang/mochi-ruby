@@ -1,0 +1,5 @@
+Syntax error (UnsupportedOperationException) compiling recur at (/workspace/mochi/tests/algorithms/x/Clojure/other/word_search.clj:131:1083).
+Can only recur from tail position
+
+Full report at:
+/tmp/clojure-11383952114238579231.edn

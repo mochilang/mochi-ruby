@@ -1,0 +1,58 @@
+cc: exit status 1
+/tmp/camel-case-and-snake-case.c: In function ‘snakeToCamel’:
+/tmp/camel-case-and-snake-case.c:90:19: warning: implicit declaration of function ‘lower’ [-Wimplicit-function-declaration]
+   90 |       out = out + lower(ch);
+      |                   ^~~~~
+/tmp/camel-case-and-snake-case.c:96:19: warning: implicit declaration of function ‘upper’; did you mean ‘isUpper’? [-Wimplicit-function-declaration]
+   96 |       out = out + upper(ch);
+      |                   ^~~~~
+      |                   isUpper
+/tmp/camel-case-and-snake-case.c: In function ‘mochi_main’:
+/tmp/camel-case-and-snake-case.c:196:13: warning: initialization of ‘int’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  196 |     int s = samples.data[tmp18];
+      |             ^~~~~~~
+/tmp/camel-case-and-snake-case.c:197:28: warning: passing argument 1 of ‘padLeft’ makes pointer from integer without a cast [-Wint-conversion]
+  197 |     printf("%d\n", padLeft(s, 34) + " => " + camelToSnake(s));
+      |                            ^
+      |                            |
+      |                            int
+/tmp/camel-case-and-snake-case.c:64:21: note: expected ‘char *’ but argument is of type ‘int’
+   64 | char *padLeft(char *s, int w) {
+      |               ~~~~~~^
+/tmp/camel-case-and-snake-case.c:197:35: error: invalid operands to binary + (have ‘char *’ and ‘char *’)
+  197 |     printf("%d\n", padLeft(s, 34) + " => " + camelToSnake(s));
+      |                    ~~~~~~~~~~~~~~ ^
+      |                    |              |
+      |                    char *         char *
+/tmp/camel-case-and-snake-case.c:197:59: warning: passing argument 1 of ‘camelToSnake’ makes pointer from integer without a cast [-Wint-conversion]
+  197 |     printf("%d\n", padLeft(s, 34) + " => " + camelToSnake(s));
+      |                                                           ^
+      |                                                           |
+      |                                                           int
+/tmp/camel-case-and-snake-case.c:107:26: note: expected ‘char *’ but argument is of type ‘int’
+  107 | char *camelToSnake(char *s) {
+      |                    ~~~~~~^
+/tmp/camel-case-and-snake-case.c:202:13: warning: initialization of ‘int’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  202 |     int s = samples.data[tmp19];
+      |             ^~~~~~~
+/tmp/camel-case-and-snake-case.c:203:28: warning: passing argument 1 of ‘padLeft’ makes pointer from integer without a cast [-Wint-conversion]
+  203 |     printf("%d\n", padLeft(s, 34) + " => " + snakeToCamel(s));
+      |                            ^
+      |                            |
+      |                            int
+/tmp/camel-case-and-snake-case.c:64:21: note: expected ‘char *’ but argument is of type ‘int’
+   64 | char *padLeft(char *s, int w) {
+      |               ~~~~~~^
+/tmp/camel-case-and-snake-case.c:203:35: error: invalid operands to binary + (have ‘char *’ and ‘char *’)
+  203 |     printf("%d\n", padLeft(s, 34) + " => " + snakeToCamel(s));
+      |                    ~~~~~~~~~~~~~~ ^
+      |                    |              |
+      |                    char *         char *
+/tmp/camel-case-and-snake-case.c:203:59: warning: passing argument 1 of ‘snakeToCamel’ makes pointer from integer without a cast [-Wint-conversion]
+  203 |     printf("%d\n", padLeft(s, 34) + " => " + snakeToCamel(s));
+      |                                                           ^
+      |                                                           |
+      |                                                           int
+/tmp/camel-case-and-snake-case.c:76:26: note: expected ‘char *’ but argument is of type ‘int’
+   76 | char *snakeToCamel(char *s) {
+      |                    ~~~~~~^

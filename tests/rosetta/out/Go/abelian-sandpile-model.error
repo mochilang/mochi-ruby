@@ -1,0 +1,13 @@
+run: exit status 1
+# command-line-arguments
+/tmp/X/001/main.go:32:9: invalid operation: cannot index pile (variable of type *[][]int)
+/tmp/X/001/main.go:33:7: invalid operation: cannot index pile (variable of type *[][]int)
+/tmp/X/001/main.go:35:8: invalid operation: cannot index pile (variable of type *[][]int)
+/tmp/X/001/main.go:36:11: invalid operation: cannot index pile (variable of type *[][]int)
+/tmp/X/001/main.go:37:12: cannot use handlePile(pile, x, (y - 1)) (value of type [][]int) as *[][]int value in assignment
+/tmp/X/001/main.go:41:8: invalid operation: cannot index pile (variable of type *[][]int)
+/tmp/X/001/main.go:42:11: invalid operation: cannot index pile (variable of type *[][]int)
+/tmp/X/001/main.go:43:12: cannot use handlePile(pile, (x - 1), y) (value of type [][]int) as *[][]int value in assignment
+/tmp/X/001/main.go:47:8: invalid operation: cannot index pile (variable of type *[][]int)
+/tmp/X/001/main.go:48:11: invalid operation: cannot index pile (variable of type *[][]int)
+/tmp/X/001/main.go:48:11: too many errors

@@ -1,0 +1,11 @@
+fun main() {
+  print(remove([
+    1,
+    2,
+    3,
+    4,
+  ], 1)
+}
+fun remove(nums: list<int>, i: int): list<int> {
+  return nums.slice(0, i).concat(nums.slice(i + 1, nums.length))
+}

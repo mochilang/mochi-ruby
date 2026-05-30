@@ -1,0 +1,20 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    cust: string
+    price: float
+}
+type Anon2 = {
+    cust: string
+}
+let store_sales: Anon1 list = [{ cust = "A"; price = 5.0 }; { cust = "B"; price = 30.0 }; { cust = "C"; price = 57.0 }]
+let catalog_sales: Anon2 list = [{ cust = "A" }]
+let web_sales: obj = []
+let store_customers: string list = [ for s in store_sales do yield s.cust ]
+let catalog_customers: string list = [ for s in catalog_sales do yield s.cust ]
+let web_customers: obj list = [ for s in web_sales do yield s.cust ]
+let store_only: string list = [ for c in store_customers do if List.length [ for x in catalog_customers do if x = c then yield x ] = 0 && List.length [ for x in web_customers do if x = c then yield x ] = 0 then yield c ]
+let result: obj = List.sum [ for s in store_sales do if List.length [ for x in store_only do if x = s.cust then yield x ] > 0 then yield s.price ]
+printfn "%A" (JsonSerializer.Serialize(result))
+assert (result = 87.0)

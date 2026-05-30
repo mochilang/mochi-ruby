@@ -1,0 +1,42 @@
+/*
+# line: 132
+# repeat with DISTINCT
+*/
+
+type t1Row {
+  x: int
+  y: string
+}
+
+let t1 = [
+  t1Row {
+    x: 1,
+    y: "tru" + "e",
+  },
+  t1Row {
+    x: 0,
+    y: "fal" + "se",
+  },
+  t1Row {
+    x: none,
+    y: "NULL",
+  },
+  t1Row {
+    x: 2,
+    y: "tru" + "e",
+  },
+  t1Row {
+    x: 2,
+    y: "tru" + "e",
+  },
+]
+
+/* SELECT count(DISTINCT y) FROM t1 */
+let result = count(distinct(from row in t1
+  where row.y != none
+  select row))
+print(result)
+
+test "case17" {
+  expect result == 3
+}

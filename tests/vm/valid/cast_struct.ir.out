@@ -1,0 +1,9 @@
+func main (regs=4)
+  // let todo = {"title": "hi"} as Todo
+  Const        r0, {"__name": "Todo", "title": "hi"}
+  Move         r1, r0
+  // print(todo.title)
+  Const        r2, "title"
+  Const        r3, "hi"
+  Print        r3
+  Return       r0

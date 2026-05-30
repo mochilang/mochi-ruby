@@ -1,0 +1,24 @@
+warning: variable "right" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+    │
+ 42 │       {left, right} = try do
+    │              ~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/sorts/merge_insertion_sort.exs:42:14: Main.binary_search_insertion_from/3
+
+     warning: variable "inserted_before" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 275 │       {_, inserted_before, result} = try do
+     │           ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/sorts/merge_insertion_sort.exs:275:11: Main.merge_insertion_sort/1
+
+    warning: module attribute @data_dir was set but never used
+    │
+  3 │   @data_dir nil
+    │   ~~~~~~~~~~~~~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/sorts/merge_insertion_sort.exs:3: Main (module)
+
+[0, 0, 2, 0, 0, 2, 3, 5, 0, 0, 2, 0, 0, 2, 3, 5, 0, 0, 2, 0, 0, 2, 3, 5, 0, 0, 2, 0, 0, 2, 3]
+~c"c"
+[-45, -5, -2]

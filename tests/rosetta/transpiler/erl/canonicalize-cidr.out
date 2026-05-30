@@ -1,0 +1,15 @@
+/workspace/mochi/tests/rosetta/transpiler/erl/canonicalize-cidr.erl:141:21: Warning: variable 'Neg_3' exported from 'case' (line 122, column 9)
+%  141| {Digits, I_12, N_3, Neg_3, Str} = Fun_4(Digits, I_11, N_2, Neg_3, Str),
+%     |                     ^
+
+87.70.141.1/22     -> 0.0.0.0/22
+36.18.154.103/12   -> 0.0.0.0/12
+62.62.197.11/29    -> 0.0.0.0/29
+67.137.119.181/4   -> 0.0.0.0/4
+161.214.74.21/24   -> 0.0.0.0/24
+184.232.176.184/18 -> 0.0.0.0/18
+{
+  "duration_us": 17455,
+  "memory_bytes": 105696,
+  "name": "main"
+}

@@ -1,0 +1,25 @@
+fun test_TPCDS_Q5_result() {
+    check((result.size == 3))
+}
+
+fun main() {
+    val result = listOf(mutableMapOf("channel" to "catalog channel", "id" to "catalog_page100", "sales" to 30, "returns" to 3, "profit" to 8), mutableMapOf("channel" to "store channel", "id" to "store10", "sales" to 20, "returns" to 2, "profit" to 4), mutableMapOf("channel" to "web channel", "id" to "web_site200", "sales" to 40, "returns" to 4, "profit" to 10))
+    _json(result)
+    test_TPCDS_Q5_result()
+}
+
+fun _json(v: Any?) {
+    fun encode(x: Any?): String = when (x) {
+        null -> "null"
+        is String -> \"""${x.replace("\"", "\\\"")}\"""
+        is Int, is Double, is Boolean -> x.toString()
+        is List<*> -> x.joinToString(prefix = "[", postfix = "]") { encode(it) }
+        is Map<*, *> -> x.entries.joinToString(prefix = "{", postfix = "}") { e ->
+        "\"" + e.key.toString().replace("\"", "\\\"") + "\":" + encode(e.value)
+    }
+    else -> \"""${x.toString().replace("\"", "\\\"")}\"""
+}
+println(encode(v))
+}
+
+

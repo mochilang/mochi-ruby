@@ -1,0 +1,10 @@
+cc: exit status 1
+/tmp/bitmap-histogram.c: In function ‘mochi_main’:
+/tmp/bitmap-histogram.c:185:22: error: incompatible type for argument 1 of ‘_str’
+  185 |   char *tmp15 = _str(h);
+      |                      ^
+      |                      |
+      |                      list_int
+/tmp/bitmap-histogram.c:60:23: note: expected ‘int’ but argument is of type ‘list_int’
+   60 | static char *_str(int v) {
+      |                   ~~~~^

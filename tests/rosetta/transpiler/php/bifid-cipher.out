@@ -1,0 +1,17 @@
+from Rosettacode
+original:\t 0ATTACKATDAWN
+codiert:\t DQBDAXDQPDQH
+and back:\t ATTACKATDAWN
+from Wikipedia
+original:\t FLEEATONCE
+codiert:\t UAEOLWRINS
+and back:\t FLEEATONCE
+from Rosettacode long part
+original:\t The invasion will start on the first of January
+codiert:\t RASOAQXCYRORXESX2DETSWLTNIATEGISBRGBALY
+and back:\t THEINVASIONWILLSTARTONTHEFIRSTOFJANUARY
+{
+  "duration_us": 249,
+  "memory_bytes": 96,
+  "name": "main"
+}

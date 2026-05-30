@@ -1,0 +1,122 @@
+{
+  "root": {
+    "kind": "chunk",
+    "children": [
+      {
+        "kind": "assignment_statement",
+        "children": [
+          {
+            "kind": "variable_list",
+            "children": [
+              {
+                "kind": "identifier",
+                "text": "m"
+              }
+            ]
+          },
+          {
+            "kind": "expression_list",
+            "children": [
+              {
+                "kind": "table_constructor",
+                "children": [
+                  {
+                    "kind": "field",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "a"
+                      },
+                      {
+                        "kind": "number",
+                        "text": "1"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "field",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "b"
+                      },
+                      {
+                        "kind": "number",
+                        "text": "2"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "for_statement",
+        "children": [
+          {
+            "kind": "for_generic_clause",
+            "children": [
+              {
+                "kind": "variable_list",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "text": "k"
+                  }
+                ]
+              },
+              {
+                "kind": "expression_list",
+                "children": [
+                  {
+                    "kind": "function_call",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "pairs"
+                      },
+                      {
+                        "kind": "arguments",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "m"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "block",
+            "children": [
+              {
+                "kind": "function_call",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "text": "print"
+                  },
+                  {
+                    "kind": "arguments",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "k"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

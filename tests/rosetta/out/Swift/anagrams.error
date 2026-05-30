@@ -1,0 +1,24 @@
+swiftc: exit status 1
+/tmp/anagrams.swift:6:22: error: cannot convert value of type 'Array<String.Element>' (aka 'Array<Character>') to expected element type 'String'
+ 4 |     var i = 0
+ 5 |     while i < s.count {
+ 6 |         arr = arr + [Array(s[i..<i + 1])]
+   |                      `- error: cannot convert value of type 'Array<String.Element>' (aka 'Array<Character>') to expected element type 'String'
+ 7 |         i = i + 1
+ 8 |     }
+
+/tmp/anagrams.swift:60:38: error: use [:] to get an empty dictionary literal
+58 | func main() {
+59 |     var words = ["abel", "able", "bale", "bela", "elba", "alger", "glare", "lager", "large", "regal", "angel", "angle", "galen", "glean", "lange", "caret", "carte", "cater", "crate", "trace", "elan", "lane", "lean", "lena", "neal", "evil", "levi", "live", "veil", "vile"]
+60 |     var groups: [String: [String]] = []
+   |                                      `- error: use [:] to get an empty dictionary literal
+61 |     var maxLen = 0
+62 |     for w in words {
+
+/tmp/anagrams.swift:74:35: error: use [:] to get an empty dictionary literal
+72 |         }
+73 |     }
+74 |     var printed: [String: Bool] = []
+   |                                   `- error: use [:] to get an empty dictionary literal
+75 |     for w in words {
+76 |         let k = sortRunes(w)

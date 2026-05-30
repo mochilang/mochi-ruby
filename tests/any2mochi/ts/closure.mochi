@@ -1,0 +1,8 @@
+let add10
+fun main() {
+  print(add10(7)
+}
+fun makeAdder(n: int) {
+  return function (x: number): number {
+    return (x + n)
+}

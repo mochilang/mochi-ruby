@@ -1,0 +1,71 @@
+{
+  "root": {
+    "kind": "chunk",
+    "children": [
+      {
+        "kind": "assignment_statement",
+        "children": [
+          {
+            "kind": "variable_list",
+            "children": [
+              {
+                "kind": "identifier",
+                "text": "todo"
+              }
+            ]
+          },
+          {
+            "kind": "expression_list",
+            "children": [
+              {
+                "kind": "table_constructor",
+                "children": [
+                  {
+                    "kind": "field",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "title"
+                      },
+                      {
+                        "kind": "string",
+                        "text": "\"hi\""
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "function_call",
+        "children": [
+          {
+            "kind": "identifier",
+            "text": "print"
+          },
+          {
+            "kind": "arguments",
+            "children": [
+              {
+                "kind": "dot_index_expression",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "text": "todo"
+                  },
+                  {
+                    "kind": "identifier",
+                    "text": "title"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

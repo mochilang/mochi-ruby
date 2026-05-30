@@ -1,0 +1,13 @@
+javac: exit status 1
+/tmp/AbcProblem.java:35: error: incompatible types: String cannot be converted to List<String>
+            List<String> b = blks.get(i);
+                                     ^
+/tmp/AbcProblem.java:55: error: incompatible types: Object is not a functional interface
+        return w -> canSpell(w, bl);
+               ^
+/tmp/AbcProblem.java:60: error: cannot find symbol
+            System.out.println(word + " " + String.valueOf(sp(word)));
+                                                           ^
+  symbol:   method sp(String)
+  location: class AbcProblem
+3 errors

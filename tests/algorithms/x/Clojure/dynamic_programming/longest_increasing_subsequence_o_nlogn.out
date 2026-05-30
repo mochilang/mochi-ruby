@@ -1,0 +1,7 @@
+6
+0
+Execution error (IllegalArgumentException) at main/longest-increasing-subsequence-length (longest_increasing_subsequence_o_nlogn.clj:52).
+Key must be integer
+
+Full report at:
+/tmp/clojure-10577148758922250815.edn

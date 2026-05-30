@@ -1,0 +1,18 @@
+type: [{string: any}]
+plan:
+(select
+  (selector o)
+  (where
+    (binary &&
+      (binary >=
+        (selector o_orderdate (selector o))
+        (selector start_date)
+      )
+      (binary <
+        (selector o_orderdate (selector o))
+        (selector end_date)
+      )
+    )
+    (scan o (selector orders))
+  )
+)

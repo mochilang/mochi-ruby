@@ -1,0 +1,157 @@
+cc: exit status 1
+/tmp/bitmap.c:106:11: error: field ‘pixel’ has incomplete type
+  106 |   pixel_t pixel;
+      |           ^~~~~
+/tmp/bitmap.c:146:3: error: unknown type name ‘list_int’
+  146 |   list_int px;
+      |   ^~~~~~~~
+/tmp/bitmap.c: In function ‘pixelFromRgb’:
+/tmp/bitmap.c:167:21: error: ‘pixel_t’ {aka ‘struct pixel_t’} has no member named ‘r’
+  167 |   return (pixel_t){.r = r, .g = g, .b = b};
+      |                     ^
+/tmp/bitmap.c:167:29: error: ‘pixel_t’ {aka ‘struct pixel_t’} has no member named ‘g’
+  167 |   return (pixel_t){.r = r, .g = g, .b = b};
+      |                             ^
+/tmp/bitmap.c:167:37: error: ‘pixel_t’ {aka ‘struct pixel_t’} has no member named ‘b’
+  167 |   return (pixel_t){.r = r, .g = g, .b = b};
+      |                                     ^
+/tmp/bitmap.c: In function ‘rgbFromPixel’:
+/tmp/bitmap.c:170:40: error: ‘pixel_t’ {aka ‘struct pixel_t’} has no member named ‘r’
+  170 | int rgbFromPixel(pixel_t *p) { return p->r * 65536 + p->g * 256 + p->b; }
+      |                                        ^~
+/tmp/bitmap.c:170:55: error: ‘pixel_t’ {aka ‘struct pixel_t’} has no member named ‘g’
+  170 | int rgbFromPixel(pixel_t *p) { return p->r * 65536 + p->g * 256 + p->b; }
+      |                                                       ^~
+/tmp/bitmap.c:170:68: error: ‘pixel_t’ {aka ‘struct pixel_t’} has no member named ‘b’
+  170 | int rgbFromPixel(pixel_t *p) { return p->r * 65536 + p->g * 256 + p->b; }
+      |                                                                    ^~
+/tmp/bitmap.c: In function ‘NewBitmap’:
+/tmp/bitmap.c:182:37: error: ‘pixel_t’ {aka ‘struct pixel_t’} has no member named ‘r’
+  182 |       tmp1.data[r.len] = (pixel_t){.r = 0, .g = 0, .b = 0};
+      |                                     ^
+/tmp/bitmap.c:182:45: error: ‘pixel_t’ {aka ‘struct pixel_t’} has no member named ‘g’
+  182 |       tmp1.data[r.len] = (pixel_t){.r = 0, .g = 0, .b = 0};
+      |                                             ^
+/tmp/bitmap.c:182:53: error: ‘pixel_t’ {aka ‘struct pixel_t’} has no member named ‘b’
+  182 |       tmp1.data[r.len] = (pixel_t){.r = 0, .g = 0, .b = 0};
+      |                                                     ^
+/tmp/bitmap.c:187:5: error: ‘data’ undeclared (first use in this function)
+  187 |     data = 0;
+      |     ^~~~
+/tmp/bitmap.c:187:5: note: each undeclared identifier is reported only once for each function it appears in
+/tmp/bitmap.c: In function ‘Fill’:
+/tmp/bitmap.c:206:27: error: request for member ‘data’ in something not a structure or union
+  206 |       __auto_type row = px.data[y];
+      |                           ^
+/tmp/bitmap.c:207:7: error: ‘row’ undeclared (first use in this function)
+  207 |       row.data[x] = p;
+      |       ^~~
+/tmp/bitmap.c:208:9: error: request for member ‘data’ in something not a structure or union
+  208 |       px.data[y] = row;
+      |         ^
+/tmp/bitmap.c: In function ‘FillRgb’:
+/tmp/bitmap.c:216:44: error: lvalue required as unary ‘&’ operand
+  216 | int FillRgb(bitmap_t *b, int c) { Fill(&b, &pixelFromRgb(c)); }
+      |                                            ^
+/tmp/bitmap.c:216:40: warning: passing argument 1 of ‘Fill’ from incompatible pointer type [-Wincompatible-pointer-types]
+  216 | int FillRgb(bitmap_t *b, int c) { Fill(&b, &pixelFromRgb(c)); }
+      |                                        ^~
+      |                                        |
+      |                                        bitmap_t ** {aka struct bitmap_t **}
+/tmp/bitmap.c:200:20: note: expected ‘bitmap_t *’ {aka ‘struct bitmap_t *’} but argument is of type ‘bitmap_t **’ {aka ‘struct bitmap_t **’}
+  200 | int Fill(bitmap_t *b, pixel_t *p) {
+      |          ~~~~~~~~~~^
+/tmp/bitmap.c: In function ‘SetPx’:
+/tmp/bitmap.c:223:23: error: request for member ‘data’ in something not a structure or union
+  223 |   __auto_type row = px.data[y];
+      |                       ^
+/tmp/bitmap.c:224:3: error: ‘row’ undeclared (first use in this function)
+  224 |   row.data[x] = p;
+      |   ^~~
+/tmp/bitmap.c:225:5: error: request for member ‘data’ in something not a structure or union
+  225 |   px.data[y] = row;
+      |     ^
+/tmp/bitmap.c: In function ‘SetPxRgb’:
+/tmp/bitmap.c:231:26: error: lvalue required as unary ‘&’ operand
+  231 |   return SetPx(&b, x, y, &pixelFromRgb(c));
+      |                          ^
+/tmp/bitmap.c:231:16: warning: passing argument 1 of ‘SetPx’ from incompatible pointer type [-Wincompatible-pointer-types]
+  231 |   return SetPx(&b, x, y, &pixelFromRgb(c));
+      |                ^~
+      |                |
+      |                bitmap_t ** {aka struct bitmap_t **}
+/tmp/bitmap.c:218:21: note: expected ‘bitmap_t *’ {aka ‘struct bitmap_t *’} but argument is of type ‘bitmap_t **’ {aka ‘struct bitmap_t **’}
+  218 | int SetPx(bitmap_t *b, int x, int y, pixel_t *p) {
+      |           ~~~~~~~~~~^
+/tmp/bitmap.c: In function ‘GetPx’:
+/tmp/bitmap.c:236:12: error: incompatible types when returning type ‘tmp_item_t’ but ‘int’ was expected
+  236 |     return (tmp_item_t){.ok = 0};
+      |            ^
+/tmp/bitmap.c:238:26: error: request for member ‘data’ in something not a structure or union
+  238 |   __auto_type row = b->px.data[y];
+      |                          ^
+/tmp/bitmap.c:239:42: error: ‘row’ undeclared (first use in this function)
+  239 |   return (tmp_item1_t){.ok = 1, .pixel = row.data[x]};
+      |                                          ^~~
+/tmp/bitmap.c: In function ‘GetPxRgb’:
+/tmp/bitmap.c:243:25: warning: passing argument 1 of ‘GetPx’ from incompatible pointer type [-Wincompatible-pointer-types]
+  243 |   __auto_type r = GetPx(&b, x, y);
+      |                         ^~
+      |                         |
+      |                         bitmap_t ** {aka struct bitmap_t **}
+/tmp/bitmap.c:234:21: note: expected ‘bitmap_t *’ {aka ‘struct bitmap_t *’} but argument is of type ‘bitmap_t **’ {aka ‘struct bitmap_t **’}
+  234 | int GetPx(bitmap_t *b, int x, int y) {
+      |           ~~~~~~~~~~^
+/tmp/bitmap.c:244:11: error: request for member ‘ok’ in something not a structure or union
+  244 |   if (((!r.ok))) {
+      |           ^
+/tmp/bitmap.c:245:12: error: incompatible types when returning type ‘tmp_item_t’ but ‘int’ was expected
+  245 |     return (tmp_item_t){.ok = 0};
+      |            ^
+/tmp/bitmap.c:247:34: error: ‘tmp_item1_t’ has no member named ‘rgb’
+  247 |   return (tmp_item1_t){.ok = 1, .rgb = rgbFromPixel(r.pixel)};
+      |                                  ^~~
+/tmp/bitmap.c:247:54: error: request for member ‘pixel’ in something not a structure or union
+  247 |   return (tmp_item1_t){.ok = 1, .rgb = rgbFromPixel(r.pixel)};
+      |                                                      ^
+/tmp/bitmap.c: In function ‘pixelStr’:
+/tmp/bitmap.c:263:23: error: ‘pixel_t’ {aka ‘struct pixel_t’} has no member named ‘r’
+  263 |   char *tmp10 = _str(p->r);
+      |                       ^~
+/tmp/bitmap.c:266:23: error: ‘pixel_t’ {aka ‘struct pixel_t’} has no member named ‘g’
+  266 |   char *tmp13 = _str(p->g);
+      |                       ^~
+/tmp/bitmap.c:269:23: error: ‘pixel_t’ {aka ‘struct pixel_t’} has no member named ‘b’
+  269 |   char *tmp16 = _str(p->b);
+      |                       ^~
+/tmp/bitmap.c: In function ‘mochi_main’:
+/tmp/bitmap.c:293:10: error: request for member ‘ok’ in something not a structure or union
+  293 |   if ((c1.ok)) {
+      |          ^
+/tmp/bitmap.c:294:66: error: request for member ‘pixel’ in something not a structure or union
+  294 |     char *tmp26 = concat_string("Pixel at (0,0) is ", pixelStr(c1.pixel));
+      |                                                                  ^
+/tmp/bitmap.c:297:10: error: request for member ‘ok’ in something not a structure or union
+  297 |   if ((c2.ok)) {
+      |          ^
+/tmp/bitmap.c:298:68: error: request for member ‘pixel’ in something not a structure or union
+  298 |     char *tmp27 = concat_string("Pixel at (10,20) is ", pixelStr(c2.pixel));
+      |                                                                    ^
+/tmp/bitmap.c:301:10: error: request for member ‘ok’ in something not a structure or union
+  301 |   if ((c3.ok)) {
+      |          ^
+/tmp/bitmap.c:302:23: error: request for member ‘pixel’ in something not a structure or union
+  302 |     __auto_type p = c3.pixel;
+      |                       ^
+/tmp/bitmap.c:303:23: error: ‘p’ undeclared (first use in this function)
+  303 |     __auto_type r16 = p.r * 257;
+      |                       ^
+/tmp/bitmap.c:306:24: error: ‘r16’ undeclared (first use in this function)
+  306 |     char *tmp28 = _str(r16);
+      |                        ^~~
+/tmp/bitmap.c:309:24: error: ‘g16’ undeclared (first use in this function)
+  309 |     char *tmp31 = _str(g16);
+      |                        ^~~
+/tmp/bitmap.c:312:24: error: ‘b16’ undeclared (first use in this function)
+  312 |     char *tmp34 = _str(b16);
+      |                        ^~~

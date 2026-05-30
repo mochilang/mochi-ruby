@@ -1,0 +1,6 @@
+run: exit status 1
+round: undefined;
+ cannot use before initialization
+  context...:
+   /tmp/21-game.rkt:73:2
+   body of "/tmp/21-game.rkt"

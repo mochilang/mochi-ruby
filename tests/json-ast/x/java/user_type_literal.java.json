@@ -1,0 +1,59 @@
+{
+  "body": [
+    {
+      "kind": "VarDecl",
+      "name": "book",
+      "type": "Book",
+      "expr": {
+        "kind": "NEW_CLASS",
+        "args": [
+          {
+            "kind": "String",
+            "value": "Go"
+          },
+          {
+            "kind": "NEW_CLASS",
+            "args": [
+              {
+                "kind": "String",
+                "value": "Bob"
+              },
+              {
+                "kind": "Literal",
+                "value": "42"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Print",
+      "expr": {
+        "kind": "Member",
+        "name": "name",
+        "expr": {
+          "kind": "Cast",
+          "value": "Integer",
+          "expr": {
+            "kind": "Call",
+            "target": {
+              "kind": "Member",
+              "name": "get",
+              "expr": {
+                "kind": "Ident",
+                "name": "book"
+              }
+            },
+            "args": [
+              {
+                "kind": "String",
+                "value": "author"
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

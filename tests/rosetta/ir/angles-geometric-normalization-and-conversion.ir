@@ -1,0 +1,351 @@
+func main (regs=1)
+  // main()
+  Call         r0, main, 
+  Return       r0
+
+  // fun d2d(d: float): float { return d % 360.0 }
+func d2d (regs=3)
+  // fun d2d(d: float): float { return d % 360.0 }
+  Const        r1, 360.0
+  ModFloat     r2, r0, r1
+  Return       r2
+
+  // fun g2g(g: float): float { return g % 400.0 }
+func g2g (regs=3)
+  // fun g2g(g: float): float { return g % 400.0 }
+  Const        r1, 400.0
+  ModFloat     r2, r0, r1
+  Return       r2
+
+  // fun m2m(m: float): float { return m % 6400.0 }
+func m2m (regs=3)
+  // fun m2m(m: float): float { return m % 6400.0 }
+  Const        r1, 6400.0
+  ModFloat     r2, r0, r1
+  Return       r2
+
+  // fun r2r(r: float): float { return r % (2.0 * 3.141592653589793) }
+func r2r (regs=3)
+  // fun r2r(r: float): float { return r % (2.0 * 3.141592653589793) }
+  Const        r1, 6.283185307179586
+  ModFloat     r2, r0, r1
+  Return       r2
+
+  // fun d2g(d: float): float { return d2d(d) * 400.0 / 360.0 }
+func d2g (regs=7)
+  // fun d2g(d: float): float { return d2d(d) * 400.0 / 360.0 }
+  Move         r1, r0
+  Call         r2, d2d, r1
+  Const        r3, 400.0
+  MulFloat     r4, r2, r3
+  Const        r5, 360.0
+  DivFloat     r6, r4, r5
+  Return       r6
+
+  // fun d2m(d: float): float { return d2d(d) * 6400.0 / 360.0 }
+func d2m (regs=7)
+  // fun d2m(d: float): float { return d2d(d) * 6400.0 / 360.0 }
+  Move         r1, r0
+  Call         r2, d2d, r1
+  Const        r3, 6400.0
+  MulFloat     r4, r2, r3
+  Const        r5, 360.0
+  DivFloat     r6, r4, r5
+  Return       r6
+
+  // fun d2r(d: float): float { return d2d(d) * 3.141592653589793 / 180.0 }
+func d2r (regs=7)
+  // fun d2r(d: float): float { return d2d(d) * 3.141592653589793 / 180.0 }
+  Move         r1, r0
+  Call         r2, d2d, r1
+  Const        r3, 3.141592653589793
+  MulFloat     r4, r2, r3
+  Const        r5, 180.0
+  DivFloat     r6, r4, r5
+  Return       r6
+
+  // fun g2d(g: float): float { return g2g(g) * 360.0 / 400.0 }
+func g2d (regs=7)
+  // fun g2d(g: float): float { return g2g(g) * 360.0 / 400.0 }
+  Move         r1, r0
+  Call         r2, g2g, r1
+  Const        r3, 360.0
+  MulFloat     r4, r2, r3
+  Const        r5, 400.0
+  DivFloat     r6, r4, r5
+  Return       r6
+
+  // fun g2m(g: float): float { return g2g(g) * 6400.0 / 400.0 }
+func g2m (regs=7)
+  // fun g2m(g: float): float { return g2g(g) * 6400.0 / 400.0 }
+  Move         r1, r0
+  Call         r2, g2g, r1
+  Const        r3, 6400.0
+  MulFloat     r4, r2, r3
+  Const        r5, 400.0
+  DivFloat     r6, r4, r5
+  Return       r6
+
+  // fun g2r(g: float): float { return g2g(g) * 3.141592653589793 / 200.0 }
+func g2r (regs=7)
+  // fun g2r(g: float): float { return g2g(g) * 3.141592653589793 / 200.0 }
+  Move         r1, r0
+  Call         r2, g2g, r1
+  Const        r3, 3.141592653589793
+  MulFloat     r4, r2, r3
+  Const        r5, 200.0
+  DivFloat     r6, r4, r5
+  Return       r6
+
+  // fun m2d(m: float): float { return m2m(m) * 360.0 / 6400.0 }
+func m2d (regs=7)
+  // fun m2d(m: float): float { return m2m(m) * 360.0 / 6400.0 }
+  Move         r1, r0
+  Call         r2, m2m, r1
+  Const        r3, 360.0
+  MulFloat     r4, r2, r3
+  Const        r5, 6400.0
+  DivFloat     r6, r4, r5
+  Return       r6
+
+  // fun m2g(m: float): float { return m2m(m) * 400.0 / 6400.0 }
+func m2g (regs=7)
+  // fun m2g(m: float): float { return m2m(m) * 400.0 / 6400.0 }
+  Move         r1, r0
+  Call         r2, m2m, r1
+  Const        r3, 400.0
+  MulFloat     r4, r2, r3
+  Const        r5, 6400.0
+  DivFloat     r6, r4, r5
+  Return       r6
+
+  // fun m2r(m: float): float { return m2m(m) * 3.141592653589793 / 3200.0 }
+func m2r (regs=7)
+  // fun m2r(m: float): float { return m2m(m) * 3.141592653589793 / 3200.0 }
+  Move         r1, r0
+  Call         r2, m2m, r1
+  Const        r3, 3.141592653589793
+  MulFloat     r4, r2, r3
+  Const        r5, 3200.0
+  DivFloat     r6, r4, r5
+  Return       r6
+
+  // fun r2d(r: float): float { return r2r(r) * 180.0 / 3.141592653589793 }
+func r2d (regs=7)
+  // fun r2d(r: float): float { return r2r(r) * 180.0 / 3.141592653589793 }
+  Move         r1, r0
+  Call         r2, r2r, r1
+  Const        r3, 180.0
+  MulFloat     r4, r2, r3
+  Const        r5, 3.141592653589793
+  DivFloat     r6, r4, r5
+  Return       r6
+
+  // fun r2g(r: float): float { return r2r(r) * 200.0 / 3.141592653589793 }
+func r2g (regs=7)
+  // fun r2g(r: float): float { return r2r(r) * 200.0 / 3.141592653589793 }
+  Move         r1, r0
+  Call         r2, r2r, r1
+  Const        r3, 200.0
+  MulFloat     r4, r2, r3
+  Const        r5, 3.141592653589793
+  DivFloat     r6, r4, r5
+  Return       r6
+
+  // fun r2m(r: float): float { return r2r(r) * 3200.0 / 3.141592653589793 }
+func r2m (regs=7)
+  // fun r2m(r: float): float { return r2r(r) * 3200.0 / 3.141592653589793 }
+  Move         r1, r0
+  Call         r2, r2r, r1
+  Const        r3, 3200.0
+  MulFloat     r4, r2, r3
+  Const        r5, 3.141592653589793
+  DivFloat     r6, r4, r5
+  Return       r6
+
+  // fun main() {
+func main (regs=120)
+  // let angles = [-2.0, -1.0, 0.0, 1.0, 2.0, 6.2831853, 16.0, 57.2957795, 359.0, 399.0, 6399.0, 1000000.0]
+  Const        r0, [-2.0, -1.0, 0.0, 1.0, 2.0, 6.2831853, 16.0, 57.2957795, 359.0, 399.0, 6399.0, 1000000.0]
+  Move         r1, r0
+  // print("degrees normalized_degs gradians mils radians")
+  Const        r2, "degrees normalized_degs gradians mils radians"
+  Print        r2
+  // for a in angles {
+  IterPrep     r3, r1
+  Len          r4, r3
+  Const        r5, 0
+L1:
+  LessInt      r6, r5, r4
+  JumpIfFalse  r6, L0
+  Index        r7, r3, r5
+  Move         r8, r7
+  // print(str(a) + " " + str(d2d(a)) + " " + str(d2g(a)) + " " + str(d2m(a)) + " " + str(d2r(a)))
+  Str          r9, r8
+  Const        r10, " "
+  Add          r11, r9, r10
+  Move         r12, r8
+  Call         r13, d2d, r12
+  Str          r14, r13
+  Add          r15, r11, r14
+  Const        r10, " "
+  Add          r16, r15, r10
+  Move         r17, r8
+  Call         r18, d2g, r17
+  Str          r19, r18
+  Add          r20, r16, r19
+  Const        r10, " "
+  Add          r21, r20, r10
+  Move         r22, r8
+  Call         r23, d2m, r22
+  Str          r24, r23
+  Add          r25, r21, r24
+  Const        r10, " "
+  Add          r26, r25, r10
+  Move         r27, r8
+  Call         r28, d2r, r27
+  Str          r29, r28
+  Add          r30, r26, r29
+  Print        r30
+  // for a in angles {
+  Const        r31, 1
+  AddInt       r32, r5, r31
+  Move         r5, r32
+  Jump         L1
+L0:
+  // print("\ngradians normalized_grds degrees mils radians")
+  Const        r33, "\ngradians normalized_grds degrees mils radians"
+  Print        r33
+  // for a in angles {
+  IterPrep     r34, r1
+  Len          r35, r34
+  Const        r36, 0
+L3:
+  LessInt      r37, r36, r35
+  JumpIfFalse  r37, L2
+  Index        r38, r34, r36
+  Move         r8, r38
+  // print(str(a) + " " + str(g2g(a)) + " " + str(g2d(a)) + " " + str(g2m(a)) + " " + str(g2r(a)))
+  Str          r39, r8
+  Const        r10, " "
+  Add          r40, r39, r10
+  Move         r41, r8
+  Call         r42, g2g, r41
+  Str          r43, r42
+  Add          r44, r40, r43
+  Const        r10, " "
+  Add          r45, r44, r10
+  Move         r46, r8
+  Call         r47, g2d, r46
+  Str          r48, r47
+  Add          r49, r45, r48
+  Const        r10, " "
+  Add          r50, r49, r10
+  Move         r51, r8
+  Call         r52, g2m, r51
+  Str          r53, r52
+  Add          r54, r50, r53
+  Const        r10, " "
+  Add          r55, r54, r10
+  Move         r56, r8
+  Call         r57, g2r, r56
+  Str          r58, r57
+  Add          r59, r55, r58
+  Print        r59
+  // for a in angles {
+  Const        r60, 1
+  AddInt       r61, r36, r60
+  Move         r36, r61
+  Jump         L3
+L2:
+  // print("\nmils normalized_mils degrees gradians radians")
+  Const        r62, "\nmils normalized_mils degrees gradians radians"
+  Print        r62
+  // for a in angles {
+  IterPrep     r63, r1
+  Len          r64, r63
+  Const        r65, 0
+L5:
+  LessInt      r66, r65, r64
+  JumpIfFalse  r66, L4
+  Index        r67, r63, r65
+  Move         r8, r67
+  // print(str(a) + " " + str(m2m(a)) + " " + str(m2d(a)) + " " + str(m2g(a)) + " " + str(m2r(a)))
+  Str          r68, r8
+  Const        r10, " "
+  Add          r69, r68, r10
+  Move         r70, r8
+  Call         r71, m2m, r70
+  Str          r72, r71
+  Add          r73, r69, r72
+  Const        r10, " "
+  Add          r74, r73, r10
+  Move         r75, r8
+  Call         r76, m2d, r75
+  Str          r77, r76
+  Add          r78, r74, r77
+  Const        r10, " "
+  Add          r79, r78, r10
+  Move         r80, r8
+  Call         r81, m2g, r80
+  Str          r82, r81
+  Add          r83, r79, r82
+  Const        r10, " "
+  Add          r84, r83, r10
+  Move         r85, r8
+  Call         r86, m2r, r85
+  Str          r87, r86
+  Add          r88, r84, r87
+  Print        r88
+  // for a in angles {
+  Const        r89, 1
+  AddInt       r90, r65, r89
+  Move         r65, r90
+  Jump         L5
+L4:
+  // print("\nradians normalized_rads degrees gradians mils")
+  Const        r91, "\nradians normalized_rads degrees gradians mils"
+  Print        r91
+  // for a in angles {
+  IterPrep     r92, r1
+  Len          r93, r92
+  Const        r94, 0
+L7:
+  LessInt      r95, r94, r93
+  JumpIfFalse  r95, L6
+  Index        r96, r92, r94
+  Move         r8, r96
+  // print(str(a) + " " + str(r2r(a)) + " " + str(r2d(a)) + " " + str(r2g(a)) + " " + str(r2m(a)))
+  Str          r97, r8
+  Const        r10, " "
+  Add          r98, r97, r10
+  Move         r99, r8
+  Call         r100, r2r, r99
+  Str          r101, r100
+  Add          r102, r98, r101
+  Const        r10, " "
+  Add          r103, r102, r10
+  Move         r104, r8
+  Call         r105, r2d, r104
+  Str          r106, r105
+  Add          r107, r103, r106
+  Const        r10, " "
+  Add          r108, r107, r10
+  Move         r109, r8
+  Call         r110, r2g, r109
+  Str          r111, r110
+  Add          r112, r108, r111
+  Const        r10, " "
+  Add          r113, r112, r10
+  Move         r114, r8
+  Call         r115, r2m, r114
+  Str          r116, r115
+  Add          r117, r113, r116
+  Print        r117
+  // for a in angles {
+  Const        r118, 1
+  AddInt       r119, r94, r118
+  Move         r94, r119
+  Jump         L7
+L6:
+  Return       r0

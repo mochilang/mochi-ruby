@@ -1,0 +1,5 @@
+zig build: exit status 1
+/tmp/arithmetic-numbers.zig:80:9: error: local variable is never mutated
+/tmp/arithmetic-numbers.zig:80:9: note: consider using 'const'
+/tmp/arithmetic-numbers.zig:99:13: error: local variable is never mutated
+/tmp/arithmetic-numbers.zig:99:13: note: consider using 'const'

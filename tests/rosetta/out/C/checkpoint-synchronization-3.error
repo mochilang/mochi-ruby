@@ -1,0 +1,12 @@
+cc: exit status 1
+/tmp/checkpoint-synchronization-3.c: In function ‘_mochi_main’:
+/tmp/checkpoint-synchronization-3.c:88:27: error: invalid operands to binary + (have ‘char *’ and ‘char *’)
+   88 |       printf("%s\n", tmp7 + lower(p));
+      |                           ^ ~~~~~~~~
+      |                             |
+      |                             char *
+/tmp/checkpoint-synchronization-3.c:89:13: error: invalid operands to binary + (have ‘char *’ and ‘char *’)
+   89 |       a = a + lower(p);
+      |             ^ ~~~~~~~~
+      |               |
+      |               char *

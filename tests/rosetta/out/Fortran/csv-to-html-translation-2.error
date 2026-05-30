@@ -1,0 +1,54 @@
+gfortran: exit status 1
+/tmp/csv-to-html-translation-2.f90:23:21:
+
+   23 |     line = split(c,''//char(10)//'')(i0)
+      |                     1
+Error: Invalid character in name at (1)
+/tmp/csv-to-html-translation-2.f90:27:25:
+
+   27 |     app1(size(rows)+1) = split(line,',')
+      |                         1
+Error: Function ‘split’ at (1) has no IMPLICIT type
+/tmp/csv-to-html-translation-2.f90:22:18:
+
+   22 |   do i0 = 1, size(split(c,''//char(10)//''))
+      |                  1
+Error: Function ‘split’ at (1) has no IMPLICIT type
+/tmp/csv-to-html-translation-2.f90:37:18:
+
+   37 |         th = trim(trim(th // '<th>') // h) // '</th>'
+      |                  1
+Error: Operands of string concatenation operator at (1) are CHARACTER(*)/INTEGER(4)
+/tmp/csv-to-html-translation-2.f90:35:22:
+
+   35 |       do i2 = 1, size(rows(((0)+1)))
+      |                      1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/csv-to-html-translation-2.f90:48:23:
+
+   48 |           cells = trim(trim(cells // '<td>') // cell) // '</td>'
+      |                       1
+Error: Operands of string concatenation operator at (1) are CHARACTER(*)/INTEGER(4)
+/tmp/csv-to-html-translation-2.f90:46:24:
+
+   46 |         do i3 = 1, size(rows(((i)+1)))
+      |                        1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/csv-to-html-translation-2.f90:61:21:
+
+   61 |         cells = trim(trim(cells // '<td>') // cell) // '</td>'
+      |                     1
+Error: Operands of string concatenation operator at (1) are CHARACTER(*)/INTEGER(4)
+/tmp/csv-to-html-translation-2.f90:59:22:
+
+   59 |       do i5 = 1, size(row)
+      |                      1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/csv-to-html-translation-2.f90:27:31:
+
+   22 |   do i0 = 1, size(split(c,''//char(10)//''))
+      |                        2       
+......
+   27 |     app1(size(rows)+1) = split(line,',')
+      |                               1
+Error: Type mismatch between actual argument at (1) and actual argument at (2) (INTEGER(4)/CHARACTER(*)).

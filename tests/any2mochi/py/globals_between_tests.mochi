@@ -1,0 +1,15 @@
+let a = 1
+let b = 2
+fun test_first() {
+  let assert a = = 1
+}
+fun test_second() {
+  let assert b = = 2
+}
+fun main() {
+  let a = 1
+  let b = 2
+  print("done")
+  test_first()
+  test_second()
+}

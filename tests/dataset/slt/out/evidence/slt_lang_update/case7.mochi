@@ -1,0 +1,35 @@
+/*
+# line: 113
+# EVIDENCE-OF: R-40472-60438 Columns that do not appear in the list of
+# assignments are left unmodified.
+*/
+
+type t1Row {
+  x: int
+  y: string
+}
+
+let t1 = [
+  t1Row {
+    x: 5,
+    y: "unknown",
+  },
+  t1Row {
+    x: 5,
+    y: "false" + "",
+  },
+  t1Row {
+    x: 5,
+    y: "NULL",
+  },
+]
+
+/* SELECT count(*) FROM t1 WHERE y='unknown' */
+let result = count(from row in t1
+  where row.y == "unknown"
+  select row)
+print(result)
+
+test "case7" {
+  expect result == 1
+}

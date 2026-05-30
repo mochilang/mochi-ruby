@@ -1,0 +1,11 @@
+model quick {
+  provider: "echo"
+  name: "test"
+}
+
+let topic = "spring"
+let poem = generate text {
+  model: "quick",
+  prompt: "Write a haiku about " + topic
+}
+print(poem)

@@ -1,0 +1,16 @@
+(ns main)
+
+(defn _indexString [s i]
+  (let [r (vec (seq s))
+        i (if (neg? i) (+ i (count r)) i)]
+    (if (or (< i 0) (>= i (count r)))
+      (throw (ex-info "index out of range" {}))
+      (str (nth r i)))))
+
+(declare text)
+
+(defn -main []
+  (def text "hello")
+  (println (_indexString text 1)))
+
+(-main)

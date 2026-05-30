@@ -1,0 +1,48 @@
+cc: exit status 1
+/tmp/case-sensitivity-of-identifiers.c: In function ‘packageSees’:
+/tmp/case-sensitivity-of-identifiers.c:48:10: error: incompatible types when returning type ‘tmp_item_t’ but ‘int’ was expected
+   48 |   return (tmp_item_t){.pkg_dog = 1, .dog = 1, .pkg__d_o_g = 1};
+      |          ^
+/tmp/case-sensitivity-of-identifiers.c: In function ‘mochi_main’:
+/tmp/case-sensitivity-of-identifiers.c:56:22: error: request for member ‘len’ in something not a structure or union
+   56 |   char *tmp6 = _str(d.len);
+      |                      ^
+/tmp/case-sensitivity-of-identifiers.c:68:4: error: request for member ‘data’ in something not a structure or union
+   68 |   d.data["dog"] = 1;
+      |    ^
+/tmp/case-sensitivity-of-identifiers.c:69:4: error: request for member ‘data’ in something not a structure or union
+   69 |   d.data["Dog"] = 1;
+      |    ^
+/tmp/case-sensitivity-of-identifiers.c:70:4: error: request for member ‘data’ in something not a structure or union
+   70 |   d.data["pkg_DOG"] = 1;
+      |    ^
+/tmp/case-sensitivity-of-identifiers.c:71:23: error: request for member ‘len’ in something not a structure or union
+   71 |   char *tmp14 = _str(d.len);
+      |                       ^
+/tmp/case-sensitivity-of-identifiers.c:83:4: error: request for member ‘data’ in something not a structure or union
+   83 |   d.data["dog"] = 1;
+      |    ^
+/tmp/case-sensitivity-of-identifiers.c:84:4: error: request for member ‘data’ in something not a structure or union
+   84 |   d.data["Dog"] = 1;
+      |    ^
+/tmp/case-sensitivity-of-identifiers.c:85:4: error: request for member ‘data’ in something not a structure or union
+   85 |   d.data["pkg_DOG"] = 1;
+      |    ^
+/tmp/case-sensitivity-of-identifiers.c:86:23: error: request for member ‘len’ in something not a structure or union
+   86 |   char *tmp22 = _str(d.len);
+      |                       ^
+/tmp/case-sensitivity-of-identifiers.c:98:4: error: request for member ‘data’ in something not a structure or union
+   98 |   d.data["dog"] = 1;
+      |    ^
+/tmp/case-sensitivity-of-identifiers.c:99:4: error: request for member ‘data’ in something not a structure or union
+   99 |   d.data["Dog"] = 1;
+      |    ^
+/tmp/case-sensitivity-of-identifiers.c:100:4: error: request for member ‘data’ in something not a structure or union
+  100 |   d.data["pkg_DOG"] = 1;
+      |    ^
+/tmp/case-sensitivity-of-identifiers.c:101:4: error: request for member ‘data’ in something not a structure or union
+  101 |   d.data["DOG"] = 1;
+      |    ^
+/tmp/case-sensitivity-of-identifiers.c:102:23: error: request for member ‘len’ in something not a structure or union
+  102 |   char *tmp30 = _str(d.len);
+      |                       ^

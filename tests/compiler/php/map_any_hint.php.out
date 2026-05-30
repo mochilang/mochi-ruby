@@ -1,0 +1,20 @@
+<?php
+function mochi_Leaf() {
+	return ["__name" => "Leaf"];
+}
+
+function mochi_Node($left, $value, $right) {
+	return ["__name" => "Node", "left" => $left, "value" => $value, "right" => $right];
+}
+
+$tree = mochi_Node(mochi_Leaf(), 1, mochi_Leaf());
+_print(($tree["left"])["__name"]);
+
+function _print(...$args) {
+    $parts = [];
+    foreach ($args as $a) {
+        if (is_null($a)) { $parts[] = '<nil>'; }
+        elseif (is_array($a) || is_object($a)) { $parts[] = json_encode($a); } else { $parts[] = strval($a); }
+    }
+    echo implode(' ', $parts), PHP_EOL;
+}

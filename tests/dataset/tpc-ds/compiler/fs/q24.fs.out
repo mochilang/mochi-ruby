@@ -1,0 +1,147 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    ss_ticket_number: int
+    ss_item_sk: int
+    ss_customer_sk: int
+    ss_store_sk: int
+    ss_net_paid: float
+}
+type Anon2 = {
+    sr_ticket_number: int
+    sr_item_sk: int
+}
+type Anon3 = {
+    s_store_sk: int
+    s_store_name: string
+    s_market_id: int
+    s_state: string
+    s_zip: string
+}
+type Anon4 = {
+    i_item_sk: int
+    i_color: string
+    i_current_price: float
+    i_manager_id: int
+    i_units: string
+    i_size: string
+}
+type Anon5 = {
+    c_customer_sk: int
+    c_first_name: string
+    c_last_name: string
+    c_current_addr_sk: int
+    c_birth_country: string
+}
+type Anon6 = {
+    ca_address_sk: int
+    ca_state: string
+    ca_country: string
+    ca_zip: string
+}
+type Anon7 = {
+    c_last_name: obj
+    c_first_name: obj
+    s_store_name: obj
+    color: obj
+    netpaid: obj
+}
+type Anon8 = {
+    last: string
+    first: string
+    store_name: string
+    color: string
+}
+type Anon9 = {
+    c_last_name: obj
+    c_first_name: obj
+    s_store_name: obj
+    paid: obj
+}
+type Anon10 = {
+    c_last_name: string
+    c_first_name: string
+    s_store_name: string
+    paid: float
+}
+type _Group<'K,'T>(key: 'K) =
+    member val key = key with get, set
+    member val Items = System.Collections.Generic.List<'T>() with get
+    member this.size = this.Items.Count
+    interface System.Collections.Generic.IEnumerable<'T> with
+        member this.GetEnumerator() = (this.Items :> seq<'T>).GetEnumerator()
+    interface System.Collections.IEnumerable with
+        member this.GetEnumerator() = (this.Items :> System.Collections.IEnumerable).GetEnumerator()
+
+let _group_by (src: 'T list) (keyfn: 'T -> 'K) : _Group<'K,'T> list =
+    let groups = System.Collections.Generic.Dictionary<string,_Group<'K,'T>>()
+    let order = System.Collections.Generic.List<string>()
+    for it in src do
+        let key = keyfn it
+        let ks = string key
+        let mutable g = Unchecked.defaultof<_Group<'K,'T>>
+        if groups.TryGetValue(ks, &g) then ()
+        else
+            g <- _Group<'K,'T>(key)
+            groups.Add(ks, g)
+            order.Add(ks)
+        g.Items.Add(it)
+    [ for ks in order -> groups[ks] ]
+
+type StoreSale = {
+    mutable ss_ticket_number: int
+    mutable ss_item_sk: int
+    mutable ss_customer_sk: int
+    mutable ss_store_sk: int
+    mutable ss_net_paid: float
+}
+type StoreReturn = {
+    mutable sr_ticket_number: int
+    mutable sr_item_sk: int
+}
+type Store = {
+    mutable s_store_sk: int
+    mutable s_store_name: string
+    mutable s_market_id: int
+    mutable s_state: string
+    mutable s_zip: string
+}
+type Item = {
+    mutable i_item_sk: int
+    mutable i_color: string
+    mutable i_current_price: float
+    mutable i_manager_id: int
+    mutable i_units: string
+    mutable i_size: string
+}
+type Customer = {
+    mutable c_customer_sk: int
+    mutable c_first_name: string
+    mutable c_last_name: string
+    mutable c_current_addr_sk: int
+    mutable c_birth_country: string
+}
+type CustomerAddress = {
+    mutable ca_address_sk: int
+    mutable ca_state: string
+    mutable ca_country: string
+    mutable ca_zip: string
+}
+let store_sales: Anon1 list = [{ ss_ticket_number = 1; ss_item_sk = 1; ss_customer_sk = 1; ss_store_sk = 1; ss_net_paid = 100.0 }; { ss_ticket_number = 2; ss_item_sk = 2; ss_customer_sk = 2; ss_store_sk = 1; ss_net_paid = 50.0 }]
+let store_returns: Anon2 list = [{ sr_ticket_number = 1; sr_item_sk = 1 }; { sr_ticket_number = 2; sr_item_sk = 2 }]
+let store: Anon3 list = [{ s_store_sk = 1; s_store_name = "Store1"; s_market_id = 5; s_state = "CA"; s_zip = "12345" }]
+let item: Anon4 list = [{ i_item_sk = 1; i_color = "RED"; i_current_price = 10.0; i_manager_id = 1; i_units = "EA"; i_size = "M" }; { i_item_sk = 2; i_color = "BLUE"; i_current_price = 20.0; i_manager_id = 2; i_units = "EA"; i_size = "L" }]
+let customer: Anon5 list = [{ c_customer_sk = 1; c_first_name = "Ann"; c_last_name = "Smith"; c_current_addr_sk = 1; c_birth_country = "Canada" }; { c_customer_sk = 2; c_first_name = "Bob"; c_last_name = "Jones"; c_current_addr_sk = 2; c_birth_country = "USA" }]
+let customer_address: Anon6 list = [{ ca_address_sk = 1; ca_state = "CA"; ca_country = "USA"; ca_zip = "12345" }; { ca_address_sk = 2; ca_state = "CA"; ca_country = "USA"; ca_zip = "54321" }]
+let ssales: Anon7 list = [ for g in _group_by [ for ss in store_sales do 
+  for sr in store_returns do 
+  for s in store do 
+  for i in item do 
+  for c in customer do 
+  for ca in customer_address do if ss.ss_ticket_number = sr.sr_ticket_number && ss.ss_item_sk = sr.sr_item_sk && ss.ss_store_sk = s.s_store_sk && ss.ss_item_sk = i.i_item_sk && ss.ss_customer_sk = c.c_customer_sk && c.c_current_addr_sk = ca.ca_address_sk && c.c_birth_country <> strings.ToUpper(ca.ca_country) && s.s_zip = ca.ca_zip && s.s_market_id = 5 then yield (ss, sr, s, i, c, ca) ] (fun (ss, sr, s, i, c, ca) -> { last = c.c_last_name; first = c.c_first_name; store_name = s.s_store_name; color = i.i_color }) do
+    yield { c_last_name = g.key.last; c_first_name = g.key.first; s_store_name = g.key.store_name; color = g.key.color; netpaid = List.sum [ for x in g do yield x.ss_net_paid ] } ]
+let avg_paid: obj = (float (List.sum [ for x in ssales do yield x.netpaid ]) / float (List.length [ for x in ssales do yield x.netpaid ]))
+let result: Anon9 list = [ for x in ssales do if x.color = "RED" && x.netpaid > 0.05 * avg_paid then yield ([x.c_last_name; x.c_first_name; x.s_store_name], { c_last_name = x.c_last_name; c_first_name = x.c_first_name; s_store_name = x.s_store_name; paid = x.netpaid }) ] |> List.sortBy fst |> List.map snd
+printfn "%A" (JsonSerializer.Serialize(result))
+assert (result = [{ c_last_name = "Smith"; c_first_name = "Ann"; s_store_name = "Store1"; paid = 100.0 }])

@@ -1,0 +1,26 @@
+cc: exit status 1
+/tmp/balanced-ternary.c: In function ‘btString’:
+/tmp/balanced-ternary.c:134:37: error: incompatible types when initializing type ‘int’ using type ‘list_int’
+  134 |           return (tmp_item_t){.bt = tmp7, .ok = 0};
+      |                                     ^~~~
+/tmp/balanced-ternary.c:140:10: error: incompatible types when returning type ‘tmp_item1_t’ but ‘int’ was expected
+  140 |   return (tmp_item1_t){.bt = b, .ok = 1};
+      |          ^
+/tmp/balanced-ternary.c: In function ‘btInt’:
+/tmp/balanced-ternary.c:187:9: error: incompatible types when assigning to type ‘list_int’ from type ‘int’
+  187 |     b = 0;
+      |         ^
+/tmp/balanced-ternary.c: In function ‘mochi_main’:
+/tmp/balanced-ternary.c:249:23: error: request for member ‘data’ in something not a structure or union
+  249 |   __auto_type a = ares.data["bt"];
+      |                       ^
+/tmp/balanced-ternary.c:252:23: error: request for member ‘data’ in something not a structure or union
+  252 |   __auto_type c = cres.data["bt"];
+      |                       ^
+/tmp/balanced-ternary.c:253:14: error: ‘a’ undeclared (first use in this function)
+  253 |   show("a:", a);
+      |              ^
+/tmp/balanced-ternary.c:253:14: note: each undeclared identifier is reported only once for each function it appears in
+/tmp/balanced-ternary.c:255:14: error: ‘c’ undeclared (first use in this function)
+  255 |   show("c:", c);
+      |              ^

@@ -1,0 +1,4 @@
+run: exit status 254
+/tmp/apply-a-callback-to-an-array-2.dart:24:48: Error: A value of type 'String' can't be assigned to a variable of type 'num'.
+  each(s, (i) => print((i as num) * (i as num).toString()));
+                                               ^

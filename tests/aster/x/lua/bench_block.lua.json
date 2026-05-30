@@ -1,0 +1,3625 @@
+{
+  "root": {
+    "kind": "chunk",
+    "children": [
+      {
+        "kind": "function_declaration",
+        "children": [
+          {
+            "kind": "identifier",
+            "text": "input"
+          },
+          {
+            "kind": "block",
+            "children": [
+              {
+                "kind": "return_statement",
+                "children": [
+                  {
+                    "kind": "expression_list",
+                    "children": [
+                      {
+                        "kind": "function_call",
+                        "children": [
+                          {
+                            "kind": "dot_index_expression",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "io"
+                              },
+                              {
+                                "kind": "identifier",
+                                "text": "read"
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "arguments",
+                            "children": [
+                              {
+                                "kind": "string",
+                                "text": "'*l'"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "variable_declaration",
+        "children": [
+          {
+            "kind": "assignment_statement",
+            "children": [
+              {
+                "kind": "variable_list",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "text": "_nil"
+                  }
+                ]
+              },
+              {
+                "kind": "expression_list",
+                "children": [
+                  {
+                    "kind": "table_constructor",
+                    "text": "{}"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "variable_declaration",
+        "children": [
+          {
+            "kind": "assignment_statement",
+            "children": [
+              {
+                "kind": "variable_list",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "text": "_now_seed"
+                  }
+                ]
+              },
+              {
+                "kind": "expression_list",
+                "children": [
+                  {
+                    "kind": "number",
+                    "text": "0"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "variable_declaration",
+        "children": [
+          {
+            "kind": "assignment_statement",
+            "children": [
+              {
+                "kind": "variable_list",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "text": "_now_seeded"
+                  }
+                ]
+              },
+              {
+                "kind": "expression_list",
+                "children": [
+                  {
+                    "kind": "false",
+                    "text": "false"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "do_statement",
+        "children": [
+          {
+            "kind": "block",
+            "children": [
+              {
+                "kind": "variable_declaration",
+                "children": [
+                  {
+                    "kind": "assignment_statement",
+                    "children": [
+                      {
+                        "kind": "variable_list",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "s"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "expression_list",
+                        "children": [
+                          {
+                            "kind": "function_call",
+                            "children": [
+                              {
+                                "kind": "dot_index_expression",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "os"
+                                  },
+                                  {
+                                    "kind": "identifier",
+                                    "text": "getenv"
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "arguments",
+                                "children": [
+                                  {
+                                    "kind": "string",
+                                    "text": "\"MOCHI_NOW_SEED\""
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "if_statement",
+                "children": [
+                  {
+                    "kind": "binary_expression",
+                    "text": "and",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "s"
+                      },
+                      {
+                        "kind": "binary_expression",
+                        "text": "~=",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "s"
+                          },
+                          {
+                            "kind": "string",
+                            "text": "\"\""
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "block",
+                    "children": [
+                      {
+                        "kind": "variable_declaration",
+                        "children": [
+                          {
+                            "kind": "assignment_statement",
+                            "children": [
+                              {
+                                "kind": "variable_list",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "v"
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "expression_list",
+                                "children": [
+                                  {
+                                    "kind": "function_call",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "text": "tonumber"
+                                      },
+                                      {
+                                        "kind": "arguments",
+                                        "children": [
+                                          {
+                                            "kind": "identifier",
+                                            "text": "s"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "if_statement",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "v"
+                          },
+                          {
+                            "kind": "block",
+                            "children": [
+                              {
+                                "kind": "assignment_statement",
+                                "children": [
+                                  {
+                                    "kind": "variable_list",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "text": "_now_seed"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "kind": "expression_list",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "text": "v"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "assignment_statement",
+                                "children": [
+                                  {
+                                    "kind": "variable_list",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "text": "_now_seeded"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "kind": "expression_list",
+                                    "children": [
+                                      {
+                                        "kind": "true",
+                                        "text": "true"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "function_declaration",
+        "children": [
+          {
+            "kind": "identifier",
+            "text": "_now"
+          },
+          {
+            "kind": "block",
+            "children": [
+              {
+                "kind": "if_statement",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "text": "_now_seeded"
+                  },
+                  {
+                    "kind": "block",
+                    "children": [
+                      {
+                        "kind": "assignment_statement",
+                        "children": [
+                          {
+                            "kind": "variable_list",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "_now_seed"
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "expression_list",
+                            "children": [
+                              {
+                                "kind": "binary_expression",
+                                "text": "%",
+                                "children": [
+                                  {
+                                    "kind": "parenthesized_expression",
+                                    "children": [
+                                      {
+                                        "kind": "binary_expression",
+                                        "text": "+",
+                                        "children": [
+                                          {
+                                            "kind": "binary_expression",
+                                            "text": "*",
+                                            "children": [
+                                              {
+                                                "kind": "identifier",
+                                                "text": "_now_seed"
+                                              },
+                                              {
+                                                "kind": "number",
+                                                "text": "1664525"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "kind": "number",
+                                            "text": "1013904223"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "kind": "number",
+                                    "text": "2147483647"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "return_statement",
+                        "children": [
+                          {
+                            "kind": "expression_list",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "_now_seed"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "return_statement",
+                "children": [
+                  {
+                    "kind": "expression_list",
+                    "children": [
+                      {
+                        "kind": "binary_expression",
+                        "text": "+",
+                        "children": [
+                          {
+                            "kind": "binary_expression",
+                            "text": "*",
+                            "children": [
+                              {
+                                "kind": "function_call",
+                                "children": [
+                                  {
+                                    "kind": "dot_index_expression",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "text": "os"
+                                      },
+                                      {
+                                        "kind": "identifier",
+                                        "text": "time"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "number",
+                                "text": "1000000000"
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "function_call",
+                            "children": [
+                              {
+                                "kind": "dot_index_expression",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "math"
+                                  },
+                                  {
+                                    "kind": "identifier",
+                                    "text": "floor"
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "arguments",
+                                "children": [
+                                  {
+                                    "kind": "binary_expression",
+                                    "text": "*",
+                                    "children": [
+                                      {
+                                        "kind": "function_call",
+                                        "children": [
+                                          {
+                                            "kind": "dot_index_expression",
+                                            "children": [
+                                              {
+                                                "kind": "identifier",
+                                                "text": "os"
+                                              },
+                                              {
+                                                "kind": "identifier",
+                                                "text": "clock"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "kind": "number",
+                                        "text": "1000000000"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "function_declaration",
+        "children": [
+          {
+            "kind": "identifier",
+            "text": "_padStart"
+          },
+          {
+            "kind": "parameters",
+            "children": [
+              {
+                "kind": "identifier",
+                "text": "s"
+              },
+              {
+                "kind": "identifier",
+                "text": "len"
+              },
+              {
+                "kind": "identifier",
+                "text": "ch"
+              }
+            ]
+          },
+          {
+            "kind": "block",
+            "children": [
+              {
+                "kind": "if_statement",
+                "children": [
+                  {
+                    "kind": "binary_expression",
+                    "text": "or",
+                    "children": [
+                      {
+                        "kind": "binary_expression",
+                        "text": "==",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "ch"
+                          },
+                          {
+                            "kind": "nil",
+                            "text": "nil"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "binary_expression",
+                        "text": "==",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "ch"
+                          },
+                          {
+                            "kind": "string",
+                            "text": "''"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "block",
+                    "children": [
+                      {
+                        "kind": "assignment_statement",
+                        "children": [
+                          {
+                            "kind": "variable_list",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "ch"
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "expression_list",
+                            "children": [
+                              {
+                                "kind": "string",
+                                "text": "' '"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "if_statement",
+                "children": [
+                  {
+                    "kind": "binary_expression",
+                    "text": "\u003e=",
+                    "children": [
+                      {
+                        "kind": "unary_expression",
+                        "text": "#",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "s"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "identifier",
+                        "text": "len"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "block",
+                    "children": [
+                      {
+                        "kind": "return_statement",
+                        "children": [
+                          {
+                            "kind": "expression_list",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "s"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "variable_declaration",
+                "children": [
+                  {
+                    "kind": "assignment_statement",
+                    "children": [
+                      {
+                        "kind": "variable_list",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "fill"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "expression_list",
+                        "children": [
+                          {
+                            "kind": "function_call",
+                            "children": [
+                              {
+                                "kind": "dot_index_expression",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "string"
+                                  },
+                                  {
+                                    "kind": "identifier",
+                                    "text": "sub"
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "arguments",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "ch"
+                                  },
+                                  {
+                                    "kind": "number",
+                                    "text": "1"
+                                  },
+                                  {
+                                    "kind": "number",
+                                    "text": "1"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "return_statement",
+                "children": [
+                  {
+                    "kind": "expression_list",
+                    "children": [
+                      {
+                        "kind": "binary_expression",
+                        "text": "..",
+                        "children": [
+                          {
+                            "kind": "function_call",
+                            "children": [
+                              {
+                                "kind": "dot_index_expression",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "string"
+                                  },
+                                  {
+                                    "kind": "identifier",
+                                    "text": "rep"
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "arguments",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "fill"
+                                  },
+                                  {
+                                    "kind": "binary_expression",
+                                    "text": "-",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "text": "len"
+                                      },
+                                      {
+                                        "kind": "unary_expression",
+                                        "text": "#",
+                                        "children": [
+                                          {
+                                            "kind": "identifier",
+                                            "text": "s"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "identifier",
+                            "text": "s"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "function_declaration",
+        "children": [
+          {
+            "kind": "identifier",
+            "text": "_gcd"
+          },
+          {
+            "kind": "parameters",
+            "children": [
+              {
+                "kind": "identifier",
+                "text": "a"
+              },
+              {
+                "kind": "identifier",
+                "text": "b"
+              }
+            ]
+          },
+          {
+            "kind": "block",
+            "children": [
+              {
+                "kind": "assignment_statement",
+                "children": [
+                  {
+                    "kind": "variable_list",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "a"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "expression_list",
+                    "children": [
+                      {
+                        "kind": "function_call",
+                        "children": [
+                          {
+                            "kind": "dot_index_expression",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "math"
+                              },
+                              {
+                                "kind": "identifier",
+                                "text": "abs"
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "arguments",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "a"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "assignment_statement",
+                "children": [
+                  {
+                    "kind": "variable_list",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "b"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "expression_list",
+                    "children": [
+                      {
+                        "kind": "function_call",
+                        "children": [
+                          {
+                            "kind": "dot_index_expression",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "math"
+                              },
+                              {
+                                "kind": "identifier",
+                                "text": "abs"
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "arguments",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "b"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "while_statement",
+                "children": [
+                  {
+                    "kind": "binary_expression",
+                    "text": "~=",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "b"
+                      },
+                      {
+                        "kind": "number",
+                        "text": "0"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "block",
+                    "children": [
+                      {
+                        "kind": "assignment_statement",
+                        "children": [
+                          {
+                            "kind": "variable_list",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "a"
+                              },
+                              {
+                                "kind": "identifier",
+                                "text": "b"
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "expression_list",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "b"
+                              },
+                              {
+                                "kind": "binary_expression",
+                                "text": "%",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "a"
+                                  },
+                                  {
+                                    "kind": "identifier",
+                                    "text": "b"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "return_statement",
+                "children": [
+                  {
+                    "kind": "expression_list",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "a"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "function_declaration",
+        "children": [
+          {
+            "kind": "identifier",
+            "text": "_bigrat"
+          },
+          {
+            "kind": "parameters",
+            "children": [
+              {
+                "kind": "identifier",
+                "text": "n"
+              },
+              {
+                "kind": "identifier",
+                "text": "d"
+              }
+            ]
+          },
+          {
+            "kind": "block",
+            "children": [
+              {
+                "kind": "if_statement",
+                "children": [
+                  {
+                    "kind": "binary_expression",
+                    "text": "and",
+                    "children": [
+                      {
+                        "kind": "binary_expression",
+                        "text": "and",
+                        "children": [
+                          {
+                            "kind": "binary_expression",
+                            "text": "and",
+                            "children": [
+                              {
+                                "kind": "binary_expression",
+                                "text": "==",
+                                "children": [
+                                  {
+                                    "kind": "function_call",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "text": "type"
+                                      },
+                                      {
+                                        "kind": "arguments",
+                                        "children": [
+                                          {
+                                            "kind": "identifier",
+                                            "text": "n"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "kind": "string",
+                                    "text": "'table'"
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "binary_expression",
+                                "text": "~=",
+                                "children": [
+                                  {
+                                    "kind": "dot_index_expression",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "text": "n"
+                                      },
+                                      {
+                                        "kind": "identifier",
+                                        "text": "num"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "kind": "nil",
+                                    "text": "nil"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "binary_expression",
+                            "text": "~=",
+                            "children": [
+                              {
+                                "kind": "dot_index_expression",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "n"
+                                  },
+                                  {
+                                    "kind": "identifier",
+                                    "text": "den"
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "nil",
+                                "text": "nil"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "binary_expression",
+                        "text": "==",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "d"
+                          },
+                          {
+                            "kind": "nil",
+                            "text": "nil"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "block",
+                    "children": [
+                      {
+                        "kind": "return_statement",
+                        "children": [
+                          {
+                            "kind": "expression_list",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "n"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "if_statement",
+                "children": [
+                  {
+                    "kind": "binary_expression",
+                    "text": "==",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "d"
+                      },
+                      {
+                        "kind": "nil",
+                        "text": "nil"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "block",
+                    "children": [
+                      {
+                        "kind": "assignment_statement",
+                        "children": [
+                          {
+                            "kind": "variable_list",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "d"
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "expression_list",
+                            "children": [
+                              {
+                                "kind": "number",
+                                "text": "1"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "if_statement",
+                "children": [
+                  {
+                    "kind": "binary_expression",
+                    "text": "\u003c",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "d"
+                      },
+                      {
+                        "kind": "number",
+                        "text": "0"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "block",
+                    "children": [
+                      {
+                        "kind": "assignment_statement",
+                        "children": [
+                          {
+                            "kind": "variable_list",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "n"
+                              },
+                              {
+                                "kind": "identifier",
+                                "text": "d"
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "expression_list",
+                            "children": [
+                              {
+                                "kind": "unary_expression",
+                                "text": "-",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "n"
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "unary_expression",
+                                "text": "-",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "d"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "variable_declaration",
+                "children": [
+                  {
+                    "kind": "assignment_statement",
+                    "children": [
+                      {
+                        "kind": "variable_list",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "g"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "expression_list",
+                        "children": [
+                          {
+                            "kind": "function_call",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "_gcd"
+                              },
+                              {
+                                "kind": "arguments",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "n"
+                                  },
+                                  {
+                                    "kind": "identifier",
+                                    "text": "d"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "return_statement",
+                "children": [
+                  {
+                    "kind": "expression_list",
+                    "children": [
+                      {
+                        "kind": "table_constructor",
+                        "children": [
+                          {
+                            "kind": "field",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "num"
+                              },
+                              {
+                                "kind": "binary_expression",
+                                "text": "//",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "n"
+                                  },
+                                  {
+                                    "kind": "identifier",
+                                    "text": "g"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "field",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "den"
+                              },
+                              {
+                                "kind": "binary_expression",
+                                "text": "//",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "d"
+                                  },
+                                  {
+                                    "kind": "identifier",
+                                    "text": "g"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "function_declaration",
+        "children": [
+          {
+            "kind": "identifier",
+            "text": "_add"
+          },
+          {
+            "kind": "parameters",
+            "children": [
+              {
+                "kind": "identifier",
+                "text": "a"
+              },
+              {
+                "kind": "identifier",
+                "text": "b"
+              }
+            ]
+          },
+          {
+            "kind": "block",
+            "children": [
+              {
+                "kind": "return_statement",
+                "children": [
+                  {
+                    "kind": "expression_list",
+                    "children": [
+                      {
+                        "kind": "function_call",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "_bigrat"
+                          },
+                          {
+                            "kind": "arguments",
+                            "children": [
+                              {
+                                "kind": "binary_expression",
+                                "text": "+",
+                                "children": [
+                                  {
+                                    "kind": "binary_expression",
+                                    "text": "*",
+                                    "children": [
+                                      {
+                                        "kind": "dot_index_expression",
+                                        "children": [
+                                          {
+                                            "kind": "identifier",
+                                            "text": "a"
+                                          },
+                                          {
+                                            "kind": "identifier",
+                                            "text": "num"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "kind": "dot_index_expression",
+                                        "children": [
+                                          {
+                                            "kind": "identifier",
+                                            "text": "b"
+                                          },
+                                          {
+                                            "kind": "identifier",
+                                            "text": "den"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "kind": "binary_expression",
+                                    "text": "*",
+                                    "children": [
+                                      {
+                                        "kind": "dot_index_expression",
+                                        "children": [
+                                          {
+                                            "kind": "identifier",
+                                            "text": "b"
+                                          },
+                                          {
+                                            "kind": "identifier",
+                                            "text": "num"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "kind": "dot_index_expression",
+                                        "children": [
+                                          {
+                                            "kind": "identifier",
+                                            "text": "a"
+                                          },
+                                          {
+                                            "kind": "identifier",
+                                            "text": "den"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "binary_expression",
+                                "text": "*",
+                                "children": [
+                                  {
+                                    "kind": "dot_index_expression",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "text": "a"
+                                      },
+                                      {
+                                        "kind": "identifier",
+                                        "text": "den"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "kind": "dot_index_expression",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "text": "b"
+                                      },
+                                      {
+                                        "kind": "identifier",
+                                        "text": "den"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "function_declaration",
+        "children": [
+          {
+            "kind": "identifier",
+            "text": "_sub"
+          },
+          {
+            "kind": "parameters",
+            "children": [
+              {
+                "kind": "identifier",
+                "text": "a"
+              },
+              {
+                "kind": "identifier",
+                "text": "b"
+              }
+            ]
+          },
+          {
+            "kind": "block",
+            "children": [
+              {
+                "kind": "return_statement",
+                "children": [
+                  {
+                    "kind": "expression_list",
+                    "children": [
+                      {
+                        "kind": "function_call",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "_bigrat"
+                          },
+                          {
+                            "kind": "arguments",
+                            "children": [
+                              {
+                                "kind": "binary_expression",
+                                "text": "-",
+                                "children": [
+                                  {
+                                    "kind": "binary_expression",
+                                    "text": "*",
+                                    "children": [
+                                      {
+                                        "kind": "dot_index_expression",
+                                        "children": [
+                                          {
+                                            "kind": "identifier",
+                                            "text": "a"
+                                          },
+                                          {
+                                            "kind": "identifier",
+                                            "text": "num"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "kind": "dot_index_expression",
+                                        "children": [
+                                          {
+                                            "kind": "identifier",
+                                            "text": "b"
+                                          },
+                                          {
+                                            "kind": "identifier",
+                                            "text": "den"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "kind": "binary_expression",
+                                    "text": "*",
+                                    "children": [
+                                      {
+                                        "kind": "dot_index_expression",
+                                        "children": [
+                                          {
+                                            "kind": "identifier",
+                                            "text": "b"
+                                          },
+                                          {
+                                            "kind": "identifier",
+                                            "text": "num"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "kind": "dot_index_expression",
+                                        "children": [
+                                          {
+                                            "kind": "identifier",
+                                            "text": "a"
+                                          },
+                                          {
+                                            "kind": "identifier",
+                                            "text": "den"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "binary_expression",
+                                "text": "*",
+                                "children": [
+                                  {
+                                    "kind": "dot_index_expression",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "text": "a"
+                                      },
+                                      {
+                                        "kind": "identifier",
+                                        "text": "den"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "kind": "dot_index_expression",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "text": "b"
+                                      },
+                                      {
+                                        "kind": "identifier",
+                                        "text": "den"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "function_declaration",
+        "children": [
+          {
+            "kind": "identifier",
+            "text": "_mul"
+          },
+          {
+            "kind": "parameters",
+            "children": [
+              {
+                "kind": "identifier",
+                "text": "a"
+              },
+              {
+                "kind": "identifier",
+                "text": "b"
+              }
+            ]
+          },
+          {
+            "kind": "block",
+            "children": [
+              {
+                "kind": "return_statement",
+                "children": [
+                  {
+                    "kind": "expression_list",
+                    "children": [
+                      {
+                        "kind": "function_call",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "_bigrat"
+                          },
+                          {
+                            "kind": "arguments",
+                            "children": [
+                              {
+                                "kind": "binary_expression",
+                                "text": "*",
+                                "children": [
+                                  {
+                                    "kind": "dot_index_expression",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "text": "a"
+                                      },
+                                      {
+                                        "kind": "identifier",
+                                        "text": "num"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "kind": "dot_index_expression",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "text": "b"
+                                      },
+                                      {
+                                        "kind": "identifier",
+                                        "text": "num"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "binary_expression",
+                                "text": "*",
+                                "children": [
+                                  {
+                                    "kind": "dot_index_expression",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "text": "a"
+                                      },
+                                      {
+                                        "kind": "identifier",
+                                        "text": "den"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "kind": "dot_index_expression",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "text": "b"
+                                      },
+                                      {
+                                        "kind": "identifier",
+                                        "text": "den"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "function_declaration",
+        "children": [
+          {
+            "kind": "identifier",
+            "text": "_div"
+          },
+          {
+            "kind": "parameters",
+            "children": [
+              {
+                "kind": "identifier",
+                "text": "a"
+              },
+              {
+                "kind": "identifier",
+                "text": "b"
+              }
+            ]
+          },
+          {
+            "kind": "block",
+            "children": [
+              {
+                "kind": "return_statement",
+                "children": [
+                  {
+                    "kind": "expression_list",
+                    "children": [
+                      {
+                        "kind": "function_call",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "_bigrat"
+                          },
+                          {
+                            "kind": "arguments",
+                            "children": [
+                              {
+                                "kind": "binary_expression",
+                                "text": "*",
+                                "children": [
+                                  {
+                                    "kind": "dot_index_expression",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "text": "a"
+                                      },
+                                      {
+                                        "kind": "identifier",
+                                        "text": "num"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "kind": "dot_index_expression",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "text": "b"
+                                      },
+                                      {
+                                        "kind": "identifier",
+                                        "text": "den"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "binary_expression",
+                                "text": "*",
+                                "children": [
+                                  {
+                                    "kind": "dot_index_expression",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "text": "a"
+                                      },
+                                      {
+                                        "kind": "identifier",
+                                        "text": "den"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "kind": "dot_index_expression",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "text": "b"
+                                      },
+                                      {
+                                        "kind": "identifier",
+                                        "text": "num"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "function_declaration",
+        "children": [
+          {
+            "kind": "identifier",
+            "text": "num"
+          },
+          {
+            "kind": "parameters",
+            "children": [
+              {
+                "kind": "identifier",
+                "text": "x"
+              }
+            ]
+          },
+          {
+            "kind": "block",
+            "children": [
+              {
+                "kind": "if_statement",
+                "children": [
+                  {
+                    "kind": "binary_expression",
+                    "text": "and",
+                    "children": [
+                      {
+                        "kind": "binary_expression",
+                        "text": "==",
+                        "children": [
+                          {
+                            "kind": "function_call",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "type"
+                              },
+                              {
+                                "kind": "arguments",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "x"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "string",
+                            "text": "'table'"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "binary_expression",
+                        "text": "~=",
+                        "children": [
+                          {
+                            "kind": "dot_index_expression",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "x"
+                              },
+                              {
+                                "kind": "identifier",
+                                "text": "num"
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "nil",
+                            "text": "nil"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "block",
+                    "children": [
+                      {
+                        "kind": "return_statement",
+                        "children": [
+                          {
+                            "kind": "expression_list",
+                            "children": [
+                              {
+                                "kind": "dot_index_expression",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "x"
+                                  },
+                                  {
+                                    "kind": "identifier",
+                                    "text": "num"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "return_statement",
+                "children": [
+                  {
+                    "kind": "expression_list",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "x"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "function_declaration",
+        "children": [
+          {
+            "kind": "identifier",
+            "text": "denom"
+          },
+          {
+            "kind": "parameters",
+            "children": [
+              {
+                "kind": "identifier",
+                "text": "x"
+              }
+            ]
+          },
+          {
+            "kind": "block",
+            "children": [
+              {
+                "kind": "if_statement",
+                "children": [
+                  {
+                    "kind": "binary_expression",
+                    "text": "and",
+                    "children": [
+                      {
+                        "kind": "binary_expression",
+                        "text": "==",
+                        "children": [
+                          {
+                            "kind": "function_call",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "type"
+                              },
+                              {
+                                "kind": "arguments",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "x"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "string",
+                            "text": "'table'"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "binary_expression",
+                        "text": "~=",
+                        "children": [
+                          {
+                            "kind": "dot_index_expression",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "x"
+                              },
+                              {
+                                "kind": "identifier",
+                                "text": "den"
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "nil",
+                            "text": "nil"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "block",
+                    "children": [
+                      {
+                        "kind": "return_statement",
+                        "children": [
+                          {
+                            "kind": "expression_list",
+                            "children": [
+                              {
+                                "kind": "dot_index_expression",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "x"
+                                  },
+                                  {
+                                    "kind": "identifier",
+                                    "text": "den"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "return_statement",
+                "children": [
+                  {
+                    "kind": "expression_list",
+                    "children": [
+                      {
+                        "kind": "number",
+                        "text": "1"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "function_declaration",
+        "children": [
+          {
+            "kind": "identifier",
+            "text": "_sha256"
+          },
+          {
+            "kind": "parameters",
+            "children": [
+              {
+                "kind": "identifier",
+                "text": "bs"
+              }
+            ]
+          },
+          {
+            "kind": "block",
+            "children": [
+              {
+                "kind": "variable_declaration",
+                "children": [
+                  {
+                    "kind": "assignment_statement",
+                    "children": [
+                      {
+                        "kind": "variable_list",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "tmp"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "expression_list",
+                        "children": [
+                          {
+                            "kind": "function_call",
+                            "children": [
+                              {
+                                "kind": "dot_index_expression",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "os"
+                                  },
+                                  {
+                                    "kind": "identifier",
+                                    "text": "tmpname"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "variable_declaration",
+                "children": [
+                  {
+                    "kind": "assignment_statement",
+                    "children": [
+                      {
+                        "kind": "variable_list",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "f"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "expression_list",
+                        "children": [
+                          {
+                            "kind": "function_call",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "assert"
+                              },
+                              {
+                                "kind": "arguments",
+                                "children": [
+                                  {
+                                    "kind": "function_call",
+                                    "children": [
+                                      {
+                                        "kind": "dot_index_expression",
+                                        "children": [
+                                          {
+                                            "kind": "identifier",
+                                            "text": "io"
+                                          },
+                                          {
+                                            "kind": "identifier",
+                                            "text": "open"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "kind": "arguments",
+                                        "children": [
+                                          {
+                                            "kind": "identifier",
+                                            "text": "tmp"
+                                          },
+                                          {
+                                            "kind": "string",
+                                            "text": "'wb'"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "for_statement",
+                "children": [
+                  {
+                    "kind": "for_numeric_clause",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "i"
+                      },
+                      {
+                        "kind": "number",
+                        "text": "1"
+                      },
+                      {
+                        "kind": "unary_expression",
+                        "text": "#",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "bs"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "block",
+                    "children": [
+                      {
+                        "kind": "function_call",
+                        "children": [
+                          {
+                            "kind": "method_index_expression",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "f"
+                              },
+                              {
+                                "kind": "identifier",
+                                "text": "write"
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "arguments",
+                            "children": [
+                              {
+                                "kind": "function_call",
+                                "children": [
+                                  {
+                                    "kind": "dot_index_expression",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "text": "string"
+                                      },
+                                      {
+                                        "kind": "identifier",
+                                        "text": "char"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "kind": "arguments",
+                                    "children": [
+                                      {
+                                        "kind": "bracket_index_expression",
+                                        "children": [
+                                          {
+                                            "kind": "identifier",
+                                            "text": "bs"
+                                          },
+                                          {
+                                            "kind": "identifier",
+                                            "text": "i"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "function_call",
+                "children": [
+                  {
+                    "kind": "method_index_expression",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "f"
+                      },
+                      {
+                        "kind": "identifier",
+                        "text": "close"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "variable_declaration",
+                "children": [
+                  {
+                    "kind": "assignment_statement",
+                    "children": [
+                      {
+                        "kind": "variable_list",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "p"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "expression_list",
+                        "children": [
+                          {
+                            "kind": "function_call",
+                            "children": [
+                              {
+                                "kind": "dot_index_expression",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "io"
+                                  },
+                                  {
+                                    "kind": "identifier",
+                                    "text": "popen"
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "arguments",
+                                "children": [
+                                  {
+                                    "kind": "binary_expression",
+                                    "text": "..",
+                                    "children": [
+                                      {
+                                        "kind": "string",
+                                        "text": "'sha256sum '"
+                                      },
+                                      {
+                                        "kind": "identifier",
+                                        "text": "tmp"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "variable_declaration",
+                "children": [
+                  {
+                    "kind": "assignment_statement",
+                    "children": [
+                      {
+                        "kind": "variable_list",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "out"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "expression_list",
+                        "children": [
+                          {
+                            "kind": "binary_expression",
+                            "text": "or",
+                            "children": [
+                              {
+                                "kind": "function_call",
+                                "children": [
+                                  {
+                                    "kind": "method_index_expression",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "text": "p"
+                                      },
+                                      {
+                                        "kind": "identifier",
+                                        "text": "read"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "kind": "arguments",
+                                    "children": [
+                                      {
+                                        "kind": "string",
+                                        "text": "'*l'"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "string",
+                                "text": "''"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "function_call",
+                "children": [
+                  {
+                    "kind": "method_index_expression",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "p"
+                      },
+                      {
+                        "kind": "identifier",
+                        "text": "close"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "function_call",
+                "children": [
+                  {
+                    "kind": "dot_index_expression",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "os"
+                      },
+                      {
+                        "kind": "identifier",
+                        "text": "remove"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "arguments",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "tmp"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "variable_declaration",
+                "children": [
+                  {
+                    "kind": "assignment_statement",
+                    "children": [
+                      {
+                        "kind": "variable_list",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "hex"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "expression_list",
+                        "children": [
+                          {
+                            "kind": "function_call",
+                            "children": [
+                              {
+                                "kind": "dot_index_expression",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "string"
+                                  },
+                                  {
+                                    "kind": "identifier",
+                                    "text": "sub"
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "arguments",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "out"
+                                  },
+                                  {
+                                    "kind": "number",
+                                    "text": "1"
+                                  },
+                                  {
+                                    "kind": "number",
+                                    "text": "64"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "variable_declaration",
+                "children": [
+                  {
+                    "kind": "assignment_statement",
+                    "children": [
+                      {
+                        "kind": "variable_list",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "res"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "expression_list",
+                        "children": [
+                          {
+                            "kind": "table_constructor",
+                            "text": "{}"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "for_statement",
+                "children": [
+                  {
+                    "kind": "for_numeric_clause",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "i"
+                      },
+                      {
+                        "kind": "number",
+                        "text": "1"
+                      },
+                      {
+                        "kind": "unary_expression",
+                        "text": "#",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "hex"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "number",
+                        "text": "2"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "block",
+                    "children": [
+                      {
+                        "kind": "assignment_statement",
+                        "children": [
+                          {
+                            "kind": "variable_list",
+                            "children": [
+                              {
+                                "kind": "bracket_index_expression",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "res"
+                                  },
+                                  {
+                                    "kind": "binary_expression",
+                                    "text": "+",
+                                    "children": [
+                                      {
+                                        "kind": "unary_expression",
+                                        "text": "#",
+                                        "children": [
+                                          {
+                                            "kind": "identifier",
+                                            "text": "res"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "kind": "number",
+                                        "text": "1"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "expression_list",
+                            "children": [
+                              {
+                                "kind": "function_call",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "tonumber"
+                                  },
+                                  {
+                                    "kind": "arguments",
+                                    "children": [
+                                      {
+                                        "kind": "function_call",
+                                        "children": [
+                                          {
+                                            "kind": "dot_index_expression",
+                                            "children": [
+                                              {
+                                                "kind": "identifier",
+                                                "text": "string"
+                                              },
+                                              {
+                                                "kind": "identifier",
+                                                "text": "sub"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "kind": "arguments",
+                                            "children": [
+                                              {
+                                                "kind": "identifier",
+                                                "text": "hex"
+                                              },
+                                              {
+                                                "kind": "identifier",
+                                                "text": "i"
+                                              },
+                                              {
+                                                "kind": "binary_expression",
+                                                "text": "+",
+                                                "children": [
+                                                  {
+                                                    "kind": "identifier",
+                                                    "text": "i"
+                                                  },
+                                                  {
+                                                    "kind": "number",
+                                                    "text": "1"
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "kind": "number",
+                                        "text": "16"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "return_statement",
+                "children": [
+                  {
+                    "kind": "expression_list",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "res"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "function_declaration",
+        "children": [
+          {
+            "kind": "identifier",
+            "text": "_indexOf"
+          },
+          {
+            "kind": "parameters",
+            "children": [
+              {
+                "kind": "identifier",
+                "text": "s"
+              },
+              {
+                "kind": "identifier",
+                "text": "ch"
+              }
+            ]
+          },
+          {
+            "kind": "block",
+            "children": [
+              {
+                "kind": "for_statement",
+                "children": [
+                  {
+                    "kind": "for_numeric_clause",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "i"
+                      },
+                      {
+                        "kind": "number",
+                        "text": "1"
+                      },
+                      {
+                        "kind": "unary_expression",
+                        "text": "#",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "s"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "block",
+                    "children": [
+                      {
+                        "kind": "if_statement",
+                        "children": [
+                          {
+                            "kind": "binary_expression",
+                            "text": "==",
+                            "children": [
+                              {
+                                "kind": "function_call",
+                                "children": [
+                                  {
+                                    "kind": "dot_index_expression",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "text": "string"
+                                      },
+                                      {
+                                        "kind": "identifier",
+                                        "text": "sub"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "kind": "arguments",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "text": "s"
+                                      },
+                                      {
+                                        "kind": "identifier",
+                                        "text": "i"
+                                      },
+                                      {
+                                        "kind": "identifier",
+                                        "text": "i"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "identifier",
+                                "text": "ch"
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "block",
+                            "children": [
+                              {
+                                "kind": "return_statement",
+                                "children": [
+                                  {
+                                    "kind": "expression_list",
+                                    "children": [
+                                      {
+                                        "kind": "binary_expression",
+                                        "text": "-",
+                                        "children": [
+                                          {
+                                            "kind": "identifier",
+                                            "text": "i"
+                                          },
+                                          {
+                                            "kind": "number",
+                                            "text": "1"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "return_statement",
+                "children": [
+                  {
+                    "kind": "expression_list",
+                    "children": [
+                      {
+                        "kind": "unary_expression",
+                        "text": "-",
+                        "children": [
+                          {
+                            "kind": "number",
+                            "text": "1"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "function_declaration",
+        "children": [
+          {
+            "kind": "identifier",
+            "text": "_parseIntStr"
+          },
+          {
+            "kind": "parameters",
+            "children": [
+              {
+                "kind": "identifier",
+                "text": "str"
+              }
+            ]
+          },
+          {
+            "kind": "block",
+            "children": [
+              {
+                "kind": "variable_declaration",
+                "children": [
+                  {
+                    "kind": "assignment_statement",
+                    "children": [
+                      {
+                        "kind": "variable_list",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "n"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "expression_list",
+                        "children": [
+                          {
+                            "kind": "function_call",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "tonumber"
+                              },
+                              {
+                                "kind": "arguments",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "str"
+                                  },
+                                  {
+                                    "kind": "number",
+                                    "text": "10"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "if_statement",
+                "children": [
+                  {
+                    "kind": "binary_expression",
+                    "text": "==",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "n"
+                      },
+                      {
+                        "kind": "nil",
+                        "text": "nil"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "block",
+                    "children": [
+                      {
+                        "kind": "return_statement",
+                        "children": [
+                          {
+                            "kind": "expression_list",
+                            "children": [
+                              {
+                                "kind": "number",
+                                "text": "0"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "return_statement",
+                "children": [
+                  {
+                    "kind": "expression_list",
+                    "children": [
+                      {
+                        "kind": "function_call",
+                        "children": [
+                          {
+                            "kind": "dot_index_expression",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "math"
+                              },
+                              {
+                                "kind": "identifier",
+                                "text": "floor"
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "arguments",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "n"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "function_declaration",
+        "children": [
+          {
+            "kind": "identifier",
+            "text": "slice"
+          },
+          {
+            "kind": "parameters",
+            "children": [
+              {
+                "kind": "identifier",
+                "text": "lst"
+              },
+              {
+                "kind": "identifier",
+                "text": "s"
+              },
+              {
+                "kind": "identifier",
+                "text": "e"
+              }
+            ]
+          },
+          {
+            "kind": "block",
+            "children": [
+              {
+                "kind": "if_statement",
+                "children": [
+                  {
+                    "kind": "binary_expression",
+                    "text": "\u003c",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "s"
+                      },
+                      {
+                        "kind": "number",
+                        "text": "0"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "block",
+                    "children": [
+                      {
+                        "kind": "assignment_statement",
+                        "children": [
+                          {
+                            "kind": "variable_list",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "s"
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "expression_list",
+                            "children": [
+                              {
+                                "kind": "binary_expression",
+                                "text": "+",
+                                "children": [
+                                  {
+                                    "kind": "unary_expression",
+                                    "text": "#",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "text": "lst"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "kind": "identifier",
+                                    "text": "s"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "if_statement",
+                "children": [
+                  {
+                    "kind": "binary_expression",
+                    "text": "==",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "e"
+                      },
+                      {
+                        "kind": "nil",
+                        "text": "nil"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "block",
+                    "children": [
+                      {
+                        "kind": "assignment_statement",
+                        "children": [
+                          {
+                            "kind": "variable_list",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "e"
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "expression_list",
+                            "children": [
+                              {
+                                "kind": "unary_expression",
+                                "text": "#",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "lst"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "variable_declaration",
+                "children": [
+                  {
+                    "kind": "assignment_statement",
+                    "children": [
+                      {
+                        "kind": "variable_list",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "r"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "expression_list",
+                        "children": [
+                          {
+                            "kind": "table_constructor",
+                            "text": "{}"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "for_statement",
+                "children": [
+                  {
+                    "kind": "for_numeric_clause",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "i"
+                      },
+                      {
+                        "kind": "binary_expression",
+                        "text": "+",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "s"
+                          },
+                          {
+                            "kind": "number",
+                            "text": "1"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "identifier",
+                        "text": "e"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "block",
+                    "children": [
+                      {
+                        "kind": "assignment_statement",
+                        "children": [
+                          {
+                            "kind": "variable_list",
+                            "children": [
+                              {
+                                "kind": "bracket_index_expression",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "r"
+                                  },
+                                  {
+                                    "kind": "binary_expression",
+                                    "text": "+",
+                                    "children": [
+                                      {
+                                        "kind": "unary_expression",
+                                        "text": "#",
+                                        "children": [
+                                          {
+                                            "kind": "identifier",
+                                            "text": "r"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "kind": "number",
+                                        "text": "1"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "expression_list",
+                            "children": [
+                              {
+                                "kind": "bracket_index_expression",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "lst"
+                                  },
+                                  {
+                                    "kind": "identifier",
+                                    "text": "i"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "return_statement",
+                "children": [
+                  {
+                    "kind": "expression_list",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "r"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "do_statement",
+        "children": [
+          {
+            "kind": "block",
+            "children": [
+              {
+                "kind": "variable_declaration",
+                "children": [
+                  {
+                    "kind": "assignment_statement",
+                    "children": [
+                      {
+                        "kind": "variable_list",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "_bench_start"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "expression_list",
+                        "children": [
+                          {
+                            "kind": "function_call",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "_now"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "assignment_statement",
+                "children": [
+                  {
+                    "kind": "variable_list",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "n"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "expression_list",
+                    "children": [
+                      {
+                        "kind": "number",
+                        "text": "1000"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "assignment_statement",
+                "children": [
+                  {
+                    "kind": "variable_list",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "s"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "expression_list",
+                    "children": [
+                      {
+                        "kind": "number",
+                        "text": "0"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "for_statement",
+                "children": [
+                  {
+                    "kind": "for_numeric_clause",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "i"
+                      },
+                      {
+                        "kind": "number",
+                        "text": "1"
+                      },
+                      {
+                        "kind": "binary_expression",
+                        "text": "-",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "n"
+                          },
+                          {
+                            "kind": "number",
+                            "text": "1"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "block",
+                    "children": [
+                      {
+                        "kind": "assignment_statement",
+                        "children": [
+                          {
+                            "kind": "variable_list",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "s"
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "expression_list",
+                            "children": [
+                              {
+                                "kind": "parenthesized_expression",
+                                "children": [
+                                  {
+                                    "kind": "binary_expression",
+                                    "text": "+",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "text": "s"
+                                      },
+                                      {
+                                        "kind": "identifier",
+                                        "text": "i"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "variable_declaration",
+                "children": [
+                  {
+                    "kind": "assignment_statement",
+                    "children": [
+                      {
+                        "kind": "variable_list",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "_bench_end"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "expression_list",
+                        "children": [
+                          {
+                            "kind": "function_call",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "_now"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "function_call",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "text": "print"
+                  },
+                  {
+                    "kind": "arguments",
+                    "children": [
+                      {
+                        "kind": "string",
+                        "text": "'{\\n  \"duration_us\": 571223,\\n  \"memory_bytes\": 0,\\n  \"name\": \"simple\"\\n}'"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

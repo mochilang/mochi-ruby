@@ -1,0 +1,75 @@
+func main (regs=41)
+  // let people = load "../interpreter/valid/people.yaml" as Person with { format: "yaml" }
+  Const        r0, "../interpreter/valid/people.yaml"
+  Const        r1, {"format": "yaml"}
+  Move         r2, r1
+  Load         3,0,2,0
+  Move         r4, r3
+  // let adults = from p in people
+  Const        r5, []
+  // where p.age >= 18
+  Const        r6, "age"
+  // select { name: p.name, email: p.email }
+  Const        r7, "name"
+  Const        r7, "name"
+  Const        r8, "email"
+  Const        r8, "email"
+  // let adults = from p in people
+  IterPrep     r9, r4
+  Len          r10, r9
+  Const        r12, 0
+  Move         r11, r12
+L2:
+  LessInt      r13, r11, r10
+  JumpIfFalse  r13, L0
+  Index        r14, r9, r11
+  Move         r15, r14
+  // where p.age >= 18
+  Const        r6, "age"
+  Index        r16, r15, r6
+  Const        r17, 18
+  LessEq       r18, r17, r16
+  JumpIfFalse  r18, L1
+  // select { name: p.name, email: p.email }
+  Const        r19, "name"
+  Const        r7, "name"
+  Index        r20, r15, r7
+  Const        r21, "email"
+  Const        r8, "email"
+  Index        r22, r15, r8
+  Move         r23, r19
+  Move         r24, r20
+  Move         r25, r21
+  Move         r26, r22
+  MakeMap      r27, 2, r23
+  // let adults = from p in people
+  Append       r28, r5, r27
+  Move         r5, r28
+L1:
+  Const        r29, 1
+  AddInt       r11, r11, r29
+  Jump         L2
+L0:
+  Move         r30, r5
+  // for a in adults {
+  IterPrep     r31, r30
+  Len          r32, r31
+  Const        r33, 0
+L4:
+  LessInt      r34, r33, r32
+  JumpIfFalse  r34, L3
+  Index        r35, r31, r33
+  Move         r36, r35
+  // print(a.name, a.email)
+  Const        r7, "name"
+  Index        r37, r36, r7
+  Const        r8, "email"
+  Index        r38, r36, r8
+  Print2       r37, r38
+  // for a in adults {
+  Const        r39, 1
+  AddInt       r40, r33, r39
+  Move         r33, r40
+  Jump         L4
+L3:
+  Return       r0

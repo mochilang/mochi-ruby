@@ -1,0 +1,8 @@
+loop
+loop
+loop
+{
+  "duration_us": 19046,
+  "memory_bytes": 624744,
+  "name": "main"
+}

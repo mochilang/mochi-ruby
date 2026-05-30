@@ -1,0 +1,17 @@
+javac: exit status 1
+/tmp/M21Game.java:14: error: cannot find symbol
+        Digit digits = new Digit(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
+        ^
+  symbol:   class Digit
+  location: class M21Game
+/tmp/M21Game.java:14: error: cannot find symbol
+        Digit digits = new Digit(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
+                           ^
+  symbol:   class Digit
+  location: class M21Game
+/tmp/M21Game.java:60: error: cannot find symbol
+                        String line = scanner.nextLine();
+                                      ^
+  symbol:   variable scanner
+  location: class M21Game
+3 errors

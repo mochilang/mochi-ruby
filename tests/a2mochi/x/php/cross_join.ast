@@ -1,0 +1,152 @@
+(program
+  (let customers
+    (list
+      (map
+        (entry (string id) (int 1))
+        (entry (string name) (string Alice))
+      )
+      (map
+        (entry (string id) (int 2))
+        (entry (string name) (string Bob))
+      )
+      (map
+        (entry (string id) (int 3))
+        (entry (string name) (string Charlie))
+      )
+    )
+  )
+  (let orders
+    (list
+      (map
+        (entry (string id) (int 100))
+        (entry (string customerId) (int 1))
+        (entry (string total) (int 250))
+      )
+      (map
+        (entry (string id) (int 101))
+        (entry (string customerId) (int 2))
+        (entry (string total) (int 125))
+      )
+      (map
+        (entry (string id) (int 102))
+        (entry (string customerId) (int 1))
+        (entry (string total) (int 300))
+      )
+    )
+  )
+  (var result (list))
+  (for o
+    (in (selector orders))
+    (block
+      (for c
+        (in (selector customers))
+        (block
+          (assign
+            (selector result)
+            (call append
+              (selector result)
+              (map
+                (entry
+                  (string orderId)
+                  (index
+                    (group
+                      (cast
+                        (selector o)
+                        (type map (type string) (type any))
+                      )
+                    )
+                    (string id)
+                  )
+                )
+                (entry
+                  (string orderCustomerId)
+                  (index
+                    (group
+                      (cast
+                        (selector o)
+                        (type map (type string) (type any))
+                      )
+                    )
+                    (string customerId)
+                  )
+                )
+                (entry
+                  (string pairedCustomerName)
+                  (index
+                    (group
+                      (cast
+                        (selector c)
+                        (type map (type string) (type any))
+                      )
+                    )
+                    (string name)
+                  )
+                )
+                (entry
+                  (string orderTotal)
+                  (index
+                    (group
+                      (cast
+                        (selector o)
+                        (type map (type string) (type any))
+                      )
+                    )
+                    (string total)
+                  )
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+  (call print (string "--- Cross Join: All order-customer pairs ---"))
+  (for entry
+    (in (selector result))
+    (block
+      (call print
+        (string Order)
+        (index
+          (group
+            (cast
+              (selector entry)
+              (type map (type string) (type any))
+            )
+          )
+          (string orderId)
+        )
+        (string " (customerId:")
+        (index
+          (group
+            (cast
+              (selector entry)
+              (type map (type string) (type any))
+            )
+          )
+          (string orderCustomerId)
+        )
+        (string " , total: $")
+        (index
+          (group
+            (cast
+              (selector entry)
+              (type map (type string) (type any))
+            )
+          )
+          (string orderTotal)
+        )
+        (string " ) paired with")
+        (index
+          (group
+            (cast
+              (selector entry)
+              (type map (type string) (type any))
+            )
+          )
+          (string pairedCustomerName)
+        )
+      )
+    )
+  )
+)

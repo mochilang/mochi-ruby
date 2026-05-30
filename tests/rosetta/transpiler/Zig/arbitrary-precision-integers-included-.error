@@ -1,0 +1,7 @@
+zig build: exit status 1
+/tmp/arbitrary-precision-integers-included-.zig:8:18: error: function parameter shadows declaration of 's'
+/tmp/arbitrary-precision-integers-included-.zig:33:1: note: declared here
+/tmp/arbitrary-precision-integers-included-.zig:35:12: error: function parameter shadows declaration of 'base'
+/tmp/arbitrary-precision-integers-included-.zig:31:1: note: declared here
+/tmp/arbitrary-precision-integers-included-.zig:49:12: error: function parameter shadows declaration of 'base'
+/tmp/arbitrary-precision-integers-included-.zig:31:1: note: declared here

@@ -1,0 +1,8 @@
+error[A024]: unknown function count
+  --> /workspace/mochi/tests/rosetta/x/Mochi/9-billion-names-of-god-the-integer.mochi:4:11
+
+  4 |   var n = count(a)
+    |           ^
+
+help:
+  Declare count before use

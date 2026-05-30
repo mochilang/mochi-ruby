@@ -1,0 +1,52 @@
+run: exit status 254
+/tmp/babylonian-spiral.dart:14:13: Error: Type 'any' not found.
+Map<String, any> step(List<Map<String, int>> h, int nv, List<int> dir) {
+            ^^^
+/tmp/babylonian-spiral.dart:5:42: Error: A value of type 'num' can't be assigned to a variable of type 'int'.
+  while ((i as num) > 0 && (h[(i as num) - 1] as Map)['s'] > (h[i] as Map)['s']) {
+                                         ^
+/tmp/babylonian-spiral.dart:6:28: Error: A value of type 'num' can't be assigned to a variable of type 'int'.
+    var tmp = h[(i as num) - 1];
+                           ^
+/tmp/babylonian-spiral.dart:7:18: Error: A value of type 'num' can't be assigned to a variable of type 'int'.
+    h[(i as num) - 1] = h[i];
+                 ^
+/tmp/babylonian-spiral.dart:9:20: Error: A value of type 'num' can't be assigned to a variable of type 'int'.
+    i = (i as num) - 1;
+                   ^
+/tmp/babylonian-spiral.dart:25:9: Error: A value of type 'int?' can't be assigned to a variable of type 'int' because 'int?' is nullable and 'int' isn't.
+      it['a'],
+        ^
+/tmp/babylonian-spiral.dart:26:9: Error: A value of type 'int?' can't be assigned to a variable of type 'int' because 'int?' is nullable and 'int' isn't.
+      it['b'],
+        ^
+/tmp/babylonian-spiral.dart:30:59: Error: A value of type 'num' can't be assigned to a variable of type 'int'.
+        's': ((it['a'] as num) * (it['a'] as num) as num) + ((((it['b'] as num) + 1) as num) * (((it['b'] as num) + 1) as num) as num),
+                                                          ^
+/tmp/babylonian-spiral.dart:31:16: Error: A value of type 'int?' can't be assigned to a variable of type 'int' because 'int?' is nullable and 'int' isn't.
+        'a': it['a'],
+               ^
+/tmp/babylonian-spiral.dart:32:31: Error: A value of type 'num' can't be assigned to a variable of type 'int'.
+        'b': (it['b'] as num) + 1,
+                              ^
+/tmp/babylonian-spiral.dart:57:9: Error: A value of type 'num' can't be assigned to a variable of type 'int'.
+        -(p[1] as num),
+        ^
+/tmp/babylonian-spiral.dart:66:9: Error: A value of type 'num' can't be assigned to a variable of type 'int'.
+        -(p[0] as num),
+        ^
+/tmp/babylonian-spiral.dart:79:19: Error: A value of type 'num' can't be assigned to a variable of type 'int'.
+        bestDot = dot;
+                  ^
+/tmp/babylonian-spiral.dart:96:32: Error: A value of type 'num' can't be assigned to a variable of type 'int'.
+    pos = List.from(pos)..add([x, y]);
+                               ^
+/tmp/babylonian-spiral.dart:96:35: Error: A value of type 'num' can't be assigned to a variable of type 'int'.
+    pos = List.from(pos)..add([x, y]);
+                                  ^
+/tmp/babylonian-spiral.dart:122:17: Error: A value of type 'num' can't be assigned to a variable of type 'int'.
+    var p = pts[i];
+                ^
+/tmp/babylonian-spiral.dart:124:26: Error: A value of type 'num' can't be assigned to a variable of type 'String'.
+    line = (line as num) + (s as num);
+                         ^

@@ -1,0 +1,8 @@
+parse: error[P999]: /workspace/mochi/tests/rosetta/x/Mochi/camel-case-and-snake-case.mochi:10:29: unexpected token "-1" (expected "]")
+  --> /workspace/mochi/tests/rosetta/x/Mochi/camel-case-and-snake-case.mochi:10:29
+
+ 10 |   while end > start && s[end-1:end] == " " {
+    |                             ^
+
+help:
+  Parse error occurred. Check syntax near this location.

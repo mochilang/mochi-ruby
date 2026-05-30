@@ -1,0 +1,31 @@
+gfortran: exit status 1
+/tmp/attractive-numbers.f90:63:8:
+
+   63 |         n = (n / f)
+      |        1
+Error: Dummy argument ‘n’ with INTENT(IN) in variable definition context (assignment) at (1)
+/tmp/attractive-numbers.f90:83:8:
+
+   83 |     s = s0
+      |        1
+Error: Cannot convert CHARACTER(100) to INTEGER(4) at (1)
+/tmp/attractive-numbers.f90:85:10:
+
+   85 |       s = ' ' // s
+      |          1
+Error: Operands of string concatenation operator at (1) are CHARACTER(1)/INTEGER(4)
+/tmp/attractive-numbers.f90:84:20:
+
+   84 |     do while ((size(s) < 4))
+      |                    1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/attractive-numbers.f90:87:10:
+
+   87 |     res = s
+      |          1
+Error: Cannot convert INTEGER(4) to CHARACTER(100) at (1)
+/tmp/attractive-numbers.f90:101:16:
+
+  101 |         line = (line + pad4(i))
+      |                1
+Error: Operands of binary numeric operator ‘+’ at (1) are CHARACTER(100)/CHARACTER(100)

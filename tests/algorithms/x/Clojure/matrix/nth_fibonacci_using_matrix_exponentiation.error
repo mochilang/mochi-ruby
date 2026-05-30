@@ -1,0 +1,8 @@
+run: exit status 1
+0th fibonacci number using matrix exponentiation is 0 and using bruteforce is 0
+1st fibonacci number using matrix exponentiation is 1 and using bruteforce is 1
+Execution error (ArithmeticException) at java.lang.Math/multiplyExact (Math.java:1032).
+long overflow
+
+Full report at:
+/tmp/clojure-9538404771319171987.edn

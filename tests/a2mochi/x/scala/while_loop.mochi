@@ -1,0 +1,6 @@
+// a2mochi scala v0.10.48 2025-07-29 17:50:57 GMT+7
+var i = 0
+while (i < 3) {
+  print(i)
+  i = (i + 1)
+}

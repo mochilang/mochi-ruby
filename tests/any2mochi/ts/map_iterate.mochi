@@ -1,0 +1,8 @@
+let m: map<int,bool>
+fun main() {
+  for kKey in Object.keys(m) {
+    let k: number = Number(kKey)
+  }
+  print(sum)
+}
+let sum: int

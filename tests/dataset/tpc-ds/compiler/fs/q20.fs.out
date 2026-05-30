@@ -1,0 +1,111 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    cs_item_sk: int
+    cs_sold_date_sk: int
+    cs_ext_sales_price: float
+}
+type Anon2 = {
+    i_item_sk: int
+    i_item_id: string
+    i_item_desc: string
+    i_category: string
+    i_class: string
+    i_current_price: float
+}
+type Anon3 = {
+    d_date_sk: int
+    d_date: string
+}
+type Anon4 = {
+    i_item_id: obj
+    i_item_desc: obj
+    i_category: obj
+    i_class: obj
+    i_current_price: obj
+    itemrevenue: obj
+}
+type Anon5 = {
+    id: string
+    desc: string
+    cat: string
+    ``class``: string
+    price: float
+}
+type Anon6 = {
+    ``class``: obj
+    total: obj
+}
+type Anon7 = {
+    i_item_id: obj
+    i_item_desc: obj
+    i_category: obj
+    i_class: obj
+    i_current_price: obj
+    itemrevenue: obj
+    revenueratio: obj
+}
+type Anon8 = {
+    i_item_id: string
+    i_item_desc: string
+    i_category: string
+    i_class: string
+    i_current_price: float
+    itemrevenue: float
+    revenueratio: float
+}
+type _Group<'K,'T>(key: 'K) =
+    member val key = key with get, set
+    member val Items = System.Collections.Generic.List<'T>() with get
+    member this.size = this.Items.Count
+    interface System.Collections.Generic.IEnumerable<'T> with
+        member this.GetEnumerator() = (this.Items :> seq<'T>).GetEnumerator()
+    interface System.Collections.IEnumerable with
+        member this.GetEnumerator() = (this.Items :> System.Collections.IEnumerable).GetEnumerator()
+
+let _group_by (src: 'T list) (keyfn: 'T -> 'K) : _Group<'K,'T> list =
+    let groups = System.Collections.Generic.Dictionary<string,_Group<'K,'T>>()
+    let order = System.Collections.Generic.List<string>()
+    for it in src do
+        let key = keyfn it
+        let ks = string key
+        let mutable g = Unchecked.defaultof<_Group<'K,'T>>
+        if groups.TryGetValue(ks, &g) then ()
+        else
+            g <- _Group<'K,'T>(key)
+            groups.Add(ks, g)
+            order.Add(ks)
+        g.Items.Add(it)
+    [ for ks in order -> groups[ks] ]
+
+type CatalogSale = {
+    mutable cs_item_sk: int
+    mutable cs_sold_date_sk: int
+    mutable cs_ext_sales_price: float
+}
+type Item = {
+    mutable i_item_sk: int
+    mutable i_item_id: string
+    mutable i_item_desc: string
+    mutable i_category: string
+    mutable i_class: string
+    mutable i_current_price: float
+}
+type DateDim = {
+    mutable d_date_sk: int
+    mutable d_date: string
+}
+let catalog_sales: Anon1 list = [{ cs_item_sk = 1; cs_sold_date_sk = 1; cs_ext_sales_price = 100.0 }; { cs_item_sk = 1; cs_sold_date_sk = 1; cs_ext_sales_price = 200.0 }; { cs_item_sk = 2; cs_sold_date_sk = 1; cs_ext_sales_price = 150.0 }; { cs_item_sk = 1; cs_sold_date_sk = 2; cs_ext_sales_price = 300.0 }; { cs_item_sk = 2; cs_sold_date_sk = 2; cs_ext_sales_price = 150.0 }; { cs_item_sk = 3; cs_sold_date_sk = 1; cs_ext_sales_price = 50.0 }]
+let item: Anon2 list = [{ i_item_sk = 1; i_item_id = "ITEM1"; i_item_desc = "Item One"; i_category = "A"; i_class = "X"; i_current_price = 10.0 }; { i_item_sk = 2; i_item_id = "ITEM2"; i_item_desc = "Item Two"; i_category = "A"; i_class = "X"; i_current_price = 20.0 }; { i_item_sk = 3; i_item_id = "ITEM3"; i_item_desc = "Item Three"; i_category = "D"; i_class = "Y"; i_current_price = 15.0 }]
+let date_dim: Anon3 list = [{ d_date_sk = 1; d_date = "2000-02-10" }; { d_date_sk = 2; d_date = "2000-02-20" }]
+let filtered: Anon4 list = [ for g in _group_by [ for cs in catalog_sales do 
+  for i in item do 
+  for d in date_dim do if cs.cs_item_sk = i.i_item_sk && cs.cs_sold_date_sk = d.d_date_sk && List.contains i.i_category ["A"; "B"; "C"] && d.d_date >= "2000-02-01" && d.d_date <= "2000-03-02" then yield (cs, i, d) ] (fun (cs, i, d) -> { id = i.i_item_id; desc = i.i_item_desc; cat = i.i_category; ``class`` = i.i_class; price = i.i_current_price }) do
+    yield { i_item_id = g.key.id; i_item_desc = g.key.desc; i_category = g.key.cat; i_class = g.key.class; i_current_price = g.key.price; itemrevenue = List.sum [ for x in g do yield x.cs_ext_sales_price ] } ]
+let class_totals: Anon6 list = [ for g in _group_by [ for f in filtered do yield f ] (fun f -> f.i_class) do
+    yield { ``class`` = g.key; total = List.sum [ for x in g do yield x.itemrevenue ] } ]
+let result: Anon7 list = [ for f in filtered do 
+  for t in class_totals do if f.i_class = t.class then yield ([f.i_category; f.i_class; f.i_item_id; f.i_item_desc], { i_item_id = f.i_item_id; i_item_desc = f.i_item_desc; i_category = f.i_category; i_class = f.i_class; i_current_price = f.i_current_price; itemrevenue = f.itemrevenue; revenueratio = (f.itemrevenue * 100.0) / t.total }) ] |> List.sortBy fst |> List.map snd
+printfn "%A" (JsonSerializer.Serialize(result))
+assert (result = [{ i_item_id = "ITEM1"; i_item_desc = "Item One"; i_category = "A"; i_class = "X"; i_current_price = 10.0; itemrevenue = 600.0; revenueratio = 66.66666666666667 }; { i_item_id = "ITEM2"; i_item_desc = "Item Two"; i_category = "A"; i_class = "X"; i_current_price = 20.0; itemrevenue = 300.0; revenueratio = 33.333333333333336 }])

@@ -1,0 +1,17 @@
+run: exit status 1
+Text input in binary is '010011010110010101110011011100110110000101100111011001010000000000000000'
+{
+  "duration_us": 417,
+  "memory_bytes": 14946304,
+  "name": "main"
+}
+Traceback (most recent call last):
+  File "/workspace/mochi/tests/algorithms/x/Python/hashes/hamming_code.py", line 260, in <module>
+    main()
+  File "/workspace/mochi/tests/algorithms/x/Python/hashes/hamming_code.py", line 237, in main
+    encoded = hamming_encode(sizePari, data_bits)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/mochi/tests/algorithms/x/Python/hashes/hamming_code.py", line 197, in hamming_encode
+    result = _append(result, parity[cont_bp])
+                             ~~~~~~^^^^^^^^^
+IndexError: list index out of range

@@ -1,0 +1,18 @@
+(program
+  (let todo
+    (map
+      (entry (string title) (string hi))
+    )
+  )
+  (call print
+    (index
+      (group
+        (cast
+          (selector todo)
+          (type map (type string) (type any))
+        )
+      )
+      (string title)
+    )
+  )
+)

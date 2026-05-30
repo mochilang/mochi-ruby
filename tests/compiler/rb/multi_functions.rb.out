@@ -1,0 +1,15 @@
+def add(x, y)
+  (x + y)
+end
+
+def sub(x, y)
+  (x - y)
+end
+
+def mul(x, y)
+  (x * y)
+end
+
+puts([add(1, 2)].join(" "))
+puts([sub(10, 3)].join(" "))
+puts([mul(4, 6)].join(" "))

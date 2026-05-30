@@ -1,0 +1,46 @@
+gfortran: exit status 1
+/tmp/chinese-remainder-theorem.f90:34:5:
+
+   34 |     g = res(((0)+1))
+      |     1
+Error: Unclassifiable statement at (1)
+/tmp/chinese-remainder-theorem.f90:44:11:
+
+   44 |     if ((r(((0)+1)) /= 1)) then
+      |           1
+Error: Expected a right parenthesis in expression at (1)
+/tmp/chinese-remainder-theorem.f90:47:7:
+
+   47 |     end if
+      |       1
+Error: Expecting END FUNCTION statement at (1)
+/tmp/chinese-remainder-theorem.f90:56:34:
+
+   56 |   recursive integer function crt(a,n) result(res)
+      |                                  1
+Error: PROCEDURE attribute conflicts with INTENT attribute in ‘a’ at (1)
+/tmp/chinese-remainder-theorem.f90:56:36:
+
+   56 |   recursive integer function crt(a,n) result(res)
+      |                                    1
+Error: PROCEDURE attribute conflicts with INTENT attribute in ‘n’ at (1)
+/tmp/chinese-remainder-theorem.f90:30:6:
+
+   30 |       res = (/b,0,1/)
+      |      1
+Error: Incompatible ranks 0 and 1 in assignment at (1)
+/tmp/chinese-remainder-theorem.f90:37:4:
+
+   37 |     res = (/g,((y1 - ((b / a))) * x1),x1/)
+      |    1
+Error: Incompatible ranks 0 and 1 in assignment at (1)
+/tmp/chinese-remainder-theorem.f90:21:12:
+
+   21 |   res = crt(a,n)
+      |            1
+Error: Rank mismatch in argument ‘a’ at (1) (scalar and rank-1)
+/tmp/chinese-remainder-theorem.f90:21:14:
+
+   21 |   res = crt(a,n)
+      |              1
+Error: Rank mismatch in argument ‘n’ at (1) (scalar and rank-1)

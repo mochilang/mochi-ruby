@@ -1,0 +1,259 @@
+{
+  "root": {
+    "kind": "file",
+    "children": [
+      {
+        "kind": "line_comment",
+        "text": "// Generated 2025-07-21 18:37 +0700"
+      },
+      {
+        "kind": "value_declaration",
+        "children": [
+          {
+            "kind": "function_or_value_defn",
+            "children": [
+              {
+                "kind": "function_declaration_left",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "name": "sum_rec"
+                  },
+                  {
+                    "kind": "argument_patterns",
+                    "children": [
+                      {
+                        "kind": "long_identifier",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "name": "n"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "long_identifier",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "name": "acc"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "if_expression",
+                "children": [
+                  {
+                    "kind": "infix_expression",
+                    "children": [
+                      {
+                        "kind": "long_identifier_or_op",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "name": "n"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "const",
+                        "children": [
+                          {
+                            "kind": "int",
+                            "text": "0"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "long_identifier_or_op",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "name": "acc"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "paren_expression",
+                    "children": [
+                      {
+                        "kind": "application_expression",
+                        "children": [
+                          {
+                            "kind": "application_expression",
+                            "children": [
+                              {
+                                "kind": "long_identifier_or_op",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "name": "sum_rec"
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "paren_expression",
+                                "children": [
+                                  {
+                                    "kind": "infix_expression",
+                                    "children": [
+                                      {
+                                        "kind": "long_identifier_or_op",
+                                        "children": [
+                                          {
+                                            "kind": "identifier",
+                                            "name": "n"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "kind": "const",
+                                        "children": [
+                                          {
+                                            "kind": "int",
+                                            "text": "1"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "paren_expression",
+                            "children": [
+                              {
+                                "kind": "infix_expression",
+                                "children": [
+                                  {
+                                    "kind": "long_identifier_or_op",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "name": "acc"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "kind": "long_identifier_or_op",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "name": "n"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "application_expression",
+        "children": [
+          {
+            "kind": "application_expression",
+            "children": [
+              {
+                "kind": "long_identifier_or_op",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "name": "printfn"
+                  }
+                ]
+              },
+              {
+                "kind": "const",
+                "children": [
+                  {
+                    "kind": "string",
+                    "text": "\"%s\""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "paren_expression",
+            "children": [
+              {
+                "kind": "application_expression",
+                "children": [
+                  {
+                    "kind": "long_identifier_or_op",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "name": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "paren_expression",
+                    "children": [
+                      {
+                        "kind": "application_expression",
+                        "children": [
+                          {
+                            "kind": "application_expression",
+                            "children": [
+                              {
+                                "kind": "long_identifier_or_op",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "name": "sum_rec"
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "const",
+                                "children": [
+                                  {
+                                    "kind": "int",
+                                    "text": "10"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "const",
+                            "children": [
+                              {
+                                "kind": "int",
+                                "text": "0"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

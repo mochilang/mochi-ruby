@@ -1,0 +1,19 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    week: int
+    store: int
+    amount: float
+}
+type Anon2 = {
+    s_store_id1: int
+    ratio: float
+}
+let sales_year1: Anon1 list = [{ week = 1; store = 1; amount = 100.0 }]
+let sales_year2: Anon1 list = [{ week = 53; store = 1; amount = 150.0 }]
+let join: Anon2 list = [ for y1 in sales_year1 do 
+  for y2 in sales_year2 do if y1.store = y2.store && y1.week = y2.week - 52 then yield { s_store_id1 = y1.store; ratio = y2.amount / y1.amount } ]
+let result: Anon2 list = join
+printfn "%A" (JsonSerializer.Serialize(result))
+assert (result = [{ s_store_id1 = 1; ratio = 1.5 }])

@@ -1,0 +1,69 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    sr_returned_date_sk: int
+    sr_customer_sk: int
+    sr_store_sk: int
+    sr_return_amt: float
+}
+type Anon2 = {
+    d_date_sk: int
+    d_year: int
+}
+type Anon3 = {
+    s_store_sk: int
+    s_state: string
+}
+type Anon4 = {
+    c_customer_sk: int
+    c_customer_id: string
+}
+type Anon5 = {
+    ctr_customer_sk: obj
+    ctr_store_sk: obj
+    ctr_total_return: obj
+}
+type Anon6 = {
+    customer_sk: int
+    store_sk: int
+}
+type Anon7 = {
+    c_customer_id: string
+}
+type _Group<'K,'T>(key: 'K) =
+    member val key = key with get, set
+    member val Items = System.Collections.Generic.List<'T>() with get
+    member this.size = this.Items.Count
+    interface System.Collections.Generic.IEnumerable<'T> with
+        member this.GetEnumerator() = (this.Items :> seq<'T>).GetEnumerator()
+    interface System.Collections.IEnumerable with
+        member this.GetEnumerator() = (this.Items :> System.Collections.IEnumerable).GetEnumerator()
+
+let _group_by (src: 'T list) (keyfn: 'T -> 'K) : _Group<'K,'T> list =
+    let groups = System.Collections.Generic.Dictionary<string,_Group<'K,'T>>()
+    let order = System.Collections.Generic.List<string>()
+    for it in src do
+        let key = keyfn it
+        let ks = string key
+        let mutable g = Unchecked.defaultof<_Group<'K,'T>>
+        if groups.TryGetValue(ks, &g) then ()
+        else
+            g <- _Group<'K,'T>(key)
+            groups.Add(ks, g)
+            order.Add(ks)
+        g.Items.Add(it)
+    [ for ks in order -> groups[ks] ]
+
+let store_returns: Anon1 list = [{ sr_returned_date_sk = 1; sr_customer_sk = 1; sr_store_sk = 10; sr_return_amt = 20.0 }; { sr_returned_date_sk = 1; sr_customer_sk = 2; sr_store_sk = 10; sr_return_amt = 50.0 }]
+let date_dim: Anon2 list = [{ d_date_sk = 1; d_year = 1998 }]
+let store: Anon3 list = [{ s_store_sk = 10; s_state = "TN" }]
+let customer: Anon4 list = [{ c_customer_sk = 1; c_customer_id = "C1" }; { c_customer_sk = 2; c_customer_id = "C2" }]
+let customer_total_return: Anon5 list = [ for g in _group_by [ for sr in store_returns do 
+  for d in date_dim do if sr.sr_returned_date_sk = d.d_date_sk && d.d_year = 1998 then yield (sr, d) ] (fun (sr, d) -> { customer_sk = sr.sr_customer_sk; store_sk = sr.sr_store_sk }) do
+    yield { ctr_customer_sk = g.key.customer_sk; ctr_store_sk = g.key.store_sk; ctr_total_return = List.sum [ for x in g do yield x.sr_return_amt ] } ]
+let result: Anon7 list = [ for ctr1 in customer_total_return do 
+  for s in store do 
+  for c in customer do if ctr1.ctr_store_sk = s.s_store_sk && ctr1.ctr_customer_sk = c.c_customer_sk && ctr1.ctr_total_return > (float (List.sum [ for ctr2 in customer_total_return do if ctr1.ctr_store_sk = ctr2.ctr_store_sk then yield ctr2.ctr_total_return ]) / float (List.length [ for ctr2 in customer_total_return do if ctr1.ctr_store_sk = ctr2.ctr_store_sk then yield ctr2.ctr_total_return ])) * 1.2 && s.s_state = "TN" then yield (c.c_customer_id, { c_customer_id = c.c_customer_id }) ] |> List.sortBy fst |> List.map snd
+printfn "%A" (JsonSerializer.Serialize(result))
+assert (result = [{ c_customer_id = "C2" }])

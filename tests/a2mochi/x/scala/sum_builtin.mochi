@@ -1,0 +1,2 @@
+// a2mochi scala v0.10.48 2025-07-29 17:50:26 GMT+7
+print(ArrayBuffer(1, 2, 3).sum)

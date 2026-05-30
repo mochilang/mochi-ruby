@@ -1,0 +1,3 @@
+let data = [1, 2]
+let flag = if null_p(res6) then "false" else "true"
+print(if flag then 1 else 0)

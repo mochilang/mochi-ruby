@@ -1,0 +1,12 @@
+compile: exit status 1
+/tmp/TestJavaTranspiler_Algorithms_Golden493_schur_complement655341424/001/Main.java:103: error: method concat in class Main cannot be applied to given types;
+            Object row_9 = concat(mat[(int)((long)(i_9))], id_1[(int)((long)(i_9))]);
+                           ^
+  required: T[],T[]
+  found:    double[],double[]
+  reason: inference variable T has incompatible bounds
+    equality constraints: double
+    upper bounds: Object
+  where T is a type-variable:
+    T extends Object declared in method <T>concat(T[],T[])
+1 error

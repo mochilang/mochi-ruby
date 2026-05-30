@@ -1,0 +1,11 @@
+// Mochi translation of Rosetta "Conditional structures" variant 3
+
+fun example3(a: bool, b: bool) {
+  if a {
+    // statements
+    none
+  } else if b {
+    // other statements
+    none
+  }
+}

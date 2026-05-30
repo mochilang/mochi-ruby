@@ -1,0 +1,6 @@
+run: exit status 2
+[
+  {"ca_zip":"99999", "sum_ws_sales_price":0},
+  {"ca_zip":"85669", "sum_ws_sales_price":0}
+]
+ERROR: /tmp/q45.pl:64: user:main Unknown message: error('expect failed')

@@ -1,0 +1,15 @@
+{
+  "duration_us": 17,
+  "memory_bytes": 0,
+  "name": "main"
+}
+Traceback (most recent call last):
+  File "/workspace/mochi/tests/algorithms/x/Python/physics/basic_orbital_capture.py", line 114, in <module>
+    main()
+  File "/workspace/mochi/tests/algorithms/x/Python/physics/basic_orbital_capture.py", line 103, in main
+    run_tests()
+  File "/workspace/mochi/tests/algorithms/x/Python/physics/basic_orbital_capture.py", line 95, in run_tests
+    panic("capture_area failed")
+  File "/workspace/mochi/tests/algorithms/x/Python/physics/basic_orbital_capture.py", line 21, in panic
+    raise RuntimeError(msg)
+RuntimeError: capture_area failed

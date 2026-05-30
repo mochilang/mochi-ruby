@@ -1,0 +1,9 @@
+fun _count(v): int {
+  if Array.isArray(v) {
+  }
+  return 0
+}
+fun main() {
+  print(_count(xs)
+}
+let xs: list<int>

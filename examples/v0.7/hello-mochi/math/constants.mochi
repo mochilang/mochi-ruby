@@ -1,0 +1,10 @@
+// math/constants.mochi
+// Math constants exported for reuse
+
+export fun pi(): float {
+  return 3.14159
+}
+
+export fun e(): float {
+  return 2.71828
+}

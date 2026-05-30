@@ -1,0 +1,24 @@
+cc: exit status 1
+/tmp/csv-to-html-translation-1.c: In function ‘_mochi_main’:
+/tmp/csv-to-html-translation-1.c:29:29: warning: implicit declaration of function ‘split’ [-Wimplicit-function-declaration]
+   29 |   for (int tmp6 = 0; tmp6 < split(c, "\n").len; tmp6++) {
+      |                             ^~~~~
+/tmp/csv-to-html-translation-1.c:29:43: error: request for member ‘len’ in something not a structure or union
+   29 |   for (int tmp6 = 0; tmp6 < split(c, "\n").len; tmp6++) {
+      |                                           ^
+/tmp/csv-to-html-translation-1.c:30:32: error: request for member ‘data’ in something not a structure or union
+   30 |     char *line = split(c, "\n").data[tmp6];
+      |                                ^
+/tmp/csv-to-html-translation-1.c:31:5: error: ‘rows’ undeclared (first use in this function)
+   31 |     rows = 0;
+      |     ^~~~
+/tmp/csv-to-html-translation-1.c:31:5: note: each undeclared identifier is reported only once for each function it appears in
+/tmp/csv-to-html-translation-1.c:35:5: error: unknown type name ‘list_string’
+   35 |     list_string row = rows.data[tmp7];
+      |     ^~~~~~~~~~~
+/tmp/csv-to-html-translation-1.c:37:34: error: request for member ‘len’ in something not a structure or union
+   37 |     for (int tmp8 = 0; tmp8 < row.len; tmp8++) {
+      |                                  ^
+/tmp/csv-to-html-translation-1.c:38:23: error: request for member ‘data’ in something not a structure or union
+   38 |       char *cell = row.data[tmp8];
+      |                       ^

@@ -1,0 +1,331 @@
+// Solution for SPOJ GRC - Grandpa's Rubik Cube
+// https://www.spoj.com/problems/GRC/
+
+fun rotateFaceCW(c: list<string>, base: int): list<string> {
+  let a0 = c[base]
+  let a1 = c[base+1]
+  let a2 = c[base+2]
+  let a3 = c[base+3]
+  let a4 = c[base+4]
+  let a5 = c[base+5]
+  let a6 = c[base+6]
+  let a7 = c[base+7]
+  let a8 = c[base+8]
+  c[base] = a6
+  c[base+1] = a3
+  c[base+2] = a0
+  c[base+3] = a7
+  c[base+4] = a4
+  c[base+5] = a1
+  c[base+6] = a8
+  c[base+7] = a5
+  c[base+8] = a2
+  return c
+}
+
+fun rotL1(c: list<string>): list<string> {
+  let u0 = c[36]
+  let u1 = c[39]
+  let u2 = c[42]
+  c[36] = c[9]
+  c[39] = c[12]
+  c[42] = c[15]
+  c[9] = c[45]
+  c[12] = c[48]
+  c[15] = c[51]
+  c[45] = c[35]
+  c[48] = c[32]
+  c[51] = c[29]
+  c[35] = u0
+  c[32] = u1
+  c[29] = u2
+  c = rotateFaceCW(c, 0)
+  return c
+}
+
+fun rotR1(c: list<string>): list<string> {
+  let u0 = c[38]
+  let u1 = c[41]
+  let u2 = c[44]
+  c[38] = c[33]
+  c[41] = c[30]
+  c[44] = c[27]
+  c[33] = c[53]
+  c[30] = c[50]
+  c[27] = c[47]
+  c[53] = c[11]
+  c[50] = c[14]
+  c[47] = c[17]
+  c[11] = u0
+  c[14] = u1
+  c[17] = u2
+  c = rotateFaceCW(c, 18)
+  return c
+}
+
+fun rotU1(c: list<string>): list<string> {
+  let b0 = c[27]
+  let b1 = c[28]
+  let b2 = c[29]
+  c[27] = c[18]
+  c[28] = c[19]
+  c[29] = c[20]
+  c[18] = c[9]
+  c[19] = c[10]
+  c[20] = c[11]
+  c[9] = c[0]
+  c[10] = c[1]
+  c[11] = c[2]
+  c[0] = b0
+  c[1] = b1
+  c[2] = b2
+  c = rotateFaceCW(c, 36)
+  return c
+}
+
+fun rotD1(c: list<string>): list<string> {
+  let f0 = c[15]
+  let f1 = c[16]
+  let f2 = c[17]
+  c[15] = c[24]
+  c[16] = c[25]
+  c[17] = c[26]
+  c[24] = c[33]
+  c[25] = c[34]
+  c[26] = c[35]
+  c[33] = c[6]
+  c[34] = c[7]
+  c[35] = c[8]
+  c[6] = f0
+  c[7] = f1
+  c[8] = f2
+  c = rotateFaceCW(c, 45)
+  return c
+}
+
+fun rotF1(c: list<string>): list<string> {
+  let u0 = c[42]
+  let u1 = c[43]
+  let u2 = c[44]
+  c[42] = c[8]
+  c[43] = c[5]
+  c[44] = c[2]
+  c[8] = c[47]
+  c[5] = c[46]
+  c[2] = c[45]
+  c[47] = c[18]
+  c[46] = c[21]
+  c[45] = c[24]
+  c[18] = u0
+  c[21] = u1
+  c[24] = u2
+  c = rotateFaceCW(c, 9)
+  return c
+}
+
+fun rotB1(c: list<string>): list<string> {
+  let u0 = c[38]
+  let u1 = c[37]
+  let u2 = c[36]
+  c[38] = c[20]
+  c[37] = c[23]
+  c[36] = c[26]
+  c[20] = c[51]
+  c[23] = c[52]
+  c[26] = c[53]
+  c[51] = c[6]
+  c[52] = c[3]
+  c[53] = c[0]
+  c[6] = u0
+  c[3] = u1
+  c[0] = u2
+  c = rotateFaceCW(c, 27)
+  return c
+}
+
+fun rotL(c: list<string>, times: int): list<string> {
+  var i = 0
+  while i < times {
+    c = rotL1(c)
+    i = i + 1
+  }
+  return c
+}
+
+fun rotR(c: list<string>, times: int): list<string> {
+  var i = 0
+  while i < times {
+    c = rotR1(c)
+    i = i + 1
+  }
+  return c
+}
+
+fun rotU(c: list<string>, times: int): list<string> {
+  var i = 0
+  while i < times {
+    c = rotU1(c)
+    i = i + 1
+  }
+  return c
+}
+
+fun rotD(c: list<string>, times: int): list<string> {
+  var i = 0
+  while i < times {
+    c = rotD1(c)
+    i = i + 1
+  }
+  return c
+}
+
+fun rotF(c: list<string>, times: int): list<string> {
+  var i = 0
+  while i < times {
+    c = rotF1(c)
+    i = i + 1
+  }
+  return c
+}
+
+fun rotB(c: list<string>, times: int): list<string> {
+  var i = 0
+  while i < times {
+    c = rotB1(c)
+    i = i + 1
+  }
+  return c
+}
+
+fun applyMove(c: list<string>, m: int): list<string> {
+  var face = m
+  if face < 0 { face = -face }
+  let times = if m > 0 { 1 } else { 3 }
+  if face == 1 { return rotL(c, times) }
+  if face == 2 { return rotF(c, times) }
+  if face == 3 { return rotR(c, times) }
+  if face == 4 { return rotB(c, times) }
+  if face == 5 { return rotU(c, times) }
+  if face == 6 { return rotD(c, times) }
+  return c
+}
+
+fun isSolved(c: list<string>): bool {
+  var f = 0
+  while f < 6 {
+    let base = f * 9
+    let color = c[base]
+    var i = 1
+    while i < 9 {
+      if c[base + i] != color { return false }
+      i = i + 1
+    }
+    f = f + 1
+  }
+  return true
+}
+
+fun splitSpaces(s: string): list<string> {
+  var parts: list<string> = []
+  var cur = ""
+  var i = 0
+  while i < len(s) {
+    let ch = s[i:i+1]
+    if ch == " " {
+      if len(cur) > 0 { parts = append(parts, cur); cur = "" }
+    } else {
+      cur = cur + ch
+    }
+    i = i + 1
+  }
+  if len(cur) > 0 { parts = append(parts, cur) }
+  return parts
+}
+
+fun parseCube(lines: list<string>): list<string> {
+  var cube: list<string> = []
+  var i = 0
+  while i < 54 { cube = append(cube, " "); i = i + 1 }
+  i = 0
+  while i < 3 {
+    let tokens = splitSpaces(lines[i])
+    var j = 0
+    while j < 3 {
+      cube[36 + i*3 + j] = tokens[j]
+      j = j + 1
+    }
+    i = i + 1
+  }
+  i = 0
+  while i < 3 {
+    let tokens = splitSpaces(lines[i+3])
+    var j = 0
+    while j < 12 {
+      let ch = tokens[j]
+      if j < 3 {
+        cube[0 + i*3 + j] = ch
+      } else if j < 6 {
+        cube[9 + i*3 + (j-3)] = ch
+      } else if j < 9 {
+        cube[18 + i*3 + (j-6)] = ch
+      } else {
+        cube[27 + i*3 + (j-9)] = ch
+      }
+      j = j + 1
+    }
+    i = i + 1
+  }
+  i = 0
+  while i < 3 {
+    let tokens = splitSpaces(lines[i+6])
+    var j = 0
+    while j < 3 {
+      cube[45 + i*3 + j] = tokens[j]
+      j = j + 1
+    }
+    i = i + 1
+  }
+  return cube
+}
+
+fun parseMoves(line: string): list<int> {
+  let tokens = splitSpaces(line)
+  var res: list<int> = []
+  var i = 0
+  while i < len(tokens) {
+    res = append(res, int(tokens[i]))
+    i = i + 1
+  }
+  return res
+}
+
+fun main() {
+  let t = int(input())
+  var case = 0
+  while case < t {
+    var lines: list<string> = []
+    var i = 0
+    while i < 9 {
+      lines = append(lines, input())
+      i = i + 1
+    }
+    let moveLine = input()
+    var cube = parseCube(lines)
+    let moves = parseMoves(moveLine)
+    var idx = 0
+    while idx < len(moves) {
+      let m = moves[idx]
+      if m == 0 { break }
+      cube = applyMove(cube, m)
+      idx = idx + 1
+    }
+    if isSolved(cube) {
+      print("Yes, grandpa!")
+    } else {
+      print("No, you are wrong!")
+    }
+    case = case + 1
+  }
+}
+
+main()

@@ -1,0 +1,29 @@
+(program
+  (let data
+    (list
+      (map
+        (entry (string a) (int 1))
+        (entry (string b) (int 2))
+      )
+      (map
+        (entry (string a) (int 1))
+        (entry (string b) (int 1))
+      )
+      (map
+        (entry (string a) (int 0))
+        (entry (string b) (int 5))
+      )
+    )
+  )
+  (var sorted (list))
+  (for x
+    (in (selector data))
+    (block
+      (assign
+        (selector sorted)
+        (call append (selector sorted) (selector x))
+      )
+    )
+  )
+  (call json (selector sorted))
+)

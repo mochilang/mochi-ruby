@@ -1,0 +1,68 @@
+// Inventory ratio before and after a target date
+
+type Inventory { inv_item_sk: int, inv_warehouse_sk: int, inv_date_sk: int, inv_quantity_on_hand: int }
+type Warehouse { w_warehouse_sk: int, w_warehouse_name: string }
+type Item { i_item_sk: int, i_item_id: string }
+type DateDim { d_date_sk: int, d_date: string }
+
+let inventory = [
+  { inv_item_sk: 1, inv_warehouse_sk: 1, inv_date_sk: 1, inv_quantity_on_hand: 30 },
+  { inv_item_sk: 1, inv_warehouse_sk: 1, inv_date_sk: 2, inv_quantity_on_hand: 40 },
+  { inv_item_sk: 2, inv_warehouse_sk: 2, inv_date_sk: 1, inv_quantity_on_hand: 20 },
+  { inv_item_sk: 2, inv_warehouse_sk: 2, inv_date_sk: 2, inv_quantity_on_hand: 20 }
+]
+
+let warehouse = [
+  { w_warehouse_sk: 1, w_warehouse_name: "Main" },
+  { w_warehouse_sk: 2, w_warehouse_name: "Backup" }
+]
+let item = [
+  { i_item_sk: 1, i_item_id: "ITEM1" },
+  { i_item_sk: 2, i_item_id: "ITEM2" }
+]
+let date_dim = [
+  { d_date_sk: 1, d_date: "2000-03-01" },
+  { d_date_sk: 2, d_date: "2000-03-20" }
+]
+
+let before =
+  from inv in inventory
+  join d in date_dim on inv.inv_date_sk == d.d_date_sk
+  where d.d_date < "2000-03-15"
+  group by { w: inv.inv_warehouse_sk, i: inv.inv_item_sk } into g
+  select { w: g.key.w, i: g.key.i, qty: sum(from x in g select x.inv_quantity_on_hand) }
+
+let after =
+  from inv in inventory
+  join d in date_dim on inv.inv_date_sk == d.d_date_sk
+  where d.d_date >= "2000-03-15"
+  group by { w: inv.inv_warehouse_sk, i: inv.inv_item_sk } into g
+  select { w: g.key.w, i: g.key.i, qty: sum(from x in g select x.inv_quantity_on_hand) }
+
+let joined =
+  from b in before
+  join a in after on b.w == a.w && b.i == a.i
+  join w in warehouse on w.w_warehouse_sk == b.w
+  join it in item on it.i_item_sk == b.i
+  select {
+    w_name: w.w_warehouse_name,
+    i_id: it.i_item_id,
+    before_qty: b.qty,
+    after_qty: a.qty,
+    ratio: a.qty / b.qty
+  }
+
+let result =
+  from r in joined
+  where r.ratio >= (2.0 / 3.0) && r.ratio <= (3.0 / 2.0)
+  sort by [r.w_name, r.i_id]
+  select { w_warehouse_name: r.w_name, i_item_id: r.i_id, inv_before: r.before_qty, inv_after: r.after_qty }
+
+json(result)
+
+test "TPCDS Q21 inventory ratio" {
+  expect result == [
+    { w_warehouse_name: "Backup", i_item_id: "ITEM2", inv_before: 20, inv_after: 20 },
+    { w_warehouse_name: "Main", i_item_id: "ITEM1", inv_before: 30, inv_after: 40 }
+  ]
+}

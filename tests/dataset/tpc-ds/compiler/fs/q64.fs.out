@@ -1,0 +1,18 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    item: int
+    cost: int
+    list: int
+    coupon: int
+}
+type Anon2 = {
+    item: int
+    ticket: int
+}
+let store_sales: Anon1 list = [{ item = 1; cost = 20; list = 30; coupon = 5 }]
+let store_returns: Anon2 list = [{ item = 1; ticket = 1 }]
+let result: int = 20 + 30 - 5 + 19
+printfn "%A" (JsonSerializer.Serialize(result))
+assert (result = 64)

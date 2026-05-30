@@ -1,0 +1,19 @@
+(program
+  (let nums
+    (list (int 1) (int 2) (int 3))
+  )
+  (call print
+    (if_expr
+      (binary in (int 2) (selector nums))
+      (int 1)
+      (int 0)
+    )
+  )
+  (call print
+    (if_expr
+      (binary in (int 4) (selector nums))
+      (int 1)
+      (int 0)
+    )
+  )
+)

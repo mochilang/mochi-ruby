@@ -1,0 +1,22 @@
+warning: variable "board" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+    │
+ 54 │       {board} = Enum.reduce((0..(_len(moves) - 1)//1), {board}, fn i, {board} ->
+    │        ~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/backtracking/knight_tour.exs:54:8: Main.open_knight_tour_helper/3
+
+    warning: variable "j" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 80 │         {row} = Enum.reduce((0..(n - 1)//1), {row}, fn j, {row} ->
+    │                                                        ~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/backtracking/knight_tour.exs:80:56: Main.open_knight_tour/1
+
+    warning: variable "i" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 78 │       {board} = Enum.reduce((0..(n - 1)//1), {board}, fn i, {board} ->
+    │                                                          ~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/backtracking/knight_tour.exs:78:58: Main.open_knight_tour/1
+
+1

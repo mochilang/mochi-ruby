@@ -1,0 +1,36 @@
+gfortran: exit status 1
+/tmp/bioinformatics-base-count.f90:79:18:
+
+   79 |     n = (w - size(s))
+      |                  1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/bioinformatics-base-count.f90:84:11:
+
+   84 |     res = (res + s)
+      |           1
+Error: Operands of binary numeric operator ‘+’ at (1) are CHARACTER(100)/CHARACTER(100)
+/tmp/bioinformatics-base-count.f90:41:9:
+
+   41 |     ch = dna(idx+1:(idx + 1))
+      |         1
+Error: Cannot convert CHARACTER(*) to INTEGER(4) at (1)
+/tmp/bioinformatics-base-count.f90:42:9:
+
+   42 |     if ((ch == 'A')) then
+      |         1
+Error: Operands of comparison operator ‘==’ at (1) are INTEGER(4)/CHARACTER(1)
+/tmp/bioinformatics-base-count.f90:45:11:
+
+   45 |       if ((ch == 'C')) then
+      |           1
+Error: Operands of comparison operator ‘==’ at (1) are INTEGER(4)/CHARACTER(1)
+/tmp/bioinformatics-base-count.f90:48:13:
+
+   48 |         if ((ch == 'G')) then
+      |             1
+Error: Operands of comparison operator ‘==’ at (1) are INTEGER(4)/CHARACTER(1)
+/tmp/bioinformatics-base-count.f90:51:15:
+
+   51 |           if ((ch == 'T')) then
+      |               1
+Error: Operands of comparison operator ‘==’ at (1) are INTEGER(4)/CHARACTER(1)

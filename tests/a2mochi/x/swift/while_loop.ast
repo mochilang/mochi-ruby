@@ -1,0 +1,22 @@
+(program
+  (var i (int 0))
+  (while
+    (group
+      (binary <
+        (group (selector i))
+        (int 3)
+      )
+    )
+    (block
+      (call print (selector i))
+      (assign i
+        (group
+          (binary +
+            (group (selector i))
+            (int 1)
+          )
+        )
+      )
+    )
+  )
+)

@@ -1,0 +1,5 @@
+Execution error (NullPointerException) at main/pull (chaos_machine.clj:109).
+Cannot invoke "Object.getClass()" because "x" is null
+
+Full report at:
+/tmp/clojure-7082531192127319351.edn

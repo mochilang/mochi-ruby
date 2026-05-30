@@ -1,0 +1,4 @@
+fun main() {
+  print(String(x)
+}
+let x: int

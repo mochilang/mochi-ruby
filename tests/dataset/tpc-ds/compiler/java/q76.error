@@ -1,0 +1,17 @@
+javac error: exit status 1
+/tmp/TestJavaCompiler_TPCDSQueriesq766955807/001/Q76.java:291: error: cannot find symbol
+        res8.add(x.r.ext_sales_price);
+                  ^
+  symbol:   variable r
+  location: variable x of type ChannelColNameDYearDQoyICategoryExtSalesPrice
+/tmp/TestJavaCompiler_TPCDSQueriesq766955807/001/Q76.java:299: error: incompatible types: possible lossy conversion from double to int
+    if (!(Objects.equals(result, Arrays.asList(new ChannelColNameDYearDQoyICategorySalesCntSalesAmt("store", null, 1998, 1, "CatA", 1, 10.000000), new ChannelColNameDYearDQoyICategorySalesCntSalesAmt("web", null, 1998, 1, "CatB", 1, 15.000000), new ChannelColNameDYearDQoyICategorySalesCntSalesAmt("catalog", null, 1998, 1, "CatC", 1, 20.000000))))) throw new AssertionError("expect failed");
+                                                                                                                                       ^
+/tmp/TestJavaCompiler_TPCDSQueriesq766955807/001/Q76.java:299: error: incompatible types: possible lossy conversion from double to int
+    if (!(Objects.equals(result, Arrays.asList(new ChannelColNameDYearDQoyICategorySalesCntSalesAmt("store", null, 1998, 1, "CatA", 1, 10.000000), new ChannelColNameDYearDQoyICategorySalesCntSalesAmt("web", null, 1998, 1, "CatB", 1, 15.000000), new ChannelColNameDYearDQoyICategorySalesCntSalesAmt("catalog", null, 1998, 1, "CatC", 1, 20.000000))))) throw new AssertionError("expect failed");
+                                                                                                                                                                                                                                         ^
+/tmp/TestJavaCompiler_TPCDSQueriesq766955807/001/Q76.java:299: error: incompatible types: possible lossy conversion from double to int
+    if (!(Objects.equals(result, Arrays.asList(new ChannelColNameDYearDQoyICategorySalesCntSalesAmt("store", null, 1998, 1, "CatA", 1, 10.000000), new ChannelColNameDYearDQoyICategorySalesCntSalesAmt("web", null, 1998, 1, "CatB", 1, 15.000000), new ChannelColNameDYearDQoyICategorySalesCntSalesAmt("catalog", null, 1998, 1, "CatC", 1, 20.000000))))) throw new AssertionError("expect failed");
+                                                                                                                                                                                                                                                                                                                                               ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+4 errors

@@ -1,0 +1,2 @@
+let m = alist_to_hash_table([cons(1, "a"), cons(2, "b")])
+print(hash_table_ref(m, 1))

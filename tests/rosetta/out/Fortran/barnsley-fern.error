@@ -1,0 +1,56 @@
+gfortran: exit status 1
+/tmp/barnsley-fern.f90:70:5:
+
+   70 |     seed = res(((0)+1))
+      |     1
+Error: Unclassifiable statement at (1)
+/tmp/barnsley-fern.f90:115:4:
+
+  115 |     res = (/next,mod(next,n)/)
+      |    1
+Error: Incompatible ranks 0 and 1 in assignment at (1)
+/tmp/barnsley-fern.f90:47:27:
+
+   47 |       app0(1:size(line)) = line
+      |                           1
+Error: Cannot convert INTEGER(4) to CHARACTER(100) at (1)
+/tmp/barnsley-fern.f90:49:13:
+
+   49 |       line = app0
+      |             1
+Error: Cannot convert CHARACTER(100) to INTEGER(4) at (1)
+/tmp/barnsley-fern.f90:55:4:
+
+   55 |     app1(size(grid)+1) = line
+      |    1
+Error: Incompatible ranks 0 and 1 in assignment at (1)
+/tmp/barnsley-fern.f90:64:27:
+
+   64 |   if ((((((((ix >= 0) .and. ix) < width) .and. iy) >= 0) .and. iy) < height)) then
+      |                           1
+Error: Operands of logical operator ‘.and.’ at (1) are LOGICAL(4)/INTEGER(4)
+/tmp/barnsley-fern.f90:65:8:
+
+   65 |     grid(((iy)+1),((ix)+1)) = '*'
+      |        1
+Error: Rank mismatch in array reference at (1) (2/1)
+/tmp/barnsley-fern.f90:93:29:
+
+   93 |     if ((((((((ix >= 0) .and. ix) < width) .and. iy) >= 0) .and. iy) < height)) then
+      |                             1
+Error: Operands of logical operator ‘.and.’ at (1) are LOGICAL(4)/INTEGER(4)
+/tmp/barnsley-fern.f90:94:10:
+
+   94 |       grid(((iy)+1),((ix)+1)) = '*'
+      |          1
+Error: Rank mismatch in array reference at (1) (2/1)
+/tmp/barnsley-fern.f90:100:11:
+
+  100 |     line = ''
+      |           1
+Error: Cannot convert CHARACTER(0) to INTEGER(4) at (1)
+/tmp/barnsley-fern.f90:103:25:
+
+  103 |       line = (line + grid(((row)+1),((col)+1)))
+      |                         1
+Error: Rank mismatch in array reference at (1) (2/1)

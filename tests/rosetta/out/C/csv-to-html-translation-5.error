@@ -1,0 +1,11 @@
+cc: exit status 1
+/tmp/csv-to-html-translation-5.c: In function ‘_mochi_main’:
+/tmp/csv-to-html-translation-5.c:117:5: error: ‘rows’ undeclared (first use in this function)
+  117 |     rows = 0;
+      |     ^~~~
+/tmp/csv-to-html-translation-5.c:117:5: note: each undeclared identifier is reported only once for each function it appears in
+/tmp/csv-to-html-translation-5.c:126:21: error: invalid operands to binary + (have ‘char *’ and ‘char *’)
+  126 |       cells = tmp17 + htmlEscape(cell) + "</td>";
+      |                     ^ ~~~~~~~~~~~~~~~~
+      |                       |
+      |                       char *

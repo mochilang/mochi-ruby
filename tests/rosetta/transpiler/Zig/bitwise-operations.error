@@ -1,0 +1,12 @@
+zig build: exit status 1
+/tmp/bitwise-operations.zig:5:67: error: use of undeclared identifier 'handleError'
+/tmp/bitwise-operations.zig:20:20: error: unused capture
+/tmp/bitwise-operations.zig:37:20: error: unused capture
+/tmp/bitwise-operations.zig:53:20: error: unused capture
+/tmp/bitwise-operations.zig:69:20: error: unused capture
+/tmp/bitwise-operations.zig:83:9: error: local variable is never mutated
+/tmp/bitwise-operations.zig:83:9: note: consider using 'const'
+/tmp/bitwise-operations.zig:126:9: error: local variable is never mutated
+/tmp/bitwise-operations.zig:126:9: note: consider using 'const'
+/tmp/bitwise-operations.zig:133:9: error: local variable is never mutated
+/tmp/bitwise-operations.zig:133:9: note: consider using 'const'

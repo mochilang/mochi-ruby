@@ -1,0 +1,41 @@
+gfortran: exit status 1
+/tmp/arbitrary-precision-integers-included-.f90:6:17:
+
+    6 |   type(t_bigint) :: base
+      |                 1
+Error: Derived type ‘t_bigint’ at (1) is being used before it is defined
+/tmp/arbitrary-precision-integers-included-.f90:7:17:
+
+    7 |   type(t_bigint) :: x
+      |                 1
+Error: Derived type ‘t_bigint’ at (1) is being used before it is defined
+/tmp/arbitrary-precision-integers-included-.f90:39:19:
+
+   39 |     type(t_bigint), intent(in) :: base
+      |                   1
+Error: Derived type ‘t_bigint’ at (1) is being used before it is defined
+/tmp/arbitrary-precision-integers-included-.f90:38:2:
+
+   38 |   recursive type(t_bigint) function pow_big(base,exp) result(res)
+      |  1
+Error: The type for function ‘pow_big’ at (1) is not accessible
+/tmp/arbitrary-precision-integers-included-.f90:38:65:
+
+   38 |   recursive type(t_bigint) function pow_big(base,exp) result(res)
+      |                                                                 1
+Error: Function result ‘res’ at (1) has no IMPLICIT type
+/tmp/arbitrary-precision-integers-included-.f90:38:48:
+
+   38 |   recursive type(t_bigint) function pow_big(base,exp) result(res)
+      |                                                1
+Error: Symbol ‘base’ at (1) has no IMPLICIT type
+/tmp/arbitrary-precision-integers-included-.f90:15:6:
+
+   15 |   base = 5
+      |      1
+Error: Symbol ‘base’ at (1) has no IMPLICIT type
+/tmp/arbitrary-precision-integers-included-.f90:16:3:
+
+   16 |   x = pow_big(base,e2)
+      |   1
+Error: Symbol ‘x’ at (1) has no IMPLICIT type

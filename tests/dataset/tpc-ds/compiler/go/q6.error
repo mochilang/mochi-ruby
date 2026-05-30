@@ -1,0 +1,5 @@
+vm mismatch
+-- go --
+[{"state":"CA","cnt":10}]
+-- vm --
+[{"cnt":10,"state":"CA"}]

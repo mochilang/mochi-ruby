@@ -1,0 +1,81 @@
+gfortran: exit status 1
+/tmp/abundant-odd-numbers.f90:142:16:
+
+  142 |     abundantOdd(n,max,1000,.true.)
+      |                1
+Error: ‘abundantodd’ at (1) is not a variable
+/tmp/abundant-odd-numbers.f90:144:16:
+
+  144 |     abundantOdd(1000000001,0,1,.true.)
+      |                1
+Error: ‘abundantodd’ at (1) is not a variable
+/tmp/abundant-odd-numbers.f90:140:5:
+
+  140 |     n = abundantOdd(1,0,max,.false.)
+      |     1
+Error: Symbol ‘n’ at (1) has no IMPLICIT type
+/tmp/abundant-odd-numbers.f90:111:5:
+
+  111 |     n = searchFrom
+      |     1
+Error: Symbol ‘n’ at (1) has no IMPLICIT type
+/tmp/abundant-odd-numbers.f90:72:49:
+
+   72 |   recursive character(len=100) function sumStr(xs) result(res)
+      |                                                 1
+Error: PROCEDURE attribute conflicts with INTENT attribute in ‘xs’ at (1)
+/tmp/abundant-odd-numbers.f90:62:35:
+
+   62 |   recursive integer function sum(xs) result(res)
+      |                                   1
+Error: PROCEDURE attribute conflicts with INTENT attribute in ‘xs’ at (1)
+/tmp/abundant-odd-numbers.f90:114:16:
+
+  114 |       tot = sum(divs)
+      |                1
+Error: Rank mismatch in argument ‘xs’ at (1) (scalar and rank-1)
+/tmp/abundant-odd-numbers.f90:65:20:
+
+   65 |     do i3 = 1, size(xs)
+      |                    1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/abundant-odd-numbers.f90:117:28:
+
+  117 |         if (((printOne .and. count) < countTo)) then
+      |                            1
+Error: Operands of logical operator ‘.and.’ at (1) are LOGICAL(4)/INTEGER(4)
+/tmp/abundant-odd-numbers.f90:121:19:
+
+  121 |         s = sumStr(divs)
+      |                   1
+Error: Rank mismatch in argument ‘xs’ at (1) (scalar and rank-1)
+/tmp/abundant-odd-numbers.f90:78:11:
+
+   78 |       s = (s + s4) // ' + '
+      |           1
+Error: Operands of binary numeric operator ‘+’ at (1) are CHARACTER(100)/CHARACTER(100)
+/tmp/abundant-odd-numbers.f90:76:24:
+
+   76 |     do while ((i < size(xs)))
+      |                        1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/abundant-odd-numbers.f90:81:22:
+
+   81 |     res = s(0+1:(size(s) - 3))
+      |                      1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/abundant-odd-numbers.f90:88:14:
+
+   88 |     if ((size(s) < 2)) then
+      |              1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/abundant-odd-numbers.f90:99:20:
+
+   99 |     do while ((size(s) < 5))
+      |                    1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/abundant-odd-numbers.f90:59:4:
+
+   59 |     res = divs
+      |    1
+Error: Incompatible ranks 0 and 1 in assignment at (1)

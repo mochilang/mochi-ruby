@@ -1,0 +1,11 @@
+(program
+  (let book (unknown))
+  (call print
+    (selector name
+      (cast
+        (index (selector book) (string author))
+        (type int)
+      )
+    )
+  )
+)

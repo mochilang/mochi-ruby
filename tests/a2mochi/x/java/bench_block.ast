@@ -1,0 +1,82 @@
+(program
+  (let _nowSeeded (bool false))
+  (var _nowSeed (type int))
+  (fun _now
+    (type int)
+    (block
+      (if
+        (unary ! (selector _nowSeeded))
+        (block
+          (let s
+            (call
+              (selector getenv (selector System))
+              (string MOCHI_NOW_SEED)
+            )
+          )
+          (if
+            (binary &&
+              (binary != (selector s) (unknown))
+              (unary !
+                (call
+                  (selector isEmpty (selector s))
+                )
+              )
+            )
+            (block (unknown))
+          )
+        )
+      )
+      (if
+        (selector _nowSeeded)
+        (block
+          (assign
+            (selector _nowSeed)
+            (cast
+              (binary %
+                (binary +
+                  (binary * (selector _nowSeed) (int 1664525))
+                  (int 1013904223)
+                )
+                (int 2147483647)
+              )
+              (type int)
+            )
+          )
+          (return (selector _nowSeed))
+        )
+      )
+      (return
+        (cast
+          (call
+            (selector currentTimeMillis (selector System))
+          )
+          (type int)
+        )
+      )
+    )
+  )
+  (fun _mem
+    (type int)
+    (block
+      (let rt
+        (call
+          (selector getRuntime (selector Runtime))
+        )
+      )
+      (return
+        (cast
+          (binary -
+            (call
+              (selector totalMemory (selector rt))
+            )
+            (call
+              (selector freeMemory (selector rt))
+            )
+          )
+          (type int)
+        )
+      )
+    )
+  )
+  (unknown)
+)

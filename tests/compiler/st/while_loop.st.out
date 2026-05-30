@@ -1,0 +1,9 @@
+Object subclass: #Main instanceVariableNames: '' classVariableNames: '' poolDictionaries: '' category: nil!
+
+!!
+i := 0.
+[(i < 3)] whileTrue: [
+	(i) displayOn: Transcript. Transcript cr.
+	i := (i + 1).
+]
+.

@@ -1,0 +1,12 @@
+type Result {
+  a: int
+  b: int
+}
+type M {
+  a: int
+  b: int
+}
+let m: M = {"a": 1, "b": 2}
+for k in m {
+  print(k)
+}

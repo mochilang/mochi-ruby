@@ -1,0 +1,9 @@
+javac: exit status 1
+/tmp/BalancedBrackets.java:22: error: incompatible types: String cannot be converted to List<String>
+            List<String> tmp = arr.get(j);
+                                      ^
+/tmp/BalancedBrackets.java:24: error: incompatible types: List<String> cannot be converted to String
+            arr.set(k, tmp);
+                       ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+2 errors

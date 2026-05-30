@@ -1,0 +1,15 @@
+<?php
+function mochi_prepend($level, &$result) {
+	$result = ((is_array([$level]) && is_array($result)) ? array_merge([$level], $result) : ((is_string([$level]) || is_string($result)) ? ([$level] . $result) : ([$level] + $result)));
+	return $result;
+}
+
+_print(mochi_prepend([1, 2], [[3], [4]]));
+
+function _print(...$args) {
+    $parts = [];
+    foreach ($args as $a) {
+        if (is_array($a) || is_object($a)) { $parts[] = json_encode($a); } else { $parts[] = strval($a); }
+    }
+    echo implode(' ', $parts), PHP_EOL;
+}

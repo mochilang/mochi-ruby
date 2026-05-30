@@ -1,0 +1,14 @@
+func main (regs=3)
+  // let k = 2
+  Const        r0, 2
+  Move         r1, r0
+  // print(inc(3))
+  Const        r2, 5
+  Print        r2
+  Return       r0
+
+  // fun inc(x: int): int {
+func inc (regs=4)
+  // return x + k
+  Add          r3, r0, r2
+  Return       r3

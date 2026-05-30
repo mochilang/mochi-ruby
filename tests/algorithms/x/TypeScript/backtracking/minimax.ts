@@ -1,0 +1,111 @@
+function minimax(depth: number, node_index: number, is_max: boolean, scores: number[], height: number): number {
+  if ((depth < 0)) {
+    panic("Depth cannot be less than 0");
+  }
+  if ((Number(Array.isArray(scores) || typeof scores === 'string' ? scores.length : Object.keys(scores ?? {}).length) == 0)) {
+    panic("Scores cannot be empty");
+  }
+  if ((depth == height)) {
+    return scores[node_index];
+  }
+  if (is_max) {
+    let left: number = minimax((depth + 1), (node_index * 2), false, scores, height);
+    let right: number = minimax((depth + 1), ((node_index * 2) + 1), false, scores, height);
+    if ((left > right)) {
+      return left;
+    } else {
+      return right;
+    }
+  }
+  let left: number = minimax((depth + 1), (node_index * 2), true, scores, height);
+  let right: number = minimax((depth + 1), ((node_index * 2) + 1), true, scores, height);
+  if ((left < right)) {
+    return left;
+  } else {
+    return right;
+  }
+}
+function tree_height(n: number): number {
+  let h: number = 0;
+  let v: number = n;
+  while ((v > 1)) {
+    v = Math.trunc(v / 2);
+    h = (h + 1);
+  }
+  return h;
+}
+function main() {
+  let scores: number[] = [90, 23, 6, 33, 21, 65, 123, 34423];
+  let height: number = tree_height(Number(Array.isArray(scores) || typeof scores === 'string' ? scores.length : Object.keys(scores ?? {}).length));
+  console.log(_str(("Optimal value : " + _str(minimax(0, 0, true, scores, height)))));
+}
+var _nowSeed = 0;
+var _nowSeeded = false;
+{
+  let s = "";
+  if (typeof Deno !== "undefined") {
+    try {
+      s = Deno.env.get("MOCHI_NOW_SEED") ?? "";
+    } catch (_e) {
+      s = "";
+    }
+  } else if (typeof process !== "undefined") {
+    s = process.env.MOCHI_NOW_SEED || "";
+  }
+  if (s) {
+    const v = parseInt(s, 10);
+    if (!isNaN(v)) {
+      _nowSeed = v;
+      _nowSeeded = true;
+    }
+  }
+}
+function _now(): number {
+  if (_nowSeeded) {
+    _nowSeed = (_nowSeed * 1664525 + 1013904223) % 2147483647;
+    return _nowSeed;
+  }
+  if (typeof Deno !== 'undefined') {
+    return Math.trunc(performance.now() * 1e6);
+  }
+  if (typeof performance !== 'undefined') {
+    return Math.trunc(performance.now() * 1e6);
+  }
+  return Date.now() * 1000;
+}
+function _mem(): number {
+  if (typeof Deno !== 'undefined') {
+    return (Deno.memoryUsage?.().heapUsed ?? 0);
+  }
+  if (typeof process !== 'undefined') {
+    return process.memoryUsage().heapUsed;
+  }
+  return 0;
+}
+function _str(x: any): string {
+  if (typeof x === 'number') {
+    if (Object.is(x, -0)) return '-0';
+    if (x === Infinity) return '+Inf';
+    if (x === -Infinity) return '-Inf';
+    if (Number.isNaN(x)) return 'NaN';
+  }
+  return String(x);
+}
+(() => {
+  globalThis.gc?.()
+  const _startMem = _mem()
+  const _start = _now()
+  main();
+  const _end = _now()
+  const _duration = _end - _start
+  const _duration_us = Math.trunc(_duration / 1000)
+  globalThis.gc?.()
+  const _endMem = _mem()
+  const _memory_bytes = Math.max(0, _endMem - _startMem)
+  console.log(JSON.stringify({
+    "duration_us": _duration_us,
+    "memory_bytes": _memory_bytes,
+    "name": "main"
+  }, null, "  "))
+})();
+

@@ -1,0 +1,18 @@
+warning: variable "num" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+    │
+ 27 │       {length, num} = try do
+    │                ~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/sorts/msd_radix_sort.exs:27:16: Main.get_bit_length/1
+
+    warning: module attribute @data_dir was set but never used
+    │
+  3 │   @data_dir nil
+    │   ~~~~~~~~~~~~~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/sorts/msd_radix_sort.exs:3: Main (module)
+
+[40 12 100 4 1]
+[]
+[80 123 345 123]
+[834598 540402 1209 1 45]

@@ -1,0 +1,6 @@
+let i: int
+fun main() {
+  while (i < 3) {
+    print(i)
+  }
+}

@@ -1,0 +1,26 @@
+gfortran: exit status 1
+/tmp/100-prisoners.f90:43:7:
+
+   43 |       tmp = arr(((i)+1))
+      |       1
+Error: Unclassifiable statement at (1)
+/tmp/100-prisoners.f90:130:8:
+
+  130 |       np = arr5(i5)
+      |        1
+Error: Symbol ‘np’ at (1) has no IMPLICIT type
+/tmp/100-prisoners.f90:128:10:
+
+  128 |     trials = 1000
+      |          1
+Error: Symbol ‘trials’ at (1) has no IMPLICIT type
+/tmp/100-prisoners.f90:135:16:
+
+  135 |         strat = arr8(i8)
+      |                1
+Error: Cannot convert CHARACTER(7) to INTEGER(4) at (1)
+/tmp/100-prisoners.f90:39:4:
+
+   39 |     arr = xs
+      |    1
+Error: Incompatible ranks 0 and 1 in assignment at (1)

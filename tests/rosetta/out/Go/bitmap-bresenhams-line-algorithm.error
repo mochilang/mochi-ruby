@@ -1,0 +1,8 @@
+parse: error[P999]: tests/rosetta/x/Mochi/bitmap-bresenhams-line-algorithm.mochi:28:13: unexpected token "-" (expected PostfixExpr)
+  --> tests/rosetta/x/Mochi/bitmap-bresenhams-line-algorithm.mochi:28:13
+
+ 28 |     if e2 > -dy {
+    |             ^
+
+help:
+  Parse error occurred. Check syntax near this location.

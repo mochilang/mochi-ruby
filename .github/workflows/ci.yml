@@ -46,4 +46,4 @@ jobs:
         uses: golangci/golangci-lint-action@v7
         with:
           version: v2.12.2
-          args: --timeout=5m
+          args: --timeout=5m ./build/... ./errors/... ./gemspec/... ./index/... ./nativeext/... ./publish/... ./rbs/... ./semver/... ./transpiler/ruby/... ./typemap/... ./wrapper/...

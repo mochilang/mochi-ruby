@@ -1,0 +1,19 @@
+let sales = [
+  {mgr: 1, amount: 15.75},
+  {mgr: 2, amount: 47.25}
+]
+
+
+let by_mgr =
+  from s in sales
+  group by {mgr: s.mgr} into g
+  select {mgr: g.key.mgr, sum_sales: sum(from x in g select x.amount)}
+
+let result = sum(from x in by_mgr select x.sum_sales)
+
+json(result)
+
+test "TPCDS Q63 simplified" {
+  expect result == 63
+}
+

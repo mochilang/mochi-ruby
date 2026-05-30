@@ -1,0 +1,7 @@
+zig build: exit status 1
+/tmp/best-shuffle.zig:48:13: error: local variable is never mutated
+/tmp/best-shuffle.zig:48:13: note: consider using 'const'
+/tmp/best-shuffle.zig:69:9: error: local variable is never mutated
+/tmp/best-shuffle.zig:69:9: note: consider using 'const'
+/tmp/best-shuffle.zig:68:9: error: local variable is never mutated
+/tmp/best-shuffle.zig:68:9: note: consider using 'const'

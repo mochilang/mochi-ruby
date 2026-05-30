@@ -1,0 +1,5 @@
+(program
+  (call print
+    (index (selector matrix) (selector "1][0"))
+  )
+)

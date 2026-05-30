@@ -1,0 +1,63 @@
+run: exit status 1
+    warning: variable "h" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+    │
+ 59 │       h = Map.put(h, :arr, arr)
+    │       ~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/data_structures/heap/heap_generic.exs:59:7: Main.swap/3
+
+     warning: variable "h" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 100 │           h = swap(h, idx, p)
+     │           ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/data_structures/heap/heap_generic.exs:100:11: Main.heapify_up/2
+
+     warning: variable "vp" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 132 │       {_, vp} = try do
+     │           ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/data_structures/heap/heap_generic.exs:132:11: Main.heapify_down/2
+
+     warning: variable "h" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 154 │       h = heapify_down(h, index)
+     │       ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/data_structures/heap/heap_generic.exs:154:7: Main.update_item/3
+
+     warning: variable "h" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 182 │         h = heapify_down(h, index)
+     │         ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/data_structures/heap/heap_generic.exs:182:9: Main.delete_item/2
+
+     warning: variable "h" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 204 │       h = heapify_up(h, h.size - 1)
+     │       ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/data_structures/heap/heap_generic.exs:204:7: Main.insert_item/3
+
+     warning: variable "h" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 224 │         h = delete_item(h, Enum.at(top, 0, []))
+     │         ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/data_structures/heap/heap_generic.exs:224:9: Main.extract_top/1
+
+    warning: module attribute @data_dir was set but never used
+    │
+  3 │   @data_dir nil
+    │   ~~~~~~~~~~~~~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/data_structures/heap/heap_generic.exs:3: Main (module)
+
+** (KeyError) key :arr not found in: {0, -1}
+
+If you are using the dot syntax, such as map.field, make sure the left-hand side of the dot is a map
+    /workspace/mochi/tests/algorithms/x/Elixir/data_structures/heap/heap_generic.exs:190: Main.insert_item/3
+    /workspace/mochi/tests/algorithms/x/Elixir/data_structures/heap/heap_generic.exs:248: Main.main/0
+    /workspace/mochi/tests/algorithms/x/Elixir/data_structures/heap/heap_generic.exs:272: (file)

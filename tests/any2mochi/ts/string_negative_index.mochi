@@ -1,0 +1,8 @@
+fun _indexString(s: string, i: int): string {
+  let runes = Array.from(s)
+  return runes[i]
+}
+fun main() {
+  print(_indexString(text, -1)
+}
+let text: string

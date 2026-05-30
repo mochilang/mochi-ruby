@@ -1,0 +1,4 @@
+run: exit status 1
+# command-line-arguments
+/tmp/X/001/main.go:64:6: declared and not used: tmp4
+/tmp/X/001/main.go:67:6: declared and not used: tmp5

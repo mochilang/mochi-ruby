@@ -1,0 +1,23 @@
+cc: exit status 1
+/tmp/angle-difference-between-two-bearings-1.c: In function ‘_mochi_main’:
+/tmp/angle-difference-between-two-bearings-1.c:86:27: error: incompatible types when initializing type ‘int’ using type ‘list_float’
+   86 |   list_int tmp1_data[] = {tmp2, tmp3, tmp4, tmp5, tmp6, tmp7, tmp8, tmp9};
+      |                           ^~~~
+/tmp/angle-difference-between-two-bearings-1.c:86:33: error: incompatible types when initializing type ‘int *’ using type ‘list_int’
+   86 |   list_int tmp1_data[] = {tmp2, tmp3, tmp4, tmp5, tmp6, tmp7, tmp8, tmp9};
+      |                                 ^~~~
+/tmp/angle-difference-between-two-bearings-1.c:86:63: error: incompatible types when initializing type ‘int’ using type ‘list_float’
+   86 |   list_int tmp1_data[] = {tmp2, tmp3, tmp4, tmp5, tmp6, tmp7, tmp8, tmp9};
+      |                                                               ^~~~
+/tmp/angle-difference-between-two-bearings-1.c:86:69: error: incompatible types when initializing type ‘int *’ using type ‘list_int’
+   86 |   list_int tmp1_data[] = {tmp2, tmp3, tmp4, tmp5, tmp6, tmp7, tmp8, tmp9};
+      |                                                                     ^~~~
+/tmp/angle-difference-between-two-bearings-1.c:88:15: error: incompatible types when assigning to type ‘int’ from type ‘list_list_int’
+   88 |   testCases = tmp1;
+      |               ^~~~
+/tmp/angle-difference-between-two-bearings-1.c:89:40: error: request for member ‘len’ in something not a structure or union
+   89 |   for (int tmp10 = 0; tmp10 < testCases.len; tmp10++) {
+      |                                        ^
+/tmp/angle-difference-between-two-bearings-1.c:90:30: error: request for member ‘data’ in something not a structure or union
+   90 |     list_float tc = testCases.data[tmp10];
+      |                              ^

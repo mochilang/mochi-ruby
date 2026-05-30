@@ -1,0 +1,10 @@
+type list_int {
+  len: int
+  *data: int
+}
+
+var i = 0
+while i < 3 {
+print(i)
+i = (i + 1)
+}

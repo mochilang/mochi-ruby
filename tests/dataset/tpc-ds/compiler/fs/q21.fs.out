@@ -1,0 +1,108 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    inv_item_sk: int
+    inv_warehouse_sk: int
+    inv_date_sk: int
+    inv_quantity_on_hand: int
+}
+type Anon2 = {
+    w_warehouse_sk: int
+    w_warehouse_name: string
+}
+type Anon3 = {
+    i_item_sk: int
+    i_item_id: string
+}
+type Anon4 = {
+    d_date_sk: int
+    d_date: string
+}
+type Anon5 = {
+    w: obj
+    i: obj
+    qty: obj
+}
+type Anon6 = {
+    w: int
+    i: int
+}
+type Anon7 = {
+    w_name: string
+    i_id: string
+    before_qty: obj
+    after_qty: obj
+    ratio: obj
+}
+type Anon8 = {
+    w_warehouse_name: string
+    i_item_id: string
+    inv_before: obj
+    inv_after: obj
+}
+type Anon9 = {
+    w_warehouse_name: string
+    i_item_id: string
+    inv_before: int
+    inv_after: int
+}
+type _Group<'K,'T>(key: 'K) =
+    member val key = key with get, set
+    member val Items = System.Collections.Generic.List<'T>() with get
+    member this.size = this.Items.Count
+    interface System.Collections.Generic.IEnumerable<'T> with
+        member this.GetEnumerator() = (this.Items :> seq<'T>).GetEnumerator()
+    interface System.Collections.IEnumerable with
+        member this.GetEnumerator() = (this.Items :> System.Collections.IEnumerable).GetEnumerator()
+
+let _group_by (src: 'T list) (keyfn: 'T -> 'K) : _Group<'K,'T> list =
+    let groups = System.Collections.Generic.Dictionary<string,_Group<'K,'T>>()
+    let order = System.Collections.Generic.List<string>()
+    for it in src do
+        let key = keyfn it
+        let ks = string key
+        let mutable g = Unchecked.defaultof<_Group<'K,'T>>
+        if groups.TryGetValue(ks, &g) then ()
+        else
+            g <- _Group<'K,'T>(key)
+            groups.Add(ks, g)
+            order.Add(ks)
+        g.Items.Add(it)
+    [ for ks in order -> groups[ks] ]
+
+type Inventory = {
+    mutable inv_item_sk: int
+    mutable inv_warehouse_sk: int
+    mutable inv_date_sk: int
+    mutable inv_quantity_on_hand: int
+}
+type Warehouse = {
+    mutable w_warehouse_sk: int
+    mutable w_warehouse_name: string
+}
+type Item = {
+    mutable i_item_sk: int
+    mutable i_item_id: string
+}
+type DateDim = {
+    mutable d_date_sk: int
+    mutable d_date: string
+}
+let inventory: Anon1 list = [{ inv_item_sk = 1; inv_warehouse_sk = 1; inv_date_sk = 1; inv_quantity_on_hand = 30 }; { inv_item_sk = 1; inv_warehouse_sk = 1; inv_date_sk = 2; inv_quantity_on_hand = 40 }; { inv_item_sk = 2; inv_warehouse_sk = 2; inv_date_sk = 1; inv_quantity_on_hand = 20 }; { inv_item_sk = 2; inv_warehouse_sk = 2; inv_date_sk = 2; inv_quantity_on_hand = 20 }]
+let warehouse: Anon2 list = [{ w_warehouse_sk = 1; w_warehouse_name = "Main" }; { w_warehouse_sk = 2; w_warehouse_name = "Backup" }]
+let item: Anon3 list = [{ i_item_sk = 1; i_item_id = "ITEM1" }; { i_item_sk = 2; i_item_id = "ITEM2" }]
+let date_dim: Anon4 list = [{ d_date_sk = 1; d_date = "2000-03-01" }; { d_date_sk = 2; d_date = "2000-03-20" }]
+let before: Anon5 list = [ for g in _group_by [ for inv in inventory do 
+  for d in date_dim do if inv.inv_date_sk = d.d_date_sk && d.d_date < "2000-03-15" then yield (inv, d) ] (fun (inv, d) -> { w = inv.inv_warehouse_sk; i = inv.inv_item_sk }) do
+    yield { w = g.key.w; i = g.key.i; qty = List.sum [ for x in g do yield x.inv_quantity_on_hand ] } ]
+let after: Anon5 list = [ for g in _group_by [ for inv in inventory do 
+  for d in date_dim do if inv.inv_date_sk = d.d_date_sk && d.d_date >= "2000-03-15" then yield (inv, d) ] (fun (inv, d) -> { w = inv.inv_warehouse_sk; i = inv.inv_item_sk }) do
+    yield { w = g.key.w; i = g.key.i; qty = List.sum [ for x in g do yield x.inv_quantity_on_hand ] } ]
+let joined: Anon7 list = [ for b in before do 
+  for a in after do 
+  for w in warehouse do 
+  for it in item do if b.w = a.w && b.i = a.i && w.w_warehouse_sk = b.w && it.i_item_sk = b.i then yield { w_name = w.w_warehouse_name; i_id = it.i_item_id; before_qty = b.qty; after_qty = a.qty; ratio = a.qty / b.qty } ]
+let result: Anon8 list = [ for r in joined do if r.ratio >= (2.0 / 3.0) && r.ratio <= (3.0 / 2.0) then yield ([r.w_name; r.i_id], { w_warehouse_name = r.w_name; i_item_id = r.i_id; inv_before = r.before_qty; inv_after = r.after_qty }) ] |> List.sortBy fst |> List.map snd
+printfn "%A" (JsonSerializer.Serialize(result))
+assert (result = [{ w_warehouse_name = "Backup"; i_item_id = "ITEM2"; inv_before = 20; inv_after = 20 }; { w_warehouse_name = "Main"; i_item_id = "ITEM1"; inv_before = 30; inv_after = 40 }])

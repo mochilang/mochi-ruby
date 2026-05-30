@@ -1,0 +1,7 @@
+line 27: unsupported line
+     25| }
+     26| 
+>>>  27| static Object[] people =
+     28| new Person[] {
+     29| new Person("Alice", 17, "minor"),
+

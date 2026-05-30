@@ -1,0 +1,16 @@
+swiftc: exit status 1
+/tmp/abbreviations-easy.swift:59:25: error: cannot find 'upper' in scope
+ 57 |             let cmd = commands[ci]
+ 58 |             if mins[ci] != 0 && wlen >= mins[ci] && wlen <= cmd.count {
+ 59 |                 let c = upper(cmd)
+    |                         `- error: cannot find 'upper' in scope
+ 60 |                 let ww = upper(w)
+ 61 |                 if String(c[c.index(c.startIndex, offsetBy: 0)..<c.index(c.startIndex, offsetBy: wlen)]) == ww {
+
+/tmp/abbreviations-easy.swift:60:26: error: cannot find 'upper' in scope
+ 58 |             if mins[ci] != 0 && wlen >= mins[ci] && wlen <= cmd.count {
+ 59 |                 let c = upper(cmd)
+ 60 |                 let ww = upper(w)
+    |                          `- error: cannot find 'upper' in scope
+ 61 |                 if String(c[c.index(c.startIndex, offsetBy: 0)..<c.index(c.startIndex, offsetBy: wlen)]) == ww {
+ 62 |                     results = results + [c]

@@ -1,0 +1,5 @@
+compile: exit status 1
+/tmp/TestJavaTranspiler_Algorithms_Golden436_kahns_algorithm_topo3500219107/001/Main.java:13: error: incompatible types: possible lossy conversion from long to int
+                Object v_1 = edges[j_1];
+                                   ^
+1 error

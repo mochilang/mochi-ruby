@@ -1,0 +1,8 @@
+parse: error[P999]: /workspace/mochi/tests/rosetta/x/Mochi/achilles-numbers.mochi:160:21: unexpected token "-2" (expected "]")
+  --> /workspace/mochi/tests/rosetta/x/Mochi/achilles-numbers.mochi:160:21
+
+160 |     let c = counts[d-2]
+    |                     ^
+
+help:
+  Parse error occurred. Check syntax near this location.

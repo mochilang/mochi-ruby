@@ -1,0 +1,7 @@
+--- Multi Join ---
+string(5) "Alice"
+string(11) "bought item"
+string(1) "a"
+string(3) "Bob"
+string(11) "bought item"
+string(1) "b"

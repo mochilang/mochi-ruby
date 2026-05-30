@@ -1,0 +1,7 @@
+run: exit status 1
+/workspace/mochi/tests/rosetta/transpiler/Zig/average-loop-length.zig:71:20: error: expected type 'f64', found 'i64'
+/workspace/mochi/tests/rosetta/transpiler/Zig/average-loop-length.zig:34:31: error: incompatible types: 'usize' and 'i64'
+/workspace/mochi/tests/rosetta/transpiler/Zig/average-loop-length.zig:34:26: note: type 'usize' here
+/workspace/mochi/tests/rosetta/transpiler/Zig/average-loop-length.zig:34:33: note: type 'i64' here
+/workspace/mochi/tests/rosetta/transpiler/Zig/average-loop-length.zig:13:35: error: expected integer type, found 'f64'
+/workspace/mochi/tests/rosetta/transpiler/Zig/average-loop-length.zig:18:17: error: expected type 'f64', found 'usize'

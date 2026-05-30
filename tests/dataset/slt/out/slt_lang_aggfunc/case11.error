@@ -1,0 +1,6 @@
+cannot cast string to float
+call graph: main
+stack trace:
+  main at :36
+    select (row.y as float))
+

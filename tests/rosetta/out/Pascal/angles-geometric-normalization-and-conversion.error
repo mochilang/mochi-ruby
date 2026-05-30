@@ -1,0 +1,17 @@
+fpc: exit status 1
+Free Pascal Compiler version 3.2.2+dfsg-32 [2024/01/05] for x86_64
+Copyright (c) 1993-2021 by Florian Klaempfl and others
+Target OS: Linux for x86-64
+Compiling /tmp/angles-geometric-normalization-and-conversion.pas
+angles-geometric-normalization-and-conversion.pas(12,15) Error: Operator is not overloaded: "Double" mod "SmallInt"
+angles-geometric-normalization-and-conversion.pas(18,15) Error: Operator is not overloaded: "Double" mod "SmallInt"
+angles-geometric-normalization-and-conversion.pas(24,15) Error: Operator is not overloaded: "Double" mod "SmallInt"
+angles-geometric-normalization-and-conversion.pas(36,26) Error: Operator is not overloaded: "Double" div "SmallInt"
+angles-geometric-normalization-and-conversion.pas(42,27) Error: Operator is not overloaded: "Double" div "SmallInt"
+angles-geometric-normalization-and-conversion.pas(54,26) Error: Operator is not overloaded: "Double" div "SmallInt"
+angles-geometric-normalization-and-conversion.pas(60,27) Error: Operator is not overloaded: "Double" div "SmallInt"
+angles-geometric-normalization-and-conversion.pas(72,26) Error: Operator is not overloaded: "Double" div "SmallInt"
+angles-geometric-normalization-and-conversion.pas(78,26) Error: Operator is not overloaded: "Double" div "SmallInt"
+angles-geometric-normalization-and-conversion.pas(117,11) Fatal: String exceeds line
+Fatal: Compilation aborted
+Error: /usr/bin/ppcx64 returned an error exitcode

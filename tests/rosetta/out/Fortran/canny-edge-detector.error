@@ -1,0 +1,141 @@
+gfortran: exit status 1
+/tmp/canny-edge-detector.f90:104:18:
+
+  104 |         g = (((gx(((y)+1),((x)+1)) * gx(((y)+1),((x)+1))) + gy(((y)+1),((x)+1))) * gy(((y)+1),((x)+1)))
+      |                  1
+Error: Expected a right parenthesis in expression at (1)
+/tmp/canny-edge-detector.f90:173:7:
+
+  173 |     img = reshape((/0.0,0.0,0.0,0.0,0.0,0.0,255.0,255.0,255.0,0.0,0.0,255.0,255.0,255.0,0.0,0.0,255.0,255.0,255.0,0.0,0.0,0.0,0.0,0.0,0.0/),(/5,5/))
+      |       1
+Error: Symbol ‘img’ at (1) has no IMPLICIT type
+/tmp/canny-edge-detector.f90:154:36:
+
+  154 |   recursive subroutine printMatrix(m)
+      |                                    1
+Error: PROCEDURE attribute conflicts with INTENT attribute in ‘m’ at (1)
+/tmp/canny-edge-detector.f90:122:40:
+
+  122 |   recursive integer function threshold(g,t) result(res)
+      |                                        1
+Error: PROCEDURE attribute conflicts with INTENT attribute in ‘g’ at (1)
+/tmp/canny-edge-detector.f90:90:41:
+
+   90 |   recursive integer function gradient(img) result(res)
+      |                                         1
+Error: PROCEDURE attribute conflicts with INTENT attribute in ‘img’ at (1)
+/tmp/canny-edge-detector.f90:36:39:
+
+   36 |   recursive integer function conv2d(img,k) result(res)
+      |                                       1
+Error: PROCEDURE attribute conflicts with INTENT attribute in ‘img’ at (1)
+/tmp/canny-edge-detector.f90:36:41:
+
+   36 |   recursive integer function conv2d(img,k) result(res)
+      |                                         1
+Error: PROCEDURE attribute conflicts with INTENT attribute in ‘k’ at (1)
+/tmp/canny-edge-detector.f90:175:22:
+
+  175 |     edges = threshold(g,(1020.0 * 1020.0))
+      |                      1
+Error: Expected a procedure for argument ‘g’ at (1)
+/tmp/canny-edge-detector.f90:125:13:
+
+  125 |     h = size(g)
+      |             1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/canny-edge-detector.f90:126:13:
+
+  126 |     w = size(g(((0)+1)))
+      |             1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/canny-edge-detector.f90:147:6:
+
+  147 |       app5(size(out)+1) = row
+      |      1
+Error: Incompatible ranks 0 and 1 in assignment at (1)
+/tmp/canny-edge-detector.f90:151:4:
+
+  151 |     res = out
+      |    1
+Error: Incompatible ranks 0 and 1 in assignment at (1)
+/tmp/canny-edge-detector.f90:176:21:
+
+  176 |     call printMatrix(edges)
+      |                     1
+Error: Expected a procedure for argument ‘m’ at (1)
+/tmp/canny-edge-detector.f90:162:16:
+
+  162 |         line = (line + s6)
+      |                1
+Error: Operands of binary numeric operator ‘+’ at (1) are CHARACTER(100)/CHARACTER(100)
+/tmp/canny-edge-detector.f90:163:23:
+
+  163 |         if (((x < size(m(((0)+1)))) - 1)) then
+      |                       1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/canny-edge-detector.f90:160:26:
+
+  160 |       do while ((x < size(m(((0)+1)))))
+      |                          1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/canny-edge-detector.f90:157:24:
+
+  157 |     do while ((y < size(m)))
+      |                        1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/canny-edge-detector.f90:94:20:
+
+   94 |     gx = conv2d(img,hx)
+      |                    1
+Error: Rank mismatch in argument ‘k’ at (1) (scalar and rank-2)
+/tmp/canny-edge-detector.f90:39:13:
+
+   39 |     h = size(img)
+      |             1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/canny-edge-detector.f90:40:13:
+
+   40 |     w = size(img(((0)+1)))
+      |             1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/canny-edge-detector.f90:41:13:
+
+   41 |     n = size(k)
+      |             1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/canny-edge-detector.f90:83:6:
+
+   83 |       app1(size(out)+1) = row
+      |      1
+Error: Incompatible ranks 0 and 1 in assignment at (1)
+/tmp/canny-edge-detector.f90:87:4:
+
+   87 |     res = out
+      |    1
+Error: Incompatible ranks 0 and 1 in assignment at (1)
+/tmp/canny-edge-detector.f90:95:20:
+
+   95 |     gy = conv2d(img,hy)
+      |                    1
+Error: Rank mismatch in argument ‘k’ at (1) (scalar and rank-2)
+/tmp/canny-edge-detector.f90:96:13:
+
+   96 |     h = size(img)
+      |             1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/canny-edge-detector.f90:97:13:
+
+   97 |     w = size(img(((0)+1)))
+      |             1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/canny-edge-detector.f90:115:6:
+
+  115 |       app3(size(out)+1) = row
+      |      1
+Error: Incompatible ranks 0 and 1 in assignment at (1)
+/tmp/canny-edge-detector.f90:119:4:
+
+  119 |     res = out
+      |    1
+Error: Incompatible ranks 0 and 1 in assignment at (1)

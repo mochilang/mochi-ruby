@@ -1,0 +1,5 @@
+check: error[T003]: unknown function: exact_to_inexact
+  --> :1:7
+
+help:
+  Ensure the function is defined before it's called.

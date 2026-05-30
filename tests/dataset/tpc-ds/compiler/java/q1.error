@@ -1,0 +1,7 @@
+javac error: exit status 1
+/tmp/TestJavaCompiler_TPCDSQueriesq13778490489/001/Q1.java:220: error: bad operand types for binary operator '*'
+}}).get().stream().mapToDouble(n -> ((Number)n).doubleValue()).average().orElse(0)).doubleValue() * 1.200000).doubleValue() && Objects.equals(s.s_state, "TN"))) continue;
+                                                                                                  ^
+  first type:  Number
+  second type: double
+1 error

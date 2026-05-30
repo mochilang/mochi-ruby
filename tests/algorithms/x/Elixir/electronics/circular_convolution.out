@@ -1,0 +1,25 @@
+warning: variable "i" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+    │
+ 38 │       {i, p} = try do
+    │        ~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/electronics/circular_convolution.exs:38:8: Main.pow10/1
+
+     warning: variable "k" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 103 │           {k, sum} = try do
+     │            ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/electronics/circular_convolution.exs:103:12: Main.circular_convolution/2
+
+     warning: variable "i" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 116 │       {i, res} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/electronics/circular_convolution.exs:116:8: Main.circular_convolution/2
+
+[10.0, 10.0, 6.0, 14.0]
+[5.2, 6.0, 6.48, 6.64, 6.48, 6.0, 5.2, 4.08]
+[6.25, -3.0, 1.5, -2.0, -2.75]
+[8.0, -2.0, 3.0, 4.0, 11.0]

@@ -1,0 +1,41 @@
+{
+  "body": [
+    {
+      "kind": "VarDecl",
+      "name": "scores",
+      "type": "Data1",
+      "expr": {
+        "kind": "NEW_CLASS",
+        "args": [
+          {
+            "kind": "Literal",
+            "value": "1"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Expr"
+    },
+    {
+      "kind": "Print",
+      "expr": {
+        "kind": "Call",
+        "target": {
+          "kind": "Member",
+          "name": "get",
+          "expr": {
+            "kind": "Ident",
+            "name": "scores"
+          }
+        },
+        "args": [
+          {
+            "kind": "String",
+            "value": "bob"
+          }
+        ]
+      }
+    }
+  ]
+}

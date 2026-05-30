@@ -1,0 +1,12 @@
+func main (regs=1)
+  // print(sum3(1, 2, 3))  // 6
+  Const        r0, 6
+  Print        r0
+  Return       r0
+
+  // fun sum3(a: int, b: int, c: int): int {
+func sum3 (regs=5)
+  // return a + b + c
+  Add          r3, r0, r1
+  Add          r4, r3, r2
+  Return       r4

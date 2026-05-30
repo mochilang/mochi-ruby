@@ -1,0 +1,13 @@
+(program
+  (fun triple
+    (type int)
+    (block
+      (return
+        (binary * (selector x) (int 3))
+      )
+    )
+  )
+  (call print
+    (call triple (int 3))
+  )
+)

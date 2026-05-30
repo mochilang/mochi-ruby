@@ -1,0 +1,11 @@
+(ns main)
+
+(defn _gen_text [prompt model params]
+  prompt)
+(declare poem)
+
+(defn -main []
+  (def poem (_gen_text "echo hello" "" nil))
+  (println poem))
+
+(-main)

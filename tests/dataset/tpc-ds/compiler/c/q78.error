@@ -1,0 +1,148 @@
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c: In function ‘test_TPCDS_Q78_simplified’:
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:238:51: error: ‘(tmp1_t *)&tmp1’ is a pointer; did you mean to use ‘->’?
+  238 |   if (test_TPCDS_Q78_simplified_result.len != tmp1.len) {
+      |                                                   ^
+      |                                                   ->
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:242:60: error: ‘(tmp1_t *)&tmp1’ is a pointer; did you mean to use ‘->’?
+  242 |       if (test_TPCDS_Q78_simplified_result.data[i3] != tmp1.data[i3]) {
+      |                                                            ^
+      |                                                            ->
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c: In function ‘main’:
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:276:29: warning: implicit declaration of function ‘result_item_list_t_create’ [-Wimplicit-function-declaration]
+  276 |   result_item_list_t tmp4 = result_item_list_t_create(ss.len * ws.len * cs.len);
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:276:57: error: ‘(s_t *)&ss’ is a pointer; did you mean to use ‘->’?
+  276 |   result_item_list_t tmp4 = result_item_list_t_create(ss.len * ws.len * cs.len);
+      |                                                         ^
+      |                                                         ->
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:276:66: error: ‘(w_t *)&ws’ is a pointer; did you mean to use ‘->’?
+  276 |   result_item_list_t tmp4 = result_item_list_t_create(ss.len * ws.len * cs.len);
+      |                                                                  ^
+      |                                                                  ->
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:276:75: error: ‘(c_t *)&cs’ is a pointer; did you mean to use ‘->’?
+  276 |   result_item_list_t tmp4 = result_item_list_t_create(ss.len * ws.len * cs.len);
+      |                                                                           ^
+      |                                                                           ->
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:297:21: error: invalid operands to binary == (have ‘w_t’ and ‘int’)
+  297 |         if (!(((((w == 0) ? 0 : w.ws_qty)) > 0 ||
+      |                     ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:298:21: error: invalid operands to binary == (have ‘c_t’ and ‘int’)
+  298 |                (((c == 0) ? 0 : c.cs_qty)) > 0) &&
+      |                     ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:307:53: error: invalid operands to binary == (have ‘w_t’ and ‘int’)
+  307 |                 ((double)s.ss_qty) / ((double)((((w == 0) ? 0 : w.ws_qty)) +
+      |                                                     ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:308:53: error: invalid operands to binary == (have ‘c_t’ and ‘int’)
+  308 |                                                (((c == 0) ? 0 : c.cs_qty)))),
+      |                                                     ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:313:22: error: invalid operands to binary == (have ‘w_t’ and ‘int’)
+  313 |                 (((w == 0) ? 0 : w.ws_qty)) + (((c == 0) ? 0 : c.cs_qty)),
+      |                      ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:313:52: error: invalid operands to binary == (have ‘c_t’ and ‘int’)
+  313 |                 (((w == 0) ? 0 : w.ws_qty)) + (((c == 0) ? 0 : c.cs_qty)),
+      |                                                    ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:315:22: error: invalid operands to binary == (have ‘w_t’ and ‘int’)
+  315 |                 (((w == 0) ? 0.0 : w.ws_wc)) + (((c == 0) ? 0.0 : c.cs_wc)),
+      |                      ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:315:53: error: invalid operands to binary == (have ‘c_t’ and ‘int’)
+  315 |                 (((w == 0) ? 0.0 : w.ws_wc)) + (((c == 0) ? 0.0 : c.cs_wc)),
+      |                                                     ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:317:22: error: invalid operands to binary == (have ‘w_t’ and ‘int’)
+  317 |                 (((w == 0) ? 0.0 : w.ws_sp)) + (((c == 0) ? 0.0 : c.cs_sp))};
+      |                      ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:317:53: error: invalid operands to binary == (have ‘c_t’ and ‘int’)
+  317 |                 (((w == 0) ? 0.0 : w.ws_sp)) + (((c == 0) ? 0.0 : c.cs_sp))};
+      |                                                     ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:322:21: error: invalid operands to binary == (have ‘w_t’ and ‘int’)
+  322 |         if (!(((((w == 0) ? 0 : w.ws_qty)) > 0 ||
+      |                     ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:323:21: error: invalid operands to binary == (have ‘c_t’ and ‘int’)
+  323 |                (((c == 0) ? 0 : c.cs_qty)) > 0) &&
+      |                     ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:332:53: error: invalid operands to binary == (have ‘w_t’ and ‘int’)
+  332 |                 ((double)s.ss_qty) / ((double)((((w == 0) ? 0 : w.ws_qty)) +
+      |                                                     ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:333:53: error: invalid operands to binary == (have ‘c_t’ and ‘int’)
+  333 |                                                (((c == 0) ? 0 : c.cs_qty)))),
+      |                                                     ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:338:22: error: invalid operands to binary == (have ‘w_t’ and ‘int’)
+  338 |                 (((w == 0) ? 0 : w.ws_qty)) + (((c == 0) ? 0 : c.cs_qty)),
+      |                      ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:338:52: error: invalid operands to binary == (have ‘c_t’ and ‘int’)
+  338 |                 (((w == 0) ? 0 : w.ws_qty)) + (((c == 0) ? 0 : c.cs_qty)),
+      |                                                    ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:340:22: error: invalid operands to binary == (have ‘w_t’ and ‘int’)
+  340 |                 (((w == 0) ? 0.0 : w.ws_wc)) + (((c == 0) ? 0.0 : c.cs_wc)),
+      |                      ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:340:53: error: invalid operands to binary == (have ‘c_t’ and ‘int’)
+  340 |                 (((w == 0) ? 0.0 : w.ws_wc)) + (((c == 0) ? 0.0 : c.cs_wc)),
+      |                                                     ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:342:22: error: invalid operands to binary == (have ‘w_t’ and ‘int’)
+  342 |                 (((w == 0) ? 0.0 : w.ws_sp)) + (((c == 0) ? 0.0 : c.cs_sp))};
+      |                      ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:342:53: error: invalid operands to binary == (have ‘c_t’ and ‘int’)
+  342 |                 (((w == 0) ? 0.0 : w.ws_sp)) + (((c == 0) ? 0.0 : c.cs_sp))};
+      |                                                     ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:357:21: error: invalid operands to binary == (have ‘w_t’ and ‘int’)
+  357 |         if (!(((((w == 0) ? 0 : w.ws_qty)) > 0 ||
+      |                     ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:358:21: error: invalid operands to binary == (have ‘c_t’ and ‘int’)
+  358 |                (((c == 0) ? 0 : c.cs_qty)) > 0) &&
+      |                     ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:367:53: error: invalid operands to binary == (have ‘w_t’ and ‘int’)
+  367 |                 ((double)s.ss_qty) / ((double)((((w == 0) ? 0 : w.ws_qty)) +
+      |                                                     ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:368:53: error: invalid operands to binary == (have ‘c_t’ and ‘int’)
+  368 |                                                (((c == 0) ? 0 : c.cs_qty)))),
+      |                                                     ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:373:22: error: invalid operands to binary == (have ‘w_t’ and ‘int’)
+  373 |                 (((w == 0) ? 0 : w.ws_qty)) + (((c == 0) ? 0 : c.cs_qty)),
+      |                      ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:373:52: error: invalid operands to binary == (have ‘c_t’ and ‘int’)
+  373 |                 (((w == 0) ? 0 : w.ws_qty)) + (((c == 0) ? 0 : c.cs_qty)),
+      |                                                    ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:375:22: error: invalid operands to binary == (have ‘w_t’ and ‘int’)
+  375 |                 (((w == 0) ? 0.0 : w.ws_wc)) + (((c == 0) ? 0.0 : c.cs_wc)),
+      |                      ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:375:53: error: invalid operands to binary == (have ‘c_t’ and ‘int’)
+  375 |                 (((w == 0) ? 0.0 : w.ws_wc)) + (((c == 0) ? 0.0 : c.cs_wc)),
+      |                                                     ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:377:22: error: invalid operands to binary == (have ‘w_t’ and ‘int’)
+  377 |                 (((w == 0) ? 0.0 : w.ws_sp)) + (((c == 0) ? 0.0 : c.cs_sp))};
+      |                      ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:377:53: error: invalid operands to binary == (have ‘c_t’ and ‘int’)
+  377 |                 (((w == 0) ? 0.0 : w.ws_sp)) + (((c == 0) ? 0.0 : c.cs_sp))};
+      |                                                     ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:382:21: error: invalid operands to binary == (have ‘w_t’ and ‘int’)
+  382 |         if (!(((((w == 0) ? 0 : w.ws_qty)) > 0 ||
+      |                     ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:383:21: error: invalid operands to binary == (have ‘c_t’ and ‘int’)
+  383 |                (((c == 0) ? 0 : c.cs_qty)) > 0) &&
+      |                     ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:392:53: error: invalid operands to binary == (have ‘w_t’ and ‘int’)
+  392 |                 ((double)s.ss_qty) / ((double)((((w == 0) ? 0 : w.ws_qty)) +
+      |                                                     ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:393:53: error: invalid operands to binary == (have ‘c_t’ and ‘int’)
+  393 |                                                (((c == 0) ? 0 : c.cs_qty)))),
+      |                                                     ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:398:22: error: invalid operands to binary == (have ‘w_t’ and ‘int’)
+  398 |                 (((w == 0) ? 0 : w.ws_qty)) + (((c == 0) ? 0 : c.cs_qty)),
+      |                      ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:398:52: error: invalid operands to binary == (have ‘c_t’ and ‘int’)
+  398 |                 (((w == 0) ? 0 : w.ws_qty)) + (((c == 0) ? 0 : c.cs_qty)),
+      |                                                    ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:400:22: error: invalid operands to binary == (have ‘w_t’ and ‘int’)
+  400 |                 (((w == 0) ? 0.0 : w.ws_wc)) + (((c == 0) ? 0.0 : c.cs_wc)),
+      |                      ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:400:53: error: invalid operands to binary == (have ‘c_t’ and ‘int’)
+  400 |                 (((w == 0) ? 0.0 : w.ws_wc)) + (((c == 0) ? 0.0 : c.cs_wc)),
+      |                                                     ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:402:22: error: invalid operands to binary == (have ‘w_t’ and ‘int’)
+  402 |                 (((w == 0) ? 0.0 : w.ws_sp)) + (((c == 0) ? 0.0 : c.cs_sp))};
+      |                      ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:402:53: error: invalid operands to binary == (have ‘c_t’ and ‘int’)
+  402 |                 (((w == 0) ? 0.0 : w.ws_sp)) + (((c == 0) ? 0.0 : c.cs_sp))};
+      |                                                     ^~
+/tmp/TestCCompiler_TPCDS_Goldenq7826303201/001/prog.c:457:38: error: incompatible types when assigning to type ‘list_int’ from type ‘result_item_list_t’
+  457 |   test_TPCDS_Q78_simplified_result = result;
+      |                                      ^~~~~~

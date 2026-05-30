@@ -1,0 +1,12 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    qty: int
+}
+let sr_items: Anon1 list = [{ qty = 10 }; { qty = 5 }]
+let cr_items: Anon1 list = [{ qty = 25 }; { qty = 20 }]
+let wr_items: Anon1 list = [{ qty = 10 }; { qty = 13 }]
+let result: obj = List.sum [ for x in sr_items do yield x.qty ] + List.sum [ for x in cr_items do yield x.qty ] + List.sum [ for x in wr_items do yield x.qty ]
+printfn "%A" (JsonSerializer.Serialize(result))
+assert (result = 83)

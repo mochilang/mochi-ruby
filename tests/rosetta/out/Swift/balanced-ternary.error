@@ -1,0 +1,70 @@
+swiftc: exit status 1
+/tmp/balanced-ternary.swift:10:5: error: cannot assign to value: 's' is a 'let' constant
+  8 | }
+  9 | func btString(_ s: String) -> [String: Any] {
+ 10 |     s = trimLeftZeros(s)
+    |     `- error: cannot assign to value: 's' is a 'let' constant
+ 11 |     var b: [Int] = []
+ 12 |     var i = s.count - 1
+
+/tmp/balanced-ternary.swift:108:20: error: cannot convert value of type 'String' to specified type '[Int]'
+106 | }
+107 | func padLeft(_ s: String, _ w: Int) -> String {
+108 |     var r: [Int] = s
+    |                    `- error: cannot convert value of type 'String' to specified type '[Int]'
+109 |     while r.count < w {
+110 |         r = " " + r
+
+/tmp/balanced-ternary.swift:110:17: error: operator function '+' requires the types 'Int' and 'String.Element' (aka 'Character') be equivalent
+108 |     var r: [Int] = s
+109 |     while r.count < w {
+110 |         r = " " + r
+    |                 `- error: operator function '+' requires the types 'Int' and 'String.Element' (aka 'Character') be equivalent
+111 |     }
+112 |     return r
+
+Swift.RangeReplaceableCollection.+:2:31: note: where 'Self.Element' = 'Int', 'Other.Element' = 'String.Element' (aka 'Character')
+1 | protocol RangeReplaceableCollection {
+2 | @inlinable public static func + <Other>(lhs: Other, rhs: Self) -> Self where Other : Sequence, Self.Element == Other.Element}
+  |                               `- note: where 'Self.Element' = 'Int', 'Other.Element' = 'String.Element' (aka 'Character')
+3 | 
+
+/tmp/balanced-ternary.swift:112:12: error: cannot convert return expression of type '[Int]' to return type 'String'
+110 |         r = " " + r
+111 |     }
+112 |     return r
+    |            `- error: cannot convert return expression of type '[Int]' to return type 'String'
+113 | }
+114 | func show(_ label: String, _ b: [Int]) {
+
+/tmp/balanced-ternary.swift:126:16: error: cannot convert value of type 'Any?' to expected argument type '[Int]'
+124 |     let cres = btString("+-++-")
+125 |     let c = cres["bt"]
+126 |     show("a:", a)
+    |                `- error: cannot convert value of type 'Any?' to expected argument type '[Int]'
+127 |     show("b:", b)
+128 |     show("c:", c)
+
+/tmp/balanced-ternary.swift:128:16: error: cannot convert value of type 'Any?' to expected argument type '[Int]'
+126 |     show("a:", a)
+127 |     show("b:", b)
+128 |     show("c:", c)
+    |                `- error: cannot convert value of type 'Any?' to expected argument type '[Int]'
+129 |     show("a(b-c):", btMul(a, btAdd(b, btNeg(c))))
+130 | }
+
+/tmp/balanced-ternary.swift:129:27: error: cannot convert value of type 'Any?' to expected argument type '[Int]'
+127 |     show("b:", b)
+128 |     show("c:", c)
+129 |     show("a(b-c):", btMul(a, btAdd(b, btNeg(c))))
+    |                           `- error: cannot convert value of type 'Any?' to expected argument type '[Int]'
+130 | }
+131 | main()
+
+/tmp/balanced-ternary.swift:129:45: error: cannot convert value of type 'Any?' to expected argument type '[Int]'
+127 |     show("b:", b)
+128 |     show("c:", c)
+129 |     show("a(b-c):", btMul(a, btAdd(b, btNeg(c))))
+    |                                             `- error: cannot convert value of type 'Any?' to expected argument type '[Int]'
+130 | }
+131 | main()

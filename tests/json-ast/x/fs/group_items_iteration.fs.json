@@ -1,0 +1,1431 @@
+{
+  "root": {
+    "kind": "ERROR",
+    "children": [
+      {
+        "kind": "line_comment",
+        "text": "// Generated 2025-07-21 18:37 +0700"
+      },
+      {
+        "kind": "type_definition",
+        "children": [
+          {
+            "kind": "record_type_defn",
+            "children": [
+              {
+                "kind": "type_name",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "name": "Anon1"
+                  }
+                ]
+              },
+              {
+                "kind": "record_fields",
+                "children": [
+                  {
+                    "kind": "record_field",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "name": "tag"
+                      },
+                      {
+                        "kind": "simple_type",
+                        "children": [
+                          {
+                            "kind": "long_identifier",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "name": "string"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "record_field",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "name": "val"
+                      },
+                      {
+                        "kind": "simple_type",
+                        "children": [
+                          {
+                            "kind": "long_identifier",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "name": "int"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "type_definition",
+        "children": [
+          {
+            "kind": "record_type_defn",
+            "children": [
+              {
+                "kind": "type_name",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "name": "Anon2"
+                  }
+                ]
+              },
+              {
+                "kind": "record_fields",
+                "children": [
+                  {
+                    "kind": "record_field",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "name": "tag"
+                      },
+                      {
+                        "kind": "simple_type",
+                        "children": [
+                          {
+                            "kind": "long_identifier",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "name": "string"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "record_field",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "name": "val"
+                      },
+                      {
+                        "kind": "simple_type",
+                        "children": [
+                          {
+                            "kind": "long_identifier",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "name": "int"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "type_definition",
+        "children": [
+          {
+            "kind": "record_type_defn",
+            "children": [
+              {
+                "kind": "type_name",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "name": "Anon3"
+                  }
+                ]
+              },
+              {
+                "kind": "record_fields",
+                "children": [
+                  {
+                    "kind": "record_field",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "name": "d"
+                      },
+                      {
+                        "kind": "simple_type",
+                        "children": [
+                          {
+                            "kind": "long_identifier",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "name": "obj"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "type_definition",
+        "children": [
+          {
+            "kind": "record_type_defn",
+            "children": [
+              {
+                "kind": "type_name",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "name": "Anon4"
+                  }
+                ]
+              },
+              {
+                "kind": "record_fields",
+                "children": [
+                  {
+                    "kind": "record_field",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "name": "key"
+                      },
+                      {
+                        "kind": "simple_type",
+                        "children": [
+                          {
+                            "kind": "long_identifier",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "name": "obj"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "record_field",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "name": "items"
+                      },
+                      {
+                        "kind": "postfix_type",
+                        "children": [
+                          {
+                            "kind": "simple_type",
+                            "children": [
+                              {
+                                "kind": "long_identifier",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "name": "Anon3"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "long_identifier",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "name": "list"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "type_definition",
+        "children": [
+          {
+            "kind": "record_type_defn",
+            "children": [
+              {
+                "kind": "type_name",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "name": "Anon5"
+                  }
+                ]
+              },
+              {
+                "kind": "record_fields",
+                "children": [
+                  {
+                    "kind": "record_field",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "name": "tag"
+                      },
+                      {
+                        "kind": "simple_type",
+                        "children": [
+                          {
+                            "kind": "long_identifier",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "name": "obj"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "record_field",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "name": "total"
+                      },
+                      {
+                        "kind": "simple_type",
+                        "children": [
+                          {
+                            "kind": "long_identifier",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "name": "obj"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "value_declaration",
+        "children": [
+          {
+            "kind": "function_or_value_defn",
+            "children": [
+              {
+                "kind": "value_declaration_left",
+                "children": [
+                  {
+                    "kind": "identifier_pattern",
+                    "children": [
+                      {
+                        "kind": "long_identifier_or_op",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "name": "data"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "postfix_type",
+                "children": [
+                  {
+                    "kind": "simple_type",
+                    "children": [
+                      {
+                        "kind": "long_identifier",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "name": "Anon2"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "long_identifier",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "name": "list"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "list_expression",
+                "children": [
+                  {
+                    "kind": "brace_expression",
+                    "children": [
+                      {
+                        "kind": "field_initializers",
+                        "children": [
+                          {
+                            "kind": "field_initializer",
+                            "children": [
+                              {
+                                "kind": "long_identifier",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "name": "tag"
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "const",
+                                "children": [
+                                  {
+                                    "kind": "string",
+                                    "text": "\"a\""
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "field_initializer",
+                            "children": [
+                              {
+                                "kind": "long_identifier",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "name": "val"
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "const",
+                                "children": [
+                                  {
+                                    "kind": "int",
+                                    "text": "1"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "brace_expression",
+                    "children": [
+                      {
+                        "kind": "field_initializers",
+                        "children": [
+                          {
+                            "kind": "field_initializer",
+                            "children": [
+                              {
+                                "kind": "long_identifier",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "name": "tag"
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "const",
+                                "children": [
+                                  {
+                                    "kind": "string",
+                                    "text": "\"a\""
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "field_initializer",
+                            "children": [
+                              {
+                                "kind": "long_identifier",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "name": "val"
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "const",
+                                "children": [
+                                  {
+                                    "kind": "int",
+                                    "text": "2"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "brace_expression",
+                    "children": [
+                      {
+                        "kind": "field_initializers",
+                        "children": [
+                          {
+                            "kind": "field_initializer",
+                            "children": [
+                              {
+                                "kind": "long_identifier",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "name": "tag"
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "const",
+                                "children": [
+                                  {
+                                    "kind": "string",
+                                    "text": "\"b\""
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "field_initializer",
+                            "children": [
+                              {
+                                "kind": "long_identifier",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "name": "val"
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "const",
+                                "children": [
+                                  {
+                                    "kind": "int",
+                                    "text": "3"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "value_declaration",
+        "children": [
+          {
+            "kind": "function_or_value_defn",
+            "children": [
+              {
+                "kind": "value_declaration_left",
+                "children": [
+                  {
+                    "kind": "identifier_pattern",
+                    "children": [
+                      {
+                        "kind": "long_identifier_or_op",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "name": "groups"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "list_expression",
+                "children": [
+                  {
+                    "kind": "for_expression",
+                    "children": [
+                      {
+                        "kind": "paren_pattern",
+                        "children": [
+                          {
+                            "kind": "repeat_pattern",
+                            "children": [
+                              {
+                                "kind": "identifier_pattern",
+                                "children": [
+                                  {
+                                    "kind": "long_identifier_or_op",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "name": "key"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "identifier_pattern",
+                                "children": [
+                                  {
+                                    "kind": "long_identifier_or_op",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "name": "items"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "application_expression",
+                        "children": [
+                          {
+                            "kind": "application_expression",
+                            "children": [
+                              {
+                                "kind": "long_identifier_or_op",
+                                "children": [
+                                  {
+                                    "kind": "long_identifier",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "name": "List"
+                                      },
+                                      {
+                                        "kind": "identifier",
+                                        "name": "groupBy"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "paren_expression",
+                                "children": [
+                                  {
+                                    "kind": "fun_expression",
+                                    "children": [
+                                      {
+                                        "kind": "argument_patterns",
+                                        "children": [
+                                          {
+                                            "kind": "long_identifier",
+                                            "children": [
+                                              {
+                                                "kind": "identifier",
+                                                "name": "d"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "kind": "long_identifier_or_op",
+                                        "children": [
+                                          {
+                                            "kind": "long_identifier",
+                                            "children": [
+                                              {
+                                                "kind": "identifier",
+                                                "name": "d"
+                                              },
+                                              {
+                                                "kind": "identifier",
+                                                "name": "tag"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "long_identifier_or_op",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "name": "data"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "declaration_expression",
+                        "children": [
+                          {
+                            "kind": "function_or_value_defn",
+                            "children": [
+                              {
+                                "kind": "value_declaration_left",
+                                "children": [
+                                  {
+                                    "kind": "identifier_pattern",
+                                    "children": [
+                                      {
+                                        "kind": "long_identifier_or_op",
+                                        "children": [
+                                          {
+                                            "kind": "identifier",
+                                            "name": "g"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "simple_type",
+                                "children": [
+                                  {
+                                    "kind": "long_identifier",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "name": "Anon4"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "brace_expression",
+                                "children": [
+                                  {
+                                    "kind": "field_initializers",
+                                    "children": [
+                                      {
+                                        "kind": "field_initializer",
+                                        "children": [
+                                          {
+                                            "kind": "long_identifier",
+                                            "children": [
+                                              {
+                                                "kind": "identifier",
+                                                "name": "key"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "kind": "long_identifier_or_op",
+                                            "children": [
+                                              {
+                                                "kind": "identifier",
+                                                "name": "key"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "kind": "field_initializer",
+                                        "children": [
+                                          {
+                                            "kind": "long_identifier",
+                                            "children": [
+                                              {
+                                                "kind": "identifier",
+                                                "name": "items"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "kind": "long_identifier_or_op",
+                                            "children": [
+                                              {
+                                                "kind": "identifier",
+                                                "name": "items"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "prefixed_expression",
+                            "children": [
+                              {
+                                "kind": "long_identifier_or_op",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "name": "g"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "value_declaration",
+        "children": [
+          {
+            "kind": "function_or_value_defn",
+            "children": [
+              {
+                "kind": "value_declaration_left",
+                "children": [
+                  {
+                    "kind": "identifier_pattern",
+                    "children": [
+                      {
+                        "kind": "long_identifier_or_op",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "name": "tmp"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "identifier_pattern",
+        "children": [
+          {
+            "kind": "long_identifier_or_op",
+            "children": [
+              {
+                "kind": "identifier",
+                "name": "g"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "long_identifier_or_op",
+        "children": [
+          {
+            "kind": "identifier",
+            "name": "groups"
+          }
+        ]
+      },
+      {
+        "kind": "function_or_value_defn",
+        "children": [
+          {
+            "kind": "value_declaration_left",
+            "children": [
+              {
+                "kind": "identifier_pattern",
+                "children": [
+                  {
+                    "kind": "long_identifier_or_op",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "name": "total"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "simple_type",
+            "children": [
+              {
+                "kind": "long_identifier",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "name": "int"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "const",
+            "children": [
+              {
+                "kind": "int",
+                "text": "0"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "identifier_pattern",
+        "children": [
+          {
+            "kind": "long_identifier_or_op",
+            "children": [
+              {
+                "kind": "identifier",
+                "name": "x"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "long_identifier_or_op",
+        "children": [
+          {
+            "kind": "long_identifier",
+            "children": [
+              {
+                "kind": "identifier",
+                "name": "g"
+              },
+              {
+                "kind": "identifier",
+                "name": "items"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "long_identifier_or_op",
+        "children": [
+          {
+            "kind": "identifier",
+            "name": "total"
+          }
+        ]
+      },
+      {
+        "kind": "application_expression",
+        "children": [
+          {
+            "kind": "infix_expression",
+            "children": [
+              {
+                "kind": "long_identifier_or_op",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "name": "total"
+                  }
+                ]
+              },
+              {
+                "kind": "paren_expression",
+                "children": [
+                  {
+                    "kind": "long_identifier_or_op",
+                    "children": [
+                      {
+                        "kind": "long_identifier",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "name": "x"
+                          },
+                          {
+                            "kind": "identifier",
+                            "name": "val"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "long_identifier_or_op",
+            "children": [
+              {
+                "kind": "identifier",
+                "name": "tmp"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "infix_expression",
+        "children": [
+          {
+            "kind": "long_identifier_or_op",
+            "children": [
+              {
+                "kind": "identifier",
+                "name": "tmp"
+              }
+            ]
+          },
+          {
+            "kind": "list_expression",
+            "children": [
+              {
+                "kind": "brace_expression",
+                "children": [
+                  {
+                    "kind": "field_initializers",
+                    "children": [
+                      {
+                        "kind": "field_initializer",
+                        "children": [
+                          {
+                            "kind": "long_identifier",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "name": "tag"
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "long_identifier_or_op",
+                            "children": [
+                              {
+                                "kind": "long_identifier",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "name": "g"
+                                  },
+                                  {
+                                    "kind": "identifier",
+                                    "name": "key"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "field_initializer",
+                        "children": [
+                          {
+                            "kind": "long_identifier",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "name": "total"
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "long_identifier_or_op",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "name": "total"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "function_or_value_defn",
+        "children": [
+          {
+            "kind": "value_declaration_left",
+            "children": [
+              {
+                "kind": "identifier_pattern",
+                "children": [
+                  {
+                    "kind": "long_identifier_or_op",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "name": "result"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "list_expression",
+            "children": [
+              {
+                "kind": "for_expression",
+                "children": [
+                  {
+                    "kind": "identifier_pattern",
+                    "children": [
+                      {
+                        "kind": "long_identifier_or_op",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "name": "r"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "application_expression",
+                    "children": [
+                      {
+                        "kind": "application_expression",
+                        "children": [
+                          {
+                            "kind": "long_identifier_or_op",
+                            "children": [
+                              {
+                                "kind": "long_identifier",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "name": "List"
+                                  },
+                                  {
+                                    "kind": "identifier",
+                                    "name": "sortBy"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "paren_expression",
+                            "children": [
+                              {
+                                "kind": "fun_expression",
+                                "children": [
+                                  {
+                                    "kind": "argument_patterns",
+                                    "children": [
+                                      {
+                                        "kind": "long_identifier",
+                                        "children": [
+                                          {
+                                            "kind": "identifier",
+                                            "name": "r"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "kind": "paren_expression",
+                                    "children": [
+                                      {
+                                        "kind": "long_identifier_or_op",
+                                        "children": [
+                                          {
+                                            "kind": "long_identifier",
+                                            "children": [
+                                              {
+                                                "kind": "identifier",
+                                                "name": "r"
+                                              },
+                                              {
+                                                "kind": "identifier",
+                                                "name": "tag"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "long_identifier_or_op",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "name": "tmp"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "prefixed_expression",
+                    "children": [
+                      {
+                        "kind": "long_identifier_or_op",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "name": "r"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "application_expression",
+        "children": [
+          {
+            "kind": "application_expression",
+            "children": [
+              {
+                "kind": "long_identifier_or_op",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "name": "printfn"
+                  }
+                ]
+              },
+              {
+                "kind": "const",
+                "children": [
+                  {
+                    "kind": "string",
+                    "text": "\"%s\""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "paren_expression",
+            "children": [
+              {
+                "kind": "infix_expression",
+                "children": [
+                  {
+                    "kind": "paren_expression",
+                    "children": [
+                      {
+                        "kind": "infix_expression",
+                        "children": [
+                          {
+                            "kind": "const",
+                            "children": [
+                              {
+                                "kind": "string",
+                                "text": "\"[\""
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "paren_expression",
+                            "children": [
+                              {
+                                "kind": "application_expression",
+                                "children": [
+                                  {
+                                    "kind": "application_expression",
+                                    "children": [
+                                      {
+                                        "kind": "long_identifier_or_op",
+                                        "children": [
+                                          {
+                                            "kind": "long_identifier",
+                                            "children": [
+                                              {
+                                                "kind": "identifier",
+                                                "name": "String"
+                                              },
+                                              {
+                                                "kind": "identifier",
+                                                "name": "concat"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "kind": "const",
+                                        "children": [
+                                          {
+                                            "kind": "string",
+                                            "text": "\", \""
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "kind": "paren_expression",
+                                    "children": [
+                                      {
+                                        "kind": "application_expression",
+                                        "children": [
+                                          {
+                                            "kind": "application_expression",
+                                            "children": [
+                                              {
+                                                "kind": "long_identifier_or_op",
+                                                "children": [
+                                                  {
+                                                    "kind": "long_identifier",
+                                                    "children": [
+                                                      {
+                                                        "kind": "identifier",
+                                                        "name": "List"
+                                                      },
+                                                      {
+                                                        "kind": "identifier",
+                                                        "name": "map"
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              },
+                                              {
+                                                "kind": "long_identifier_or_op",
+                                                "children": [
+                                                  {
+                                                    "kind": "identifier",
+                                                    "name": "string"
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "kind": "long_identifier_or_op",
+                                            "children": [
+                                              {
+                                                "kind": "identifier",
+                                                "name": "result"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "const",
+                    "children": [
+                      {
+                        "kind": "string",
+                        "text": "\"]\""
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

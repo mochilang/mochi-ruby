@@ -1,0 +1,16 @@
+warning: module attribute @data_dir was set but never used
+    │
+  3 │   @data_dir nil
+    │   ~~~~~~~~~~~~~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/data_structures/linked_list/doubly_linked_list.exs:3: Main (module)
+
+1
+0
+0
+9
+0
+1
+0
+0
+1

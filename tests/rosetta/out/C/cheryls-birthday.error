@@ -1,0 +1,66 @@
+cc: exit status 1
+/tmp/cheryls-birthday.c: In function ‘monthUnique’:
+/tmp/cheryls-birthday.c:49:33: error: request for member ‘len’ in something not a structure or union
+   49 |   for (int tmp1 = 0; tmp1 < list.len; tmp1++) {
+      |                                 ^
+/tmp/cheryls-birthday.c:50:24: error: request for member ‘data’ in something not a structure or union
+   50 |     birthday_t x = list.data[tmp1];
+      |                        ^
+/tmp/cheryls-birthday.c: In function ‘dayUnique’:
+/tmp/cheryls-birthday.c:60:33: error: request for member ‘len’ in something not a structure or union
+   60 |   for (int tmp2 = 0; tmp2 < list.len; tmp2++) {
+      |                                 ^
+/tmp/cheryls-birthday.c:61:24: error: request for member ‘data’ in something not a structure or union
+   61 |     birthday_t x = list.data[tmp2];
+      |                        ^
+/tmp/cheryls-birthday.c: In function ‘monthWithUniqueDay’:
+/tmp/cheryls-birthday.c:70:33: error: request for member ‘len’ in something not a structure or union
+   70 |   for (int tmp3 = 0; tmp3 < list.len; tmp3++) {
+      |                                 ^
+/tmp/cheryls-birthday.c:71:24: error: request for member ‘data’ in something not a structure or union
+   71 |     birthday_t x = list.data[tmp3];
+      |                        ^
+/tmp/cheryls-birthday.c: In function ‘bstr’:
+/tmp/cheryls-birthday.c:95:32: error: invalid operands to binary + (have ‘char *’ and ‘char *’)
+   95 |   return months.data[b->month] + " " + tmp4;
+      |          ~~~~~~~~~~~~~~~~~~~~~ ^
+      |                     |          |
+      |                     char *     char *
+/tmp/cheryls-birthday.c: In function ‘_mochi_main’:
+/tmp/cheryls-birthday.c:109:28: warning: passing argument 2 of ‘monthUnique’ makes integer from pointer without a cast [-Wint-conversion]
+  109 |     if ((!monthUnique(&bd, choices))) {
+      |                            ^~~~~~~
+      |                            |
+      |                            birthday_t * {aka struct birthday_t *}
+/tmp/cheryls-birthday.c:47:36: note: expected ‘int’ but argument is of type ‘birthday_t *’ {aka ‘struct birthday_t *’}
+   47 | int monthUnique(birthday_t *b, int list) {
+      |                                ~~~~^~~~
+/tmp/cheryls-birthday.c:122:35: error: incompatible type for argument 2 of ‘monthWithUniqueDay’
+  122 |     if ((!monthWithUniqueDay(&bd, filtered))) {
+      |                                   ^~~~~~~~
+      |                                   |
+      |                                   birthday_list_t
+/tmp/cheryls-birthday.c:69:43: note: expected ‘int’ but argument is of type ‘birthday_list_t’
+   69 | int monthWithUniqueDay(birthday_t *b, int list) {
+      |                                       ~~~~^~~~
+/tmp/cheryls-birthday.c:135:24: error: incompatible type for argument 2 of ‘dayUnique’
+  135 |     if (dayUnique(&bd, filtered2)) {
+      |                        ^~~~~~~~~
+      |                        |
+      |                        birthday_list_t
+/tmp/cheryls-birthday.c:58:34: note: expected ‘int’ but argument is of type ‘birthday_list_t’
+   58 | int dayUnique(birthday_t *b, int list) {
+      |                              ~~~~^~~~
+/tmp/cheryls-birthday.c:148:26: error: incompatible type for argument 2 of ‘monthUnique’
+  148 |     if (monthUnique(&bd, filtered3)) {
+      |                          ^~~~~~~~~
+      |                          |
+      |                          birthday_list_t
+/tmp/cheryls-birthday.c:47:36: note: expected ‘int’ but argument is of type ‘birthday_list_t’
+   47 | int monthUnique(birthday_t *b, int list) {
+      |                                ~~~~^~~~
+/tmp/cheryls-birthday.c:159:44: error: invalid operands to binary + (have ‘char *’ and ‘char *’)
+  159 |     printf("%s\n", "Cheryl's birthday is " + bstr(&filtered4.data[0]));
+      |                    ~~~~~~~~~~~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~~~~~~~~~
+      |                    |                         |
+      |                    char *                    char *

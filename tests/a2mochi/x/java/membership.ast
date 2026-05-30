@@ -1,0 +1,41 @@
+(program
+  (let nums
+    (list (int 1) (int 2) (int 3))
+  )
+  (call print
+    (call
+      (selector anyMatch
+        (call
+          (selector stream
+            (selector Arrays
+              (selector util (selector java))
+            )
+          )
+          (selector nums)
+        )
+      )
+      (funexpr
+        (param x (type int))
+        (binary == (selector x) (int 2))
+      )
+    )
+  )
+  (call print
+    (call
+      (selector anyMatch
+        (call
+          (selector stream
+            (selector Arrays
+              (selector util (selector java))
+            )
+          )
+          (selector nums)
+        )
+      )
+      (funexpr
+        (param x (type int))
+        (binary == (selector x) (int 4))
+      )
+    )
+  )
+)

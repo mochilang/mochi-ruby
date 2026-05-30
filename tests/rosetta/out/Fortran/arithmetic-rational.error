@@ -1,0 +1,6 @@
+gfortran: exit status 1
+/tmp/arithmetic-rational.f90:69:7:
+
+   69 |       n = nums(i0)
+      |       1
+Error: Symbol ‘n’ at (1) has no IMPLICIT type

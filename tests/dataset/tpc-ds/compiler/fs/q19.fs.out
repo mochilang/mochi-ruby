@@ -1,0 +1,126 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    ss_sold_date_sk: int
+    ss_item_sk: int
+    ss_customer_sk: int
+    ss_store_sk: int
+    ss_ext_sales_price: float
+}
+type Anon2 = {
+    d_date_sk: int
+    d_year: int
+    d_moy: int
+}
+type Anon3 = {
+    i_item_sk: int
+    i_brand_id: int
+    i_brand: string
+    i_manufact_id: int
+    i_manufact: string
+    i_manager_id: int
+}
+type Anon4 = {
+    c_customer_sk: int
+    c_current_addr_sk: int
+}
+type Anon5 = {
+    ca_address_sk: int
+    ca_zip: string
+}
+type Anon6 = {
+    s_store_sk: int
+    s_zip: string
+}
+type Anon7 = {
+    i_brand: obj
+    i_brand_id: obj
+    i_manufact_id: obj
+    i_manufact: obj
+    ext_price: obj
+}
+type Anon8 = {
+    brand: string
+    brand_id: int
+    man_id: int
+    man: string
+}
+type Anon9 = {
+    i_brand: string
+    i_brand_id: int
+    i_manufact_id: int
+    i_manufact: string
+    ext_price: float
+}
+type _Group<'K,'T>(key: 'K) =
+    member val key = key with get, set
+    member val Items = System.Collections.Generic.List<'T>() with get
+    member this.size = this.Items.Count
+    interface System.Collections.Generic.IEnumerable<'T> with
+        member this.GetEnumerator() = (this.Items :> seq<'T>).GetEnumerator()
+    interface System.Collections.IEnumerable with
+        member this.GetEnumerator() = (this.Items :> System.Collections.IEnumerable).GetEnumerator()
+
+let _group_by (src: 'T list) (keyfn: 'T -> 'K) : _Group<'K,'T> list =
+    let groups = System.Collections.Generic.Dictionary<string,_Group<'K,'T>>()
+    let order = System.Collections.Generic.List<string>()
+    for it in src do
+        let key = keyfn it
+        let ks = string key
+        let mutable g = Unchecked.defaultof<_Group<'K,'T>>
+        if groups.TryGetValue(ks, &g) then ()
+        else
+            g <- _Group<'K,'T>(key)
+            groups.Add(ks, g)
+            order.Add(ks)
+        g.Items.Add(it)
+    [ for ks in order -> groups[ks] ]
+
+type StoreSale = {
+    mutable ss_sold_date_sk: int
+    mutable ss_item_sk: int
+    mutable ss_customer_sk: int
+    mutable ss_store_sk: int
+    mutable ss_ext_sales_price: float
+}
+type DateDim = {
+    mutable d_date_sk: int
+    mutable d_year: int
+    mutable d_moy: int
+}
+type Item = {
+    mutable i_item_sk: int
+    mutable i_brand_id: int
+    mutable i_brand: string
+    mutable i_manufact_id: int
+    mutable i_manufact: string
+    mutable i_manager_id: int
+}
+type Customer = {
+    mutable c_customer_sk: int
+    mutable c_current_addr_sk: int
+}
+type CustomerAddress = {
+    mutable ca_address_sk: int
+    mutable ca_zip: string
+}
+type Store = {
+    mutable s_store_sk: int
+    mutable s_zip: string
+}
+let store_sales: Anon1 list = [{ ss_sold_date_sk = 1; ss_item_sk = 1; ss_customer_sk = 1; ss_store_sk = 1; ss_ext_sales_price = 100.0 }]
+let date_dim: Anon2 list = [{ d_date_sk = 1; d_year = 1999; d_moy = 11 }]
+let item: Anon3 list = [{ i_item_sk = 1; i_brand_id = 1; i_brand = "B1"; i_manufact_id = 1; i_manufact = "M1"; i_manager_id = 10 }]
+let customer: Anon4 list = [{ c_customer_sk = 1; c_current_addr_sk = 1 }]
+let customer_address: Anon5 list = [{ ca_address_sk = 1; ca_zip = "11111" }]
+let store: Anon6 list = [{ s_store_sk = 1; s_zip = "99999" }]
+let result: Anon7 list = [ for g in _group_by [ for d in date_dim do 
+  for ss in store_sales do 
+  for i in item do 
+  for c in customer do 
+  for ca in customer_address do 
+  for s in store do if ss.ss_sold_date_sk = d.d_date_sk && ss.ss_item_sk = i.i_item_sk && i.i_manager_id = 10 && ss.ss_customer_sk = c.c_customer_sk && c.c_current_addr_sk = ca.ca_address_sk && ss.ss_store_sk = s.s_store_sk && substr ca.ca_zip 0 5 <> substr s.s_zip 0 5 && d.d_moy = 11 && d.d_year = 1999 then yield (d, ss, i, c, ca, s) ] (fun (d, ss, i, c, ca, s) -> { brand = i.i_brand; brand_id = i.i_brand_id; man_id = i.i_manufact_id; man = i.i_manufact }) |> List.sortBy (fun gTmp -> let g = gTmp in [g.key.brand]) do
+    yield { i_brand = g.key.brand; i_brand_id = g.key.brand_id; i_manufact_id = g.key.man_id; i_manufact = g.key.man; ext_price = List.sum [ for x in g do yield x.ss_ext_sales_price ] } ]
+printfn "%A" (JsonSerializer.Serialize(result))
+assert (result = [{ i_brand = "B1"; i_brand_id = 1; i_manufact_id = 1; i_manufact = "M1"; ext_price = 100.0 }])

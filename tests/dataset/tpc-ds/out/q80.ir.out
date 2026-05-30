@@ -1,0 +1,93 @@
+func main (regs=47)
+  // let store_sales = [
+  Const        r0, [{"price": 20.0, "ret": 5.0}, {"price": 10.0, "ret": 2.0}, {"price": 5.0, "ret": 0.0}]
+  // let catalog_sales = [
+  Const        r1, [{"price": 15.0, "ret": 3.0}, {"price": 8.0, "ret": 1.0}]
+  // let web_sales = [
+  Const        r2, [{"price": 25.0, "ret": 5.0}, {"price": 15.0, "ret": 8.0}, {"price": 8.0, "ret": 2.0}]
+  // sum(from s in store_sales select s.price - s.ret) +
+  Const        r3, []
+  Const        r4, "price"
+  Const        r5, "ret"
+  IterPrep     r6, r0
+  Len          r7, r6
+  Const        r9, 0
+  Move         r8, r9
+L1:
+  LessInt      r10, r8, r7
+  JumpIfFalse  r10, L0
+  Index        r11, r6, r8
+  Move         r12, r11
+  Const        r4, "price"
+  Index        r13, r12, r4
+  Const        r5, "ret"
+  Index        r14, r12, r5
+  Sub          r15, r13, r14
+  Append       r16, r3, r15
+  Move         r3, r16
+  Const        r17, 1
+  AddInt       r8, r8, r17
+  Jump         L1
+L0:
+  Sum          r18, r3
+  // sum(from c in catalog_sales select c.price - c.ret) +
+  Const        r19, []
+  Const        r4, "price"
+  Const        r5, "ret"
+  IterPrep     r20, r1
+  Len          r21, r20
+  Const        r9, 0
+  Move         r22, r9
+L3:
+  LessInt      r23, r22, r21
+  JumpIfFalse  r23, L2
+  Index        r24, r20, r22
+  Move         r25, r24
+  Const        r4, "price"
+  Index        r26, r25, r4
+  Const        r5, "ret"
+  Index        r27, r25, r5
+  Sub          r28, r26, r27
+  Append       r29, r19, r28
+  Move         r19, r29
+  Const        r17, 1
+  AddInt       r22, r22, r17
+  Jump         L3
+L2:
+  Sum          r30, r19
+  // sum(from s in store_sales select s.price - s.ret) +
+  Add          r31, r18, r30
+  // sum(from w in web_sales select w.price - w.ret)
+  Const        r32, []
+  Const        r4, "price"
+  Const        r5, "ret"
+  IterPrep     r33, r2
+  Len          r34, r33
+  Const        r9, 0
+  Move         r35, r9
+L5:
+  LessInt      r36, r35, r34
+  JumpIfFalse  r36, L4
+  Index        r37, r33, r35
+  Move         r38, r37
+  Const        r4, "price"
+  Index        r39, r38, r4
+  Const        r5, "ret"
+  Index        r40, r38, r5
+  Sub          r41, r39, r40
+  Append       r42, r32, r41
+  Move         r32, r42
+  Const        r17, 1
+  AddInt       r35, r35, r17
+  Jump         L5
+L4:
+  Sum          r43, r32
+  // sum(from c in catalog_sales select c.price - c.ret) +
+  Add          r44, r31, r43
+  // json(total_profit)
+  JSON         r44
+  // expect total_profit == 80.0
+  Const        r45, 80.0
+  EqualFloat   r46, r44, r45
+  Expect       r46
+  Return       r0

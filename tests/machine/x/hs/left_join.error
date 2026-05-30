@@ -1,0 +1,25 @@
+
+/workspace/mochi/tests/machine/x/hs/left_join.hs:131:116: error:
+    • Couldn't match type: Map.Map String AnyValue
+                     with: [Char]
+      Expected: String
+        Actual: Map.Map String AnyValue
+    • In the first argument of ‘VString’, namely ‘(c)’
+      In the expression: VString (c)
+      In the expression: ("customer", VString (c))
+    |
+131 | result = [Map.fromList [("orderId", VInt (fromMaybe (error "missing") (Map.lookup "id" o))), ("customer", VString (c)), ("total", VInt (fromMaybe (error "missing") (Map.lookup "total" o)))] | o <- orders, c <- let _ms0 = [c | c <- customers, (fromMaybe (error "missing") (Map.lookup "customerId" (o)) == fromMaybe (error "missing") (Map.lookup "id" (c)))] in if null _ms0 then [Map.empty] else _ms0]
+    |                                                                                                                    ^
+
+/workspace/mochi/tests/machine/x/hs/left_join.hs:131:351: error:
+    • Couldn't match type ‘AnyValue’ with ‘Int’
+      Expected: Map.Map String Int
+        Actual: Map.Map String AnyValue
+    • In the second argument of ‘Map.lookup’, namely ‘(c)’
+      In the second argument of ‘fromMaybe’, namely
+        ‘(Map.lookup "id" (c))’
+      In the second argument of ‘(==)’, namely
+        ‘fromMaybe (error "missing") (Map.lookup "id" (c))’
+    |
+131 | result = [Map.fromList [("orderId", VInt (fromMaybe (error "missing") (Map.lookup "id" o))), ("customer", VString (c)), ("total", VInt (fromMaybe (error "missing") (Map.lookup "total" o)))] | o <- orders, c <- let _ms0 = [c | c <- customers, (fromMaybe (error "missing") (Map.lookup "customerId" (o)) == fromMaybe (error "missing") (Map.lookup "id" (c)))] in if null _ms0 then [Map.empty] else _ms0]
+    |                                                                                                                                                                                                                                                                                                                                                               ^

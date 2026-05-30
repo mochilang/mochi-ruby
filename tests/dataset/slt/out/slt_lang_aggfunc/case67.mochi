@@ -1,0 +1,58 @@
+/*
+# line: 496
+*/
+
+type t1Row {
+  x: int
+  y: string
+}
+
+let t1 = [
+  t1Row {
+    x: 1,
+    y: "tru" + "e",
+  },
+  t1Row {
+    x: 0,
+    y: "fal" + "se",
+  },
+  t1Row {
+    x: none,
+    y: "NULL",
+  },
+  t1Row {
+    x: 2,
+    y: "tru" + "e",
+  },
+  t1Row {
+    x: 2,
+    y: "tru" + "e",
+  },
+  t1Row {
+    x: 4,
+    y: "tru" + "e",
+  },
+  t1Row {
+    x: none,
+    y: "tru" + "e",
+  },
+  t1Row {
+    x: none,
+    y: "tru" + "e",
+  },
+  t1Row {
+    x: -1,
+    y: "tru" + "e",
+  },
+]
+
+/* SELECT total(DISTINCT x) FROM t1 */
+var result = sum(distinct(from row in t1
+  where row.x != none
+  select row.x))
+result = if result == none then 0.0 else (result as float)
+print(result)
+
+test "case67" {
+  expect result == 6
+}

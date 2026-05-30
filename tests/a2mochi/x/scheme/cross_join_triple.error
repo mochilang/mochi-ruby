@@ -1,0 +1,5 @@
+check: error[T002]: undefined variable: res3
+  --> :4:14
+
+help:
+  Check if the variable was declared in this scope.

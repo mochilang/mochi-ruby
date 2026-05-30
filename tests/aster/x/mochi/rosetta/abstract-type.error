@@ -1,0 +1,8 @@
+error[A028]: return type mismatch: expected string, got any
+  --> /workspace/mochi/tests/rosetta/x/Mochi/abstract-type.mochi:9:3
+
+  9 |   return match b {
+    |   ^
+
+help:
+  Ensure return value matches

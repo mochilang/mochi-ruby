@@ -1,0 +1,8 @@
+parse: error[P999]: /workspace/mochi/tests/rosetta/x/Mochi/cantor-set.mochi:24:31: unexpected token "-1" (expected "]")
+  --> /workspace/mochi/tests/rosetta/x/Mochi/cantor-set.mochi:24:31
+
+ 24 |   var frame = stack[len(stack)-1]
+    |                               ^
+
+help:
+  Parse error occurred. Check syntax near this location.

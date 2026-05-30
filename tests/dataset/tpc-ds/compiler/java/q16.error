@@ -1,0 +1,24 @@
+javac error: exit status 1
+/tmp/TestJavaCompiler_TPCDSQueriesq16636620856/001/Q16.java:191: error: cannot find symbol
+    static List<any> distinct(List<any> xs) {
+                                   ^
+  symbol:   class any
+  location: class Q16
+/tmp/TestJavaCompiler_TPCDSQueriesq16636620856/001/Q16.java:191: error: cannot find symbol
+    static List<any> distinct(List<any> xs) {
+                ^
+  symbol:   class any
+  location: class Q16
+/tmp/TestJavaCompiler_TPCDSQueriesq16636620856/001/Q16.java:193: error: cannot find symbol
+        for (any x : xs) {
+             ^
+  symbol:   class any
+  location: class Q16
+/tmp/TestJavaCompiler_TPCDSQueriesq16636620856/001/Q16.java:273: error: cannot find symbol
+                    if (!(catalog_sales.stream().anyMatch(cs2 -> Objects.equals(cs1.cs_order_number, cs2.cs_order_number) && !Objects.equals(cs1.cs_warehouse_sk, cs2.cs_warehouse_sk)) && Objects.equals(catalog_returns.stream().anyMatch(cr -> Objects.equals(cs1.cs_order_number, cr.cr_order_number)), false))) continue;
+                                                                                                                                                                                                                                                                                        ^
+  symbol:   variable cr_order_number
+  location: variable cr of type Object
+Note: /tmp/TestJavaCompiler_TPCDSQueriesq16636620856/001/Q16.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+4 errors

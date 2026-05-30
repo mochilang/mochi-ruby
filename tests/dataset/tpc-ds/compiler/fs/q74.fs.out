@@ -1,0 +1,89 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    c_customer_sk: int
+    c_customer_id: int
+    c_first_name: string
+    c_last_name: string
+}
+type Anon2 = {
+    d_date_sk: int
+    d_year: int
+}
+type Anon3 = {
+    ss_customer_sk: int
+    ss_sold_date_sk: int
+    ss_net_paid: float
+}
+type Anon4 = {
+    ws_bill_customer_sk: int
+    ws_sold_date_sk: int
+    ws_net_paid: float
+}
+type Anon5 = {
+    customer_id: obj
+    customer_first_name: obj
+    customer_last_name: obj
+    year: obj
+    year_total: obj
+    sale_type: string
+}
+type Anon6 = {
+    id: int
+    first: string
+    last: string
+    year: int
+}
+type Anon7 = {
+    customer_id: obj
+    customer_first_name: obj
+    customer_last_name: obj
+}
+type Anon8 = {
+    customer_id: int
+    customer_first_name: string
+    customer_last_name: string
+}
+type _Group<'K,'T>(key: 'K) =
+    member val key = key with get, set
+    member val Items = System.Collections.Generic.List<'T>() with get
+    member this.size = this.Items.Count
+    interface System.Collections.Generic.IEnumerable<'T> with
+        member this.GetEnumerator() = (this.Items :> seq<'T>).GetEnumerator()
+    interface System.Collections.IEnumerable with
+        member this.GetEnumerator() = (this.Items :> System.Collections.IEnumerable).GetEnumerator()
+
+let _group_by (src: 'T list) (keyfn: 'T -> 'K) : _Group<'K,'T> list =
+    let groups = System.Collections.Generic.Dictionary<string,_Group<'K,'T>>()
+    let order = System.Collections.Generic.List<string>()
+    for it in src do
+        let key = keyfn it
+        let ks = string key
+        let mutable g = Unchecked.defaultof<_Group<'K,'T>>
+        if groups.TryGetValue(ks, &g) then ()
+        else
+            g <- _Group<'K,'T>(key)
+            groups.Add(ks, g)
+            order.Add(ks)
+        g.Items.Add(it)
+    [ for ks in order -> groups[ks] ]
+
+let customer: Anon1 list = [{ c_customer_sk = 1; c_customer_id = 1; c_first_name = "Alice"; c_last_name = "Smith" }]
+let date_dim: Anon2 list = [{ d_date_sk = 1; d_year = 1998 }; { d_date_sk = 2; d_year = 1999 }]
+let store_sales: Anon3 list = [{ ss_customer_sk = 1; ss_sold_date_sk = 1; ss_net_paid = 100.0 }; { ss_customer_sk = 1; ss_sold_date_sk = 2; ss_net_paid = 110.0 }]
+let web_sales: Anon4 list = [{ ws_bill_customer_sk = 1; ws_sold_date_sk = 1; ws_net_paid = 40.0 }; { ws_bill_customer_sk = 1; ws_sold_date_sk = 2; ws_net_paid = 80.0 }]
+let year_total: obj = concat [ for g in _group_by [ for c in customer do 
+  for ss in store_sales do 
+  for d in date_dim do if c.c_customer_sk = ss.ss_customer_sk && d.d_date_sk = ss.ss_sold_date_sk && d.d_year = 1998 || d.d_year = 1999 then yield (c, ss, d) ] (fun (c, ss, d) -> { id = c.c_customer_id; first = c.c_first_name; last = c.c_last_name; year = d.d_year }) do
+    yield { customer_id = g.key.id; customer_first_name = g.key.first; customer_last_name = g.key.last; year = g.key.year; year_total = List.sum [ for x in g do yield x.ss.ss_net_paid ]; sale_type = "s" } ] [ for g in _group_by [ for c in customer do 
+  for ws in web_sales do 
+  for d in date_dim do if c.c_customer_sk = ws.ws_bill_customer_sk && d.d_date_sk = ws.ws_sold_date_sk && d.d_year = 1998 || d.d_year = 1999 then yield (c, ws, d) ] (fun (c, ws, d) -> { id = c.c_customer_id; first = c.c_first_name; last = c.c_last_name; year = d.d_year }) do
+    yield { customer_id = g.key.id; customer_first_name = g.key.first; customer_last_name = g.key.last; year = g.key.year; year_total = List.sum [ for x in g do yield x.ws.ws_net_paid ]; sale_type = "w" } ]
+let s_firstyear: obj = first [ for y in year_total do if y.sale_type = "s" && y.year = 1998 then yield y ]
+let s_secyear: obj = first [ for y in year_total do if y.sale_type = "s" && y.year = 1999 then yield y ]
+let w_firstyear: obj = first [ for y in year_total do if y.sale_type = "w" && y.year = 1998 then yield y ]
+let w_secyear: obj = first [ for y in year_total do if y.sale_type = "w" && y.year = 1999 then yield y ]
+let result: obj = (if s_firstyear.year_total > 0 && w_firstyear.year_total > 0 && (w_secyear.year_total / w_firstyear.year_total) > (s_secyear.year_total / s_firstyear.year_total) then [{ customer_id = s_secyear.customer_id; customer_first_name = s_secyear.customer_first_name; customer_last_name = s_secyear.customer_last_name }] else [])
+printfn "%A" (JsonSerializer.Serialize(result))
+assert (result = [{ customer_id = 1; customer_first_name = "Alice"; customer_last_name = "Smith" }])

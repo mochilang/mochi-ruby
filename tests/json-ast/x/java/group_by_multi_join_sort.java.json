@@ -1,0 +1,776 @@
+{
+  "body": [
+    {
+      "kind": "VarDecl",
+      "name": "nation",
+      "type": "Data1[]",
+      "expr": {
+        "kind": "NEW_ARRAY",
+        "elems": [
+          {
+            "kind": "NEW_CLASS",
+            "args": [
+              {
+                "kind": "Literal",
+                "value": "1"
+              },
+              {
+                "kind": "String",
+                "value": "BRAZIL"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "VarDecl",
+      "name": "customer",
+      "type": "Data2[]",
+      "expr": {
+        "kind": "NEW_ARRAY",
+        "elems": [
+          {
+            "kind": "NEW_CLASS",
+            "args": [
+              {
+                "kind": "Literal",
+                "value": "1"
+              },
+              {
+                "kind": "String",
+                "value": "Alice"
+              },
+              {
+                "kind": "Literal",
+                "value": "100.0"
+              },
+              {
+                "kind": "Literal",
+                "value": "1"
+              },
+              {
+                "kind": "String",
+                "value": "123 St"
+              },
+              {
+                "kind": "String",
+                "value": "123-456"
+              },
+              {
+                "kind": "String",
+                "value": "Loyal"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "VarDecl",
+      "name": "orders",
+      "type": "Data3[]",
+      "expr": {
+        "kind": "NEW_ARRAY",
+        "elems": [
+          {
+            "kind": "NEW_CLASS",
+            "args": [
+              {
+                "kind": "Literal",
+                "value": "1000"
+              },
+              {
+                "kind": "Literal",
+                "value": "1"
+              },
+              {
+                "kind": "String",
+                "value": "1993-10-15"
+              }
+            ]
+          },
+          {
+            "kind": "NEW_CLASS",
+            "args": [
+              {
+                "kind": "Literal",
+                "value": "2000"
+              },
+              {
+                "kind": "Literal",
+                "value": "1"
+              },
+              {
+                "kind": "String",
+                "value": "1994-01-02"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "VarDecl",
+      "name": "lineitem",
+      "type": "Data4[]",
+      "expr": {
+        "kind": "NEW_ARRAY",
+        "elems": [
+          {
+            "kind": "NEW_CLASS",
+            "args": [
+              {
+                "kind": "Literal",
+                "value": "1000"
+              },
+              {
+                "kind": "String",
+                "value": "R"
+              },
+              {
+                "kind": "Literal",
+                "value": "1000.0"
+              },
+              {
+                "kind": "Literal",
+                "value": "0.1"
+              }
+            ]
+          },
+          {
+            "kind": "NEW_CLASS",
+            "args": [
+              {
+                "kind": "Literal",
+                "value": "2000"
+              },
+              {
+                "kind": "String",
+                "value": "N"
+              },
+              {
+                "kind": "Literal",
+                "value": "500.0"
+              },
+              {
+                "kind": "Literal",
+                "value": "0.0"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "VarDecl",
+      "name": "start_date",
+      "type": "String",
+      "expr": {
+        "kind": "String",
+        "value": "1993-10-01"
+      }
+    },
+    {
+      "kind": "VarDecl",
+      "name": "end_date",
+      "type": "String",
+      "expr": {
+        "kind": "String",
+        "value": "1994-01-01"
+      }
+    },
+    {
+      "kind": "VarDecl",
+      "name": "result",
+      "type": "java.util.List\u003cResult8\u003e",
+      "expr": {
+        "kind": "NEW_CLASS",
+        "body": [
+          {
+            "kind": "VarDecl",
+            "name": "_groups",
+            "type": "java.util.LinkedHashMap\u003cString, Group6\u003e",
+            "expr": {
+              "kind": "NEW_CLASS"
+            }
+          },
+          {
+            "kind": "VarDecl",
+            "name": "_tmp",
+            "type": "java.util.ArrayList\u003cResult8\u003e",
+            "expr": {
+              "kind": "NEW_CLASS"
+            }
+          },
+          {
+            "kind": "ForEach",
+            "name": "c",
+            "expr": {
+              "kind": "Ident",
+              "name": "customer"
+            },
+            "body": [
+              {
+                "kind": "ForEach",
+                "name": "o",
+                "expr": {
+                  "kind": "Ident",
+                  "name": "orders"
+                },
+                "body": [
+                  {
+                    "kind": "If",
+                    "cond": {
+                      "kind": "Binary",
+                      "left": {
+                        "kind": "Member",
+                        "name": "o_custkey",
+                        "expr": {
+                          "kind": "Ident",
+                          "name": "o"
+                        }
+                      },
+                      "right": {
+                        "kind": "Member",
+                        "name": "c_custkey",
+                        "expr": {
+                          "kind": "Ident",
+                          "name": "c"
+                        }
+                      },
+                      "op": "EQUAL_TO"
+                    },
+                    "then": [
+                      {
+                        "kind": "ForEach",
+                        "name": "l",
+                        "expr": {
+                          "kind": "Ident",
+                          "name": "lineitem"
+                        },
+                        "body": [
+                          {
+                            "kind": "If",
+                            "cond": {
+                              "kind": "Binary",
+                              "left": {
+                                "kind": "Member",
+                                "name": "l_orderkey",
+                                "expr": {
+                                  "kind": "Ident",
+                                  "name": "l"
+                                }
+                              },
+                              "right": {
+                                "kind": "Member",
+                                "name": "o_orderkey",
+                                "expr": {
+                                  "kind": "Ident",
+                                  "name": "o"
+                                }
+                              },
+                              "op": "EQUAL_TO"
+                            },
+                            "then": [
+                              {
+                                "kind": "ForEach",
+                                "name": "n",
+                                "expr": {
+                                  "kind": "Ident",
+                                  "name": "nation"
+                                },
+                                "body": [
+                                  {
+                                    "kind": "If",
+                                    "cond": {
+                                      "kind": "Binary",
+                                      "left": {
+                                        "kind": "Member",
+                                        "name": "n_nationkey",
+                                        "expr": {
+                                          "kind": "Ident",
+                                          "name": "n"
+                                        }
+                                      },
+                                      "right": {
+                                        "kind": "Member",
+                                        "name": "c_nationkey",
+                                        "expr": {
+                                          "kind": "Ident",
+                                          "name": "c"
+                                        }
+                                      },
+                                      "op": "EQUAL_TO"
+                                    },
+                                    "then": [
+                                      {
+                                        "kind": "If",
+                                        "cond": {
+                                          "kind": "Binary",
+                                          "left": {
+                                            "kind": "Binary",
+                                            "left": {
+                                              "kind": "Binary",
+                                              "left": {
+                                                "kind": "Call",
+                                                "target": {
+                                                  "kind": "Member",
+                                                  "name": "compareTo",
+                                                  "expr": {
+                                                    "kind": "Member",
+                                                    "name": "o_orderdate",
+                                                    "expr": {
+                                                      "kind": "Ident",
+                                                      "name": "o"
+                                                    }
+                                                  }
+                                                },
+                                                "args": [
+                                                  {
+                                                    "kind": "Ident",
+                                                    "name": "start_date"
+                                                  }
+                                                ]
+                                              },
+                                              "right": {
+                                                "kind": "Literal",
+                                                "value": "0"
+                                              },
+                                              "op": "GREATER_THAN_EQUAL"
+                                            },
+                                            "right": {
+                                              "kind": "Binary",
+                                              "left": {
+                                                "kind": "Member",
+                                                "name": "o_orderdate",
+                                                "expr": {
+                                                  "kind": "Ident",
+                                                  "name": "o"
+                                                }
+                                              },
+                                              "right": {
+                                                "kind": "Ident",
+                                                "name": "end_date"
+                                              },
+                                              "op": "LESS_THAN"
+                                            },
+                                            "op": "CONDITIONAL_AND"
+                                          },
+                                          "right": {
+                                            "kind": "Binary",
+                                            "left": {
+                                              "kind": "Member",
+                                              "name": "l_returnflag",
+                                              "expr": {
+                                                "kind": "Ident",
+                                                "name": "l"
+                                              }
+                                            },
+                                            "right": {
+                                              "kind": "String",
+                                              "value": "R"
+                                            },
+                                            "op": "EQUAL_TO"
+                                          },
+                                          "op": "CONDITIONAL_AND"
+                                        },
+                                        "then": [
+                                          {
+                                            "kind": "VarDecl",
+                                            "name": "_k",
+                                            "expr": {
+                                              "kind": "NEW_CLASS",
+                                              "args": [
+                                                {
+                                                  "kind": "Member",
+                                                  "name": "c_custkey",
+                                                  "expr": {
+                                                    "kind": "Ident",
+                                                    "name": "c"
+                                                  }
+                                                },
+                                                {
+                                                  "kind": "Member",
+                                                  "name": "c_name",
+                                                  "expr": {
+                                                    "kind": "Ident",
+                                                    "name": "c"
+                                                  }
+                                                },
+                                                {
+                                                  "kind": "Member",
+                                                  "name": "c_acctbal",
+                                                  "expr": {
+                                                    "kind": "Ident",
+                                                    "name": "c"
+                                                  }
+                                                },
+                                                {
+                                                  "kind": "Member",
+                                                  "name": "c_address",
+                                                  "expr": {
+                                                    "kind": "Ident",
+                                                    "name": "c"
+                                                  }
+                                                },
+                                                {
+                                                  "kind": "Member",
+                                                  "name": "c_phone",
+                                                  "expr": {
+                                                    "kind": "Ident",
+                                                    "name": "c"
+                                                  }
+                                                },
+                                                {
+                                                  "kind": "Member",
+                                                  "name": "c_comment",
+                                                  "expr": {
+                                                    "kind": "Ident",
+                                                    "name": "c"
+                                                  }
+                                                },
+                                                {
+                                                  "kind": "Member",
+                                                  "name": "n_name",
+                                                  "expr": {
+                                                    "kind": "Ident",
+                                                    "name": "n"
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          {
+                                            "kind": "VarDecl",
+                                            "name": "_ks",
+                                            "type": "String",
+                                            "expr": {
+                                              "kind": "Call",
+                                              "target": {
+                                                "kind": "Member",
+                                                "name": "valueOf",
+                                                "expr": {
+                                                  "kind": "Ident",
+                                                  "name": "String"
+                                                }
+                                              },
+                                              "args": [
+                                                {
+                                                  "kind": "Ident",
+                                                  "name": "_k"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          {
+                                            "kind": "VarDecl",
+                                            "name": "g",
+                                            "type": "Group6",
+                                            "expr": {
+                                              "kind": "Call",
+                                              "target": {
+                                                "kind": "Member",
+                                                "name": "get",
+                                                "expr": {
+                                                  "kind": "Ident",
+                                                  "name": "_groups"
+                                                }
+                                              },
+                                              "args": [
+                                                {
+                                                  "kind": "Ident",
+                                                  "name": "_ks"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          {
+                                            "kind": "If",
+                                            "cond": {
+                                              "kind": "Binary",
+                                              "left": {
+                                                "kind": "Ident",
+                                                "name": "g"
+                                              },
+                                              "right": {
+                                                "kind": "NULL_LITERAL"
+                                              },
+                                              "op": "EQUAL_TO"
+                                            },
+                                            "then": [
+                                              {
+                                                "kind": "Assign",
+                                                "name": "g",
+                                                "target": {
+                                                  "kind": "Ident",
+                                                  "name": "g"
+                                                },
+                                                "expr": {
+                                                  "kind": "NEW_CLASS",
+                                                  "args": [
+                                                    {
+                                                      "kind": "Ident",
+                                                      "name": "_k"
+                                                    },
+                                                    {
+                                                      "kind": "NEW_CLASS"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              {
+                                                "kind": "Expr"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "kind": "Expr"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "VarDecl",
+            "name": "list",
+            "type": "java.util.ArrayList\u003cGroup6\u003e",
+            "expr": {
+              "kind": "NEW_CLASS",
+              "args": [
+                {
+                  "kind": "Call",
+                  "target": {
+                    "kind": "Member",
+                    "name": "values",
+                    "expr": {
+                      "kind": "Ident",
+                      "name": "_groups"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "kind": "Expr"
+          },
+          {
+            "kind": "VarDecl",
+            "name": "skip",
+            "type": "int",
+            "expr": {
+              "kind": "Literal",
+              "value": "0"
+            }
+          },
+          {
+            "kind": "VarDecl",
+            "name": "take",
+            "type": "int",
+            "expr": {
+              "kind": "Literal",
+              "value": "-1"
+            }
+          },
+          {
+            "kind": "ForRange",
+            "name": "i",
+            "start": {
+              "kind": "Literal",
+              "value": "0"
+            },
+            "end": {
+              "kind": "Call",
+              "target": {
+                "kind": "Member",
+                "name": "size",
+                "expr": {
+                  "kind": "Ident",
+                  "name": "list"
+                }
+              }
+            },
+            "body": [
+              {
+                "kind": "If",
+                "cond": {
+                  "kind": "Binary",
+                  "left": {
+                    "kind": "Ident",
+                    "name": "i"
+                  },
+                  "right": {
+                    "kind": "Ident",
+                    "name": "skip"
+                  },
+                  "op": "LESS_THAN"
+                },
+                "then": [
+                  {
+                    "kind": "Continue"
+                  }
+                ]
+              },
+              {
+                "kind": "If",
+                "cond": {
+                  "kind": "Binary",
+                  "left": {
+                    "kind": "Binary",
+                    "left": {
+                      "kind": "Ident",
+                      "name": "take"
+                    },
+                    "right": {
+                      "kind": "Literal",
+                      "value": "0"
+                    },
+                    "op": "GREATER_THAN_EQUAL"
+                  },
+                  "right": {
+                    "kind": "Binary",
+                    "left": {
+                      "kind": "Ident",
+                      "name": "i"
+                    },
+                    "right": {
+                      "kind": "Binary",
+                      "left": {
+                        "kind": "Ident",
+                        "name": "skip"
+                      },
+                      "right": {
+                        "kind": "Ident",
+                        "name": "take"
+                      },
+                      "op": "PLUS"
+                    },
+                    "op": "GREATER_THAN_EQUAL"
+                  },
+                  "op": "CONDITIONAL_AND"
+                },
+                "then": [
+                  {
+                    "kind": "Break"
+                  }
+                ]
+              },
+              {
+                "kind": "VarDecl",
+                "name": "g",
+                "expr": {
+                  "kind": "Cast",
+                  "value": "Group6",
+                  "expr": {
+                    "kind": "Call",
+                    "target": {
+                      "kind": "Member",
+                      "name": "get",
+                      "expr": {
+                        "kind": "Ident",
+                        "name": "list"
+                      }
+                    },
+                    "args": [
+                      {
+                        "kind": "Ident",
+                        "name": "i"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "kind": "Expr"
+              }
+            ]
+          },
+          {
+            "kind": "Expr"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Print",
+      "expr": {
+        "kind": "Call",
+        "target": {
+          "kind": "Member",
+          "name": "collect",
+          "expr": {
+            "kind": "Call",
+            "target": {
+              "kind": "Member",
+              "name": "map",
+              "expr": {
+                "kind": "Call",
+                "target": {
+                  "kind": "Member",
+                  "name": "stream",
+                  "expr": {
+                    "kind": "Cast",
+                    "value": "java.util.List\u003c?\u003e",
+                    "expr": {
+                      "kind": "Ident",
+                      "name": "result"
+                    }
+                  }
+                }
+              }
+            },
+            "args": [
+              {
+                "kind": "MEMBER_REFERENCE"
+              }
+            ]
+          }
+        },
+        "args": [
+          {
+            "kind": "Call",
+            "target": {
+              "kind": "Member",
+              "name": "joining",
+              "expr": {
+                "kind": "Member",
+                "name": "Collectors",
+                "expr": {
+                  "kind": "Member",
+                  "name": "stream",
+                  "expr": {
+                    "kind": "Member",
+                    "name": "util",
+                    "expr": {
+                      "kind": "Ident",
+                      "name": "java"
+                    }
+                  }
+                }
+              }
+            },
+            "args": [
+              {
+                "kind": "String",
+                "value": " "
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

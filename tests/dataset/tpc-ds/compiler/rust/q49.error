@@ -1,0 +1,28 @@
+rustc: exit status 1
+warning: unnecessary parentheses around assigned value
+  --> /tmp/q49.rs:64:15
+   |
+64 | ... = (concat({ let mut tmp1 = Vec::new();for w in &web { if !(w.return_rank <= 10 || w.currency_rank <= 10) { continue; } tmp1.push(Result { channel: "web", item: w.item, return_ratio: w.return_ratio, return_rank: w.return_rank, currency_rank: w.currency_rank }); } tmp1 }, { let mut tmp2 = Vec::new();for c in &catalog { if !(c.return_rank <= 10 || c.currency_rank <= 10) { continue; } tmp2.push(Result1 { channel: "catalog", item: c.item, return_ratio: c.return_ratio, return_rank: c.return_rank, currency_rank: c.currency_rank }); } tmp2 }, { let mut tmp3 = Vec::new();for s in &store { if !(s.return_rank <= 10 || s.currency_rank <= 10) { continue; } tmp3.push(Result2 { channel: "store", item: s.item, return_ratio: s.return_ratio, return_rank: s.return_rank, currency_rank: s.currency_rank }); } tmp3 }));
+   |       ^                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ^
+   |
+   = note: `#[warn(unused_parens)]` on by default
+help: remove these parentheses
+   |
+64 -     let tmp = (concat({ let mut tmp1 = Vec::new();for w in &web { if !(w.return_rank <= 10 || w.currency_rank <= 10) { continue; } tmp1.push(Result { channel: "web", item: w.item, return_ratio: w.return_ratio, return_rank: w.return_rank, currency_rank: w.currency_rank }); } tmp1 }, { let mut tmp2 = Vec::new();for c in &catalog { if !(c.return_rank <= 10 || c.currency_rank <= 10) { continue; } tmp2.push(Result1 { channel: "catalog", item: c.item, return_ratio: c.return_ratio, return_rank: c.return_rank, currency_rank: c.currency_rank }); } tmp2 }, { let mut tmp3 = Vec::new();for s in &store { if !(s.return_rank <= 10 || s.currency_rank <= 10) { continue; } tmp3.push(Result2 { channel: "store", item: s.item, return_ratio: s.return_ratio, return_rank: s.return_rank, currency_rank: s.currency_rank }); } tmp3 }));
+64 +     let tmp = concat({ let mut tmp1 = Vec::new();for w in &web { if !(w.return_rank <= 10 || w.currency_rank <= 10) { continue; } tmp1.push(Result { channel: "web", item: w.item, return_ratio: w.return_ratio, return_rank: w.return_rank, currency_rank: w.currency_rank }); } tmp1 }, { let mut tmp2 = Vec::new();for c in &catalog { if !(c.return_rank <= 10 || c.currency_rank <= 10) { continue; } tmp2.push(Result1 { channel: "catalog", item: c.item, return_ratio: c.return_ratio, return_rank: c.return_rank, currency_rank: c.currency_rank }); } tmp2 }, { let mut tmp3 = Vec::new();for s in &store { if !(s.return_rank <= 10 || s.currency_rank <= 10) { continue; } tmp3.push(Result2 { channel: "store", item: s.item, return_ratio: s.return_ratio, return_rank: s.return_rank, currency_rank: s.currency_rank }); } tmp3 });
+   |
+
+error[E0423]: expected function, found macro `concat`
+  --> /tmp/q49.rs:64:16
+   |
+64 |     let tmp = (concat({ let mut tmp1 = Vec::new();for w in &web { if !(w.return_rank <= 10 || w.currency_rank <= 10) { continue; } tmp1.p...
+   |                ^^^^^^ not a function
+   |
+help: use `!` to invoke the macro
+   |
+64 |     let tmp = (concat!({ let mut tmp1 = Vec::new();for w in &web { if !(w.return_rank <= 10 || w.currency_rank <= 10) { continue; } tmp1.push(Result { channel: "web", item: w.item, return_ratio: w.return_ratio, return_rank: w.return_rank, currency_rank: w.currency_rank }); } tmp1 }, { let mut tmp2 = Vec::new();for c in &catalog { if !(c.return_rank <= 10 || c.currency_rank <= 10) { continue; } tmp2.push(Result1 { channel: "catalog", item: c.item, return_ratio: c.return_ratio, return_rank: c.return_rank, currency_rank: c.currency_rank }); } tmp2 }, { let mut tmp3 = Vec::new();for s in &store { if !(s.return_rank <= 10 || s.currency_rank <= 10) { continue; } tmp3.push(Result2 { channel: "store", item: s.item, return_ratio: s.return_ratio, return_rank: s.return_rank, currency_rank: s.currency_rank }); } tmp3 }));
+   |                      +
+
+error: aborting due to 1 previous error; 1 warning emitted
+
+For more information about this error, try `rustc --explain E0423`.

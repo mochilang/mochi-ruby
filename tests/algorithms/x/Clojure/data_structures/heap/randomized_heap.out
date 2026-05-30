@@ -1,0 +1,5 @@
+Execution error (IllegalStateException) at main/insert$fn (randomized_heap.clj:79).
+Can't change/establish root binding of: main_root with set
+
+Full report at:
+/tmp/clojure-15380120435710192093.edn

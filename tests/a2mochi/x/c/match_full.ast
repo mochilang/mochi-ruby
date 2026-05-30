@@ -1,0 +1,17 @@
+(program
+  (let x (int 2))
+  (let day (string sun))
+  (let ok (int 1))
+  (let label
+    (binary == (selector x) (selector "1 ? \"one\" : (x == 2 ? \"two\" : (x == 3 ? \"three\" : \"unknown\"))"))
+  )
+  (let mood
+    (binary ==
+      (call strcmp (selector day) (string mon))
+      (selector "0 ? \"tired\" : (strcmp(day, \"fri\") == 0 ? \"excited\" : (strcmp(day, \"sun\") == 0 ? \"relaxed\" : \"normal\"))")
+    )
+  )
+  (let status
+    (binary == (selector ok) (selector "1 ? \"confirmed\" : \"denied\""))
+  )
+)

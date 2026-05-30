@@ -1,0 +1,13 @@
+(program
+  (fun main
+    (block
+      (for i
+        (range (int 1) (int 4))
+        (block
+          (call print (selector i))
+        )
+      )
+    )
+  )
+  (call main)
+)

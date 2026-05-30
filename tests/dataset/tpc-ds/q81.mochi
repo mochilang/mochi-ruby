@@ -1,0 +1,31 @@
+// Expanded sample data for TPC-DS Q81
+let catalog_returns = [
+  {cust: 1, state: "CA", amt: 40.0},
+  {cust: 2, state: "CA", amt: 50.0},
+  {cust: 3, state: "CA", amt: 81.0},
+  {cust: 4, state: "TX", amt: 30.0},
+  {cust: 5, state: "TX", amt: 20.0}
+]
+
+let avg_list =
+  from r in catalog_returns
+  group by r.state into g
+  select {state: g.key, avg_amt: avg(from x in g select x.amt)}
+
+let avg_state =
+  first(from a in avg_list
+        where a.state == "CA"
+        select a)
+
+let result_list =
+  from r in catalog_returns
+  where r.state == "CA" && r.amt > avg_state.avg_amt * 1.2
+  select r.amt
+
+let result = first(result_list)
+
+json(result)
+
+test "TPCDS Q81 sample" {
+  expect result == 81.0
+}

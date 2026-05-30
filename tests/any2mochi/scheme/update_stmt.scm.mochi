@@ -1,0 +1,19 @@
+fun map_get(m: any, k: any) {}
+fun map_set(m: any, k: any, v: any) {}
+fun list_set(lst: any, idx: any, val: any) {}
+let failures = 0
+fun print_test_start(name: any) {}
+fun print_test_pass() {}
+fun print_test_fail(err: any) {}
+fun run_test(name: any, thunk: any) {}
+fun new_Person(name: any, age: any, status: any) {}
+let people = [[["name", "Alice"], ["age", 17], ["status", "minor"]], [["name", "Bob"], ["age", 25], ["status", "unknown"]], [["name", "Charlie"], ["age", 18], ["status", "unknown"]], [["name", "Diana"], ["age", 16], ["status", "minor"]]]
+for item in people {
+  if age >= 18 {
+    item = map_set(item, "status", "adult")
+  }
+}
+fun test_update_adult_status() {}
+if failures > 0 {
+  print("\n[FAIL] ")
+}

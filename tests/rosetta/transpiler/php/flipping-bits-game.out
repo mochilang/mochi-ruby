@@ -1,0 +1,18 @@
+Target:
+0 1 1
+0 0 0
+0 0 0
+Board:
+0 0 1
+1 0 1
+0 1 0
+Solved:
+0 1 1
+0 0 0
+0 0 0
+Moves: 2
+{
+  "duration_us": 155,
+  "memory_bytes": 96,
+  "name": "main"
+}

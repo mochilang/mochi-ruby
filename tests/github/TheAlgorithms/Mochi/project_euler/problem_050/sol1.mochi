@@ -1,0 +1,98 @@
+/*
+Project Euler Problem 50
+Consecutive prime sum
+
+Given a ceiling, find the prime below that ceiling which can be expressed as
+the sum of the most consecutive primes.  For example 41 = 2 + 3 + 5 + 7 + 11 + 13
+is the longest sum of consecutive primes that produces a prime below one hundred.
+
+Algorithm
+1. Generate all prime numbers below the ceiling using the Sieve of Eratosthenes.
+   The sieve runs in O(n log log n) time.
+2. Build a prefix sum array of the primes and also a map for O(1) prime lookups.
+3. Determine the maximum number of consecutive primes whose sum is still below
+   the ceiling using the prefix array.
+4. Test all ranges of that length in decreasing order until the first prime sum
+   is found.  The first found is the answer because lengths are tested from
+   largest to smallest.
+
+The overall running time is dominated by the nested search over prime prefixes
+but finishes quickly for a ceiling of one million.
+*/
+
+fun prime_sieve(limit: int): list<int> {
+  if limit <= 2 { return [] }
+
+  var is_prime: list<bool> = []
+  var i = 0
+  while i < limit {
+    is_prime = append(is_prime, true)
+    i = i + 1
+  }
+  is_prime[0] = false
+  is_prime[1] = false
+
+  var p = 3
+  while p * p < limit {
+    var index = p * 2
+    while index < limit {
+      is_prime[index] = false
+      index = index + p
+    }
+    p = p + 2
+  }
+
+  var primes: list<int> = [2]
+  var n = 3
+  while n < limit {
+    if is_prime[n] {
+      primes = append(primes, n)
+    }
+    n = n + 2
+  }
+  return primes
+}
+
+fun solution(ceiling: int): int {
+  let primes = prime_sieve(ceiling)
+
+  var prime_map: map<int, bool> = {}
+  var i = 0
+  while i < len(primes) {
+    prime_map[primes[i]] = true
+    i = i + 1
+  }
+
+  var prefix: list<int> = [0]
+  i = 0
+  while i < len(primes) {
+    prefix = append(prefix, prefix[i] + primes[i])
+    i = i + 1
+  }
+
+  var max_len = 0
+  while max_len < len(prefix) && prefix[max_len] < ceiling {
+    max_len = max_len + 1
+  }
+
+  var L = max_len
+  while L > 0 {
+    var start = 0
+    while start + L <= len(primes) {
+      let s = prefix[start + L] - prefix[start]
+      if s >= ceiling {
+        break
+      }
+      if prime_map[s] {
+        return s
+      }
+      start = start + 1
+    }
+    L = L - 1
+  }
+  return 0
+}
+
+let ans = solution(1000000)
+print("solution() = " + str(ans))
+

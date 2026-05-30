@@ -1,0 +1,14 @@
+(ns main)
+
+(defn id [x]
+  (try
+    (throw (ex-info "return" {:value x}))
+    (catch clojure.lang.ExceptionInfo e
+      (if (= (.getMessage e) "return")
+        (:value (ex-data e))
+        (throw e)))))
+
+(defn -main []
+  (println (id 123)))
+
+(-main)

@@ -1,0 +1,18 @@
+(program
+  (let xs
+    (list (int 1) (int 2) (int 3))
+  )
+  (fun main
+    (block
+      (call print
+        (binary in (int 2) (selector xs))
+      )
+      (call print
+        (unary !
+          (binary in (int 5) (selector xs))
+        )
+      )
+    )
+  )
+  (call main)
+)

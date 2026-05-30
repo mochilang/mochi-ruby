@@ -1,0 +1,12 @@
+compile: exit status 1
+/workspace/mochi/tests/algorithms/x/C/maths/dual_number_automatic_differentiation.c: In function ‘test_differentiate’:
+/workspace/mochi/tests/algorithms/x/C/maths/dual_number_automatic_differentiation.c:230:23: error: ‘f2’ undeclared (first use in this function)
+  230 |     if (differentiate(f2, 9.0, 2LL) != 196830.0) {
+      |                       ^~
+/workspace/mochi/tests/algorithms/x/C/maths/dual_number_automatic_differentiation.c:230:23: note: each undeclared identifier is reported only once for each function it appears in
+/workspace/mochi/tests/algorithms/x/C/maths/dual_number_automatic_differentiation.c:233:23: error: ‘f3’ undeclared (first use in this function)
+  233 |     if (differentiate(f3, 3.5, 4LL) != 7605.0) {
+      |                       ^~
+/workspace/mochi/tests/algorithms/x/C/maths/dual_number_automatic_differentiation.c:236:23: error: ‘f4’ undeclared (first use in this function)
+  236 |     if (differentiate(f4, 4.0, 3LL) != 0.0) {
+      |                       ^~

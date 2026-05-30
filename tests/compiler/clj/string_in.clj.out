@@ -1,0 +1,7 @@
+(ns main)
+
+(defn -main []
+  (println (clojure.string/includes? "catch" "cat"))
+  (println (clojure.string/includes? "catch" "dog")))
+
+(-main)

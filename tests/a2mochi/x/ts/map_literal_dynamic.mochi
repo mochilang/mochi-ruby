@@ -1,0 +1,12 @@
+type Result {
+  a: int
+  b: int
+}
+type M {
+  a: int
+  b: int
+}
+let x: int = 3
+let y: int = 4
+let m: M = {"a": x, "b": y}
+print((((m["a"]) + " ") + String(m["b"]).trim()))

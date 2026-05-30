@@ -1,0 +1,6 @@
+(program
+  (let x (int 12))
+  (let msg
+    (binary > (selector x) (selector "10 ? \"yes\" : \"no\""))
+  )
+)

@@ -1,0 +1,22 @@
+rustc: exit status 1
+error[E0425]: cannot find function `split` in this scope
+  --> /tmp/csv-to-html-translation-1.rs:10:17
+   |
+10 |     for line in split(c, "
+   |                 ^^^^^ not found in this scope
+   |
+help: use the `.` operator to call the method `split` on `&str`
+   |
+10 ~     for line in c.split("
+11 ~ ") {
+   |
+
+error[E0425]: cannot find function `split` in this scope
+  --> /tmp/csv-to-html-translation-1.rs:12:55
+   |
+12 |         rows = { let mut tmp = rows.clone(); tmp.push(split(line, ",")); tmp };
+   |                                                       ^^^^^ not found in this scope
+
+error: aborting due to 2 previous errors
+
+For more information about this error, try `rustc --explain E0425`.

@@ -1,0 +1,96 @@
+func main (regs=14)
+  // let n = [1, 2, 3, 4, 5]
+  Const        r1, [1, 2, 3, 4, 5]
+  Move         r0, r1
+  SetGlobal    0,0,0,0
+  // print(fold(fun(a: int, b: int): int => add(a, b), n))
+  MakeClosure  r4, fn5, 0, r0
+  Move         r2, r4
+  Move         r3, r0
+  Call2        r5, fold, r2, r3
+  Print        r5
+  // print(fold(fun(a: int, b: int): int => sub(a, b), n))
+  MakeClosure  r8, fn6, 0, r0
+  Move         r6, r8
+  Move         r7, r0
+  Call2        r9, fold, r6, r7
+  Print        r9
+  // print(fold(fun(a: int, b: int): int => mul(a, b), n))
+  MakeClosure  r12, fn7, 0, r0
+  Move         r10, r12
+  Move         r11, r0
+  Call2        r13, fold, r10, r11
+  Print        r13
+  Return       r0
+
+  // fun add(a: int, b: int): int { return a + b }
+func add (regs=4)
+  // fun add(a: int, b: int): int { return a + b }
+  Add          r3, r1, r2
+  Return       r3
+
+  // fun sub(a: int, b: int): int { return a - b }
+func sub (regs=4)
+  // fun sub(a: int, b: int): int { return a - b }
+  Sub          r3, r1, r2
+  Return       r3
+
+  // fun mul(a: int, b: int): int { return a * b }
+func mul (regs=4)
+  // fun mul(a: int, b: int): int { return a * b }
+  Mul          r3, r1, r2
+  Return       r3
+
+  // fun fold(f: fun(int, int): int, xs: list<int>): int {
+func fold (regs=15)
+  // var r = xs[0]
+  Const        r3, 0
+  Index        r4, r2, r3
+  Move         r5, r4
+  // var i = 1
+  Const        r6, 1
+  Move         r7, r6
+L1:
+  // while i < len(xs) {
+  Len          r8, r2
+  LessInt      r9, r7, r8
+  JumpIfFalse  r9, L0
+  // r = f(r, xs[i])
+  Move         r10, r5
+  Index        r12, r2, r7
+  Move         r11, r12
+  CallV        r13, r1, 2, r10
+  Move         r5, r13
+  // i = i + 1
+  Const        r6, 1
+  AddInt       r14, r7, r6
+  Move         r7, r14
+  // while i < len(xs) {
+  Jump         L1
+L0:
+  // return r
+  Return       r5
+
+  // print(fold(fun(a: int, b: int): int => add(a, b), n))
+func fn5 (regs=6)
+  // print(fold(fun(a: int, b: int): int => add(a, b), n))
+  Move         r3, r1
+  Move         r4, r2
+  Call2        r5, add, r3, r4
+  Return       r5
+
+  // print(fold(fun(a: int, b: int): int => sub(a, b), n))
+func fn6 (regs=6)
+  // print(fold(fun(a: int, b: int): int => sub(a, b), n))
+  Move         r3, r1
+  Move         r4, r2
+  Call2        r5, sub, r3, r4
+  Return       r5
+
+  // print(fold(fun(a: int, b: int): int => mul(a, b), n))
+func fn7 (regs=6)
+  // print(fold(fun(a: int, b: int): int => mul(a, b), n))
+  Move         r3, r1
+  Move         r4, r2
+  Call2        r5, mul, r3, r4
+  Return       r5

@@ -1,0 +1,5 @@
+run: exit status 1
+/tmp/TestMochiToCSabbreviations-simple/Program.cs(78,48): error CS1503: Argument 2: cannot convert from 'string' to 'long' [/tmp/TestMochiToCSabbreviations-simple/app.csproj]
+/tmp/TestMochiToCSabbreviations-simple/Program.cs(130,16): error CS0029: Cannot implicitly convert type 'Program.Item' to 'System.Collections.Generic.Dictionary<string, dynamic>' [/tmp/TestMochiToCSabbreviations-simple/app.csproj]
+
+The build failed. Fix the build errors and run again.

@@ -1,0 +1,29 @@
+warning: variable "sorted" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+    │
+ 88 │       {arr, sorted} = try do
+    │             ~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/sorts/odd_even_sort.exs:88:13: Main.odd_even_sort/1
+
+     warning: variable "out" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 124 │       out = IO.puts(out)
+     │       ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/sorts/odd_even_sort.exs:124:7: Main.print_list/1
+
+     warning: variable "sorted" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 160 │       sorted = print_list(sorted)
+     │       ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/sorts/odd_even_sort.exs:160:7: Main.main/0
+
+    warning: module attribute @data_dir was set but never used
+    │
+  3 │   @data_dir nil
+    │   ~~~~~~~~~~~~~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/sorts/odd_even_sort.exs:3: Main (module)
+
+1 2 3 4 5

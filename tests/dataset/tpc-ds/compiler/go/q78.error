@@ -1,0 +1,1 @@
+vm run error: expect condition failed at /workspace/mochi/tests/dataset/tpc-ds/q78.mochi:34: expect result == [

@@ -1,0 +1,13 @@
+let x = 2
+let label = cond(else("unknown"))
+print(label)
+let day = "sun"
+let mood = cond(else("normal"))
+print(mood)
+let ok = "true"
+let status = cond(else(quote(nil)))
+print(status)
+fun classify(n: any) {
+}
+print(classify(0))
+print(classify(5))

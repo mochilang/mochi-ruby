@@ -1,0 +1,6 @@
+Text input in binary is '000000010000000100000001000000010000000100000001000000010000000000000000'
+Execution error (IndexOutOfBoundsException) at main/hamming-encode (hamming_code.clj:176).
+null
+
+Full report at:
+/tmp/clojure-8760764667301878556.edn

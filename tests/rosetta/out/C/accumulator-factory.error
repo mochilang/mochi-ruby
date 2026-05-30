@@ -1,0 +1,6 @@
+cc: exit status 1
+/tmp/accumulator-factory.c: In function ‘add’:
+/tmp/accumulator-factory.c:27:3: error: ‘store’ undeclared (first use in this function)
+   27 |   store.data[0] = add_store.data[0] + nv;
+      |   ^~~~~
+/tmp/accumulator-factory.c:27:3: note: each undeclared identifier is reported only once for each function it appears in

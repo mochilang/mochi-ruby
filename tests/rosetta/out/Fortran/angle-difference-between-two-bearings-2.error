@@ -1,0 +1,23 @@
+gfortran: exit status 1
+/tmp/angle-difference-between-two-bearings-2.f90:11:26:
+
+   11 |     print *, angleDiff(tc(((0)+1)),tc(((1)+1)))
+      |                          1
+Error: Syntax error in argument list at (1)
+/tmp/angle-difference-between-two-bearings-2.f90:19:28:
+
+   19 |     res = ((mod((((mod(diff,360.0) + 360.0) + 180.0)),360.0)) - 180.0)
+      |                            1
+Error: ‘a’ and ‘p’ arguments of ‘mod’ intrinsic at (1) must have the same type
+/tmp/angle-difference-between-two-bearings-2.f90:10:18:
+
+   10 |     tc = testCases(i0)
+      |                  1
+Error: Rank mismatch in array reference at (1) (1/2)
+/tmp/angle-difference-between-two-bearings-2.f90:10:19:
+
+    9 |   do i0 = 1, size(testCases)
+      |                            2
+   10 |     tc = testCases(i0)
+      |                   1
+Warning: Array reference at (1) out of bounds (24 > 12) in loop beginning at (2)

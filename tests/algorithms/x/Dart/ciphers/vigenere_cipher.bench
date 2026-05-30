@@ -1,0 +1,30 @@
+../../../tests/algorithms/x/Dart/ciphers/vigenere_cipher.dart:126:5: Error: Setter not found: '_num'.
+    _num = find_index(LETTERS, upper_symbol);
+    ^^^^
+../../../tests/algorithms/x/Dart/ciphers/vigenere_cipher.dart:127:9: Error: Undefined name '_num'.
+    if (_num.compareTo(0) >= 0) {
+        ^^^^
+../../../tests/algorithms/x/Dart/ciphers/vigenere_cipher.dart:128:12: Error: Undefined name '_num'.
+    _num = _num - find_index(LETTERS, key_up.substring(key_index, key_index + 1));
+           ^^^^
+../../../tests/algorithms/x/Dart/ciphers/vigenere_cipher.dart:128:5: Error: Setter not found: '_num'.
+    _num = _num - find_index(LETTERS, key_up.substring(key_index, key_index + 1));
+    ^^^^
+../../../tests/algorithms/x/Dart/ciphers/vigenere_cipher.dart:129:12: Error: Undefined name '_num'.
+    _num = _num % LETTERS.length;
+           ^^^^
+../../../tests/algorithms/x/Dart/ciphers/vigenere_cipher.dart:129:5: Error: Setter not found: '_num'.
+    _num = _num % LETTERS.length;
+    ^^^^
+../../../tests/algorithms/x/Dart/ciphers/vigenere_cipher.dart:131:53: Error: Undefined name '_num'.
+    decrypted = decrypted + LETTERS.substring(_num, _num + 1);
+                                                    ^^^^
+../../../tests/algorithms/x/Dart/ciphers/vigenere_cipher.dart:131:47: Error: Undefined name '_num'.
+    decrypted = decrypted + LETTERS.substring(_num, _num + 1);
+                                              ^^^^
+../../../tests/algorithms/x/Dart/ciphers/vigenere_cipher.dart:133:67: Error: Undefined name '_num'.
+    decrypted = decrypted + to_lower_char(LETTERS.substring(_num, _num + 1));
+                                                                  ^^^^
+../../../tests/algorithms/x/Dart/ciphers/vigenere_cipher.dart:133:61: Error: Undefined name '_num'.
+    decrypted = decrypted + to_lower_char(LETTERS.substring(_num, _num + 1));
+                                                            ^^^^

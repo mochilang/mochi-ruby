@@ -1,0 +1,9 @@
+type Result {
+  alice: int
+}
+type Scores {
+  alice: int
+}
+let scores: Scores = {"alice": 1}
+scores["bob"] = 2
+print(scores["bob"])

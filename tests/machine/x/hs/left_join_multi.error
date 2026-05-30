@@ -1,0 +1,8 @@
+
+/workspace/mochi/tests/machine/x/hs/left_join_multi.hs:131:1: error:
+    Multiple declarations of ‘items’
+    Declared at: /workspace/mochi/tests/machine/x/hs/left_join_multi.hs:37:37
+                 /workspace/mochi/tests/machine/x/hs/left_join_multi.hs:131:1
+    |
+131 | items = [Map.fromList [("orderId", VInt (100)), ("sku", VString ("a"))]]
+    | ^^^^^

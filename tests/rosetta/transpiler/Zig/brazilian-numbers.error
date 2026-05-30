@@ -1,0 +1,5 @@
+zig build: exit status 1
+/tmp/brazilian-numbers.zig:13:9: error: local variable is never mutated
+/tmp/brazilian-numbers.zig:13:9: note: consider using 'const'
+/tmp/brazilian-numbers.zig:66:9: error: local variable is never mutated
+/tmp/brazilian-numbers.zig:66:9: note: consider using 'const'

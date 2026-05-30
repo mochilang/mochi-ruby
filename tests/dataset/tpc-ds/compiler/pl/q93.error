@@ -1,0 +1,2 @@
+run: exit status 2
+ERROR: /tmp/q93.pl:58: user:main Type error: `integer' expected, found `sr_reason_sk' (an atom)

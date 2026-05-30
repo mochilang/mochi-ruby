@@ -1,0 +1,30 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    item_id: int
+    ss_item_rev: float
+}
+type Anon2 = {
+    item_id: int
+    cs_item_rev: float
+}
+type Anon3 = {
+    item_id: int
+    ws_item_rev: float
+}
+type Anon4 = {
+    item_id: int
+    average: obj
+}
+type Anon5 = {
+    item_id: int
+    average: float
+}
+let ss_items: Anon1 = { item_id = 1; ss_item_rev = 50.0 }
+let cs_items: Anon2 = { item_id = 1; cs_item_rev = 60.0 }
+let ws_items: Anon3 = { item_id = 1; ws_item_rev = 64.0 }
+let avg: obj = (ss_items.ss_item_rev + cs_items.cs_item_rev + ws_items.ws_item_rev) / 3.0
+let result: Anon4 list = [{ item_id = ss_items.item_id; average = avg }]
+printfn "%A" (JsonSerializer.Serialize(result))
+assert (result = [{ item_id = 1; average = 58.0 }])

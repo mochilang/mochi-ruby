@@ -1,0 +1,7 @@
+// a2mochi scala v0.10.48 2025-07-29 18:25:13 GMT+7
+let x = 5
+if (x > 3) {
+  print("big")
+} else {
+  print("small")
+}

@@ -1,0 +1,81 @@
+warning: variable "hds" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+    │
+ 96 │       {hds, _, vals} = try do
+    │        ~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/data_structures/binary_tree/diff_views_of_binary_tree.exs:96:8: Main.sort_pairs/2
+
+    warning: variable "vals" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+    │
+ 96 │       {hds, _, vals} = try do
+    │                ~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/data_structures/binary_tree/diff_views_of_binary_tree.exs:96:16: Main.sort_pairs/2
+
+     warning: variable "queue" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 148 │       {queue, res} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/data_structures/binary_tree/diff_views_of_binary_tree.exs:148:8: Main.right_view/1
+
+     warning: variable "queue" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 201 │       {queue, res} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/data_structures/binary_tree/diff_views_of_binary_tree.exs:201:8: Main.left_view/1
+
+     warning: variable "hds" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 256 │       hds = sort_pairs(hds, vals)
+     │       ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/data_structures/binary_tree/diff_views_of_binary_tree.exs:256:7: Main.top_view/1
+
+     warning: variable "queue_hd" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 250 │       {hds, queue_hd, queue_idx, vals} = try do
+     │             ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/data_structures/binary_tree/diff_views_of_binary_tree.exs:250:13: Main.top_view/1
+
+     warning: variable "queue_idx" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 250 │       {hds, queue_hd, queue_idx, vals} = try do
+     │                       ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/data_structures/binary_tree/diff_views_of_binary_tree.exs:250:23: Main.top_view/1
+
+     warning: variable "hds" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 308 │       hds = sort_pairs(hds, vals)
+     │       ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/data_structures/binary_tree/diff_views_of_binary_tree.exs:308:7: Main.bottom_view/1
+
+     warning: variable "queue_hd" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 302 │       {hds, queue_hd, queue_idx, vals} = try do
+     │             ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/data_structures/binary_tree/diff_views_of_binary_tree.exs:302:13: Main.bottom_view/1
+
+     warning: variable "queue_idx" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 302 │       {hds, queue_hd, queue_idx, vals} = try do
+     │                       ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/data_structures/binary_tree/diff_views_of_binary_tree.exs:302:23: Main.bottom_view/1
+
+    warning: module attribute @data_dir was set but never used
+    │
+  3 │   @data_dir nil
+    │   ~~~~~~~~~~~~~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/data_structures/binary_tree/diff_views_of_binary_tree.exs:3: Main (module)
+
+[3, 20, 7]
+[3, 9, 15]
+[3, 9, 20, 7]
+[15, 9, 20, 7]

@@ -1,0 +1,48 @@
+/*
+# line: 77
+# EVIDENCE-OF: R-00171-59428 In such cases, duplicate elements are
+# filtered before being passed into the aggregate function.
+# EVIDENCE-OF: R-31453-41389 For example, the function "count(distinct
+# X)" will return the number of distinct values of column X instead of
+# the total number of non-none values in column X.
+INSERT INTO t1 VALUES(2,'true')
+INSERT INTO t1 VALUES(2,'true')
+*/
+
+type t1Row {
+  x: int
+  y: string
+}
+
+let t1 = [
+  t1Row {
+    x: 1,
+    y: "tru" + "e",
+  },
+  t1Row {
+    x: 0,
+    y: "fal" + "se",
+  },
+  t1Row {
+    x: none,
+    y: "NULL",
+  },
+  t1Row {
+    x: 2,
+    y: "tru" + "e",
+  },
+  t1Row {
+    x: 2,
+    y: "tru" + "e",
+  },
+]
+
+/* SELECT count(DISTINCT x) FROM t1 */
+let result = count(distinct(from row in t1
+  where row.x != none
+  select row))
+print(result)
+
+test "case8" {
+  expect result == 3
+}

@@ -1,0 +1,5 @@
+compile: exit status 1
+/tmp/TestJavaTranspiler_Algorithms_Golden495_transformations_2d2499943438/001/Main.java:77: error: incompatible types: Object[][] cannot be converted to double[][]
+        return ((double[][])(new Object[][]{new Object[]{f, 0.0}, new Object[]{0.0, f}}));
+                            ^
+1 error

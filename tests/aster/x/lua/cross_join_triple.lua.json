@@ -1,0 +1,529 @@
+{
+  "root": {
+    "kind": "chunk",
+    "children": [
+      {
+        "kind": "assignment_statement",
+        "children": [
+          {
+            "kind": "variable_list",
+            "children": [
+              {
+                "kind": "identifier",
+                "text": "nums"
+              }
+            ]
+          },
+          {
+            "kind": "expression_list",
+            "children": [
+              {
+                "kind": "table_constructor",
+                "children": [
+                  {
+                    "kind": "field",
+                    "children": [
+                      {
+                        "kind": "number",
+                        "text": "1"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "field",
+                    "children": [
+                      {
+                        "kind": "number",
+                        "text": "2"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "assignment_statement",
+        "children": [
+          {
+            "kind": "variable_list",
+            "children": [
+              {
+                "kind": "identifier",
+                "text": "letters"
+              }
+            ]
+          },
+          {
+            "kind": "expression_list",
+            "children": [
+              {
+                "kind": "table_constructor",
+                "children": [
+                  {
+                    "kind": "field",
+                    "children": [
+                      {
+                        "kind": "string",
+                        "text": "\"A\""
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "field",
+                    "children": [
+                      {
+                        "kind": "string",
+                        "text": "\"B\""
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "assignment_statement",
+        "children": [
+          {
+            "kind": "variable_list",
+            "children": [
+              {
+                "kind": "identifier",
+                "text": "bools"
+              }
+            ]
+          },
+          {
+            "kind": "expression_list",
+            "children": [
+              {
+                "kind": "table_constructor",
+                "children": [
+                  {
+                    "kind": "field",
+                    "children": [
+                      {
+                        "kind": "true",
+                        "text": "true"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "field",
+                    "children": [
+                      {
+                        "kind": "false",
+                        "text": "false"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "assignment_statement",
+        "children": [
+          {
+            "kind": "variable_list",
+            "children": [
+              {
+                "kind": "identifier",
+                "text": "combos"
+              }
+            ]
+          },
+          {
+            "kind": "expression_list",
+            "children": [
+              {
+                "kind": "table_constructor",
+                "text": "{}"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "for_statement",
+        "children": [
+          {
+            "kind": "for_generic_clause",
+            "children": [
+              {
+                "kind": "variable_list",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "text": "_"
+                  },
+                  {
+                    "kind": "identifier",
+                    "text": "n"
+                  }
+                ]
+              },
+              {
+                "kind": "expression_list",
+                "children": [
+                  {
+                    "kind": "function_call",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "ipairs"
+                      },
+                      {
+                        "kind": "arguments",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "nums"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "block",
+            "children": [
+              {
+                "kind": "for_statement",
+                "children": [
+                  {
+                    "kind": "for_generic_clause",
+                    "children": [
+                      {
+                        "kind": "variable_list",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "_"
+                          },
+                          {
+                            "kind": "identifier",
+                            "text": "l"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "expression_list",
+                        "children": [
+                          {
+                            "kind": "function_call",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "ipairs"
+                              },
+                              {
+                                "kind": "arguments",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "letters"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "block",
+                    "children": [
+                      {
+                        "kind": "for_statement",
+                        "children": [
+                          {
+                            "kind": "for_generic_clause",
+                            "children": [
+                              {
+                                "kind": "variable_list",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "_"
+                                  },
+                                  {
+                                    "kind": "identifier",
+                                    "text": "b"
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "expression_list",
+                                "children": [
+                                  {
+                                    "kind": "function_call",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "text": "ipairs"
+                                      },
+                                      {
+                                        "kind": "arguments",
+                                        "children": [
+                                          {
+                                            "kind": "identifier",
+                                            "text": "bools"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "block",
+                            "children": [
+                              {
+                                "kind": "function_call",
+                                "children": [
+                                  {
+                                    "kind": "dot_index_expression",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "text": "table"
+                                      },
+                                      {
+                                        "kind": "identifier",
+                                        "text": "insert"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "kind": "arguments",
+                                    "children": [
+                                      {
+                                        "kind": "identifier",
+                                        "text": "combos"
+                                      },
+                                      {
+                                        "kind": "table_constructor",
+                                        "children": [
+                                          {
+                                            "kind": "field",
+                                            "children": [
+                                              {
+                                                "kind": "identifier",
+                                                "text": "n"
+                                              },
+                                              {
+                                                "kind": "identifier",
+                                                "text": "n"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "kind": "field",
+                                            "children": [
+                                              {
+                                                "kind": "identifier",
+                                                "text": "l"
+                                              },
+                                              {
+                                                "kind": "identifier",
+                                                "text": "l"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "kind": "field",
+                                            "children": [
+                                              {
+                                                "kind": "identifier",
+                                                "text": "b"
+                                              },
+                                              {
+                                                "kind": "identifier",
+                                                "text": "b"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "function_call",
+        "children": [
+          {
+            "kind": "identifier",
+            "text": "print"
+          },
+          {
+            "kind": "arguments",
+            "children": [
+              {
+                "kind": "string",
+                "text": "\"--- Cross Join of three lists ---\""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "for_statement",
+        "children": [
+          {
+            "kind": "for_generic_clause",
+            "children": [
+              {
+                "kind": "variable_list",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "text": "_"
+                  },
+                  {
+                    "kind": "identifier",
+                    "text": "c"
+                  }
+                ]
+              },
+              {
+                "kind": "expression_list",
+                "children": [
+                  {
+                    "kind": "function_call",
+                    "children": [
+                      {
+                        "kind": "identifier",
+                        "text": "ipairs"
+                      },
+                      {
+                        "kind": "arguments",
+                        "children": [
+                          {
+                            "kind": "identifier",
+                            "text": "combos"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "block",
+            "children": [
+              {
+                "kind": "function_call",
+                "children": [
+                  {
+                    "kind": "identifier",
+                    "text": "print"
+                  },
+                  {
+                    "kind": "arguments",
+                    "children": [
+                      {
+                        "kind": "function_call",
+                        "children": [
+                          {
+                            "kind": "dot_index_expression",
+                            "children": [
+                              {
+                                "kind": "identifier",
+                                "text": "string"
+                              },
+                              {
+                                "kind": "identifier",
+                                "text": "format"
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "arguments",
+                            "children": [
+                              {
+                                "kind": "string",
+                                "text": "\"%s %s %s\""
+                              },
+                              {
+                                "kind": "dot_index_expression",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "c"
+                                  },
+                                  {
+                                    "kind": "identifier",
+                                    "text": "n"
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "dot_index_expression",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "c"
+                                  },
+                                  {
+                                    "kind": "identifier",
+                                    "text": "l"
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "dot_index_expression",
+                                "children": [
+                                  {
+                                    "kind": "identifier",
+                                    "text": "c"
+                                  },
+                                  {
+                                    "kind": "identifier",
+                                    "text": "b"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

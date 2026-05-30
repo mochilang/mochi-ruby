@@ -1,0 +1,38 @@
+// Find the largest left-truncatable prime for bases 3..17.
+// Limited to depth 6 so results fit in normal integers and run on the VM.
+
+fun isPrime(n: int): bool {
+  if n < 2 { return false }
+  var i = 2
+  while i * i <= n {
+    if n % i == 0 { return false }
+    i = i + 1
+  }
+  return true
+}
+
+fun search(base: int, prefix: int, depth: int, limit: int, best: int): int {
+  var b = best
+  var d = 1
+  while d < base {
+    let val = prefix * base + d
+    if isPrime(val) {
+      if val > b { b = val }
+      if depth + 1 < limit { b = search(base, val, depth + 1, limit, b) }
+    }
+    d = d + 1
+  }
+  return b
+}
+
+fun largest(base: int): int { return search(base, 0, 0, 6, 0) }
+
+fun main() {
+  var b = 3
+  while b <= 17 {
+    print(str(b) + ": " + str(largest(b)))
+    b = b + 1
+  }
+}
+
+main()

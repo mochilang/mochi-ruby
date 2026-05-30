@@ -1,0 +1,50 @@
+warning: variable "mini" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+    │
+ 98 │           {_, mini, u} = try do
+    │               ~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/graphs/prim.exs:98:15: Main.prim/3
+
+     warning: variable "dist" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 129 │       {dist, keys, known, parent} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/graphs/prim.exs:129:8: Main.prim/3
+
+     warning: variable "known" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 129 │       {dist, keys, known, parent} = try do
+     │                    ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/graphs/prim.exs:129:20: Main.prim/3
+
+     warning: variable "dist" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 260 │       {dist, h, known, parent} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/graphs/prim.exs:260:8: Main.prim_heap/3
+
+     warning: variable "h" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 260 │       {dist, h, known, parent} = try do
+     │              ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/graphs/prim.exs:260:14: Main.prim_heap/3
+
+     warning: variable "known" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 260 │       {dist, h, known, parent} = try do
+     │                 ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/graphs/prim.exs:260:17: Main.prim_heap/3
+
+(2, 3)
+(3, 1)
+(4, 3)
+(5, 2)
+(2, 3)
+(3, 1)
+(4, 3)
+(5, 2)

@@ -1,0 +1,84 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    ws_order_number: int
+    ws_warehouse_sk: int
+    ws_ship_date_sk: int
+    ws_ship_addr_sk: int
+    ws_web_site_sk: int
+    ws_ext_ship_cost: float
+    ws_net_profit: float
+}
+type Anon2 = {
+    wr_order_number: int
+}
+type Anon3 = {
+    d_date_sk: int
+    d_date: string
+}
+type Anon4 = {
+    ca_address_sk: int
+    ca_state: string
+}
+type Anon5 = {
+    web_site_sk: int
+    web_company_name: string
+}
+type Anon6 = {
+    ws_order_number: int
+}
+type Anon7 = {
+    order_count: obj
+    total_shipping_cost: obj
+    total_net_profit: obj
+}
+type Anon8 = {
+    order_count: int
+    total_shipping_cost: float
+    total_net_profit: float
+}
+type WebSale = {
+    mutable ws_order_number: int
+    mutable ws_warehouse_sk: int
+    mutable ws_ship_date_sk: int
+    mutable ws_ship_addr_sk: int
+    mutable ws_web_site_sk: int
+    mutable ws_ext_ship_cost: float
+    mutable ws_net_profit: float
+}
+type WebReturn = {
+    mutable wr_order_number: int
+}
+type DateDim = {
+    mutable d_date_sk: int
+    mutable d_date: string
+}
+type CustomerAddress = {
+    mutable ca_address_sk: int
+    mutable ca_state: string
+}
+type WebSite = {
+    mutable web_site_sk: int
+    mutable web_company_name: string
+}
+let distinct (xs) =
+    let mutable out: obj = [||]
+    for x in xs do
+        if not contains out x then
+            out <- out @ [x]
+    out
+let web_sales: Anon1 list = [{ ws_order_number = 1; ws_warehouse_sk = 1; ws_ship_date_sk = 1; ws_ship_addr_sk = 1; ws_web_site_sk = 1; ws_ext_ship_cost = 2.0; ws_net_profit = 5.0 }; { ws_order_number = 1; ws_warehouse_sk = 2; ws_ship_date_sk = 1; ws_ship_addr_sk = 1; ws_web_site_sk = 1; ws_ext_ship_cost = 0.0; ws_net_profit = 0.0 }]
+let web_returns: Anon2 list = [{ wr_order_number = 1 }]
+let date_dim: Anon3 list = [{ d_date_sk = 1; d_date = "2001-02-01" }]
+let customer_address: Anon4 list = [{ ca_address_sk = 1; ca_state = "CA" }]
+let web_site: Anon5 list = [{ web_site_sk = 1; web_company_name = "pri" }]
+let ws_wh: Anon6 list = [ for ws1 in web_sales do 
+  for ws2 in web_sales do if ws1.ws_order_number = ws2.ws_order_number && ws1.ws_warehouse_sk <> ws2.ws_warehouse_sk then yield { ws_order_number = ws1.ws_order_number } ]
+let filtered: Anon1 list = [ for ws in web_sales do 
+  for d in date_dim do 
+  for ca in customer_address do 
+  for w in web_site do if ws.ws_ship_date_sk = d.d_date_sk && ws.ws_ship_addr_sk = ca.ca_address_sk && ws.ws_web_site_sk = w.web_site_sk && List.contains List.contains ca.ca_state = "CA" && w.web_company_name = "pri" && ws.ws_order_number ([ for x in ws_wh do yield x.ws_order_number ]) && ws.ws_order_number ([ for wr in web_returns do yield wr.wr_order_number ]) then yield ws ]
+let result: Anon7 = { order_count = List.length distinct [ for x in filtered do yield x.ws_order_number ]; total_shipping_cost = List.sum [ for x in filtered do yield x.ws_ext_ship_cost ]; total_net_profit = List.sum [ for x in filtered do yield x.ws_net_profit ] }
+printfn "%A" (JsonSerializer.Serialize(result))
+assert (result = { order_count = 1; total_shipping_cost = 2.0; total_net_profit = 5.0 })

@@ -1,0 +1,3 @@
+let items = [alist_to_hash_table([cons("cat", "a"), cons("val", 10), cons("flag", "true")]), alist_to_hash_table([cons("cat", "a"), cons("val", 5), cons("flag", "false")]), alist_to_hash_table([cons("cat", "b"), cons("val", 20), cons("flag", "true")])]
+let result = res14
+print(result)

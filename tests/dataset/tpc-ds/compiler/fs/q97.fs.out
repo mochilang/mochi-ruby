@@ -1,0 +1,69 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    ss_customer_sk: int
+    ss_item_sk: int
+}
+type Anon2 = {
+    cs_bill_customer_sk: int
+    cs_item_sk: int
+}
+type Anon3 = {
+    customer_sk: obj
+    item_sk: obj
+}
+type Anon4 = {
+    customer_sk: int
+    item_sk: int
+}
+type Anon5 = {
+    store_only: obj
+    catalog_only: obj
+    store_and_catalog: obj
+}
+type _Group<'K,'T>(key: 'K) =
+    member val key = key with get, set
+    member val Items = System.Collections.Generic.List<'T>() with get
+    member this.size = this.Items.Count
+    interface System.Collections.Generic.IEnumerable<'T> with
+        member this.GetEnumerator() = (this.Items :> seq<'T>).GetEnumerator()
+    interface System.Collections.IEnumerable with
+        member this.GetEnumerator() = (this.Items :> System.Collections.IEnumerable).GetEnumerator()
+
+let _group_by (src: 'T list) (keyfn: 'T -> 'K) : _Group<'K,'T> list =
+    let groups = System.Collections.Generic.Dictionary<string,_Group<'K,'T>>()
+    let order = System.Collections.Generic.List<string>()
+    for it in src do
+        let key = keyfn it
+        let ks = string key
+        let mutable g = Unchecked.defaultof<_Group<'K,'T>>
+        if groups.TryGetValue(ks, &g) then ()
+        else
+            g <- _Group<'K,'T>(key)
+            groups.Add(ks, g)
+            order.Add(ks)
+        g.Items.Add(it)
+    [ for ks in order -> groups[ks] ]
+
+type StoreSale = {
+    mutable ss_customer_sk: int
+    mutable ss_item_sk: int
+}
+type CatalogSale = {
+    mutable cs_bill_customer_sk: int
+    mutable cs_item_sk: int
+}
+let store_sales: Anon1 list = [{ ss_customer_sk = 1; ss_item_sk = 1 }; { ss_customer_sk = 2; ss_item_sk = 1 }]
+let catalog_sales: Anon2 list = [{ cs_bill_customer_sk = 1; cs_item_sk = 1 }; { cs_bill_customer_sk = 3; cs_item_sk = 2 }]
+let ssci: Anon3 list = [ for g in _group_by [ for ss in store_sales do yield ss ] (fun ss -> { customer_sk = ss.ss_customer_sk; item_sk = ss.ss_item_sk }) do
+    yield { customer_sk = g.key.customer_sk; item_sk = g.key.item_sk } ]
+let csci: Anon3 list = [ for g in _group_by [ for cs in catalog_sales do yield cs ] (fun cs -> { customer_sk = cs.cs_bill_customer_sk; item_sk = cs.cs_item_sk }) do
+    yield { customer_sk = g.key.customer_sk; item_sk = g.key.item_sk } ]
+let both: obj = List.length [ for s in ssci do 
+  for c in csci do if s.customer_sk = c.customer_sk && s.item_sk = c.item_sk then yield 1 ]
+let store_only: obj = List.length [ for s in ssci do if not (not (List.isEmpty [ for c in csci do if s.customer_sk = c.customer_sk && s.item_sk = c.item_sk then yield c ])) then yield 1 ]
+let catalog_only: obj = List.length [ for c in csci do if not (not (List.isEmpty [ for s in ssci do if s.customer_sk = c.customer_sk && s.item_sk = c.item_sk then yield s ])) then yield 1 ]
+let result: Anon5 = { store_only = store_only; catalog_only = catalog_only; store_and_catalog = both }
+printfn "%A" (JsonSerializer.Serialize(result))
+assert (result.store_only = 1 && result.catalog_only = 1 && result.store_and_catalog = 1)

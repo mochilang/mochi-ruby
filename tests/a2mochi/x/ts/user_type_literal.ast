@@ -1,0 +1,29 @@
+(program
+  (type Person
+    (field name (type string))
+    (field age (type int))
+  )
+  (type Book
+    (field title (type string))
+    (field author (type Person))
+  )
+  (let book
+    (type Book)
+    (map
+      (entry (string title) (string Go))
+      (entry
+        (string author)
+        (map
+          (entry (string name) (string Bob))
+          (entry (string age) (int 42))
+        )
+      )
+    )
+  )
+  (call print
+    (index
+      (index (selector book) (string author))
+      (string name)
+    )
+  )
+)

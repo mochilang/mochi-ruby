@@ -1,0 +1,19 @@
+cc: exit status 1
+/tmp/chinese-zodiac.c: In function ‘cz’:
+/tmp/chinese-zodiac.c:81:20: error: ‘info_t’ {aka ‘struct info_t’} has no member named ‘yin_yang’; did you mean ‘yinYang’?
+   81 |                   .yin_yang = (char *)(yinYang.data[stem % 2]),
+      |                    ^~~~~~~~
+      |                    yinYang
+/tmp/chinese-zodiac.c:83:20: error: ‘info_t’ {aka ‘struct info_t’} has no member named ‘stem_branch’; did you mean ‘stemBranch’?
+   83 |                   .stem_branch = sb,
+      |                    ^~~~~~~~~~~
+      |                    stemBranch
+/tmp/chinese-zodiac.c: In function ‘_mochi_main’:
+/tmp/chinese-zodiac.c:149:41: error: ‘info_t’ {aka ‘struct info_t’} has no member named ‘yin_yang’; did you mean ‘yinYang’?
+  149 |     char *tmp10 = concat_string(tmp9, r.yin_yang);
+      |                                         ^~~~~~~~
+      |                                         yinYang
+/tmp/chinese-zodiac.c:154:42: error: ‘info_t’ {aka ‘struct info_t’} has no member named ‘stem_branch’; did you mean ‘stemBranch’?
+  154 |     char *tmp15 = concat_string(tmp14, r.stem_branch);
+      |                                          ^~~~~~~~~~~
+      |                                          stemBranch

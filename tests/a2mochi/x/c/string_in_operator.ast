@@ -1,0 +1,9 @@
+(program
+  (let s (string catch))
+  (call print
+    (binary != (selector "\"cat\")") (selector NULL))
+  )
+  (call print
+    (binary != (selector "\"dog\")") (selector NULL))
+  )
+)

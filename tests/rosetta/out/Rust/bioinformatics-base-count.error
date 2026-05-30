@@ -1,0 +1,131 @@
+rustc: exit status 1
+error[E0308]: mismatched types
+  --> /tmp/bioinformatics-base-count.rs:21:83
+   |
+21 | ...   println!("{}", vec![format!("{}", format!("{}{}", format!("{}{}", padLeft(i.to_string(), 5), ": "), &dna[i as usize..k as usize]))]...
+   |                                                                         ------- ^^^^^^^^^^^^^ expected `&str`, found `String`
+   |                                                                         |
+   |                                                                         arguments to this function are incorrect
+   |
+note: function defined here
+  --> /tmp/bioinformatics-base-count.rs:3:8
+   |
+3  |     fn padLeft(s: &'static str, w: i32) -> &'static str {
+   |        ^^^^^^^ ---------------
+help: consider borrowing here
+   |
+21 |         println!("{}", vec![format!("{}", format!("{}{}", format!("{}{}", padLeft(&i.to_string(), 5), ": "), &dna[i as usize..k as usize]))].into_iter().filter(|s| !s.is_empty()).collect::<Vec<_>>().join(" ") );
+   |                                                                                   +
+
+error[E0308]: mismatched types
+  --> /tmp/bioinformatics-base-count.rs:30:43
+   |
+30 |         let ch = &dna[idx as usize..idx + 1 as usize];
+   |                                           ^^^^^^^^^^ expected `i32`, found `usize`
+
+error[E0308]: mismatched types
+  --> /tmp/bioinformatics-base-count.rs:30:37
+   |
+30 |         let ch = &dna[idx as usize..idx + 1 as usize];
+   |                                     ^^^^^^^^^^^^^^^^ expected `usize`, found `i32`
+
+error[E0277]: cannot add `usize` to `i32`
+  --> /tmp/bioinformatics-base-count.rs:30:41
+   |
+30 |         let ch = &dna[idx as usize..idx + 1 as usize];
+   |                                         ^ no implementation for `i32 + usize`
+   |
+   = help: the trait `Add<usize>` is not implemented for `i32`
+   = help: the following other types implement trait `Add<Rhs>`:
+             `&i32` implements `Add<i32>`
+             `&i32` implements `Add`
+             `i32` implements `Add<&i32>`
+             `i32` implements `Add`
+
+error[E0308]: mismatched types
+  --> /tmp/bioinformatics-base-count.rs:50:74
+   |
+50 |     println!("{}", vec![format!("{}", format!("{}{}", "    A: ", padLeft(a.to_string(), 3)))].into_iter().filter(|s| !s.is_empty()).colle...
+   |                                                                  ------- ^^^^^^^^^^^^^ expected `&str`, found `String`
+   |                                                                  |
+   |                                                                  arguments to this function are incorrect
+   |
+note: function defined here
+  --> /tmp/bioinformatics-base-count.rs:3:8
+   |
+3  |     fn padLeft(s: &'static str, w: i32) -> &'static str {
+   |        ^^^^^^^ ---------------
+help: consider borrowing here
+   |
+50 |     println!("{}", vec![format!("{}", format!("{}{}", "    A: ", padLeft(&a.to_string(), 3)))].into_iter().filter(|s| !s.is_empty()).collect::<Vec<_>>().join(" ") );
+   |                                                                          +
+
+error[E0308]: mismatched types
+  --> /tmp/bioinformatics-base-count.rs:51:74
+   |
+51 |     println!("{}", vec![format!("{}", format!("{}{}", "    C: ", padLeft(c.to_string(), 3)))].into_iter().filter(|s| !s.is_empty()).colle...
+   |                                                                  ------- ^^^^^^^^^^^^^ expected `&str`, found `String`
+   |                                                                  |
+   |                                                                  arguments to this function are incorrect
+   |
+note: function defined here
+  --> /tmp/bioinformatics-base-count.rs:3:8
+   |
+3  |     fn padLeft(s: &'static str, w: i32) -> &'static str {
+   |        ^^^^^^^ ---------------
+help: consider borrowing here
+   |
+51 |     println!("{}", vec![format!("{}", format!("{}{}", "    C: ", padLeft(&c.to_string(), 3)))].into_iter().filter(|s| !s.is_empty()).collect::<Vec<_>>().join(" ") );
+   |                                                                          +
+
+error[E0308]: mismatched types
+  --> /tmp/bioinformatics-base-count.rs:52:74
+   |
+52 |     println!("{}", vec![format!("{}", format!("{}{}", "    G: ", padLeft(g.to_string(), 3)))].into_iter().filter(|s| !s.is_empty()).colle...
+   |                                                                  ------- ^^^^^^^^^^^^^ expected `&str`, found `String`
+   |                                                                  |
+   |                                                                  arguments to this function are incorrect
+   |
+note: function defined here
+  --> /tmp/bioinformatics-base-count.rs:3:8
+   |
+3  |     fn padLeft(s: &'static str, w: i32) -> &'static str {
+   |        ^^^^^^^ ---------------
+help: consider borrowing here
+   |
+52 |     println!("{}", vec![format!("{}", format!("{}{}", "    G: ", padLeft(&g.to_string(), 3)))].into_iter().filter(|s| !s.is_empty()).collect::<Vec<_>>().join(" ") );
+   |                                                                          +
+
+error[E0308]: mismatched types
+  --> /tmp/bioinformatics-base-count.rs:53:74
+   |
+53 |     println!("{}", vec![format!("{}", format!("{}{}", "    T: ", padLeft(t.to_string(), 3)))].into_iter().filter(|s| !s.is_empty()).colle...
+   |                                                                  ------- ^^^^^^^^^^^^^ expected `&str`, found `String`
+   |                                                                  |
+   |                                                                  arguments to this function are incorrect
+   |
+note: function defined here
+  --> /tmp/bioinformatics-base-count.rs:3:8
+   |
+3  |     fn padLeft(s: &'static str, w: i32) -> &'static str {
+   |        ^^^^^^^ ---------------
+help: consider borrowing here
+   |
+53 |     println!("{}", vec![format!("{}", format!("{}{}", "    T: ", padLeft(&t.to_string(), 3)))].into_iter().filter(|s| !s.is_empty()).collect::<Vec<_>>().join(" ") );
+   |                                                                          +
+
+error[E0308]: mismatched types
+  --> /tmp/bioinformatics-base-count.rs:10:16
+   |
+3  |     fn padLeft(s: &'static str, w: i32) -> &'static str {
+   |                                            ------------ expected `&str` because of return type
+...
+10 |         return format!("{}{}", res, s);
+   |                ^^^^^^^^^^^^^^^^^^^^^^^ expected `&str`, found `String`
+   |
+   = note: this error originates in the macro `format` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error: aborting due to 9 previous errors
+
+Some errors have detailed explanations: E0277, E0308.
+For more information about an error, try `rustc --explain E0277`.

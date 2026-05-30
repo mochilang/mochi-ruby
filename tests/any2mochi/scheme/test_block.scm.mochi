@@ -1,0 +1,10 @@
+let failures = 0
+fun print_test_start(name: any) {}
+fun print_test_pass() {}
+fun print_test_fail(err: any) {}
+fun run_test(name: any, thunk: any) {}
+fun test_addition_works() {}
+print("ok")
+if failures > 0 {
+  print("\n[FAIL] ")
+}

@@ -1,0 +1,3 @@
+open System
+
+ignore (printfn "%A" (9.261000000000001))

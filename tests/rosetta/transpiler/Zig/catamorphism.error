@@ -1,0 +1,2 @@
+zig build error: exit status 1
+/tmp/TestMochiZigGoldencatamorphism3475476319/001/prog.zig:36:25: error: expected ',' after initializer

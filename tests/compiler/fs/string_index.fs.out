@@ -1,0 +1,4 @@
+open System
+
+let text = "hello"
+ignore (printfn "%A" ((string text.[1])))

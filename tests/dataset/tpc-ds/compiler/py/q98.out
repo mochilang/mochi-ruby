@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/tmp/q98.py", line 367, in <module>
+    totals = _q2()
+             ^^^^^
+  File "/tmp/q98.py", line 362, in _q2
+    return [
+           ^
+  File "/tmp/q98.py", line 363, in <listcomp>
+    Auto4(_class=cg.key, total=sum([x.itemrevenue for x in cg])) for cg in _items1
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/q98.py", line 363, in <listcomp>
+    Auto4(_class=cg.key, total=sum([x.itemrevenue for x in cg])) for cg in _items1
+                                    ^^^^^^^^^^^^^
+AttributeError: '_Group' object has no attribute 'itemrevenue'

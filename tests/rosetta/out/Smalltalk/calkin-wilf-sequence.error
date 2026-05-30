@@ -1,0 +1,8 @@
+parse: error[P999]: /workspace/mochi/tests/rosetta/x/Mochi/calkin-wilf-sequence.mochi:65:22: unexpected token "+" (expected PostfixExpr)
+  --> /workspace/mochi/tests/rosetta/x/Mochi/calkin-wilf-sequence.mochi:65:22
+
+ 65 |   if neg { out = "-" + out }
+    |                      ^
+
+help:
+  Parse error occurred. Check syntax near this location.

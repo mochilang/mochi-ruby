@@ -1,0 +1,61 @@
+gfortran: exit status 1
+/tmp/chaocipher.f90:52:8:
+
+   52 |       ch = text((i)+1:(i + 1))
+      |        1
+Error: Symbol ‘ch’ at (1) has no IMPLICIT type; did you mean ‘chao’?
+/tmp/chaocipher.f90:56:15:
+
+   56 |         out = (out + left((idx)+1:(idx + 1)))
+      |               1
+Error: Operands of binary numeric operator ‘+’ at (1) are CHARACTER(100)/CHARACTER(*)
+/tmp/chaocipher.f90:59:15:
+
+   59 |         out = (out + right((idx)+1:(idx + 1)))
+      |               1
+Error: Operands of binary numeric operator ‘+’ at (1) are CHARACTER(100)/CHARACTER(*)
+/tmp/chaocipher.f90:31:24:
+
+   31 |     res = (s((n)+1:size(s)) + s(1:n))
+      |                        1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/chaocipher.f90:36:65:
+
+   36 |     res = (((s(1:1) + s((2)+1:14)) + s((1)+1:2)) + s((14)+1:size(s)))
+      |                                                                 1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/chaocipher.f90:36:13:
+
+   36 |     res = (((s(1:1) + s((2)+1:14)) + s((1)+1:2)) + s((14)+1:size(s)))
+      |             1
+Error: Operands of binary numeric operator ‘+’ at (1) are CHARACTER(*)/CHARACTER(*)
+/tmp/chaocipher.f90:41:70:
+
+   41 |     res = ((((s((1)+1:3) + s((4)+1:15)) + s((3)+1:4)) + s((15)+1:size(s))) + s(1:1))
+      |                                                                      1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/chaocipher.f90:41:14:
+
+   41 |     res = ((((s((1)+1:3) + s((4)+1:15)) + s((3)+1:4)) + s((15)+1:size(s))) + s(1:1))
+      |              1
+Error: Operands of binary numeric operator ‘+’ at (1) are CHARACTER(*)/CHARACTER(*)
+/tmp/chaocipher.f90:51:24:
+
+   51 |     do while ((i < size(text)))
+      |                        1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/chaocipher.f90:72:13:
+
+   72 |     cipher = chao(plain,.true.)
+      |             1
+Error: Cannot convert CHARACTER(100) to INTEGER(4) at (1)
+/tmp/chaocipher.f90:75:12:
+
+   75 |     print *, chao(cipher,.false.)
+      |            1
+Error: Type mismatch in argument ‘text’ at (1); passed INTEGER(4) to CHARACTER(100)
+/tmp/chaocipher.f90:18:24:
+
+   18 |     do while ((i < size(s)))
+      |                        1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array

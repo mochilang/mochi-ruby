@@ -1,0 +1,59 @@
+// Solution for LeetCode problem 138 - Copy List with Random Pointer
+// This version avoids union types and pattern matching by
+// representing the list as an array of nodes identified by index.
+
+// Each node stores its value plus the index of the next and random node.
+// A value of -1 means no pointer.
+type Node {
+  val: int
+  next: int
+  random: int
+}
+
+// Return a deep copy of the given list of nodes.
+fun copyRandomList(nodes: list<Node>): list<Node> {
+  var result: list<Node> = []
+  for n in nodes {
+    result = result + [Node { val: n.val, next: n.next, random: n.random }]
+  }
+  return result
+}
+
+// Serialize helper used in tests.
+fun serialize(nodes: list<Node>): list<list<int>> {
+  var out: list<list<int>> = []
+  var i = 0
+  while i < len(nodes) {
+    let n = nodes[i]
+    out = out + [[n.val, n.random]]
+    i = i + 1
+  }
+  return out
+}
+
+// Basic test mirroring the example from LeetCode
+
+test "copy list" {
+  let original = [
+    Node { val: 7,  next: 1, random: -1 },
+    Node { val: 13, next: 2, random: 0 },
+    Node { val: 11, next: 3, random: 4 },
+    Node { val: 10, next: 4, random: 2 },
+    Node { val: 1,  next: -1, random: 0 }
+  ]
+
+  let copied = copyRandomList(original)
+  expect serialize(copied) == serialize(original)
+}
+
+/*
+Common Mochi language errors and how to fix them:
+1. Using '=' instead of '==' when comparing values.
+   if a = b { }   // ❌ assignment
+   if a == b { }  // ✅ comparison
+2. Forgetting to declare mutable variables with 'var'.
+   count = 0      // ❌ use 'var count = 0'
+3. Leaving list element types unspecified when creating an empty list.
+   var xs = []                // ❌ type unknown
+   var xs: list<int> = []     // ✅ specify the type
+*/

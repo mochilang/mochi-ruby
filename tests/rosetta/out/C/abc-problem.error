@@ -1,0 +1,9 @@
+cc: exit status 1
+/tmp/abc-problem.c: In function ‘_lambda0’:
+/tmp/abc-problem.c:70:32: warning: implicit declaration of function ‘canSpell’ [-Wimplicit-function-declaration]
+   70 | int _lambda0(char *w) { return canSpell(w, _lambda0_bl); }
+      |                                ^~~~~~~~
+/tmp/abc-problem.c: In function ‘canSpell’:
+/tmp/abc-problem.c:125:47: error: request for member ‘len’ in something not a structure or union
+  125 |       char *tmp12 = slice_string(word, 1, word.len);
+      |                                               ^

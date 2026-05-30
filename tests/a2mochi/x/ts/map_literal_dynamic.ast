@@ -1,0 +1,36 @@
+(program
+  (type Result
+    (field a (type int))
+    (field b (type int))
+  )
+  (type M
+    (field a (type int))
+    (field b (type int))
+  )
+  (let x (type int) (int 3))
+  (let y (type int) (int 4))
+  (let m
+    (type M)
+    (map
+      (entry (string a) (selector x))
+      (entry (string b) (selector y))
+    )
+  )
+  (call print
+    (binary +
+      (binary +
+        (group
+          (index (selector m) (string a))
+        )
+        (string " ")
+      )
+      (call
+        (selector trim
+          (call String
+            (index (selector m) (string b))
+          )
+        )
+      )
+    )
+  )
+)

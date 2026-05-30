@@ -1,0 +1,39 @@
+// outer_join.mochi
+// Full outer join: include all orders and all customers
+
+let customers = [
+  { id: 1, name: "Alice" },
+  { id: 2, name: "Bob" },
+  { id: 3, name: "Charlie" },
+  { id: 4, name: "Diana" } // Has no order
+]
+
+let orders = [
+  { id: 100, customerId: 1, total: 250 },
+  { id: 101, customerId: 2, total: 125 },
+  { id: 102, customerId: 1, total: 300 },
+  { id: 103, customerId: 5, total: 80 } // Unknown customer
+]
+
+// Compute outer join manually
+var seenIds = []
+print("--- Outer Join using loops ---")
+for o in orders {
+  var customerName = "Unknown"
+  for c in customers {
+    if c.id == o.customerId {
+      customerName = c.name
+      seenIds = seenIds + [c.id]
+    }
+  }
+  print("Order " + str(o.id) + " by " + customerName + " - $" + str(o.total))
+}
+for c in customers {
+  var found = false
+  for id in seenIds {
+    if id == c.id { found = true }
+  }
+  if !found {
+    print("Customer " + c.name + " has no orders")
+  }
+}

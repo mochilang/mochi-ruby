@@ -1,0 +1,4 @@
+fun makeAdder(n: any) {
+}
+let add10 = makeAdder(10)
+print(add10(7))

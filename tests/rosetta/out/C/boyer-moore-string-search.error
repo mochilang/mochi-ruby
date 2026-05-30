@@ -1,0 +1,18 @@
+cc: exit status 1
+/tmp/boyer-moore-string-search.c: In function ‘stringSearch’:
+/tmp/boyer-moore-string-search.c:92:16: error: incompatible types when assigning to type ‘list_int’ from type ‘int’
+   92 |       result = 0;
+      |                ^
+/tmp/boyer-moore-string-search.c: In function ‘mochi_main’:
+/tmp/boyer-moore-string-search.c:146:14: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘char *’ [-Wformat=]
+  146 |     printf("%d\n", tmp12);
+      |             ~^     ~~~~~
+      |              |     |
+      |              int   char *
+      |             %s
+/tmp/boyer-moore-string-search.c:165:14: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘char *’ [-Wformat=]
+  165 |     printf("%d\n", tmp24);
+      |             ~^     ~~~~~
+      |              |     |
+      |              int   char *
+      |             %s

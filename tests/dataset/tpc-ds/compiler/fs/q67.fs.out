@@ -1,0 +1,17 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    reason: int
+    price: int
+}
+type Anon2 = {
+    id: int
+    name: string
+}
+let store_sales: Anon1 list = [{ reason = 1; price = 40 }; { reason = 2; price = 27 }]
+let reason: Anon2 list = [{ id = 1; name = "PROMO" }; { id = 2; name = "RETURN" }]
+let result: obj = List.sum [ for ss in store_sales do 
+  for r in reason do if ss.reason = r.id && List.contains r.name ["PROMO"; "RETURN"] then yield ss.price ]
+printfn "%A" (JsonSerializer.Serialize(result))
+assert (result = 67)

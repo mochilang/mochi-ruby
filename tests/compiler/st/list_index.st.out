@@ -1,0 +1,7 @@
+Smalltalk at: #xs put: nil.
+
+Object subclass: #Main instanceVariableNames: '' classVariableNames: '' poolDictionaries: '' category: nil!
+
+!!
+xs := Array with: 10 with: 20 with: 30.
+((xs at: 1 + 1)) displayOn: Transcript. Transcript cr.

@@ -1,0 +1,6 @@
+run: exit status 127
+/workspace/mochi/tests/algorithms/x/Erlang/graphs/deep_clone_graph.erl:125:9: variable 'Join' is unbound
+%  125|         Join(Lines, "\n")
+%     |         ^
+
+escript: There were compilation errors.

@@ -1,0 +1,50 @@
+cc: exit status 1
+/tmp/burrows-wheeler-transform.c: In function ‘bwt’:
+/tmp/burrows-wheeler-transform.c:128:12: error: incompatible types when returning type ‘tmp_item_t’ but ‘int’ was expected
+  128 |     return (tmp_item_t){.err = 1, .res = ""};
+      |            ^
+/tmp/burrows-wheeler-transform.c:153:10: error: incompatible types when returning type ‘tmp_item1_t’ but ‘int’ was expected
+  153 |   return (tmp_item1_t){.err = 0, .res = last};
+      |          ^
+/tmp/burrows-wheeler-transform.c: In function ‘mochi_main’:
+/tmp/burrows-wheeler-transform.c:216:35: warning: hex escape sequence out of range
+  216 |   examples.data[5] = "\x02ABC\x03";
+      |                                   ^
+/tmp/burrows-wheeler-transform.c:218:13: warning: initialization of ‘int’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
+  218 |     int t = examples.data[tmp14];
+      |             ^~~~~~~~
+/tmp/burrows-wheeler-transform.c:219:34: warning: passing argument 1 of ‘makePrintable’ makes pointer from integer without a cast [-Wint-conversion]
+  219 |     printf("%d\n", makePrintable(t));
+      |                                  ^
+      |                                  |
+      |                                  int
+/tmp/burrows-wheeler-transform.c:189:27: note: expected ‘char *’ but argument is of type ‘int’
+  189 | char *makePrintable(char *s) {
+      |                     ~~~~~~^
+/tmp/burrows-wheeler-transform.c:219:14: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘char *’ [-Wformat=]
+  219 |     printf("%d\n", makePrintable(t));
+      |             ~^     ~~~~~~~~~~~~~~~~
+      |              |     |
+      |              int   char *
+      |             %s
+/tmp/burrows-wheeler-transform.c:220:27: warning: passing argument 1 of ‘bwt’ makes pointer from integer without a cast [-Wint-conversion]
+  220 |     __auto_type res = bwt(t);
+      |                           ^
+      |                           |
+      |                           int
+/tmp/burrows-wheeler-transform.c:126:15: note: expected ‘char *’ but argument is of type ‘int’
+  126 | int bwt(char *s) {
+      |         ~~~~~~^
+/tmp/burrows-wheeler-transform.c:221:13: error: request for member ‘data’ in something not a structure or union
+  221 |     if ((res.data["err"])) {
+      |             ^
+/tmp/burrows-wheeler-transform.c:225:37: error: request for member ‘data’ in something not a structure or union
+  225 |       __auto_type enc = (char *)(res.data["res"]);
+      |                                     ^
+/tmp/burrows-wheeler-transform.c:226:58: error: ‘enc’ undeclared (first use in this function)
+  226 |       char *tmp15 = concat_string(" --> ", makePrintable(enc));
+      |                                                          ^~~
+/tmp/burrows-wheeler-transform.c:226:58: note: each undeclared identifier is reported only once for each function it appears in
+/tmp/burrows-wheeler-transform.c:229:44: error: ‘r’ undeclared (first use in this function)
+  229 |       char *tmp16 = concat_string(" --> ", r);
+      |                                            ^

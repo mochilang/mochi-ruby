@@ -1,0 +1,95 @@
+cc: exit status 1
+/tmp/algebraic-data-types.c: In function ‘node’:
+/tmp/algebraic-data-types.c:46:10: error: incompatible types when returning type ‘tmp_item_t’ but ‘int’ was expected
+   46 |   return (tmp_item_t){.cl = cl, .le = le, .aa = aa, .ri = ri};
+      |          ^
+/tmp/algebraic-data-types.c: In function ‘treeString’:
+/tmp/algebraic-data-types.c:53:20: error: ‘map_string_int’ undeclared (first use in this function)
+   53 |   __auto_type m = (map_string_int)(t);
+      |                    ^~~~~~~~~~~~~~
+/tmp/algebraic-data-types.c:53:20: note: each undeclared identifier is reported only once for each function it appears in
+/tmp/algebraic-data-types.c:54:36: error: ‘m’ undeclared (first use in this function)
+   54 |   char *tmp1 = concat_string("T(", m.data["cl"]);
+      |                                    ^
+/tmp/algebraic-data-types.c: In function ‘balance’:
+/tmp/algebraic-data-types.c:70:20: error: ‘map_string_int’ undeclared (first use in this function)
+   70 |   __auto_type m = (map_string_int)(t);
+      |                    ^~~~~~~~~~~~~~
+/tmp/algebraic-data-types.c:71:8: error: ‘m’ undeclared (first use in this function)
+   71 |   if ((m.data["cl"] != "B")) {
+      |        ^
+/tmp/algebraic-data-types.c:76:8: error: ‘le’ undeclared (first use in this function)
+   76 |   if ((le != 0)) {
+      |        ^~
+/tmp/algebraic-data-types.c:78:10: error: ‘leMap’ undeclared (first use in this function)
+   78 |     if ((leMap.data["cl"] == "R")) {
+      |          ^~~~~
+/tmp/algebraic-data-types.c:80:12: error: ‘lele’ undeclared (first use in this function)
+   80 |       if ((lele != 0)) {
+      |            ^~~~
+/tmp/algebraic-data-types.c:82:14: error: ‘leleMap’ undeclared (first use in this function)
+   82 |         if ((leleMap.data["cl"] == "R")) {
+      |              ^~~~~~~
+/tmp/algebraic-data-types.c:87:65: error: ‘ri’ undeclared (first use in this function); did you mean ‘i’?
+   87 |                       node("B", leMap.data["ri"], m.data["aa"], ri));
+      |                                                                 ^~
+      |                                                                 i
+/tmp/algebraic-data-types.c:91:12: error: ‘leri’ undeclared (first use in this function)
+   91 |       if ((leri != 0)) {
+      |            ^~~~
+/tmp/algebraic-data-types.c:93:14: error: ‘leriMap’ undeclared (first use in this function)
+   93 |         if ((leriMap.data["cl"] == "R")) {
+      |              ^~~~~~~
+/tmp/algebraic-data-types.c:105:10: error: ‘riMap’ undeclared (first use in this function)
+  105 |     if ((riMap.data["cl"] == "R")) {
+      |          ^~~~~
+/tmp/algebraic-data-types.c:107:12: error: ‘rile’ undeclared (first use in this function)
+  107 |       if ((rile != 0)) {
+      |            ^~~~
+/tmp/algebraic-data-types.c:109:14: error: ‘rileMap’ undeclared (first use in this function)
+  109 |         if ((rileMap.data["cl"] == "R")) {
+      |              ^~~~~~~
+/tmp/algebraic-data-types.c:118:12: error: ‘riri’ undeclared (first use in this function)
+  118 |       if ((riri != 0)) {
+      |            ^~~~
+/tmp/algebraic-data-types.c:120:14: error: ‘ririMap’ undeclared (first use in this function)
+  120 |         if ((ririMap.data["cl"] == "R")) {
+      |              ^~~~~~~
+/tmp/algebraic-data-types.c: In function ‘ins’:
+/tmp/algebraic-data-types.c:137:14: error: request for member ‘data’ in something not a structure or union
+  137 |   if ((x < tr.data["aa"])) {
+      |              ^
+/tmp/algebraic-data-types.c:138:27: error: request for member ‘data’ in something not a structure or union
+  138 |     return balance(node(tr.data["cl"], ins(tr.data["le"], x), tr.data["aa"],
+      |                           ^
+/tmp/algebraic-data-types.c:138:46: error: request for member ‘data’ in something not a structure or union
+  138 |     return balance(node(tr.data["cl"], ins(tr.data["le"], x), tr.data["aa"],
+      |                                              ^
+/tmp/algebraic-data-types.c:138:65: error: request for member ‘data’ in something not a structure or union
+  138 |     return balance(node(tr.data["cl"], ins(tr.data["le"], x), tr.data["aa"],
+      |                                                                 ^
+/tmp/algebraic-data-types.c:139:27: error: request for member ‘data’ in something not a structure or union
+  139 |                         tr.data["ri"]));
+      |                           ^
+/tmp/algebraic-data-types.c:141:14: error: request for member ‘data’ in something not a structure or union
+  141 |   if ((x > tr.data["aa"])) {
+      |              ^
+/tmp/algebraic-data-types.c:142:27: error: request for member ‘data’ in something not a structure or union
+  142 |     return balance(node(tr.data["cl"], tr.data["le"], tr.data["aa"],
+      |                           ^
+/tmp/algebraic-data-types.c:142:42: error: request for member ‘data’ in something not a structure or union
+  142 |     return balance(node(tr.data["cl"], tr.data["le"], tr.data["aa"],
+      |                                          ^
+/tmp/algebraic-data-types.c:142:57: error: request for member ‘data’ in something not a structure or union
+  142 |     return balance(node(tr.data["cl"], tr.data["le"], tr.data["aa"],
+      |                                                         ^
+/tmp/algebraic-data-types.c:143:31: error: request for member ‘data’ in something not a structure or union
+  143 |                         ins(tr.data["ri"], x)));
+      |                               ^
+/tmp/algebraic-data-types.c: In function ‘insert’:
+/tmp/algebraic-data-types.c:153:20: error: ‘map_string_int’ undeclared (first use in this function)
+  153 |   __auto_type m = (map_string_int)(t);
+      |                    ^~~~~~~~~~~~~~
+/tmp/algebraic-data-types.c:154:20: error: ‘m’ undeclared (first use in this function)
+  154 |   return node("B", m.data["le"], m.data["aa"], m.data["ri"]);
+      |                    ^

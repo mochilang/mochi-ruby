@@ -1,0 +1,44 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    mgr: int
+    amount: int
+}
+type Anon2 = {
+    mgr: obj
+    sum_sales: obj
+}
+type Anon3 = {
+    mgr: int
+}
+type _Group<'K,'T>(key: 'K) =
+    member val key = key with get, set
+    member val Items = System.Collections.Generic.List<'T>() with get
+    member this.size = this.Items.Count
+    interface System.Collections.Generic.IEnumerable<'T> with
+        member this.GetEnumerator() = (this.Items :> seq<'T>).GetEnumerator()
+    interface System.Collections.IEnumerable with
+        member this.GetEnumerator() = (this.Items :> System.Collections.IEnumerable).GetEnumerator()
+
+let _group_by (src: 'T list) (keyfn: 'T -> 'K) : _Group<'K,'T> list =
+    let groups = System.Collections.Generic.Dictionary<string,_Group<'K,'T>>()
+    let order = System.Collections.Generic.List<string>()
+    for it in src do
+        let key = keyfn it
+        let ks = string key
+        let mutable g = Unchecked.defaultof<_Group<'K,'T>>
+        if groups.TryGetValue(ks, &g) then ()
+        else
+            g <- _Group<'K,'T>(key)
+            groups.Add(ks, g)
+            order.Add(ks)
+        g.Items.Add(it)
+    [ for ks in order -> groups[ks] ]
+
+let sales: Anon1 list = [{ mgr = 1; amount = 30 }; { mgr = 2; amount = 33 }]
+let by_mgr: Anon2 list = [ for g in _group_by [ for s in sales do yield s ] (fun s -> { mgr = s.mgr }) do
+    yield { mgr = g.key.mgr; sum_sales = List.sum [ for x in g do yield x.amount ] } ]
+let result: obj = List.sum [ for x in by_mgr do yield x.sum_sales ]
+printfn "%A" (JsonSerializer.Serialize(result))
+assert (result = 63)

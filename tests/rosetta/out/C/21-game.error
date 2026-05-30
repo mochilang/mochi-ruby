@@ -1,0 +1,8 @@
+cc: exit status 1
+/tmp/21-game.c: In function ‘parseIntStr’:
+/tmp/21-game.c:119:11: error: request for member ‘len’ in something not a structure or union
+  119 |   if ((str.len > 0 && tmp1 == "-")) {
+      |           ^
+/tmp/21-game.c:136:18: error: request for member ‘len’ in something not a structure or union
+  136 |   while ((i < str.len)) {
+      |                  ^

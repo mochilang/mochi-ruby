@@ -1,0 +1,21 @@
+int c = 0;
+
+Map<String, int> m = {"x": 1, "y": 2};
+
+void main() {
+  for (var _tmp0 = 0; _tmp0 < 2; _tmp0++) {
+    c = ((c + 1)).toInt();
+  }
+  for (var _tmp1 in [1, 2]) {
+    c = ((c + 1)).toInt();
+  }
+  var _tmp3 = "ab";
+  for (var _tmp4 in _tmp3.runes) {
+    c = ((c + 1)).toInt();
+  }
+  var _tmp6 = m;
+  for (var _tmp5 in _tmp6.values) {
+    c = ((c + 1)).toInt();
+  }
+  print(c);
+}

@@ -1,0 +1,51 @@
+warning: variable "result" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 288 │           result = (result ++ [sum])
+     │           ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/graphs/lanczos_eigenvectors.exs:288:11: Main.multiply_matrix_vector/2
+
+     warning: variable "r" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 412 │               {q, r} = try do
+     │                   ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/graphs/lanczos_eigenvectors.exs:412:19: Main.lanczos_iteration/2
+
+     warning: variable "p" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 389 │           {p, ss2} = try do
+     │            ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/graphs/lanczos_eigenvectors.exs:389:12: Main.lanczos_iteration/2
+
+     warning: variable "beta" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 432 │       {beta, _, q, t} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/graphs/lanczos_eigenvectors.exs:432:8: Main.lanczos_iteration/2
+
+     warning: variable "iter" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 581 │       {a, _, iter, v} = try do
+     │              ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/graphs/lanczos_eigenvectors.exs:581:14: Main.jacobi_eigen/2
+
+     warning: variable "r" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 695 │                 {r, vectors} = try do
+     │                  ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/graphs/lanczos_eigenvectors.exs:695:18: Main.sort_eigenpairs/2
+
+** (ArithmeticError) bad argument in arithmetic expression: 0.11032573653025755 * []
+    :erlang.*(0.11032573653025755, [])
+    /workspace/mochi/tests/algorithms/x/Elixir/graphs/lanczos_eigenvectors.exs:65: anonymous fn/5 in Main.dot/2
+    /workspace/mochi/tests/algorithms/x/Elixir/graphs/lanczos_eigenvectors.exs:73: Main.dot/2
+    /workspace/mochi/tests/algorithms/x/Elixir/graphs/lanczos_eigenvectors.exs:376: anonymous fn/8 in Main.lanczos_iteration/2
+    /workspace/mochi/tests/algorithms/x/Elixir/graphs/lanczos_eigenvectors.exs:433: Main.lanczos_iteration/2
+    /workspace/mochi/tests/algorithms/x/Elixir/graphs/lanczos_eigenvectors.exs:737: Main.find_lanczos_eigenvectors/2
+    /workspace/mochi/tests/algorithms/x/Elixir/graphs/lanczos_eigenvectors.exs:809: Main.main/0
+    /workspace/mochi/tests/algorithms/x/Elixir/graphs/lanczos_eigenvectors.exs:814: (file)

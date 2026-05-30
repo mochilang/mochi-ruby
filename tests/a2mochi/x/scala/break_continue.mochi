@@ -1,0 +1,11 @@
+// a2mochi scala v0.10.47 2025-07-29 00:00:00 GMT+7
+
+for n in numbers {
+  if n % 2 == 0 {
+    continue
+  }
+  if n > 7 {
+    break
+  }
+  print("odd number:", n)
+}

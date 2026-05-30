@@ -1,0 +1,10 @@
+def inc(x)
+  (x + 1)
+end
+
+def apply(f, x)
+  f.call(x)
+end
+
+puts([apply(method(:inc), 5)].join(" "))
+puts([apply(->(y) { (y * 2) }, 7)].join(" "))

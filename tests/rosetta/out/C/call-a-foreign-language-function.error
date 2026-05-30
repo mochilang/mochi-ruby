@@ -1,0 +1,8 @@
+cc: exit status 1
+/tmp/call-a-foreign-language-function.c:16:7: error: conflicting types for ‘strdup’; have ‘char *(char *)’
+   16 | char *strdup(char *s) {
+      |       ^~~~~~
+In file included from /tmp/call-a-foreign-language-function.c:5:
+/usr/include/string.h:187:14: note: previous declaration of ‘strdup’ with type ‘char *(const char *)’
+  187 | extern char *strdup (const char *__s)
+      |              ^~~~~~

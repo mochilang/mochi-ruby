@@ -1,0 +1,4 @@
+# command-line-arguments
+/tmp/q10.go:170:11: invalid operation: chnRaw (variable of struct type Char_name) is not an interface
+/tmp/q10.go:214:10: invalid operation: xRaw (variable of struct type Matche) is not an interface
+/tmp/q10.go:222:10: invalid operation: xRaw (variable of struct type Matche) is not an interface

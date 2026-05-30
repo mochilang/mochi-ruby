@@ -1,0 +1,4 @@
+Object subclass: #Main instanceVariableNames: '' classVariableNames: '' poolDictionaries: '' category: nil!
+
+!!
+(((Array with: 1 with: 2) , (Array with: 3 with: 4))) displayOn: Transcript. Transcript cr.

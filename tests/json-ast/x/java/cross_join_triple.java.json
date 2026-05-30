@@ -1,0 +1,469 @@
+{
+  "body": [
+    {
+      "kind": "VarDecl",
+      "name": "nums",
+      "type": "int[]",
+      "expr": {
+        "kind": "NEW_ARRAY",
+        "elems": [
+          {
+            "kind": "Literal",
+            "value": "1"
+          },
+          {
+            "kind": "Literal",
+            "value": "2"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "VarDecl",
+      "name": "letters",
+      "type": "String[]",
+      "expr": {
+        "kind": "NEW_ARRAY",
+        "elems": [
+          {
+            "kind": "String",
+            "value": "A"
+          },
+          {
+            "kind": "String",
+            "value": "B"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "VarDecl",
+      "name": "bools",
+      "type": "boolean[]",
+      "expr": {
+        "kind": "NEW_ARRAY",
+        "elems": [
+          {
+            "kind": "Literal",
+            "value": "true"
+          },
+          {
+            "kind": "Literal",
+            "value": "false"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "VarDecl",
+      "name": "combos",
+      "type": "java.util.List\u003cResult2\u003e",
+      "expr": {
+        "kind": "NEW_CLASS",
+        "body": [
+          {
+            "kind": "VarDecl",
+            "name": "_tmp",
+            "type": "java.util.ArrayList\u003cResult2\u003e",
+            "expr": {
+              "kind": "NEW_CLASS"
+            }
+          },
+          {
+            "kind": "ForEach",
+            "name": "n",
+            "expr": {
+              "kind": "Ident",
+              "name": "nums"
+            },
+            "body": [
+              {
+                "kind": "ForEach",
+                "name": "l",
+                "expr": {
+                  "kind": "Ident",
+                  "name": "letters"
+                },
+                "body": [
+                  {
+                    "kind": "ForEach",
+                    "name": "b",
+                    "expr": {
+                      "kind": "Ident",
+                      "name": "bools"
+                    },
+                    "body": [
+                      {
+                        "kind": "Expr"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "VarDecl",
+            "name": "list",
+            "type": "java.util.ArrayList\u003cResult2\u003e",
+            "expr": {
+              "kind": "Ident",
+              "name": "_tmp"
+            }
+          },
+          {
+            "kind": "VarDecl",
+            "name": "_res",
+            "type": "java.util.ArrayList\u003cResult2\u003e",
+            "expr": {
+              "kind": "NEW_CLASS"
+            }
+          },
+          {
+            "kind": "VarDecl",
+            "name": "skip",
+            "type": "int",
+            "expr": {
+              "kind": "Literal",
+              "value": "0"
+            }
+          },
+          {
+            "kind": "VarDecl",
+            "name": "take",
+            "type": "int",
+            "expr": {
+              "kind": "Literal",
+              "value": "-1"
+            }
+          },
+          {
+            "kind": "ForRange",
+            "name": "i",
+            "start": {
+              "kind": "Literal",
+              "value": "0"
+            },
+            "end": {
+              "kind": "Call",
+              "target": {
+                "kind": "Member",
+                "name": "size",
+                "expr": {
+                  "kind": "Ident",
+                  "name": "list"
+                }
+              }
+            },
+            "body": [
+              {
+                "kind": "If",
+                "cond": {
+                  "kind": "Binary",
+                  "left": {
+                    "kind": "Ident",
+                    "name": "i"
+                  },
+                  "right": {
+                    "kind": "Ident",
+                    "name": "skip"
+                  },
+                  "op": "LESS_THAN"
+                },
+                "then": [
+                  {
+                    "kind": "Continue"
+                  }
+                ]
+              },
+              {
+                "kind": "If",
+                "cond": {
+                  "kind": "Binary",
+                  "left": {
+                    "kind": "Binary",
+                    "left": {
+                      "kind": "Ident",
+                      "name": "take"
+                    },
+                    "right": {
+                      "kind": "Literal",
+                      "value": "0"
+                    },
+                    "op": "GREATER_THAN_EQUAL"
+                  },
+                  "right": {
+                    "kind": "Binary",
+                    "left": {
+                      "kind": "Ident",
+                      "name": "i"
+                    },
+                    "right": {
+                      "kind": "Binary",
+                      "left": {
+                        "kind": "Ident",
+                        "name": "skip"
+                      },
+                      "right": {
+                        "kind": "Ident",
+                        "name": "take"
+                      },
+                      "op": "PLUS"
+                    },
+                    "op": "GREATER_THAN_EQUAL"
+                  },
+                  "op": "CONDITIONAL_AND"
+                },
+                "then": [
+                  {
+                    "kind": "Break"
+                  }
+                ]
+              },
+              {
+                "kind": "Expr"
+              }
+            ]
+          },
+          {
+            "kind": "Expr"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "FnDecl",
+      "name": "q",
+      "type": "String",
+      "body": [
+        {
+          "kind": "If",
+          "cond": {
+            "kind": "INSTANCE_OF"
+          },
+          "then": [
+            {
+              "kind": "Return",
+              "expr": {
+                "kind": "Binary",
+                "left": {
+                  "kind": "Binary",
+                  "left": {
+                    "kind": "String",
+                    "value": "'"
+                  },
+                  "right": {
+                    "kind": "Call",
+                    "target": {
+                      "kind": "Member",
+                      "name": "toString",
+                      "expr": {
+                        "kind": "Ident",
+                        "name": "v"
+                      }
+                    }
+                  },
+                  "op": "PLUS"
+                },
+                "right": {
+                  "kind": "String",
+                  "value": "'"
+                },
+                "op": "PLUS"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "Return",
+          "expr": {
+            "kind": "Call",
+            "target": {
+              "kind": "Member",
+              "name": "valueOf",
+              "expr": {
+                "kind": "Ident",
+                "name": "String"
+              }
+            },
+            "args": [
+              {
+                "kind": "Ident",
+                "name": "v"
+              }
+            ]
+          }
+        }
+      ],
+      "params": [
+        {
+          "name": "v",
+          "type": "Object"
+        }
+      ]
+    },
+    {
+      "kind": "FnDecl",
+      "name": "boolStr",
+      "type": "String",
+      "body": [
+        {
+          "kind": "If",
+          "cond": {
+            "kind": "INSTANCE_OF"
+          },
+          "then": [
+            {
+              "kind": "Return",
+              "expr": {
+                "kind": "Cond",
+                "cond": {
+                  "kind": "Ident",
+                  "name": "b"
+                },
+                "then": {
+                  "kind": "String",
+                  "value": "True"
+                },
+                "else": {
+                  "kind": "String",
+                  "value": "False"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "Return",
+          "expr": {
+            "kind": "Call",
+            "target": {
+              "kind": "Member",
+              "name": "valueOf",
+              "expr": {
+                "kind": "Ident",
+                "name": "String"
+              }
+            },
+            "args": [
+              {
+                "kind": "Ident",
+                "name": "v"
+              }
+            ]
+          }
+        }
+      ],
+      "params": [
+        {
+          "name": "v",
+          "type": "Object"
+        }
+      ]
+    },
+    {
+      "kind": "Print",
+      "expr": {
+        "kind": "Call",
+        "target": {
+          "kind": "Ident",
+          "name": "boolStr"
+        },
+        "args": [
+          {
+            "kind": "String",
+            "value": "--- Cross Join of three lists ---"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "ForEach",
+      "name": "c",
+      "expr": {
+        "kind": "Ident",
+        "name": "combos"
+      },
+      "body": [
+        {
+          "kind": "Print",
+          "expr": {
+            "kind": "Binary",
+            "left": {
+              "kind": "Binary",
+              "left": {
+                "kind": "Binary",
+                "left": {
+                  "kind": "Binary",
+                  "left": {
+                    "kind": "Call",
+                    "target": {
+                      "kind": "Ident",
+                      "name": "boolStr"
+                    },
+                    "args": [
+                      {
+                        "kind": "Member",
+                        "name": "n",
+                        "expr": {
+                          "kind": "Ident",
+                          "name": "c"
+                        }
+                      }
+                    ]
+                  },
+                  "right": {
+                    "kind": "String",
+                    "value": " "
+                  },
+                  "op": "PLUS"
+                },
+                "right": {
+                  "kind": "Call",
+                  "target": {
+                    "kind": "Ident",
+                    "name": "boolStr"
+                  },
+                  "args": [
+                    {
+                      "kind": "Member",
+                      "name": "l",
+                      "expr": {
+                        "kind": "Ident",
+                        "name": "c"
+                      }
+                    }
+                  ]
+                },
+                "op": "PLUS"
+              },
+              "right": {
+                "kind": "String",
+                "value": " "
+              },
+              "op": "PLUS"
+            },
+            "right": {
+              "kind": "Call",
+              "target": {
+                "kind": "Ident",
+                "name": "boolStr"
+              },
+              "args": [
+                {
+                  "kind": "Member",
+                  "name": "b",
+                  "expr": {
+                    "kind": "Ident",
+                    "name": "c"
+                  }
+                }
+              ]
+            },
+            "op": "PLUS"
+          }
+        }
+      ]
+    }
+  ]
+}

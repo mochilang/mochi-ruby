@@ -1,0 +1,74 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    ss_store_sk: int
+    ss_sold_date_sk: int
+    ss_net_profit: float
+}
+type Anon2 = {
+    d_date_sk: int
+    d_qoy: int
+    d_year: int
+}
+type Anon3 = {
+    s_store_sk: int
+    s_store_name: string
+    s_zip: string
+}
+type Anon4 = {
+    ca_address_sk: int
+    ca_zip: string
+}
+type Anon5 = {
+    c_customer_sk: int
+    c_current_addr_sk: int
+    c_preferred_cust_flag: string
+}
+type Anon6 = {
+    s_store_name: obj
+    net_profit: obj
+}
+type Anon7 = {
+    s_store_name: string
+    net_profit: float
+}
+type _Group<'K,'T>(key: 'K) =
+    member val key = key with get, set
+    member val Items = System.Collections.Generic.List<'T>() with get
+    member this.size = this.Items.Count
+    interface System.Collections.Generic.IEnumerable<'T> with
+        member this.GetEnumerator() = (this.Items :> seq<'T>).GetEnumerator()
+    interface System.Collections.IEnumerable with
+        member this.GetEnumerator() = (this.Items :> System.Collections.IEnumerable).GetEnumerator()
+
+let _group_by (src: 'T list) (keyfn: 'T -> 'K) : _Group<'K,'T> list =
+    let groups = System.Collections.Generic.Dictionary<string,_Group<'K,'T>>()
+    let order = System.Collections.Generic.List<string>()
+    for it in src do
+        let key = keyfn it
+        let ks = string key
+        let mutable g = Unchecked.defaultof<_Group<'K,'T>>
+        if groups.TryGetValue(ks, &g) then ()
+        else
+            g <- _Group<'K,'T>(key)
+            groups.Add(ks, g)
+            order.Add(ks)
+        g.Items.Add(it)
+    [ for ks in order -> groups[ks] ]
+
+let store_sales: Anon1 list = [{ ss_store_sk = 1; ss_sold_date_sk = 1; ss_net_profit = 10.0 }]
+let date_dim: Anon2 list = [{ d_date_sk = 1; d_qoy = 1; d_year = 1998 }]
+let store: Anon3 list = [{ s_store_sk = 1; s_store_name = "Store1"; s_zip = "12345" }]
+let customer_address: Anon4 list = [{ ca_address_sk = 1; ca_zip = "12345" }]
+let customer: Anon5 list = [{ c_customer_sk = 1; c_current_addr_sk = 1; c_preferred_cust_flag = "Y" }]
+printfn "%A" (reverse substr "zip" 0 2)
+let zip_list: string list = ["12345"]
+let result: Anon6 list = [ for g in _group_by [ for ss in store_sales do 
+  for d in date_dim do 
+  for s in store do 
+  for ca in customer_address do 
+  for c in customer do if ss.ss_sold_date_sk = d.d_date_sk && d.d_qoy = 1 && d.d_year = 1998 && ss.ss_store_sk = s.s_store_sk && substr s.s_zip 0 2 = substr ca.ca_zip 0 2 && ca.ca_address_sk = c.c_current_addr_sk && c.c_preferred_cust_flag = "Y" && List.contains substr ca.ca_zip 0 5 zip_list then yield (ss, d, s, ca, c) ] (fun (ss, d, s, ca, c) -> s.s_store_name) |> List.sortBy (fun gTmp -> let g = gTmp in g.key) do
+    yield { s_store_name = g.key; net_profit = List.sum [ for x in g do yield x.ss.ss_net_profit ] } ]
+printfn "%A" (JsonSerializer.Serialize(result))
+assert (result = [{ s_store_name = "Store1"; net_profit = 10.0 }])

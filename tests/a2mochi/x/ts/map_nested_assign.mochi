@@ -1,0 +1,9 @@
+type Result {
+  inner: int
+}
+type Data {
+  outer: {inner: number}
+}
+let data: Data = {"outer": {"inner": 1}}
+data["outer"]["inner"] = 2
+print(data["outer"]["inner"])

@@ -1,0 +1,34 @@
+fpc: exit status 1
+Free Pascal Compiler version 3.2.2+dfsg-32 [2024/01/05] for x86_64
+Copyright (c) 1993-2021 by Florian Klaempfl and others
+Target OS: Linux for x86-64
+Compiling /tmp/24-game-solve.pas
+24-game-solve.pas(13,19) Warning: function result variable of a managed type does not seem to be initialized
+24-game-solve.pas(53,36) Error: Incompatible type for arg no. 2: Got "TFPGMap<System.ShortString,System.Variant>", expected "Variant"
+24-game-solve.pas(68,34) Error: Incompatible type for arg no. 1: Got "Variant", expected "TFPGMap<System.ShortString,System.Variant>"
+24-game-solve.pas(69,35) Error: Incompatible type for arg no. 1: Got "Variant", expected "TFPGMap<System.ShortString,System.Variant>"
+24-game-solve.pas(74,31) Error: Incompatible types: got "Constant String" expected "LongInt"
+24-game-solve.pas(74,42) Error: Incompatible types: got "Constant String" expected "LongInt"
+24-game-solve.pas(75,33) Error: Incompatible types: got "Constant String" expected "LongInt"
+24-game-solve.pas(75,46) Error: Incompatible types: got "Constant String" expected "LongInt"
+24-game-solve.pas(76,13) Error: Incompatible types: got "TFPGMap<System.ShortString,System.Variant>" expected "TFPGMap<System.ShortString,System.LongInt>"
+24-game-solve.pas(87,37) Error: Incompatible type for arg no. 1: Got "Variant", expected "TFPGMap<System.ShortString,System.Variant>"
+24-game-solve.pas(88,38) Error: Incompatible type for arg no. 1: Got "Variant", expected "TFPGMap<System.ShortString,System.Variant>"
+24-game-solve.pas(124,52) Error: Incompatible type for arg no. 1: Got "TArray$1$crcEC9BFAAE", expected "TArray$1$crc9F312717"
+24-game-solve.pas(125,12) Error: Incompatible types: got "Constant String" expected "LongInt"
+24-game-solve.pas(125,34) Error: Incompatible types: got "Constant String" expected "LongInt"
+24-game-solve.pas(125,45) Error: Incompatible types: got "Constant String" expected "LongInt"
+24-game-solve.pas(127,59) Error: Incompatible type for arg no. 1: Got "TArray$1$crcEC9BFAAE", expected "TArray$1$crc9F312717"
+24-game-solve.pas(147,45) Error: Incompatible type for arg no. 1: Got "TArray$1$crcEC9BFAAE", expected "TArray$1$crc9F312717"
+24-game-solve.pas(148,45) Error: Incompatible type for arg no. 1: Got "TArray$1$crcEC9BFAAE", expected "TArray$1$crc9F312717"
+24-game-solve.pas(155,17) Error: Incompatible types: got "TFPGMap<System.ShortString,System.Variant>" expected "TFPGMap<System.Variant,System.Variant>"
+24-game-solve.pas(156,88) Error: Incompatible type for arg no. 2: Got "TFPGMap<System.Variant,System.Variant>", expected "TFPGMap<System.ShortString,System.LongInt>"
+24-game-solve.pas(162,15) Error: Incompatible types: got "TFPGMap<System.ShortString,System.Variant>" expected "TFPGMap<System.Variant,System.Variant>"
+24-game-solve.pas(163,86) Error: Incompatible type for arg no. 2: Got "TFPGMap<System.Variant,System.Variant>", expected "TFPGMap<System.ShortString,System.LongInt>"
+24-game-solve.pas(168,15) Error: Incompatible types: got "TFPGMap<System.ShortString,System.Variant>" expected "TFPGMap<System.Variant,System.Variant>"
+24-game-solve.pas(169,86) Error: Incompatible type for arg no. 2: Got "TFPGMap<System.Variant,System.Variant>", expected "TFPGMap<System.ShortString,System.LongInt>"
+24-game-solve.pas(193,92) Error: Incompatible type for arg no. 2: Got "TFPGMap<System.ShortString,System.Variant>", expected "TFPGMap<System.ShortString,System.LongInt>"
+24-game-solve.pas(198,23) Error: Incompatible type for arg no. 1: Got "TArray$1$crc9B9CCA38", expected "TArray$1$crcEC9BFAAE"
+24-game-solve.pas(214) Fatal: There were 25 errors compiling module, stopping
+Fatal: Compilation aborted
+Error: /usr/bin/ppcx64 returned an error exitcode

@@ -1,0 +1,8 @@
+warning: module attribute @data_dir was set but never used
+    │
+  3 │   @data_dir nil
+    │   ~~~~~~~~~~~~~
+    │
+    └─ /workspace/mochi/tests/algorithms/x/Elixir/strings/aho_corasick.exs:3: Main (module)
+
+%{"er" => [6, 10, 22, 26], "hat" => [1], "ver" => [5, 25], "what" => [0]}

@@ -1,0 +1,16 @@
+// Mochi translation of Rosetta "Conditional structures" variant 7
+
+fun fetch_(): string { return "" }
+
+fun example7() {
+  let x = fetch_()
+  if x == "cheese" {
+    // statements
+    none
+  } else if someCondition() {
+    // other statements
+    none
+  }
+}
+
+fun someCondition(): bool { return false }

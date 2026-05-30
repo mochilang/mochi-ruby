@@ -1,0 +1,23 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    id: int
+}
+type Anon2 = {
+    item: int
+    qty: int
+}
+type Anon3 = {
+    item: int
+}
+let item: Anon1 list = [{ id = 1 }; { id = 2 }; { id = 3 }]
+let inventory: Anon2 list = [{ item = 1; qty = 20 }; { item = 1; qty = 22 }; { item = 1; qty = 5 }; { item = 2; qty = 30 }; { item = 2; qty = 5 }; { item = 3; qty = 10 }]
+let store_sales: Anon3 list = [{ item = 1 }; { item = 2 }]
+let mutable result: int = 0
+for inv in inventory do
+    for s in store_sales do
+        if inv.item = s.item then
+            result <- result + inv.qty
+printfn "%A" (JsonSerializer.Serialize(result))
+assert (result = 82)

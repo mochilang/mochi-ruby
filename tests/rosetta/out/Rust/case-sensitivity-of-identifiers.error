@@ -1,0 +1,390 @@
+rustc: exit status 1
+error: cast cannot be followed by a method call
+  --> /tmp/case-sensitivity-of-identifiers.rs:12:89
+   |
+12 |         println!("{}", vec![format!("{}", format!("{}{}", format!("{}{}", "There are ", d.len() as i32.to_string()), " dogs.
+   |                                                                                         ^^^^^^^^^^^^^^
+   |
+help: try surrounding the expression in parentheses
+   |
+12 |         println!("{}", vec![format!("{}", format!("{}{}", format!("{}{}", "There are ", (d.len() as i32).to_string()), " dogs.
+   |                                                                                         +              +
+
+error: cast cannot be followed by a method call
+  --> /tmp/case-sensitivity-of-identifiers.rs:20:89
+   |
+20 |         println!("{}", vec![format!("{}", format!("{}{}", format!("{}{}", "There are ", d.len() as i32.to_string()), " dogs.
+   |                                                                                         ^^^^^^^^^^^^^^
+   |
+help: try surrounding the expression in parentheses
+   |
+20 |         println!("{}", vec![format!("{}", format!("{}{}", format!("{}{}", "There are ", (d.len() as i32).to_string()), " dogs.
+   |                                                                                         +              +
+
+error: cast cannot be followed by a method call
+  --> /tmp/case-sensitivity-of-identifiers.rs:28:89
+   |
+28 |         println!("{}", vec![format!("{}", format!("{}{}", format!("{}{}", "There are ", d.len() as i32.to_string()), " dogs.
+   |                                                                                         ^^^^^^^^^^^^^^
+   |
+help: try surrounding the expression in parentheses
+   |
+28 |         println!("{}", vec![format!("{}", format!("{}{}", format!("{}{}", "There are ", (d.len() as i32).to_string()), " dogs.
+   |                                                                                         +              +
+
+error: cast cannot be followed by a method call
+  --> /tmp/case-sensitivity-of-identifiers.rs:37:89
+   |
+37 | ...   println!("{}", vec![format!("{}", format!("{}{}", format!("{}{}", "There are ", d.len() as i32.to_string()), " dogs."))].into_iter(...
+   |                                                                                       ^^^^^^^^^^^^^^
+   |
+help: try surrounding the expression in parentheses
+   |
+37 |         println!("{}", vec![format!("{}", format!("{}{}", format!("{}{}", "There are ", (d.len() as i32).to_string()), " dogs."))].into_iter().filter(|s| !s.is_empty()).collect::<Vec<_>>().join(" ") );
+   |                                                                                         +              +
+
+error[E0308]: mismatched types
+ --> /tmp/case-sensitivity-of-identifiers.rs:9:146
+  |
+7 | ...str| -> std::collections::HashMap<&'static str, bool> {
+  |            --------------------------------------------- expected `HashMap<&'static str, bool>` because of return type
+8 | ...mat!("{}{}", format!("{}{}", format!("{}{}", "Package sees: ", d1), " "), d2), " "), d3))].into_iter().filter(|s| !s.is_empty()).colle...
+9 | ..._dog", true); m.insert("Dog", true); m.insert("pkg_DOG", true); m };
+  |                                                                    ^ expected `HashMap<&str, bool>`, found `BTreeMap<&str, bool>`
+  |
+  = note: expected struct `HashMap<&'static str, bool>`
+             found struct `BTreeMap<&str, bool>`
+
+error[E0308]: arguments to this function are incorrect
+  --> /tmp/case-sensitivity-of-identifiers.rs:11:21
+   |
+11 |         let mut d = packageSees(pkg_dog, Dog, pkg_DOG);
+   |                     ^^^^^^^^^^^ -------  ---  ------- expected `&str`, found `String`
+   |                                 |        |
+   |                                 |        expected `&str`, found `String`
+   |                                 expected `&str`, found `String`
+   |
+note: closure defined here
+  --> /tmp/case-sensitivity-of-identifiers.rs:7:27
+   |
+7  |         let packageSees = move |d1: &'static str, d2: &'static str, d3: &'static str| -> std::collections::HashMap<&'static str, bool> {
+   |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+help: consider borrowing here
+   |
+11 |         let mut d = packageSees(&pkg_dog, Dog, pkg_DOG);
+   |                                 +
+help: consider borrowing here
+   |
+11 |         let mut d = packageSees(pkg_dog, &Dog, pkg_DOG);
+   |                                          +
+help: consider borrowing here
+   |
+11 |         let mut d = packageSees(pkg_dog, Dog, &pkg_DOG);
+   |                                               +
+
+error[E0308]: arguments to this function are incorrect
+  --> /tmp/case-sensitivity-of-identifiers.rs:15:13
+   |
+15 |         d = packageSees(pkg_dog, Dog, pkg_DOG);
+   |             ^^^^^^^^^^^ -------  ---  ------- expected `&str`, found `String`
+   |                         |        |
+   |                         |        expected `&str`, found `String`
+   |                         expected `&str`, found `String`
+   |
+note: closure defined here
+  --> /tmp/case-sensitivity-of-identifiers.rs:7:27
+   |
+7  |         let packageSees = move |d1: &'static str, d2: &'static str, d3: &'static str| -> std::collections::HashMap<&'static str, bool> {
+   |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+help: consider borrowing here
+   |
+15 |         d = packageSees(&pkg_dog, Dog, pkg_DOG);
+   |                         +
+help: consider borrowing here
+   |
+15 |         d = packageSees(pkg_dog, &Dog, pkg_DOG);
+   |                                  +
+help: consider borrowing here
+   |
+15 |         d = packageSees(pkg_dog, Dog, &pkg_DOG);
+   |                                       +
+
+error[E0308]: mismatched types
+  --> /tmp/case-sensitivity-of-identifiers.rs:17:11
+   |
+17 |         d["dog" as usize] = true;
+   |           ^^^^^^^^^^^^^^ expected `&_`, found `usize`
+   |
+   = note: expected reference `&_`
+                   found type `usize`
+help: consider borrowing here
+   |
+17 |         d[&("dog" as usize)] = true;
+   |           ++              +
+
+error[E0308]: mismatched types
+  --> /tmp/case-sensitivity-of-identifiers.rs:18:11
+   |
+18 |         d["Dog" as usize] = true;
+   |           ^^^^^^^^^^^^^^ expected `&_`, found `usize`
+   |
+   = note: expected reference `&_`
+                   found type `usize`
+help: consider borrowing here
+   |
+18 |         d[&("Dog" as usize)] = true;
+   |           ++              +
+
+error[E0308]: mismatched types
+  --> /tmp/case-sensitivity-of-identifiers.rs:19:11
+   |
+19 |         d["pkg_DOG" as usize] = true;
+   |           ^^^^^^^^^^^^^^^^^^ expected `&_`, found `usize`
+   |
+   = note: expected reference `&_`
+                   found type `usize`
+help: consider borrowing here
+   |
+19 |         d[&("pkg_DOG" as usize)] = true;
+   |           ++                  +
+
+error[E0308]: mismatched types
+  --> /tmp/case-sensitivity-of-identifiers.rs:22:15
+   |
+5  |         let mut Dog = String::from("Pepper");
+   |                       ---------------------- expected due to this value
+...
+22 |         Dog = "Samba";
+   |               ^^^^^^^- help: try using a conversion method: `.to_string()`
+   |               |
+   |               expected `String`, found `&str`
+
+error[E0308]: arguments to this function are incorrect
+  --> /tmp/case-sensitivity-of-identifiers.rs:23:13
+   |
+23 |         d = packageSees(pkg_dog, Dog, pkg_DOG);
+   |             ^^^^^^^^^^^ -------  ---  ------- expected `&str`, found `String`
+   |                         |        |
+   |                         |        expected `&str`, found `String`
+   |                         expected `&str`, found `String`
+   |
+note: closure defined here
+  --> /tmp/case-sensitivity-of-identifiers.rs:7:27
+   |
+7  |         let packageSees = move |d1: &'static str, d2: &'static str, d3: &'static str| -> std::collections::HashMap<&'static str, bool> {
+   |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+help: consider borrowing here
+   |
+23 |         d = packageSees(&pkg_dog, Dog, pkg_DOG);
+   |                         +
+help: consider borrowing here
+   |
+23 |         d = packageSees(pkg_dog, &Dog, pkg_DOG);
+   |                                  +
+help: consider borrowing here
+   |
+23 |         d = packageSees(pkg_dog, Dog, &pkg_DOG);
+   |                                       +
+
+error[E0308]: mismatched types
+  --> /tmp/case-sensitivity-of-identifiers.rs:25:11
+   |
+25 |         d["dog" as usize] = true;
+   |           ^^^^^^^^^^^^^^ expected `&_`, found `usize`
+   |
+   = note: expected reference `&_`
+                   found type `usize`
+help: consider borrowing here
+   |
+25 |         d[&("dog" as usize)] = true;
+   |           ++              +
+
+error[E0308]: mismatched types
+  --> /tmp/case-sensitivity-of-identifiers.rs:26:11
+   |
+26 |         d["Dog" as usize] = true;
+   |           ^^^^^^^^^^^^^^ expected `&_`, found `usize`
+   |
+   = note: expected reference `&_`
+                   found type `usize`
+help: consider borrowing here
+   |
+26 |         d[&("Dog" as usize)] = true;
+   |           ++              +
+
+error[E0308]: mismatched types
+  --> /tmp/case-sensitivity-of-identifiers.rs:27:11
+   |
+27 |         d["pkg_DOG" as usize] = true;
+   |           ^^^^^^^^^^^^^^^^^^ expected `&_`, found `usize`
+   |
+   = note: expected reference `&_`
+                   found type `usize`
+help: consider borrowing here
+   |
+27 |         d[&("pkg_DOG" as usize)] = true;
+   |           ++                  +
+
+error[E0308]: arguments to this function are incorrect
+  --> /tmp/case-sensitivity-of-identifiers.rs:31:13
+   |
+31 |         d = packageSees(pkg_dog, Dog, pkg_DOG);
+   |             ^^^^^^^^^^^ -------  ---  ------- expected `&str`, found `String`
+   |                         |        |
+   |                         |        expected `&str`, found `String`
+   |                         expected `&str`, found `String`
+   |
+note: closure defined here
+  --> /tmp/case-sensitivity-of-identifiers.rs:7:27
+   |
+7  |         let packageSees = move |d1: &'static str, d2: &'static str, d3: &'static str| -> std::collections::HashMap<&'static str, bool> {
+   |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+help: consider borrowing here
+   |
+31 |         d = packageSees(&pkg_dog, Dog, pkg_DOG);
+   |                         +
+help: consider borrowing here
+   |
+31 |         d = packageSees(pkg_dog, &Dog, pkg_DOG);
+   |                                  +
+help: consider borrowing here
+   |
+31 |         d = packageSees(pkg_dog, Dog, &pkg_DOG);
+   |                                       +
+
+error[E0308]: mismatched types
+  --> /tmp/case-sensitivity-of-identifiers.rs:33:11
+   |
+33 |         d["dog" as usize] = true;
+   |           ^^^^^^^^^^^^^^ expected `&_`, found `usize`
+   |
+   = note: expected reference `&_`
+                   found type `usize`
+help: consider borrowing here
+   |
+33 |         d[&("dog" as usize)] = true;
+   |           ++              +
+
+error[E0308]: mismatched types
+  --> /tmp/case-sensitivity-of-identifiers.rs:34:11
+   |
+34 |         d["Dog" as usize] = true;
+   |           ^^^^^^^^^^^^^^ expected `&_`, found `usize`
+   |
+   = note: expected reference `&_`
+                   found type `usize`
+help: consider borrowing here
+   |
+34 |         d[&("Dog" as usize)] = true;
+   |           ++              +
+
+error[E0308]: mismatched types
+  --> /tmp/case-sensitivity-of-identifiers.rs:35:11
+   |
+35 |         d["pkg_DOG" as usize] = true;
+   |           ^^^^^^^^^^^^^^^^^^ expected `&_`, found `usize`
+   |
+   = note: expected reference `&_`
+                   found type `usize`
+help: consider borrowing here
+   |
+35 |         d[&("pkg_DOG" as usize)] = true;
+   |           ++                  +
+
+error[E0308]: mismatched types
+  --> /tmp/case-sensitivity-of-identifiers.rs:36:11
+   |
+36 |         d["DOG" as usize] = true;
+   |           ^^^^^^^^^^^^^^ expected `&_`, found `usize`
+   |
+   = note: expected reference `&_`
+                   found type `usize`
+help: consider borrowing here
+   |
+36 |         d[&("DOG" as usize)] = true;
+   |           ++              +
+
+error[E0606]: casting `&'static str` as `usize` is invalid
+  --> /tmp/case-sensitivity-of-identifiers.rs:17:11
+   |
+17 |         d["dog" as usize] = true;
+   |           ^^^^^^^^^^^^^^
+   |
+   = help: cast through a raw pointer first
+
+error[E0606]: casting `&'static str` as `usize` is invalid
+  --> /tmp/case-sensitivity-of-identifiers.rs:18:11
+   |
+18 |         d["Dog" as usize] = true;
+   |           ^^^^^^^^^^^^^^
+   |
+   = help: cast through a raw pointer first
+
+error[E0606]: casting `&'static str` as `usize` is invalid
+  --> /tmp/case-sensitivity-of-identifiers.rs:19:11
+   |
+19 |         d["pkg_DOG" as usize] = true;
+   |           ^^^^^^^^^^^^^^^^^^
+   |
+   = help: cast through a raw pointer first
+
+error[E0606]: casting `&'static str` as `usize` is invalid
+  --> /tmp/case-sensitivity-of-identifiers.rs:25:11
+   |
+25 |         d["dog" as usize] = true;
+   |           ^^^^^^^^^^^^^^
+   |
+   = help: cast through a raw pointer first
+
+error[E0606]: casting `&'static str` as `usize` is invalid
+  --> /tmp/case-sensitivity-of-identifiers.rs:26:11
+   |
+26 |         d["Dog" as usize] = true;
+   |           ^^^^^^^^^^^^^^
+   |
+   = help: cast through a raw pointer first
+
+error[E0606]: casting `&'static str` as `usize` is invalid
+  --> /tmp/case-sensitivity-of-identifiers.rs:27:11
+   |
+27 |         d["pkg_DOG" as usize] = true;
+   |           ^^^^^^^^^^^^^^^^^^
+   |
+   = help: cast through a raw pointer first
+
+error[E0606]: casting `&'static str` as `usize` is invalid
+  --> /tmp/case-sensitivity-of-identifiers.rs:33:11
+   |
+33 |         d["dog" as usize] = true;
+   |           ^^^^^^^^^^^^^^
+   |
+   = help: cast through a raw pointer first
+
+error[E0606]: casting `&'static str` as `usize` is invalid
+  --> /tmp/case-sensitivity-of-identifiers.rs:34:11
+   |
+34 |         d["Dog" as usize] = true;
+   |           ^^^^^^^^^^^^^^
+   |
+   = help: cast through a raw pointer first
+
+error[E0606]: casting `&'static str` as `usize` is invalid
+  --> /tmp/case-sensitivity-of-identifiers.rs:35:11
+   |
+35 |         d["pkg_DOG" as usize] = true;
+   |           ^^^^^^^^^^^^^^^^^^
+   |
+   = help: cast through a raw pointer first
+
+error[E0606]: casting `&'static str` as `usize` is invalid
+  --> /tmp/case-sensitivity-of-identifiers.rs:36:11
+   |
+36 |         d["DOG" as usize] = true;
+   |           ^^^^^^^^^^^^^^
+   |
+   = help: cast through a raw pointer first
+
+error: aborting due to 30 previous errors
+
+Some errors have detailed explanations: E0308, E0606.
+For more information about an error, try `rustc --explain E0308`.

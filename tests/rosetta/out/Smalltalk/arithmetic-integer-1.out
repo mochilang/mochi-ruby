@@ -1,0 +1,5 @@
+Object: '12' error: did not understand #+
+MessageNotUnderstood(Exception)>>signal (ExcHandling.st:254)
+String(Object)>>doesNotUnderstand: #+ (SysExcept.st:1448)
+optimized [] in UndefinedObject>>executeStatements (/tmp/arithmetic-integer-1.st:6)
+UndefinedObject>>executeStatements (/tmp/arithmetic-integer-1.st:11)

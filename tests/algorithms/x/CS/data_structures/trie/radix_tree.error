@@ -1,0 +1,7 @@
+exit status 134
+Unhandled exception. System.NullReferenceException: Object reference not set to an instance of an object.
+   at Program.insert(RadixTree tree_15, BigInteger idx_16, String word_17) in /tmp/TestCSTranspiler_Algorithms_Golden001_data_structures_trie_radix_tree2840073058/001/Program.cs:line 167
+   at Program.insert(RadixTree tree_15, BigInteger idx_16, String word_17) in /tmp/TestCSTranspiler_Algorithms_Golden001_data_structures_trie_radix_tree2840073058/001/Program.cs:line 201
+   at Program.insert_many(RadixTree tree_12, String[] words_13) in /tmp/TestCSTranspiler_Algorithms_Golden001_data_structures_trie_radix_tree2840073058/001/Program.cs:line 160
+   at Program.main() in /tmp/TestCSTranspiler_Algorithms_Golden001_data_structures_trie_radix_tree2840073058/001/Program.cs:line 373
+   at Program.Main() in /tmp/TestCSTranspiler_Algorithms_Golden001_data_structures_trie_radix_tree2840073058/001/Program.cs:line 384

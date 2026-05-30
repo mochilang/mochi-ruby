@@ -1,0 +1,25 @@
+// extern.mochi
+// External bindings — syntax only, with one example per kind
+
+extern type socket
+extern type time
+extern type file
+extern object console
+extern object fs
+
+extern var OS: string
+extern var ARGV: list<string>
+
+extern fun now(): time
+extern fun getenv(key: string, default: string): string
+extern fun read_file(path: string): string
+extern fun exists(path: string): bool
+extern fun sin(x: float): float
+extern fun fetch_url(url: string): string
+extern fun generate_text(prompt: string): string
+
+// Extern objects can be referenced directly.
+// These calls will resolve to host implementations
+// registered via `runtime/ffi`.
+
+// console.log("running on", OS)

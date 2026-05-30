@@ -1,0 +1,6 @@
+exit status 134
+Unhandled exception. System.NullReferenceException: Object reference not set to an instance of an object.
+   at Program.insert(TreeState state_2, BigInteger value_3) in /tmp/TestCSTranspiler_Algorithms_Golden001_data_structures_binary_tree_inorder_tree_traversal_20224056398555/001/Program.cs:line 138
+   at Program.make_tree() in /tmp/TestCSTranspiler_Algorithms_Golden001_data_structures_binary_tree_inorder_tree_traversal_20224056398555/001/Program.cs:line 179
+   at Program.main() in /tmp/TestCSTranspiler_Algorithms_Golden001_data_structures_binary_tree_inorder_tree_traversal_20224056398555/001/Program.cs:line 187
+   at Program.Main() in /tmp/TestCSTranspiler_Algorithms_Golden001_data_structures_binary_tree_inorder_tree_traversal_20224056398555/001/Program.cs:line 197

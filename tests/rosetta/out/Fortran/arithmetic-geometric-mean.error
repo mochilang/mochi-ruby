@@ -1,0 +1,16 @@
+gfortran: exit status 1
+/tmp/arithmetic-geometric-mean.f90:40:6:
+
+   40 |       a = newA
+      |      1
+Error: Dummy argument ‘a’ with INTENT(IN) in variable definition context (assignment) at (1)
+/tmp/arithmetic-geometric-mean.f90:41:6:
+
+   41 |       g = newG
+      |      1
+Error: Dummy argument ‘g’ with INTENT(IN) in variable definition context (assignment) at (1)
+/tmp/arithmetic-geometric-mean.f90:37:15:
+
+   37 |     do while (((abs((a - g)) > abs(a)) * eps))
+      |               1
+Error: Operands of binary numeric operator ‘*’ at (1) are LOGICAL(4)/REAL(4)

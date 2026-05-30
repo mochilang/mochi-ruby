@@ -1,0 +1,361 @@
+func main (regs=142)
+  // let xMin = -2.1820
+  Const        r17, 2.182
+  Const        r18, -2.182
+  Move         r0, r18
+  SetGlobal    0,0,0,0
+  // let xMax = 2.6558
+  Const        r19, 2.6558
+  Move         r1, r19
+  SetGlobal    1,1,0,0
+  // let yMin = 0.0
+  Const        r20, 0.0
+  Move         r2, r20
+  SetGlobal    2,2,0,0
+  // let yMax = 9.9983
+  Const        r21, 9.9983
+  Move         r3, r21
+  SetGlobal    3,3,0,0
+  // let width = 60
+  Const        r22, 60
+  Move         r4, r22
+  SetGlobal    4,4,0,0
+  // let nIter = 10000
+  Const        r23, 10000
+  Move         r5, r23
+  SetGlobal    5,5,0,0
+  // let dx = xMax - xMin
+  Const        r24, 4.8378
+  Move         r6, r24
+  SetGlobal    6,6,0,0
+  // let dy = yMax - yMin
+  SubFloat     r25, r3, r2
+  Move         r7, r25
+  SetGlobal    7,7,0,0
+  // let height = (width * dy / dx) as int
+  MulFloat     r26, r4, r7
+  DivFloat     r27, r26, r6
+  Cast         r28, r27, int
+  Move         r8, r28
+  SetGlobal    8,8,0,0
+  // var grid: list<list<string>> = []
+  Const        r29, []
+  Move         r9, r29
+  SetGlobal    9,9,0,0
+  // var row = 0
+  Const        r30, 0
+  Move         r10, r30
+  SetGlobal    10,10,0,0
+L3:
+  // while row < height {
+  Less         r31, r10, r8
+  JumpIfFalse  r31, L0
+  // var line: list<string> = []
+  Const        r29, []
+  Move         r32, r29
+  // var col = 0
+  Const        r30, 0
+  Move         r33, r30
+L2:
+  // while col < width {
+  LessInt      r34, r33, r4
+  JumpIfFalse  r34, L1
+  // line = append(line, " ")
+  Const        r35, " "
+  Append       r36, r32, r35
+  Move         r32, r36
+  // col = col + 1
+  Const        r37, 1
+  AddInt       r38, r33, r37
+  Move         r33, r38
+  // while col < width {
+  Jump         L2
+L1:
+  // grid = append(grid, line)
+  Append       r39, r9, r32
+  Move         r9, r39
+  SetGlobal    9,9,0,0
+  // row = row + 1
+  Const        r37, 1
+  AddInt       r40, r10, r37
+  Move         r10, r40
+  SetGlobal    10,10,0,0
+  // while row < height {
+  Jump         L3
+L0:
+  // var seed = 1
+  Const        r37, 1
+  Move         r11, r37
+  SetGlobal    11,11,0,0
+  // var x = 0.0
+  Const        r20, 0.0
+  Move         r12, r20
+  SetGlobal    12,12,0,0
+  // var y = 0.0
+  Const        r20, 0.0
+  Move         r13, r20
+  SetGlobal    13,13,0,0
+  // var ix = ((width as float) * (x - xMin) / dx) as int
+  Cast         r41, r4, float
+  SubFloat     r42, r12, r0
+  MulFloat     r43, r41, r42
+  DivFloat     r44, r43, r6
+  Cast         r45, r44, int
+  Move         r14, r45
+  SetGlobal    14,14,0,0
+  // var iy = ((height as float) * (yMax - y) / dy) as int
+  Cast         r46, r8, float
+  SubFloat     r47, r3, r13
+  MulFloat     r48, r46, r47
+  DivFloat     r49, r48, r7
+  Cast         r50, r49, int
+  Move         r15, r50
+  SetGlobal    15,15,0,0
+  // if ix >= 0 && ix < width && iy >= 0 && iy < height {
+  Const        r30, 0
+  LessEq       r51, r30, r14
+  Less         r52, r14, r4
+  Const        r30, 0
+  LessEq       r53, r30, r15
+  Less         r54, r15, r8
+  Move         r55, r51
+  JumpIfFalse  r55, L4
+  Move         r55, r52
+  JumpIfFalse  r55, L4
+  Move         r55, r53
+  JumpIfFalse  r55, L4
+  Move         r55, r54
+L4:
+  JumpIfFalse  r55, L5
+  // grid[iy][ix] = "*"
+  Index        r56, r9, r15
+  Const        r57, "*"
+  SetIndex     r56, r14, r57
+  SetGlobal    9,9,0,0
+L5:
+  // var i = 0
+  Const        r30, 0
+  Move         r16, r30
+  SetGlobal    16,16,0,0
+L13:
+  // while i < nIter {
+  LessInt      r58, r16, r5
+  JumpIfFalse  r58, L6
+  // var res = randInt(seed, 100)
+  Move         r59, r11
+  Const        r61, 100
+  Move         r60, r61
+  Call2        r62, randInt, r59, r60
+  Move         r63, r62
+  // seed = res[0]
+  Const        r30, 0
+  Index        r64, r63, r30
+  Move         r11, r64
+  SetGlobal    11,11,0,0
+  // let r = res[1]
+  Const        r37, 1
+  Index        r65, r63, r37
+  Move         r66, r65
+  // if r < 85 {
+  Const        r67, 85
+  Less         r68, r66, r67
+  JumpIfFalse  r68, L7
+  // let nx = 0.85 * x + 0.04 * y
+  Const        r69, 0.85
+  MulFloat     r70, r69, r12
+  Const        r71, 0.04
+  MulFloat     r72, r71, r13
+  AddFloat     r73, r70, r72
+  Move         r74, r73
+  // let ny = -0.04 * x + 0.85 * y + 1.6
+  Const        r71, 0.04
+  NegFloat     r75, r71
+  MulFloat     r76, r75, r12
+  Const        r69, 0.85
+  MulFloat     r77, r69, r13
+  AddFloat     r78, r76, r77
+  Const        r79, 1.6
+  AddFloat     r80, r78, r79
+  Move         r81, r80
+  // x = nx
+  Move         r12, r74
+  SetGlobal    12,12,0,0
+  // y = ny
+  Move         r13, r81
+  SetGlobal    13,13,0,0
+  // if r < 85 {
+  Jump         L8
+L7:
+  // } else if r < 92 {
+  Const        r82, 92
+  Less         r83, r66, r82
+  JumpIfFalse  r83, L9
+  // let nx = 0.2 * x - 0.26 * y
+  Const        r84, 0.2
+  MulFloat     r85, r84, r12
+  Const        r86, 0.26
+  MulFloat     r87, r86, r13
+  SubFloat     r88, r85, r87
+  Move         r89, r88
+  // let ny = 0.23 * x + 0.22 * y + 1.6
+  Const        r90, 0.23
+  MulFloat     r91, r90, r12
+  Const        r92, 0.22
+  MulFloat     r93, r92, r13
+  AddFloat     r94, r91, r93
+  Const        r79, 1.6
+  AddFloat     r95, r94, r79
+  Move         r96, r95
+  // x = nx
+  Move         r12, r89
+  SetGlobal    12,12,0,0
+  // y = ny
+  Move         r13, r96
+  SetGlobal    13,13,0,0
+  // } else if r < 92 {
+  Jump         L8
+L9:
+  // } else if r < 99 {
+  Const        r97, 99
+  Less         r98, r66, r97
+  JumpIfFalse  r98, L10
+  // let nx = -0.15 * x + 0.28 * y
+  Const        r99, 0.15
+  Const        r100, -0.15
+  MulFloat     r101, r100, r12
+  Const        r102, 0.28
+  MulFloat     r103, r102, r13
+  AddFloat     r104, r101, r103
+  Move         r105, r104
+  // let ny = 0.26 * x + 0.24 * y + 0.44
+  Const        r86, 0.26
+  MulFloat     r106, r86, r12
+  Const        r107, 0.24
+  MulFloat     r108, r107, r13
+  AddFloat     r109, r106, r108
+  Const        r110, 0.44
+  AddFloat     r111, r109, r110
+  Move         r112, r111
+  // x = nx
+  Move         r12, r105
+  SetGlobal    12,12,0,0
+  // y = ny
+  Move         r13, r112
+  SetGlobal    13,13,0,0
+  // } else if r < 99 {
+  Jump         L8
+L10:
+  // x = 0.0
+  Const        r20, 0.0
+  Move         r12, r20
+  SetGlobal    12,12,0,0
+  // y = 0.16 * y
+  Const        r113, 0.16
+  MulFloat     r114, r113, r13
+  Move         r13, r114
+  SetGlobal    13,13,0,0
+L8:
+  // ix = ((width as float) * (x - xMin) / dx) as int
+  Cast         r115, r4, float
+  SubFloat     r116, r12, r0
+  MulFloat     r117, r115, r116
+  DivFloat     r118, r117, r6
+  Cast         r119, r118, int
+  Move         r14, r119
+  SetGlobal    14,14,0,0
+  // iy = ((height as float) * (yMax - y) / dy) as int
+  Cast         r120, r8, float
+  SubFloat     r121, r3, r13
+  MulFloat     r122, r120, r121
+  DivFloat     r123, r122, r7
+  Cast         r124, r123, int
+  Move         r15, r124
+  SetGlobal    15,15,0,0
+  // if ix >= 0 && ix < width && iy >= 0 && iy < height {
+  Const        r30, 0
+  LessEq       r125, r30, r14
+  Less         r126, r14, r4
+  Const        r30, 0
+  LessEq       r127, r30, r15
+  Less         r128, r15, r8
+  Move         r129, r125
+  JumpIfFalse  r129, L11
+  Move         r129, r126
+  JumpIfFalse  r129, L11
+  Move         r129, r127
+  JumpIfFalse  r129, L11
+  Move         r129, r128
+L11:
+  JumpIfFalse  r129, L12
+  // grid[iy][ix] = "*"
+  Index        r130, r9, r15
+  Const        r57, "*"
+  SetIndex     r130, r14, r57
+  SetGlobal    9,9,0,0
+L12:
+  // i = i + 1
+  Const        r37, 1
+  AddInt       r131, r16, r37
+  Move         r16, r131
+  SetGlobal    16,16,0,0
+  // while i < nIter {
+  Jump         L13
+L6:
+  // row = 0
+  Const        r30, 0
+  Move         r10, r30
+  SetGlobal    10,10,0,0
+L17:
+  // while row < height {
+  Less         r132, r10, r8
+  JumpIfFalse  r132, L14
+  // var line = ""
+  Const        r133, ""
+  Move         r134, r133
+  // var col = 0
+  Const        r30, 0
+  Move         r135, r30
+L16:
+  // while col < width {
+  LessInt      r136, r135, r4
+  JumpIfFalse  r136, L15
+  // line = line + grid[row][col]
+  Index        r137, r9, r10
+  Index        r138, r137, r135
+  Add          r139, r134, r138
+  Move         r134, r139
+  // col = col + 1
+  Const        r37, 1
+  AddInt       r140, r135, r37
+  Move         r135, r140
+  // while col < width {
+  Jump         L16
+L15:
+  // print(line)
+  Print        r134
+  // row = row + 1
+  Const        r37, 1
+  AddInt       r141, r10, r37
+  Move         r10, r141
+  SetGlobal    10,10,0,0
+  // while row < height {
+  Jump         L17
+L14:
+  Return       r0
+
+  // fun randInt(s: int, n: int): list<int> {
+func randInt (regs=30)
+  // let next = (s * 1664525 + 1013904223) % 2147483647
+  Const        r19, 1664525
+  Mul          r20, r17, r19
+  Const        r21, 1013904223
+  Add          r22, r20, r21
+  Const        r23, 2147483647
+  Mod          r24, r22, r23
+  Move         r25, r24
+  // return [next, next % n]
+  Move         r26, r25
+  Mod          r28, r25, r18
+  Move         r27, r28
+  MakeList     r29, 2, r26
+  Return       r29

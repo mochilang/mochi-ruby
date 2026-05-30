@@ -1,0 +1,14 @@
+** (Protocol.UndefinedError) protocol Enumerable not implemented for type BitString
+
+Got value:
+
+    "abcdefghijklmnopqrstuvwxyz"
+
+    (elixir 1.18.3) lib/enum.ex:1: Enumerable.impl_for!/1
+    (elixir 1.18.3) lib/enum.ex:230: Enumerable.slice/1
+    (elixir 1.18.3) lib/enum.ex:4579: Enum.slice_forward/4
+    (elixir 1.18.3) lib/enum.ex:479: Enum.at/3
+    /workspace/mochi/tests/algorithms/x/Elixir/hashes/adler32.exs:18: anonymous fn/3 in Main.ord/1
+    /workspace/mochi/tests/algorithms/x/Elixir/hashes/adler32.exs:28: Main.ord/1
+    /workspace/mochi/tests/algorithms/x/Elixir/hashes/adler32.exs:84: anonymous fn/5 in Main.adler32/1
+    /workspace/mochi/tests/algorithms/x/Elixir/hashes/adler32.exs:94: Main.adler32/1

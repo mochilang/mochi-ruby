@@ -1,0 +1,4 @@
+print(if string<_p("a", "b") then true else false)
+print(if string<=_p("a", "a") then true else false)
+print(if string>_p("b", "a") then true else false)
+print(if string>=_p("b", "b") then true else false)

@@ -1,0 +1,9 @@
+../../../tests/algorithms/x/Dart/maths/numerical_analysis/proper_fractions.dart:80:8: Error: Method not found: '_listEq'.
+  if (!_listEq(a, ["1/10", "3/10", "7/10", "9/10"])) {
+       ^^^^^^^
+../../../tests/algorithms/x/Dart/maths/numerical_analysis/proper_fractions.dart:84:8: Error: Method not found: '_listEq'.
+  if (!_listEq(b, ["1/5", "2/5", "3/5", "4/5"])) {
+       ^^^^^^^
+../../../tests/algorithms/x/Dart/maths/numerical_analysis/proper_fractions.dart:88:8: Error: Method not found: '_listEq'.
+  if (!_listEq(c, [])) {
+       ^^^^^^^

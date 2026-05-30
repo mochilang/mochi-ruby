@@ -1,0 +1,39 @@
+
+/workspace/mochi/tests/machine/x/hs/group_by_multi_join.hs:133:360: error:
+    • Couldn't match type ‘AnyValue’ with ‘Int’
+      Expected: Map.Map String Int
+        Actual: Map.Map String AnyValue
+    • In the second argument of ‘Map.lookup’, namely ‘(ps)’
+      In the second argument of ‘fromMaybe’, namely
+        ‘(Map.lookup "supplier" (ps))’
+      In the second argument of ‘(==)’, namely
+        ‘fromMaybe (error "missing") (Map.lookup "supplier" (ps))’
+    |
+133 | filtered = [Map.fromList [("part", fromMaybe (error "missing") (Map.lookup "part" ps)), ("value", (fromMaybe (error "missing") (Map.lookup "cost" ps) * fromMaybe (error "missing") (Map.lookup "qty" ps)))] | ps <- partsupp, s <- suppliers, n <- nations, (fromMaybe (error "missing") (Map.lookup "id" (s)) == fromMaybe (error "missing") (Map.lookup "supplier" (ps))), (fromMaybe (error "missing") (Map.lookup "id" (n)) == fromMaybe (error "missing") (Map.lookup "nation" (s))), (fromMaybe (error "missing") (Map.lookup "name" n) == "A")]
+    |                                                                                                                                                                                                                                                                                                                                                                        ^^
+
+/workspace/mochi/tests/machine/x/hs/group_by_multi_join.hs:133:471: error:
+    • Couldn't match type ‘Int’ with ‘AnyValue’
+      Expected: Map.Map String AnyValue
+        Actual: Map.Map String Int
+    • In the second argument of ‘Map.lookup’, namely ‘(s)’
+      In the second argument of ‘fromMaybe’, namely
+        ‘(Map.lookup "nation" (s))’
+      In the second argument of ‘(==)’, namely
+        ‘fromMaybe (error "missing") (Map.lookup "nation" (s))’
+    |
+133 | filtered = [Map.fromList [("part", fromMaybe (error "missing") (Map.lookup "part" ps)), ("value", (fromMaybe (error "missing") (Map.lookup "cost" ps) * fromMaybe (error "missing") (Map.lookup "qty" ps)))] | ps <- partsupp, s <- suppliers, n <- nations, (fromMaybe (error "missing") (Map.lookup "id" (s)) == fromMaybe (error "missing") (Map.lookup "supplier" (ps))), (fromMaybe (error "missing") (Map.lookup "id" (n)) == fromMaybe (error "missing") (Map.lookup "nation" (s))), (fromMaybe (error "missing") (Map.lookup "name" n) == "A")]
+    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ^
+
+/workspace/mochi/tests/machine/x/hs/group_by_multi_join.hs:133:531: error:
+    • Couldn't match type ‘[Char]’ with ‘AnyValue’
+      Expected: AnyValue
+        Actual: String
+    • In the second argument of ‘(==)’, namely ‘"A"’
+      In the expression:
+        fromMaybe (error "missing") (Map.lookup "name" n) == "A"
+      In a stmt of a list comprehension:
+        (fromMaybe (error "missing") (Map.lookup "name" n) == "A")
+    |
+133 | filtered = [Map.fromList [("part", fromMaybe (error "missing") (Map.lookup "part" ps)), ("value", (fromMaybe (error "missing") (Map.lookup "cost" ps) * fromMaybe (error "missing") (Map.lookup "qty" ps)))] | ps <- partsupp, s <- suppliers, n <- nations, (fromMaybe (error "missing") (Map.lookup "id" (s)) == fromMaybe (error "missing") (Map.lookup "supplier" (ps))), (fromMaybe (error "missing") (Map.lookup "id" (n)) == fromMaybe (error "missing") (Map.lookup "nation" (s))), (fromMaybe (error "missing") (Map.lookup "name" n) == "A")]
+    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ^^^

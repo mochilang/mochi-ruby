@@ -1,0 +1,11 @@
+(program
+  (let nums
+    (list (int 1) (int 2))
+  )
+  (let letters
+    (list (string A) (string B))
+  )
+  (let bools
+    (list (bool true) (bool false))
+  )
+)

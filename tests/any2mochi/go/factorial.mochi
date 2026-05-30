@@ -1,0 +1,3 @@
+// line 1
+fun factorial(n: int): int {}
+fun main() {}

@@ -1,0 +1,27 @@
+javac: exit status 1
+/tmp/AbbreviationsEasy.java:44: error: incompatible types: String cannot be converted to Number
+            res = res + ((Number)xs.get(i)).doubleValue();
+                                       ^
+/tmp/AbbreviationsEasy.java:56: error: incompatible types: String cannot be converted to List<String>
+            List<String> w = words.get(wi);
+                                      ^
+/tmp/AbbreviationsEasy.java:61: error: incompatible types: String cannot be converted to List<String>
+                List<String> cmd = commands.get(ci);
+                                               ^
+/tmp/AbbreviationsEasy.java:88: error: incompatible types: String cannot be converted to List<String>
+            List<String> cmd = commands.get(i);
+                                           ^
+/tmp/AbbreviationsEasy.java:90: error: cannot find symbol
+                String ch = cmd.substring(j, j + 1);
+                               ^
+  symbol:   method substring(int,int)
+  location: variable cmd of type List<String>
+/tmp/AbbreviationsEasy.java:105: error: incompatible types: String cannot be converted to Number
+            out1 = ((Number)out1 + ((Number)padRight(words.get(k), results.get(k).size())).doubleValue()).doubleValue() + " ";
+                            ^
+/tmp/AbbreviationsEasy.java:105: error: cannot find symbol
+            out1 = ((Number)out1 + ((Number)padRight(words.get(k), results.get(k).size())).doubleValue()).doubleValue() + " ";
+                                                                                 ^
+  symbol:   method size()
+  location: class String
+7 errors

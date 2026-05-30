@@ -1,0 +1,2 @@
+fun mochi_prepend(level: any, result: any): any {}
+fun _print(args: any): any {}

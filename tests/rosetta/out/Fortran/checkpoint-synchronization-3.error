@@ -1,0 +1,41 @@
+gfortran: exit status 1
+/tmp/checkpoint-synchronization-3.f90:17:13:
+
+   17 |   partList = (/'A','B','C','D'/)
+      |             1
+Error: Cannot convert CHARACTER(1) to INTEGER(4) at (1)
+/tmp/checkpoint-synchronization-3.f90:21:12:
+
+   21 |     print *, p // ' worker running'
+      |            1
+Error: Operands of string concatenation operator at (1) are INTEGER(4)/CHARACTER(15)
+/tmp/checkpoint-synchronization-3.f90:29:14:
+
+   29 |       print *, p // ' worker begins part'
+      |              1
+Error: Operands of string concatenation operator at (1) are INTEGER(4)/CHARACTER(19)
+/tmp/checkpoint-synchronization-3.f90:30:49:
+
+   30 |       print *, trim(p // ' worker completed ') // lower(p)
+      |                                                 1
+Error: Type mismatch in argument ‘ch’ at (1); passed INTEGER(4) to CHARACTER(100)
+/tmp/checkpoint-synchronization-3.f90:30:20:
+
+   30 |       print *, trim(p // ' worker completed ') // lower(p)
+      |                    1
+Error: Operands of string concatenation operator at (1) are INTEGER(4)/CHARACTER(18)
+/tmp/checkpoint-synchronization-3.f90:31:20:
+
+   31 |       a = (a + lower(p))
+      |                    1
+Error: Type mismatch in argument ‘ch’ at (1); passed INTEGER(4) to CHARACTER(100)
+/tmp/checkpoint-synchronization-3.f90:31:11:
+
+   31 |       a = (a + lower(p))
+      |           1
+Error: Operands of binary numeric operator ‘+’ at (1) are CHARACTER(100)/CHARACTER(100)
+/tmp/checkpoint-synchronization-3.f90:38:12:
+
+   38 |     print *, p // ' worker stopped'
+      |            1
+Error: Operands of string concatenation operator at (1) are INTEGER(4)/CHARACTER(15)

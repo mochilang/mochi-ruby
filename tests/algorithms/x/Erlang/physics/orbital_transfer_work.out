@@ -1,0 +1,5 @@
+/workspace/mochi/tests/algorithms/x/Erlang/physics/orbital_transfer_work.erl:217:2: Warning: variable 'Exp_5' exported from 'case' (line 198, column 21)
+%  217| {Exp_5, Frac_part, Frac_str_2, Int_part, Num_5, Scaled_3, Sign_3, Temp, X_2} = Fun_6(Exp_5, Frac_part, Frac_str, Int_part, Num_5, Scaled_3, Sign_3, Temp, X_2),
+%     |  ^
+
+"2.811e+09"

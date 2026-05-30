@@ -1,0 +1,3 @@
+(program
+  (let book (selector "(Book){.title = \"Go\", .author = (Person){.name = \"Bob\", .age = 42}}"))
+)

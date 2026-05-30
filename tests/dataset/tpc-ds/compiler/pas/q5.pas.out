@@ -1,0 +1,47 @@
+program main;
+{$mode objfpc}
+
+uses SysUtils, fgl, fphttpclient, Classes, Variants, fpjson, fpjsonrtti, jsonparser;
+
+type
+  generic TArray<T> = array of T;
+
+  generic procedure _json<T>(v: T);
+begin
+  writeln('[]');
+end;
+
+var
+  _tmp0: specialize TFPGMap<Variant, Variant>;
+  _tmp1: specialize TFPGMap<Variant, Variant>;
+  _tmp2: specialize TFPGMap<Variant, Variant>;
+  _result: specialize TArray<specialize TFPGMap<string, Variant>>;
+
+procedure test_TPCDS_Q5_result;
+begin
+  if not ((Length(_result) = 3)) then raise Exception.Create('expect failed');
+end;
+
+begin
+  _tmp0 := specialize TFPGMap<Variant, Variant>.Create;
+  _tmp0.AddOrSetData('channel', 'catalog channel');
+  _tmp0.AddOrSetData('id', 'catalog_page100');
+  _tmp0.AddOrSetData('sales', 30);
+  _tmp0.AddOrSetData('returns', 3);
+  _tmp0.AddOrSetData('profit', 8);
+  _tmp1 := specialize TFPGMap<Variant, Variant>.Create;
+  _tmp1.AddOrSetData('channel', 'store channel');
+  _tmp1.AddOrSetData('id', 'store10');
+  _tmp1.AddOrSetData('sales', 20);
+  _tmp1.AddOrSetData('returns', 2);
+  _tmp1.AddOrSetData('profit', 4);
+  _tmp2 := specialize TFPGMap<Variant, Variant>.Create;
+  _tmp2.AddOrSetData('channel', 'web channel');
+  _tmp2.AddOrSetData('id', 'web_site200');
+  _tmp2.AddOrSetData('sales', 40);
+  _tmp2.AddOrSetData('returns', 4);
+  _tmp2.AddOrSetData('profit', 10);
+  _result := specialize TArray<specialize TFPGMap<string, Variant>>([_tmp0, _tmp1, _tmp2]);
+  specialize _json<specialize TArray<specialize TFPGMap<string, Variant>>>(_result);
+  test_TPCDS_Q5_result;
+end.

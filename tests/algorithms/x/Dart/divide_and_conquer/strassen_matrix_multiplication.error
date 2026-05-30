@@ -1,0 +1,25 @@
+run: exit status 254
+../../../tests/algorithms/x/Dart/divide_and_conquer/strassen_matrix_multiplication.dart:101:5: Error: Setter not found: 'left_row'.
+    left_row = ([] as List).map((e) => (e is BigInt ? e.toInt() : (e as int))).toList();
+    ^^^^^^^^
+../../../tests/algorithms/x/Dart/divide_and_conquer/strassen_matrix_multiplication.dart:102:5: Error: Setter not found: 'right_row'.
+    right_row = ([] as List).map((e) => (e is BigInt ? e.toInt() : (e as int))).toList();
+    ^^^^^^^^^
+../../../tests/algorithms/x/Dart/divide_and_conquer/strassen_matrix_multiplication.dart:105:20: Error: Undefined name 'left_row'.
+    left_row = [...left_row, a[i][j]];
+                   ^^^^^^^^
+../../../tests/algorithms/x/Dart/divide_and_conquer/strassen_matrix_multiplication.dart:105:5: Error: Setter not found: 'left_row'.
+    left_row = [...left_row, a[i][j]];
+    ^^^^^^^^
+../../../tests/algorithms/x/Dart/divide_and_conquer/strassen_matrix_multiplication.dart:106:21: Error: Undefined name 'right_row'.
+    right_row = [...right_row, a[i][j + mid]];
+                    ^^^^^^^^^
+../../../tests/algorithms/x/Dart/divide_and_conquer/strassen_matrix_multiplication.dart:106:5: Error: Setter not found: 'right_row'.
+    right_row = [...right_row, a[i][j + mid]];
+    ^^^^^^^^^
+../../../tests/algorithms/x/Dart/divide_and_conquer/strassen_matrix_multiplication.dart:109:31: Error: Undefined name 'left_row'.
+    bot_left = ([...bot_left, left_row] as List).map((e) => ((e as List).map((e) => (e is BigInt ? e.toInt() : (e as int))).toList() as List<int>)).toList();
+                              ^^^^^^^^
+../../../tests/algorithms/x/Dart/divide_and_conquer/strassen_matrix_multiplication.dart:110:33: Error: Undefined name 'right_row'.
+    bot_right = ([...bot_right, right_row] as List).map((e) => ((e as List).map((e) => (e is BigInt ? e.toInt() : (e as int))).toList() as List<int>)).toList();
+                                ^^^^^^^^^

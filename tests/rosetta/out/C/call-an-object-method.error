@@ -1,0 +1,6 @@
+cc: exit status 1
+/tmp/call-an-object-method.c: In function ‘New’:
+/tmp/call-an-object-method.c:29:22: error: ‘box_t’ {aka ‘struct box_t’} has no member named ‘contents’; did you mean ‘Contents’?
+   29 |   box_t b = (box_t){.contents = "rabbit", .secret = 1};
+      |                      ^~~~~~~~
+      |                      Contents

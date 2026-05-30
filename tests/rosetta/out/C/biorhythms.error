@@ -1,0 +1,72 @@
+cc: exit status 1
+/tmp/biorhythms.c: In function ‘parseIntStr’:
+/tmp/biorhythms.c:184:11: error: request for member ‘len’ in something not a structure or union
+  184 |   if ((str.len > 0 && tmp1 == "-")) {
+      |           ^
+/tmp/biorhythms.c:201:18: error: request for member ‘len’ in something not a structure or union
+  201 |   while ((i < str.len)) {
+      |                  ^
+/tmp/biorhythms.c: In function ‘biorhythms’:
+/tmp/biorhythms.c:357:32: error: incompatible types when initializing type ‘int’ using type ‘list_string’
+  357 |   list_int quadrants_data[] = {tmp22, tmp23, tmp24, tmp25};
+      |                                ^~~~~
+/tmp/biorhythms.c:357:39: error: incompatible types when initializing type ‘int *’ using type ‘list_string’
+  357 |   list_int quadrants_data[] = {tmp22, tmp23, tmp24, tmp25};
+      |                                       ^~~~~
+/tmp/biorhythms.c:357:46: error: incompatible types when initializing type ‘int’ using type ‘list_string’
+  357 |   list_int quadrants_data[] = {tmp22, tmp23, tmp24, tmp25};
+      |                                              ^~~~~
+/tmp/biorhythms.c:357:53: error: incompatible types when initializing type ‘int *’ using type ‘list_string’
+  357 |   list_int quadrants_data[] = {tmp22, tmp23, tmp24, tmp25};
+      |                                                     ^~~~~
+/tmp/biorhythms.c:386:13: warning: implicit declaration of function ‘contains’ [-Wimplicit-function-declaration]
+  386 |       if ((!contains(pct, "."))) {
+      |             ^~~~~~~~
+/tmp/biorhythms.c:392:42: warning: passing argument 2 of ‘concat_string’ makes pointer from integer without a cast [-Wint-conversion]
+  392 |       char *tmp30 = concat_string(tmp29, trend);
+      |                                          ^~~~~
+      |                                          |
+      |                                          int
+/tmp/biorhythms.c:111:43: note: expected ‘char *’ but argument is of type ‘int’
+  111 | static char *concat_string(char *a, char *b) {
+      |                                     ~~~~~~^
+/tmp/biorhythms.c:394:42: warning: passing argument 2 of ‘concat_string’ makes pointer from integer without a cast [-Wint-conversion]
+  394 |       char *tmp32 = concat_string(tmp31, next);
+      |                                          ^~~~
+      |                                          |
+      |                                          int
+/tmp/biorhythms.c:111:43: note: expected ‘char *’ but argument is of type ‘int’
+  111 | static char *concat_string(char *a, char *b) {
+      |                                     ~~~~~~^
+/tmp/biorhythms.c:412:14: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘char *’ [-Wformat=]
+  412 |     printf("%d\n", tmp43);
+      |             ~^     ~~~~~
+      |              |     |
+      |              int   char *
+      |             %s
+/tmp/biorhythms.c: In function ‘mochi_main’:
+/tmp/biorhythms.c:428:28: error: incompatible types when initializing type ‘int’ using type ‘list_string’
+  428 |   list_int pairs_data[] = {tmp44, tmp45, tmp46};
+      |                            ^~~~~
+/tmp/biorhythms.c:428:35: error: incompatible types when initializing type ‘int *’ using type ‘list_string’
+  428 |   list_int pairs_data[] = {tmp44, tmp45, tmp46};
+      |                                   ^~~~~
+/tmp/biorhythms.c:428:42: error: incompatible types when initializing type ‘int’ using type ‘list_string’
+  428 |   list_int pairs_data[] = {tmp44, tmp45, tmp46};
+      |                                          ^~~~~
+/tmp/biorhythms.c:433:22: warning: passing argument 1 of ‘biorhythms’ makes pointer from integer without a cast [-Wint-conversion]
+  433 |     biorhythms(p.data[0], p.data[1]);
+      |                ~~~~~~^~~
+      |                      |
+      |                      int
+/tmp/biorhythms.c:320:22: note: expected ‘char *’ but argument is of type ‘int’
+  320 | int biorhythms(char *birth, char *target) {
+      |                ~~~~~~^~~~~
+/tmp/biorhythms.c:433:33: warning: passing argument 2 of ‘biorhythms’ makes pointer from integer without a cast [-Wint-conversion]
+  433 |     biorhythms(p.data[0], p.data[1]);
+      |                           ~~~~~~^~~
+      |                                 |
+      |                                 int
+/tmp/biorhythms.c:320:35: note: expected ‘char *’ but argument is of type ‘int’
+  320 | int biorhythms(char *birth, char *target) {
+      |                             ~~~~~~^~~~~~

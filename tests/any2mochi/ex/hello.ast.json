@@ -1,0 +1,18 @@
+{
+  "funcs": [
+    {
+      "name": "main",
+      "params": null,
+      "body": [
+        "IO.puts(1 + 2)"
+      ],
+      "start": 1,
+      "end": 3,
+      "raw": [
+        "def main do",
+        "  IO.puts(1 + 2)",
+        "end"
+      ]
+    }
+  ]
+}

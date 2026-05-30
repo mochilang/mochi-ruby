@@ -1,0 +1,249 @@
+rustc: exit status 1
+error: expected identifier, found keyword `mod`
+  --> /tmp/casting-out-nines.rs:51:17
+   |
+51 |             let mod = base - 1;
+   |                 ^^^ expected identifier, found keyword
+   |
+help: escape `mod` to use it as an identifier
+   |
+51 |             let r#mod = base - 1;
+   |                 ++
+
+error: expected expression, found keyword `mod`
+  --> /tmp/casting-out-nines.rs:52:47
+   |
+52 |             let r1 = parseIntBase(ks, base) % mod;
+   |                                               ^^^ expected expression
+
+error[E0608]: cannot index into a value of type `TestCase`
+  --> /tmp/casting-out-nines.rs:66:31
+   |
+66 | Test case base = ", tc.clone()["base" as usize].to_string()), ", begin = "), tc.clone()["begin" as usize]), ", end = "), tc.clone()["end"...
+   |                               ^^^^^^^^^^^^^^^^^
+
+error[E0608]: cannot index into a value of type `TestCase`
+  --> /tmp/casting-out-nines.rs:66:88
+   |
+66 | Test case base = ", tc.clone()["base" as usize].to_string()), ", begin = "), tc.clone()["begin" as usize]), ", end = "), tc.clone()["end"...
+   |                                                                                        ^^^^^^^^^^^^^^^^^^
+
+error[E0608]: cannot index into a value of type `TestCase`
+  --> /tmp/casting-out-nines.rs:66:132
+   |
+66 | ... "), tc.clone()["begin" as usize]), ", end = "), tc.clone()["end" as usize]), ":"))].into_iter().filter(|s| !s.is_empty()).collect::<V...
+   |                                                               ^^^^^^^^^^^^^^^^
+
+error[E0608]: cannot index into a value of type `TestCase`
+  --> /tmp/casting-out-nines.rs:67:34
+   |
+67 |         let s = subset(tc.clone()["base" as usize], tc.clone()["begin" as usize], tc.clone()["end" as usize]);
+   |                                  ^^^^^^^^^^^^^^^^^
+
+error[E0608]: cannot index into a value of type `TestCase`
+  --> /tmp/casting-out-nines.rs:67:63
+   |
+67 |         let s = subset(tc.clone()["base" as usize], tc.clone()["begin" as usize], tc.clone()["end" as usize]);
+   |                                                               ^^^^^^^^^^^^^^^^^^
+
+error[E0608]: cannot index into a value of type `TestCase`
+  --> /tmp/casting-out-nines.rs:67:93
+   |
+67 |         let s = subset(tc.clone()["base" as usize], tc.clone()["begin" as usize], tc.clone()["end" as usize]);
+   |                                                                                             ^^^^^^^^^^^^^^^^
+
+error[E0599]: the method `to_string` exists for struct `Vec<&str>`, but its trait bounds were not satisfied
+  --> /tmp/casting-out-nines.rs:68:74
+   |
+68 | ...at!("{}{}", "Subset:  ", s.to_string()))].into_iter().filter(|s| !s.is_empty()).collect::<Vec<_>>().join(" ") );
+   |                               ^^^^^^^^^ method cannot be called on `Vec<&str>` due to unsatisfied trait bounds
+   |
+   = note: the following trait bounds were not satisfied:
+           `Vec<&str>: std::fmt::Display`
+           which is required by `Vec<&str>: ToString`
+           `[&str]: std::fmt::Display`
+           which is required by `[&str]: ToString`
+
+error[E0608]: cannot index into a value of type `TestCase`
+  --> /tmp/casting-out-nines.rs:69:82
+   |
+69 | ...   println!("{}", vec![format!("{}", format!("{}{}", "Kaprekar:", tc.clone()["kaprekar" as usize].to_string()))].into_iter().filter(|s...
+   |                                                                                ^^^^^^^^^^^^^^^^^^^^^
+
+error[E0608]: cannot index into a value of type `TestCase`
+  --> /tmp/casting-out-nines.rs:73:29
+   |
+73 |         while i < tc.clone()["kaprekar" as usize].len() as i32 {
+   |                             ^^^^^^^^^^^^^^^^^^^^^
+
+error[E0608]: cannot index into a value of type `TestCase`
+  --> /tmp/casting-out-nines.rs:74:31
+   |
+74 |             let k = tc.clone()["kaprekar" as usize][i as usize];
+   |                               ^^^^^^^^^^^^^^^^^^^^^
+
+error[E0606]: casting `&'static str` as `usize` is invalid
+  --> /tmp/casting-out-nines.rs:66:32
+   |
+66 | Test case base = ", tc.clone()["base" as usize].to_string()), ", begin = "), tc.clone()["begin" as usize]), ", end = "), tc.clone()["end"...
+   |                                ^^^^^^^^^^^^^^^
+   |
+   = help: cast through a raw pointer first
+
+error[E0606]: casting `&'static str` as `usize` is invalid
+  --> /tmp/casting-out-nines.rs:66:89
+   |
+66 | Test case base = ", tc.clone()["base" as usize].to_string()), ", begin = "), tc.clone()["begin" as usize]), ", end = "), tc.clone()["end"...
+   |                                                                                         ^^^^^^^^^^^^^^^^
+   |
+   = help: cast through a raw pointer first
+
+error[E0606]: casting `&'static str` as `usize` is invalid
+  --> /tmp/casting-out-nines.rs:66:133
+   |
+66 | ... "), tc.clone()["begin" as usize]), ", end = "), tc.clone()["end" as usize]), ":"))].into_iter().filter(|s| !s.is_empty()).collect::<V...
+   |                                                                ^^^^^^^^^^^^^^
+   |
+   = help: cast through a raw pointer first
+
+error[E0606]: casting `&'static str` as `usize` is invalid
+  --> /tmp/casting-out-nines.rs:67:35
+   |
+67 |         let s = subset(tc.clone()["base" as usize], tc.clone()["begin" as usize], tc.clone()["end" as usize]);
+   |                                   ^^^^^^^^^^^^^^^
+   |
+   = help: cast through a raw pointer first
+
+error[E0606]: casting `&'static str` as `usize` is invalid
+  --> /tmp/casting-out-nines.rs:67:64
+   |
+67 |         let s = subset(tc.clone()["base" as usize], tc.clone()["begin" as usize], tc.clone()["end" as usize]);
+   |                                                                ^^^^^^^^^^^^^^^^
+   |
+   = help: cast through a raw pointer first
+
+error[E0606]: casting `&'static str` as `usize` is invalid
+  --> /tmp/casting-out-nines.rs:67:94
+   |
+67 |         let s = subset(tc.clone()["base" as usize], tc.clone()["begin" as usize], tc.clone()["end" as usize]);
+   |                                                                                              ^^^^^^^^^^^^^^
+   |
+   = help: cast through a raw pointer first
+
+error[E0606]: casting `&'static str` as `usize` is invalid
+  --> /tmp/casting-out-nines.rs:69:83
+   |
+69 | ...   println!("{}", vec![format!("{}", format!("{}{}", "Kaprekar:", tc.clone()["kaprekar" as usize].to_string()))].into_iter().filter(|s...
+   |                                                                                 ^^^^^^^^^^^^^^^^^^^
+   |
+   = help: cast through a raw pointer first
+
+error[E0606]: casting `&'static str` as `usize` is invalid
+  --> /tmp/casting-out-nines.rs:73:30
+   |
+73 |         while i < tc.clone()["kaprekar" as usize].len() as i32 {
+   |                              ^^^^^^^^^^^^^^^^^^^
+   |
+   = help: cast through a raw pointer first
+
+error[E0606]: casting `&'static str` as `usize` is invalid
+  --> /tmp/casting-out-nines.rs:74:32
+   |
+74 |             let k = tc.clone()["kaprekar" as usize][i as usize];
+   |                                ^^^^^^^^^^^^^^^^^^^
+   |
+   = help: cast through a raw pointer first
+
+error[E0308]: mismatched types
+  --> /tmp/casting-out-nines.rs:19:44
+   |
+19 |                 if &digits[j as usize..j + 1 as usize] == &s[i as usize..i + 1 as usize] {
+   |                                            ^^^^^^^^^^ expected `i32`, found `usize`
+
+error[E0308]: mismatched types
+  --> /tmp/casting-out-nines.rs:19:40
+   |
+19 |                 if &digits[j as usize..j + 1 as usize] == &s[i as usize..i + 1 as usize] {
+   |                                        ^^^^^^^^^^^^^^ expected `usize`, found `i32`
+
+error[E0277]: cannot add `usize` to `i32`
+  --> /tmp/casting-out-nines.rs:19:42
+   |
+19 |                 if &digits[j as usize..j + 1 as usize] == &s[i as usize..i + 1 as usize] {
+   |                                          ^ no implementation for `i32 + usize`
+   |
+   = help: the trait `Add<usize>` is not implemented for `i32`
+   = help: the following other types implement trait `Add<Rhs>`:
+             `&i32` implements `Add<i32>`
+             `&i32` implements `Add`
+             `i32` implements `Add<&i32>`
+             `i32` implements `Add`
+
+error[E0308]: mismatched types
+  --> /tmp/casting-out-nines.rs:19:78
+   |
+19 |                 if &digits[j as usize..j + 1 as usize] == &s[i as usize..i + 1 as usize] {
+   |                                                                              ^^^^^^^^^^ expected `i32`, found `usize`
+
+error[E0308]: mismatched types
+  --> /tmp/casting-out-nines.rs:19:74
+   |
+19 |                 if &digits[j as usize..j + 1 as usize] == &s[i as usize..i + 1 as usize] {
+   |                                                                          ^^^^^^^^^^^^^^ expected `usize`, found `i32`
+
+error[E0277]: cannot add `usize` to `i32`
+  --> /tmp/casting-out-nines.rs:19:76
+   |
+19 |                 if &digits[j as usize..j + 1 as usize] == &s[i as usize..i + 1 as usize] {
+   |                                                                            ^ no implementation for `i32 + usize`
+   |
+   = help: the trait `Add<usize>` is not implemented for `i32`
+   = help: the following other types implement trait `Add<Rhs>`:
+             `&i32` implements `Add<i32>`
+             `&i32` implements `Add`
+             `i32` implements `Add<&i32>`
+             `i32` implements `Add`
+
+error[E0308]: mismatched types
+  --> /tmp/casting-out-nines.rs:39:59
+   |
+39 |             out = format!("{}{}", &digits[d as usize..d + 1 as usize], out);
+   |                                                           ^^^^^^^^^^ expected `i32`, found `usize`
+
+error[E0308]: mismatched types
+  --> /tmp/casting-out-nines.rs:39:55
+   |
+39 |             out = format!("{}{}", &digits[d as usize..d + 1 as usize], out);
+   |                                                       ^^^^^^^^^^^^^^ expected `usize`, found `i32`
+
+error[E0277]: cannot add `usize` to `i32`
+  --> /tmp/casting-out-nines.rs:39:57
+   |
+39 |             out = format!("{}{}", &digits[d as usize..d + 1 as usize], out);
+   |                                                         ^ no implementation for `i32 + usize`
+   |
+   = help: the trait `Add<usize>` is not implemented for `i32`
+   = help: the following other types implement trait `Add<Rhs>`:
+             `&i32` implements `Add<i32>`
+             `&i32` implements `Add`
+             `i32` implements `Add<&i32>`
+             `i32` implements `Add`
+
+error[E0308]: mismatched types
+  --> /tmp/casting-out-nines.rs:42:16
+   |
+30 |     fn intToBase(n: i32, base: i32) -> &'static str {
+   |                                        ------------ expected `&'static str` because of return type
+...
+42 |         return out;
+   |                ^^^ expected `&str`, found `String`
+   |
+help: consider borrowing here
+   |
+42 |         return &out;
+   |                +
+
+error: aborting due to 31 previous errors
+
+Some errors have detailed explanations: E0277, E0308, E0599, E0606, E0608.
+For more information about an error, try `rustc --explain E0277`.

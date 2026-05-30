@@ -1,0 +1,18 @@
+// Expanded sample data for TPC-DS Q86
+let web_sales = [
+  {cat: "A", class: "B", net: 40.0},
+  {cat: "A", class: "B", net: 46.0},
+  {cat: "A", class: "C", net: 10.0},
+  {cat: "B", class: "B", net: 20.0}
+]
+
+let result =
+  sum(from ws in web_sales
+      where ws.cat == "A" && ws.class == "B"
+      select ws.net)
+
+json(result)
+
+test "TPCDS Q86 sample" {
+  expect result == 86.0
+}

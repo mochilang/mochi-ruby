@@ -1,0 +1,8 @@
+parse: error[P999]: /workspace/mochi/tests/rosetta/x/Mochi/church-numerals-2.mochi:4:15: unexpected token "fun" (expected TypeVariant ("|" TypeVariant)*)
+  --> /workspace/mochi/tests/rosetta/x/Mochi/church-numerals-2.mochi:4:15
+
+  4 | type Church = fun(Church): Church
+    |               ^
+
+help:
+  Parse error occurred. Check syntax near this location.

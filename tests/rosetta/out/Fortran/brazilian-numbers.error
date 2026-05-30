@@ -1,0 +1,46 @@
+gfortran: exit status 1
+/tmp/brazilian-numbers.f90:87:7:
+
+   87 |       n = 7
+      |       1
+Error: Symbol ‘n’ at (1) has no IMPLICIT type
+/tmp/brazilian-numbers.f90:40:5:
+
+   40 |     b = 2
+      |     1
+Error: Symbol ‘b’ at (1) has no IMPLICIT type
+/tmp/brazilian-numbers.f90:82:18:
+
+   82 |     kinds = (/' ',' odd ',' prime '/)
+      |                  1
+Error: Different CHARACTER lengths (1/5) in array constructor at (1)
+/tmp/brazilian-numbers.f90:85:20:
+
+   85 |       print *, trim('First 20' // kind) // 'Brazilian numbers:'
+      |                    1
+Error: Operands of string concatenation operator at (1) are CHARACTER(8)/INTEGER(4)
+/tmp/brazilian-numbers.f90:98:13:
+
+   98 |         if ((kind == ' ')) then
+      |             1
+Error: Operands of comparison operator ‘==’ at (1) are INTEGER(4)/CHARACTER(1)
+/tmp/brazilian-numbers.f90:100:18:
+
+  100 |         else if ((kind == ' odd ')) then
+      |                  1
+Error: Operands of comparison operator ‘==’ at (1) are INTEGER(4)/CHARACTER(5)
+/tmp/brazilian-numbers.f90:36:31:
+
+   36 |     if ((((mod(n,2) == 0) .and. n) >= 8)) then
+      |                               1
+Error: Operands of logical operator ‘.and.’ at (1) are LOGICAL(4)/INTEGER(4)
+/tmp/brazilian-numbers.f90:19:4:
+
+   19 |     n = int(((n / b)))
+      |    1
+Error: Dummy argument ‘n’ with INTENT(IN) in variable definition context (assignment) at (1)
+/tmp/brazilian-numbers.f90:25:6:
+
+   25 |       n = int(((n / b)))
+      |      1
+Error: Dummy argument ‘n’ with INTENT(IN) in variable definition context (assignment) at (1)

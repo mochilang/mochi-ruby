@@ -1,0 +1,13 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    promo: bool
+    price: int
+}
+let sales: Anon1 list = [{ promo = true; price = 20 }; { promo = true; price = 41 }; { promo = false; price = 39 }]
+let promotions: obj = List.sum [ for s in sales do if s.promo then yield s.price ]
+let total: obj = List.sum [ for s in sales do yield s.price ]
+let result: obj = promotions * 100 / total
+printfn "%A" (JsonSerializer.Serialize(result))
+assert (result = 61)

@@ -1,0 +1,34 @@
+gfortran: exit status 1
+/tmp/csv-to-html-translation-1.f90:17:21:
+
+   17 |     line = split(c,''//char(10)//'')(i0)
+      |                     1
+Error: Invalid character in name at (1)
+/tmp/csv-to-html-translation-1.f90:21:25:
+
+   21 |     app1(size(rows)+1) = split(line,',')
+      |                         1
+Error: Function ‘split’ at (1) has no IMPLICIT type
+/tmp/csv-to-html-translation-1.f90:16:18:
+
+   16 |   do i0 = 1, size(split(c,''//char(10)//''))
+      |                  1
+Error: Function ‘split’ at (1) has no IMPLICIT type
+/tmp/csv-to-html-translation-1.f90:30:19:
+
+   30 |       cells = trim(trim(cells // '<td>') // cell) // '</td>'
+      |                   1
+Error: Operands of string concatenation operator at (1) are CHARACTER(*)/INTEGER(4)
+/tmp/csv-to-html-translation-1.f90:28:20:
+
+   28 |     do i3 = 1, size(row)
+      |                    1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/csv-to-html-translation-1.f90:21:31:
+
+   16 |   do i0 = 1, size(split(c,''//char(10)//''))
+      |                        2       
+......
+   21 |     app1(size(rows)+1) = split(line,',')
+      |                               1
+Error: Type mismatch between actual argument at (1) and actual argument at (2) (INTEGER(4)/CHARACTER(*)).

@@ -1,0 +1,119 @@
+func __main (regs=6)
+  // floyd(5)
+  Const        r1, 5
+  Move         r0, r1
+  Call         r2, floyd, r0
+  // floyd(14)
+  Const        r4, 14
+  Move         r3, r4
+  Call         r5, floyd, r3
+  Return       r0
+
+  // fun floyd(n: int) {
+func floyd (regs=40)
+  // print("Floyd " + str(n) + ":")
+  Const        r1, "Floyd "
+  Str          r2, r0
+  Add          r3, r1, r2
+  Const        r4, ":"
+  Add          r5, r3, r4
+  Print        r5
+  // let lowerLeftCorner = n * (n - 1) / 2 + 1
+  Const        r6, 1
+  Sub          r7, r0, r6
+  Mul          r8, r0, r7
+  Const        r9, 2
+  Div          r10, r8, r9
+  Const        r6, 1
+  Add          r11, r10, r6
+  Move         r12, r11
+  // var lastInColumn = lowerLeftCorner
+  Move         r13, r12
+  // var lastInRow = 1
+  Const        r6, 1
+  Move         r14, r6
+  // var i = 1
+  Const        r6, 1
+  Move         r15, r6
+  // var row = 1
+  Const        r6, 1
+  Move         r16, r6
+  // var line = ""
+  Const        r17, ""
+  Move         r18, r17
+L3:
+  // while row <= n {
+  LessEq       r19, r16, r0
+  JumpIfFalse  r19, L0
+  // let w = len(str(lastInColumn))
+  Str          r20, r13
+  Len          r21, r20
+  Move         r22, r21
+  // if i < lastInRow {
+  LessInt      r23, r15, r14
+  JumpIfFalse  r23, L1
+  // line = line + pad(str(i), w) + " "
+  Str          r26, r15
+  Move         r24, r26
+  Move         r25, r22
+  Call2        r27, pad, r24, r25
+  Add          r28, r18, r27
+  Const        r29, " "
+  Add          r30, r28, r29
+  Move         r18, r30
+  // lastInColumn = lastInColumn + 1
+  Const        r6, 1
+  Add          r31, r13, r6
+  Move         r13, r31
+  // if i < lastInRow {
+  Jump         L2
+L1:
+  // line = line + pad(str(i), w)
+  Str          r34, r15
+  Move         r32, r34
+  Move         r33, r22
+  Call2        r35, pad, r32, r33
+  Add          r36, r18, r35
+  Move         r18, r36
+  // print(line)
+  Print        r18
+  // line = ""
+  Const        r17, ""
+  Move         r18, r17
+  // row = row + 1
+  Const        r6, 1
+  AddInt       r37, r16, r6
+  Move         r16, r37
+  // lastInRow = lastInRow + row
+  AddInt       r38, r14, r16
+  Move         r14, r38
+  // lastInColumn = lowerLeftCorner
+  Move         r13, r12
+L2:
+  // i = i + 1
+  Const        r6, 1
+  AddInt       r39, r15, r6
+  Move         r15, r39
+  // while row <= n {
+  Jump         L3
+L0:
+  Return       r0
+
+  // fun pad(s: string, w: int): string {
+func pad (regs=7)
+  // var t = s
+  Move         r2, r0
+L1:
+  // while len(t) < w {
+  Len          r3, r2
+  Less         r4, r3, r1
+  JumpIfFalse  r4, L0
+  // t = " " + t
+  Const        r5, " "
+  Add          r6, r5, r2
+  Move         r2, r6
+  // while len(t) < w {
+  Jump         L1
+L0:
+  // return t
+  Return       r2

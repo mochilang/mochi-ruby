@@ -1,0 +1,6 @@
+(program
+  (fun _expect
+    (param cond (type bool))
+  )
+  (fun test_addition_works)
+)

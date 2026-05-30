@@ -1,0 +1,11 @@
+(program
+  (fun main
+    (let _11204 (int 10))
+    (let _11210 (int 20))
+    (let _11222
+      (binary + (selector _11204) (selector _11210))
+    )
+    (call print (selector _11222))
+  )
+  (call main)
+)

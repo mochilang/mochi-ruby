@@ -1,0 +1,8 @@
+parse: error[P052]: /workspace/mochi/tests/rosetta/x/Mochi/blum-integer.mochi:85:45: unexpected token "-1" (expected ")")
+  --> /workspace/mochi/tests/rosetta/x/Mochi/blum-integer.mochi:85:45
+
+ 85 |             print(substring(line,0,len(line)-1))
+    |                                             ^
+
+help:
+  Unbalanced parentheses. Check for missing `(` or `)`.

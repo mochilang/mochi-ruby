@@ -1,0 +1,39 @@
+warning: variable "bp" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 387 │       {bp, parity} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/hashes/hamming_code.exs:387:8: Main.hamming_encode/2
+
+     warning: variable "cont_bp" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 412 │       {cont_bp, _, result} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/hashes/hamming_code.exs:412:8: Main.hamming_encode/2
+
+     warning: variable "cont_data" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 341 │       {cont_data, data_ord, x} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/hashes/hamming_code.exs:341:8: Main.hamming_encode/2
+
+     warning: variable "x" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 341 │       {cont_data, data_ord, x} = try do
+     │                             ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/hashes/hamming_code.exs:341:29: Main.hamming_encode/2
+
+     warning: variable "idx" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 445 │       {data_output, _, idx, parity_received} = try do
+     │                        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/hashes/hamming_code.exs:445:24: Main.hamming_decode/2
+
+Text input in binary is '010011010110010101110011011100110110000101100111011001010000000000000000'
+Data converted ----------> 1101100111010110001010111001101011001101100001011001110110010100000000000000
+Data receive ------------> 010011010110010101110011011100110110000101100111011001010000000000000 -- Data integrity: True
+Data receive (error) ----> 010011010110010101110011011100110110000101100111011001010000000000000 -- Data integrity: False

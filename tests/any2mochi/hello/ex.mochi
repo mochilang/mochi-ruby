@@ -1,0 +1,4 @@
+fun main(): any {
+  print("Hello, world")
+}
+main()

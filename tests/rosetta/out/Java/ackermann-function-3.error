@@ -1,0 +1,8 @@
+parse: error[P052]: /workspace/mochi/tests/rosetta/x/Mochi/ackermann-function-3.mochi:63:34: unexpected token "-20" (expected ")")
+  --> /workspace/mochi/tests/rosetta/x/Mochi/ackermann-function-3.mochi:63:34
+
+ 63 |     let suf = substring(s, len(s)-20, len(s))
+    |                                  ^
+
+help:
+  Unbalanced parentheses. Check for missing `(` or `)`.

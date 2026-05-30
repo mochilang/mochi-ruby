@@ -1,0 +1,86 @@
+gfortran: exit status 1
+/tmp/averages-simple-moving-average.f90:45:9:
+
+   45 |         s = s(0+1:(dot + 4))
+      |         1
+Error: Unclassifiable statement at (1)
+/tmp/averages-simple-moving-average.f90:69:13:
+
+   69 |     allocate(res(0))
+      |             1
+Error: Allocate-object at (1) is neither a data pointer nor an allocatable variable
+/tmp/averages-simple-moving-average.f90:98:40:
+
+   98 |       line = trim(trim(trim(pad(fmt3(xs(((i)+1))),5) // '  ') // pad(fmt3(sma3(((i)+1))),5)) // '  ') // pad(fmt3(sma5(((i)+1))),5)
+      |                                        1
+Error: Syntax error in argument list at (1)
+/tmp/averages-simple-moving-average.f90:92:6:
+
+   92 |     xs = (/1.0,2.0,3.0,4.0,5.0,5.0,4.0,3.0,2.0,1.0/)
+      |      1
+Error: Symbol ‘xs’ at (1) has no IMPLICIT type
+/tmp/averages-simple-moving-average.f90:66:41:
+
+   66 |   recursive integer function smaSeries(xs,period) result(res)
+      |                                         1
+Error: PROCEDURE attribute conflicts with INTENT attribute in ‘xs’ at (1)
+/tmp/averages-simple-moving-average.f90:38:5:
+
+   38 |     s = s0
+      |     1
+Error: Symbol ‘s’ at (1) has no IMPLICIT type
+/tmp/averages-simple-moving-average.f90:82:25:
+
+   82 |       allocate(app1(size(res)+1))
+      |                         1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/averages-simple-moving-average.f90:83:18:
+
+   83 |       app1(1:size(res)) = res
+      |                  1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/averages-simple-moving-average.f90:84:16:
+
+   84 |       app1(size(res)+1) = (sum / (real(denom)))
+      |                1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/averages-simple-moving-average.f90:85:6:
+
+   85 |       res = app1
+      |      1
+Error: Incompatible ranks 0 and 1 in assignment at (1)
+/tmp/averages-simple-moving-average.f90:72:24:
+
+   72 |     do while ((i < size(xs)))
+      |                        1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/averages-simple-moving-average.f90:59:10:
+
+   59 |     out = s
+      |          1
+Error: Cannot convert CHARACTER(100) to INTEGER(4) at (1)
+/tmp/averages-simple-moving-average.f90:61:12:
+
+   61 |       out = ' ' // out
+      |            1
+Error: Operands of string concatenation operator at (1) are CHARACTER(1)/INTEGER(4)
+/tmp/averages-simple-moving-average.f90:60:20:
+
+   60 |     do while ((size(out) < width))
+      |                    1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array
+/tmp/averages-simple-moving-average.f90:63:10:
+
+   63 |     res = out
+      |          1
+Error: Cannot convert INTEGER(4) to CHARACTER(100) at (1)
+/tmp/averages-simple-moving-average.f90:40:9:
+
+   40 |     if (((dot == 0) - 1)) then
+      |         1
+Error: Operands of binary numeric operator ‘-’ at (1) are LOGICAL(4)/INTEGER(4)
+/tmp/averages-simple-moving-average.f90:24:24:
+
+   24 |     do while ((i < size(s)))
+      |                        1
+Error: ‘array’ argument of ‘size’ intrinsic at (1) must be an array

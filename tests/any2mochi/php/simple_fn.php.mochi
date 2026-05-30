@@ -1,0 +1,2 @@
+fun mochi_id(x: any): any {}
+fun _print(args: any): any {}

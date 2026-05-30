@@ -1,0 +1,11 @@
+// line 1
+let std = @import("std")
+// line 3
+fun id(x: int): int {
+  return x
+}
+// line 7
+fun main() {
+  print(id(123))
+}
+main()

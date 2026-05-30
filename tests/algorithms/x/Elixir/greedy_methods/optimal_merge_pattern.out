@@ -1,0 +1,10 @@
+warning: variable "arr" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 100 │       {arr, optimal_merge_cost} = try do
+     │        ~
+     │
+     └─ /workspace/mochi/tests/algorithms/x/Elixir/greedy_methods/optimal_merge_pattern.exs:100:8: Main.optimal_merge_pattern/1
+
+14
+205
+96

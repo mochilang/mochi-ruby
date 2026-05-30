@@ -1,0 +1,2 @@
+# command-line-arguments
+/tmp/q6.go:136:10: invalid operation: ciRaw (variable of struct type Cast_info) is not an interface

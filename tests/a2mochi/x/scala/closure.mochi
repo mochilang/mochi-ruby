@@ -1,0 +1,6 @@
+// a2mochi scala v0.10.48 2025-07-29 18:24:14 GMT+7
+fun makeAdder(n) {
+  return fun(x) => (x + n)
+}
+let add10 = makeAdder(10)
+print(add10(7))

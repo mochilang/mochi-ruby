@@ -1,0 +1,5 @@
+WARNING: importing already defined binding: equal?
+WARNING: importing already defined binding: let-syntax
+WARNING: importing already defined binding: letrec-syntax
+[{"actress_pseudonym":"Y. S.","japanese_movie_dubbed":"Dubbed Film"}]
+   test Q8 returns the pseudonym and movie title for Japanese dubbing ... ok

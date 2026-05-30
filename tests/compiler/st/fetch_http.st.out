@@ -1,0 +1,39 @@
+Object subclass: #Main instanceVariableNames: '' classVariableNames: '' poolDictionaries: '' category: nil!
+
+!Main class methodsFor: 'types'!
+newTodo: userId id: id title: title completed: completed | dict |
+	dict := Dictionary new.
+	dict at: 'userId' put: userId.
+	dict at: 'id' put: id.
+	dict at: 'title' put: title.
+	dict at: 'completed' put: completed.
+	^ dict
+!
+!Main class methodsFor: 'runtime'!
+_fetch: url opts: o
+	| args cmd stream text |
+	args := OrderedCollection new.
+	args add: '-s'.
+	| method |
+	method := (o notNil and: [ o includesKey: 'method' ]) ifTrue: [ o at: 'method' ] ifFalse: [ 'GET' ].
+	args add: '-X'; add: method.
+	(o notNil and: [ o includesKey: 'headers' ]) ifTrue: [ (o at: 'headers') keysAndValuesDo: [:k :v | args add: '-H'; add: (k , ': ' , v printString) ] ].
+	(o notNil and: [ o includesKey: 'query' ]) ifTrue: [ | qs sep |
+		qs := String streamContents: [:s | (o at: 'query') keysAndValuesDo: [:k :v | s nextPutAll: k; nextPut: '='; nextPutAll: v printString; nextPut: '&' ] ].
+		qs := qs copyFrom: 1 to: qs size - 1.
+		sep := (url includes: '?') ifTrue: [ '&' ] ifFalse: [ '?' ].
+		url := url , sep , qs.
+	] .
+	(o notNil and: [ o includesKey: 'body' ]) ifTrue: [ args add: '-d'; add: (JSONReader toJSON: (o at: 'body')) ].
+	(o notNil and: [ o includesKey: 'timeout' ]) ifTrue: [ args add: '--max-time'; add: (o at: 'timeout') printString ].
+	args add: url.
+	cmd := 'curl ' , (String streamContents: [:s | args doWithIndex: [:a :i | s nextPutAll: a. i < args size ifTrue: [ s nextPut: Character space ] ] ]).
+	stream := PipeStream open: cmd.
+	text := stream contents.
+	stream close.
+	^ JSONReader fromJSON: text
+!
+!!
+todo := (Main _fetch: 'https://jsonplaceholder.typicode.com/todos/1' opts: nil).
+((('Title: ') , (todo at: 'title'))) displayOn: Transcript. Transcript cr.
+((('Completed: ') , ((todo at: 'completed' printString)))) displayOn: Transcript. Transcript cr.

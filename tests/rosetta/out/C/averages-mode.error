@@ -1,0 +1,66 @@
+cc: exit status 1
+/tmp/averages-mode.c: In function ‘_mochi_main’:
+/tmp/averages-mode.c:117:13: error: incompatible types when assigning to type ‘int’ from type ‘map_string_int’
+  117 |   counts1 = tmp2;
+      |             ^~~~
+/tmp/averages-mode.c:131:13: error: incompatible types when assigning to type ‘int’ from type ‘map_string_int’
+  131 |   counts2 = tmp6;
+      |             ^~~~
+/tmp/averages-mode.c:138:10: error: expected ‘)’ before ‘in’
+  138 |     if (v in counts1) {
+      |        ~ ^~~
+      |          )
+/tmp/averages-mode.c:139:14: error: request for member ‘data’ in something not a structure or union
+  139 |       counts1.data[v] = counts1.data[v] + 1;
+      |              ^
+/tmp/averages-mode.c:139:32: error: request for member ‘data’ in something not a structure or union
+  139 |       counts1.data[v] = counts1.data[v] + 1;
+      |                                ^
+/tmp/averages-mode.c:141:14: error: request for member ‘data’ in something not a structure or union
+  141 |       counts1.data[v] = 1;
+      |              ^
+/tmp/averages-mode.c:153:28: error: request for member ‘data’ in something not a structure or union
+  153 |     __auto_type c = counts1.data[k];
+      |                            ^
+/tmp/averages-mode.c:154:9: error: ‘c’ undeclared (first use in this function)
+  154 |     if (c > max1) {
+      |         ^
+/tmp/averages-mode.c:154:9: note: each undeclared identifier is reported only once for each function it appears in
+/tmp/averages-mode.c:162:16: error: request for member ‘data’ in something not a structure or union
+  162 |     if (counts1.data[k] == max1) {
+      |                ^
+/tmp/averages-mode.c:171:22: error: incompatible type for argument 1 of ‘_str’
+  171 |   char *tmp13 = _str(modes1);
+      |                      ^~~~~~
+      |                      |
+      |                      list_int
+/tmp/averages-mode.c:91:23: note: expected ‘int’ but argument is of type ‘list_int’
+   91 | static char *_str(int v) {
+      |                   ~~~~^
+/tmp/averages-mode.c:176:10: error: expected ‘)’ before ‘in’
+  176 |     if (v in counts2) {
+      |        ~ ^~~
+      |          )
+/tmp/averages-mode.c:177:14: error: request for member ‘data’ in something not a structure or union
+  177 |       counts2.data[v] = counts2.data[v] + 1;
+      |              ^
+/tmp/averages-mode.c:177:32: error: request for member ‘data’ in something not a structure or union
+  177 |       counts2.data[v] = counts2.data[v] + 1;
+      |                                ^
+/tmp/averages-mode.c:179:14: error: request for member ‘data’ in something not a structure or union
+  179 |       counts2.data[v] = 1;
+      |              ^
+/tmp/averages-mode.c:191:28: error: request for member ‘data’ in something not a structure or union
+  191 |     __auto_type c = counts2.data[k];
+      |                            ^
+/tmp/averages-mode.c:200:16: error: request for member ‘data’ in something not a structure or union
+  200 |     if (counts2.data[k] == max2) {
+      |                ^
+/tmp/averages-mode.c:209:22: error: incompatible type for argument 1 of ‘_str’
+  209 |   char *tmp18 = _str(modes2);
+      |                      ^~~~~~
+      |                      |
+      |                      list_int
+/tmp/averages-mode.c:91:23: note: expected ‘int’ but argument is of type ‘list_int’
+   91 | static char *_str(int v) {
+      |                   ~~~~^

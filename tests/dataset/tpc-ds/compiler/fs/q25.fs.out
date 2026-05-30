@@ -1,0 +1,140 @@
+open System
+open System.Text.Json
+
+type Anon1 = {
+    ss_sold_date_sk: int
+    ss_item_sk: int
+    ss_store_sk: int
+    ss_customer_sk: int
+    ss_net_profit: float
+    ss_ticket_number: int
+}
+type Anon2 = {
+    sr_returned_date_sk: int
+    sr_item_sk: int
+    sr_customer_sk: int
+    sr_ticket_number: int
+    sr_net_loss: float
+}
+type Anon3 = {
+    cs_sold_date_sk: int
+    cs_item_sk: int
+    cs_bill_customer_sk: int
+    cs_net_profit: float
+}
+type Anon4 = {
+    d_date_sk: int
+    d_moy: int
+    d_year: int
+}
+type Anon5 = {
+    s_store_sk: int
+    s_store_id: string
+    s_store_name: string
+}
+type Anon6 = {
+    i_item_sk: int
+    i_item_id: string
+    i_item_desc: string
+}
+type Anon7 = {
+    i_item_id: obj
+    i_item_desc: obj
+    s_store_id: obj
+    s_store_name: obj
+    store_sales_profit: obj
+    store_returns_loss: obj
+    catalog_sales_profit: obj
+}
+type Anon8 = {
+    item_id: string
+    item_desc: string
+    s_store_id: string
+    s_store_name: string
+}
+type Anon9 = {
+    i_item_id: string
+    i_item_desc: string
+    s_store_id: string
+    s_store_name: string
+    store_sales_profit: float
+    store_returns_loss: float
+    catalog_sales_profit: float
+}
+type _Group<'K,'T>(key: 'K) =
+    member val key = key with get, set
+    member val Items = System.Collections.Generic.List<'T>() with get
+    member this.size = this.Items.Count
+    interface System.Collections.Generic.IEnumerable<'T> with
+        member this.GetEnumerator() = (this.Items :> seq<'T>).GetEnumerator()
+    interface System.Collections.IEnumerable with
+        member this.GetEnumerator() = (this.Items :> System.Collections.IEnumerable).GetEnumerator()
+
+let _group_by (src: 'T list) (keyfn: 'T -> 'K) : _Group<'K,'T> list =
+    let groups = System.Collections.Generic.Dictionary<string,_Group<'K,'T>>()
+    let order = System.Collections.Generic.List<string>()
+    for it in src do
+        let key = keyfn it
+        let ks = string key
+        let mutable g = Unchecked.defaultof<_Group<'K,'T>>
+        if groups.TryGetValue(ks, &g) then ()
+        else
+            g <- _Group<'K,'T>(key)
+            groups.Add(ks, g)
+            order.Add(ks)
+        g.Items.Add(it)
+    [ for ks in order -> groups[ks] ]
+
+type StoreSale = {
+    mutable ss_sold_date_sk: int
+    mutable ss_item_sk: int
+    mutable ss_store_sk: int
+    mutable ss_customer_sk: int
+    mutable ss_net_profit: float
+    mutable ss_ticket_number: int
+}
+type StoreReturn = {
+    mutable sr_returned_date_sk: int
+    mutable sr_item_sk: int
+    mutable sr_customer_sk: int
+    mutable sr_ticket_number: int
+    mutable sr_net_loss: float
+}
+type CatalogSale = {
+    mutable cs_sold_date_sk: int
+    mutable cs_item_sk: int
+    mutable cs_bill_customer_sk: int
+    mutable cs_net_profit: float
+}
+type DateDim = {
+    mutable d_date_sk: int
+    mutable d_moy: int
+    mutable d_year: int
+}
+type Store = {
+    mutable s_store_sk: int
+    mutable s_store_id: string
+    mutable s_store_name: string
+}
+type Item = {
+    mutable i_item_sk: int
+    mutable i_item_id: string
+    mutable i_item_desc: string
+}
+let store_sales: Anon1 list = [{ ss_sold_date_sk = 1; ss_item_sk = 1; ss_store_sk = 1; ss_customer_sk = 1; ss_net_profit = 50.0; ss_ticket_number = 1 }; { ss_sold_date_sk = 1; ss_item_sk = 2; ss_store_sk = 1; ss_customer_sk = 2; ss_net_profit = 20.0; ss_ticket_number = 2 }]
+let store_returns: Anon2 list = [{ sr_returned_date_sk = 2; sr_item_sk = 1; sr_customer_sk = 1; sr_ticket_number = 1; sr_net_loss = 10.0 }; { sr_returned_date_sk = 2; sr_item_sk = 2; sr_customer_sk = 2; sr_ticket_number = 2; sr_net_loss = 5.0 }]
+let catalog_sales: Anon3 list = [{ cs_sold_date_sk = 3; cs_item_sk = 1; cs_bill_customer_sk = 1; cs_net_profit = 30.0 }; { cs_sold_date_sk = 3; cs_item_sk = 2; cs_bill_customer_sk = 2; cs_net_profit = 15.0 }]
+let date_dim: Anon4 list = [{ d_date_sk = 1; d_moy = 4; d_year = 2000 }; { d_date_sk = 2; d_moy = 5; d_year = 2000 }; { d_date_sk = 3; d_moy = 6; d_year = 2000 }]
+let store: Anon5 list = [{ s_store_sk = 1; s_store_id = "S1"; s_store_name = "Store1" }]
+let item: Anon6 list = [{ i_item_sk = 1; i_item_id = "ITEM1"; i_item_desc = "Desc1" }; { i_item_sk = 2; i_item_id = "ITEM2"; i_item_desc = "Desc2" }]
+let result: Anon7 list = [ for g in _group_by [ for ss in store_sales do 
+  for sr in store_returns do 
+  for cs in catalog_sales do 
+  for d1 in date_dim do 
+  for d2 in date_dim do 
+  for d3 in date_dim do 
+  for s in store do 
+  for i in item do if ss.ss_ticket_number = sr.sr_ticket_number && ss.ss_item_sk = sr.sr_item_sk && sr.sr_customer_sk = cs.cs_bill_customer_sk && sr.sr_item_sk = cs.cs_item_sk && d1.d_date_sk = ss.ss_sold_date_sk && d2.d_date_sk = sr.sr_returned_date_sk && d3.d_date_sk = cs.cs_sold_date_sk && s.s_store_sk = ss.ss_store_sk && i.i_item_sk = ss.ss_item_sk && d1.d_moy = 4 && d1.d_year = 2000 && d2.d_moy >= 4 && d2.d_moy <= 10 && d3.d_moy >= 4 && d3.d_moy <= 10 then yield (ss, sr, cs, d1, d2, d3, s, i) ] (fun (ss, sr, cs, d1, d2, d3, s, i) -> { item_id = i.i_item_id; item_desc = i.i_item_desc; s_store_id = s.s_store_id; s_store_name = s.s_store_name }) do
+    yield { i_item_id = g.key.item_id; i_item_desc = g.key.item_desc; s_store_id = g.key.s_store_id; s_store_name = g.key.s_store_name; store_sales_profit = List.sum [ for x in g do yield x.ss_net_profit ]; store_returns_loss = List.sum [ for x in g do yield x.sr_net_loss ]; catalog_sales_profit = List.sum [ for x in g do yield x.cs_net_profit ] } ]
+printfn "%A" (JsonSerializer.Serialize(result))
+assert (result = [{ i_item_id = "ITEM1"; i_item_desc = "Desc1"; s_store_id = "S1"; s_store_name = "Store1"; store_sales_profit = 50.0; store_returns_loss = 10.0; catalog_sales_profit = 30.0 }; { i_item_id = "ITEM2"; i_item_desc = "Desc2"; s_store_id = "S1"; s_store_name = "Store1"; store_sales_profit = 20.0; store_returns_loss = 5.0; catalog_sales_profit = 15.0 }])

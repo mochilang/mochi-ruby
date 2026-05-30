@@ -1,0 +1,24 @@
+line: 104
+error: fpc error: exit status 1
+Free Pascal Compiler version 3.2.2+dfsg-32 [2024/01/05] for x86_64
+Copyright (c) 1993-2021 by Florian Klaempfl and others
+Target OS: Linux for x86-64
+Compiling /tmp/TestPascalCompiler_VMValid_Goldenright_join4112462159/001/main.pas
+main.pas(63,13) Error: Illegal assignment to for-loop variable "o"
+main.pas(65,15) Error: Illegal assignment to for-loop variable "c"
+main.pas(67,22) Error: identifier idents no member "customerId"
+main.pas(67,37) Error: identifier idents no member "id"
+main.pas(70,40) Error: Incompatible type for arg no. 2: Got "TFPGMap<System.ShortString,System.Variant>", expected "Variant"
+main.pas(63,11) Error: Incompatible types: got "TFPGMap<System.ShortString,System.LongInt>" expected "TFPGMap<System.ShortString,System.Variant>"
+main.pas(82,22) Error: identifier idents no member "customerId"
+main.pas(82,37) Error: identifier idents no member "id"
+main.pas(85,41) Error: Incompatible type for arg no. 2: Got "TFPGMap<System.ShortString,System.Variant>", expected "Variant"
+main.pas(78,11) Error: Incompatible types: got "TFPGMap<System.ShortString,System.LongInt>" expected "TFPGMap<System.ShortString,System.Variant>"
+main.pas(57,7) Error: Incompatible types: got "TFPGMap<System.ShortString,System.LongInt>" expected "TFPGMap<System.ShortString,System.Variant>"
+main.pas(104) Fatal: There were 11 errors compiling module, stopping
+Fatal: Compilation aborted
+Error: /usr/bin/ppcx64 returned an error exitcode
+
+ 102:   end;
+ 103: end.
+ 104: 

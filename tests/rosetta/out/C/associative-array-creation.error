@@ -1,0 +1,5 @@
+cc: exit status 1
+/tmp/associative-array-creation.c: In function ‘mochi_main’:
+/tmp/associative-array-creation.c:82:22: error: invalid initializer
+   82 |   map_string_int x = 0;
+      |                      ^
